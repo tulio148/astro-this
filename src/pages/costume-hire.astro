@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ContactForm from "../components/ContactForm.astro";
+import CostumeCard from "../components/CostumeCard.astro";
+
+// Mock CMS data for costumes - in a real implementation, this would come from Sanity CMS
+const costumes = [
+  {
+    title: "Rio Carnival Showgirl",
+    description:
+      "A stunning, colorful costume with elaborate headdress and embellished bikini, perfect for performances and events.",
+    price: 85,
+    image: "/images/costume-1.jpg",
+  },
+  {
+    title: "Samba Fringe Dress",
+    description:
+      "Vibrant, fringed samba dress that creates dramatic movement with every step. Available in multiple colors.",
+    price: 65,
+    image: "/images/costume-2.jpg",
+  },
+  {
+    title: "Feathered Carnival Cape",
+    description:
+      "Statement-making feathered cape in bright colors to make a grand entrance at any event.",
+    price: 75,
+    image: "/images/costume-3.jpg",
+  },
+  {
+    title: "Bahia Traditional Outfit",
+    description:
+      "Traditional white Bahian costume with colorful accessories, representing the authentic culture of Northeast Brazil.",
+    price: 60,
+    image: "/images/costume-4.jpg",
+  },
+  {
+    title: "Maracatu Royal Set",
+    description:
+      "Regal costume set inspired by the Maracatu tradition, featuring crowns and ornate embellishments.",
+    price: 90,
+    image: "/images/costume-5.jpg",
+  },
+  {
+    title: "Carnival Accessories Bundle",
+    description:
+      "Complete your look with this bundle of authentic accessories including headdress, arm bands, and leg pieces.",
+    price: 45,
+    image: "/images/costume-6.jpg",
+  },
+];
+---
+
+<Layout
+  title="Costume Hire"
+  description="Rent authentic Brazilian Carnival costumes for your next event or performance from Dance Bloc Brazil in Perth. Our stunning collection features vibrant colors and exquisite craftsmanship."
+>
+  <div class="relative h-[40vh] flex items-center">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div
+      class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('/images/costume-header.jpg')"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Costume Hire
+      </h1>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl">
+        Transform your event with our collection of authentic Brazilian Carnival
+        costumes.
+      </p>
+    </div>
+  </div>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Brazilian Samba Costume Hire in Perth"
+      subtitle="Bring the vibrant energy of Brazilian Carnival to your event with our stunning Samba costumes for hire in Perth."
+    />
+
+    <div class="mt-12 max-w-3xl mx-auto">
+      <p class="mb-6">
+        Our collection features a range of colorful and authentic outfits,
+        perfect for dance performances, themed parties, or any occasion where
+        you want to stand out.
+      </p>
+      <p class="mb-6">
+        Each costume is crafted with attention to detail, ensuring you not only
+        look the part but also feel the essence of Rio de Janeiro's famous
+        Carnival.
+      </p>
+      <p class="mb-6">
+        Whether you're a professional dancer or simply looking to make a splash
+        at your next event, our costumes will elevate your experience.
+      </p>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <SectionTitle
+      title="Our Costume Collection"
+      subtitle="Browse our selection of authentic Brazilian costumes available for hire."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {
+        costumes.map((costume) => (
+          <CostumeCard
+            title={costume.title}
+            description={costume.description}
+            price={costume.price}
+            image={costume.image}
+          />
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Costume Hire Information"
+      subtitle="Everything you need to know about hiring our Brazilian costumes."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Hire Process</h3>
+        <ol class="space-y-3 mb-6 list-decimal pl-5">
+          <li>Browse our online collection or visit our studio</li>
+          <li>Submit an inquiry for your selected costume(s)</li>
+          <li>Confirm availability and complete booking form</li>
+          <li>Pay the hire fee and security deposit</li>
+          <li>Collect your costume(s) from our studio</li>
+          <li>Return within the agreed timeframe</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Terms & Conditions</h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span
+              >A refundable security deposit is required for all costume hires</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span
+              >Costumes must be returned in the same condition as received</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Late returns incur additional daily charges</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Damage or loss will result in forfeit of deposit</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>24-hour notice required for cancellations</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Pricing</h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span
+              >Prices range from $45-$90 per day depending on the costume</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Weekend hire (Friday-Monday): 2-day rate</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Weekly hire: 5-day rate</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Security deposit: $100-$200 depending on the costume</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Group discounts available for 5+ costumes</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">
+          Additional Services
+        </h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Basic alterations available for perfect fit</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Professional hair and makeup services</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Dance instruction to complement your costume</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Delivery and collection service (additional fee)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">•</span>
+            <span>Costume styling and fitting assistance</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <SectionTitle
+          title="Book Your Costume"
+          subtitle="Contact us to check availability and book your Brazilian costume today."
+        />
+
+        <div class="mt-8">
+          <p class="mb-6">Contact us with the following information:</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <span class="text-db-pink mr-2">•</span>
+              <span>Name(s) of the costume(s) you're interested in</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-db-pink mr-2">•</span>
+              <span>Date and duration of hire</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-db-pink mr-2">•</span>
+              <span>Your event details</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-db-pink mr-2">•</span>
+              <span>Any additional services required</span>
+            </li>
+          </ul>
+          <p class="mb-4">
+            <strong>Note:</strong> We recommend booking at least 2-3 weeks in advance,
+            especially during peak season (December-March) to ensure availability
+            of your preferred costumes.
+          </p>
+        </div>
+      </div>
+
+      <ContactForm
+        title="Costume Hire Inquiry"
+        subtitle="Tell us about which costumes you're interested in and your event details."
+      />
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="book-costume">
+    <div class="text-center">
+      <SectionTitle
+        title="Ready to Bring Brazil to Your Event?"
+        subtitle="Contact us today to discuss your costume needs and check availability."
+        centered={true}
+      />
+
+      <div class="mt-8">
+        <a
+          href="tel:(08)12345678"
+          class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        >
+          Call Us
+        </a>
+        <a
+          href="mailto:info@danceblocbrazil.com"
+          class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        >
+          Email Us
+        </a>
+      </div>
+    </div>
+  </SectionContainer>
+</Layout>
+

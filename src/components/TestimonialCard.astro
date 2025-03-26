@@ -1,0 +1,22 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  image?: string;
+}
+
+const { quote, author, image = "/images/avatar-placeholder.jpg" } = Astro.props;
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <div class="flex items-center mb-4">
+    <img
+      src={image}
+      alt={author}
+      class="w-12 h-12 rounded-full object-cover mr-4"
+    />
+    <h3 class="font-bold">{author}</h3>
+  </div>
+  <p class="italic text-gray-700">"{quote}"</p>
+</div>
+

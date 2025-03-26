@@ -1,0 +1,201 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout
+  title="About Us"
+  description="Learn about Dance Bloc Brazil, Perth's premier Brazilian dance studio dedicated to sharing the joy, rhythm, and spirit of samba with people of all ages and backgrounds."
+>
+  <div class="relative h-[40vh] flex items-center">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div
+      class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('/images/about-header.jpg')"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">About Us</h1>
+    </div>
+  </div>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Love is samba"
+      subtitle="Located in the vibrant heart of Perth, Dance Bloc Brazil is dedicated to bringing the exhilarating energy and rich cultural heritage of Brazilian samba to our community. Whether you're a seasoned dancer or a complete beginner, our school offers a welcoming and dynamic environment for everyone."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Mission</h3>
+        <p class="mb-6">
+          At Dance Bloc Brazil, our mission is to share the joy, rhythm, and
+          spirit of samba with people of all ages and backgrounds. We strive to
+          create a supportive and inclusive space where students can explore the
+          beauty of Brazilian dance, improve their skills, and connect with a
+          passionate community.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Vision</h3>
+        <p class="mb-6">
+          We envision a Perth where Brazilian dance is celebrated, where people
+          from all walks of life come together to experience the transformative
+          power of movement and music. Through our classes, performances, and
+          community events, we aim to foster cultural understanding and create
+          lasting connections.
+        </p>
+      </div>
+
+      <div class="aspect-square rounded-lg overflow-hidden">
+        <img
+          src="/images/about-image.jpg"
+          alt="Dance Bloc Brazil team"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <SectionTitle
+      title="Meet Our Team"
+      subtitle="Our passionate instructors bring years of experience and authentic Brazilian dance knowledge to every class."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      <Card>
+        <div class="text-white text-center py-6">
+          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+            <img
+              src="/images/instructor-1.jpg"
+              alt="Maria Silva"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Maria Silva</h3>
+          <p class="text-white/80 mb-3">Founder & Lead Instructor</p>
+          <p>
+            Born and raised in Rio de Janeiro, Maria brings authentic Brazilian
+            samba techniques and passion to every class.
+          </p>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="text-white text-center py-6">
+          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+            <img
+              src="/images/instructor-2.jpg"
+              alt="Carlos Santos"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Carlos Santos</h3>
+          <p class="text-white/80 mb-3">Brazilian Funk Specialist</p>
+          <p>
+            With over 15 years of experience, Carlos specializes in Brazilian
+            funk and contemporary dance styles.
+          </p>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="text-white text-center py-6">
+          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+            <img
+              src="/images/instructor-3.jpg"
+              alt="Sophia Lee"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Sophia Lee</h3>
+          <p class="text-white/80 mb-3">Beginner Samba Instructor</p>
+          <p>
+            Sophia's patient teaching approach makes her classes perfect for
+            newcomers to Brazilian dance.
+          </p>
+        </div>
+      </Card>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Our Studio"
+      subtitle="Located in the heart of Perth, our spacious and well-equipped studio provides the perfect environment for learning and practicing Brazilian dance."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <div class="aspect-video rounded-lg overflow-hidden">
+        <img
+          src="/images/studio-image.jpg"
+          alt="Dance Bloc Brazil studio"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">
+          State-of-the-Art Facilities
+        </h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span>Professional dance floors with shock absorption</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span>Full-length mirrors for technique refinement</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span>Premium sound system for authentic Brazilian rhythms</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span>Comfortable changing rooms and amenities</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span>Air-conditioned spaces for year-round comfort</span>
+          </li>
+        </ul>
+
+        <p>
+          Visit us at 123 Dance Street, Perth, WA 6000 to experience our
+          facilities firsthand.
+        </p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <div class="text-center">
+      <SectionTitle
+        title="Ready to Join the Dance?"
+        subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
+        centered={true}
+      />
+
+      <div class="mt-8">
+        <a
+          href="/classes"
+          class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        >
+          View Classes
+        </a>
+        <a
+          href="/contact"
+          class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </SectionContainer>
+</Layout>
+

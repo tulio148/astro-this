@@ -1,0 +1,305 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout
+  title="Show for Hire"
+  description="Book Dance Bloc Brazil's electrifying Brazilian samba carnival performances for your event in Perth. Our talented dancers bring the vibrant spirit of Brazil to corporate events, private parties, and festivals."
+>
+  <div class="relative h-[40vh] flex items-center">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div
+      class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('/images/show-header.jpg')"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Show for Hire
+      </h1>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl">
+        Make a statement with our breathtaking Brazilian Samba Carnival Shows in
+        Perth.
+      </p>
+    </div>
+  </div>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Breathtaking Brazilian Samba Carnival Shows in Perth"
+      subtitle="Make a lasting impression with our electrifying Brazilian samba carnival performances. Our talented dancers and musicians bring the vibrant spirit of Brazil to life, creating an unforgettable spectacle for your guests."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <div class="aspect-video rounded-lg overflow-hidden">
+        <img
+          src="/images/show-performance-2.jpg"
+          alt="Dance Bloc Brazil performance"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="flex flex-col justify-center">
+        <p class="mb-6">
+          From dazzling costumes to infectious rhythms, our samba carnival
+          performances are guaranteed to captivate your audience. Our
+          experienced team will work closely with you to create a tailored show
+          that perfectly complements your event theme. Let us add a touch of
+          Brazilian magic to your special occasion.
+        </p>
+        <p>
+          Whether you're planning a corporate event, a private party, or a
+          festival, our customizable shows will exceed your expectations and
+          leave a lasting impression on your guests.
+        </p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <SectionTitle
+      title="Our Performance Packages"
+      subtitle="Choose from our range of show packages or contact us for a custom performance tailored to your event."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      <Card>
+        <div class="text-white text-center py-6">
+          <h3 class="text-2xl font-bold mb-4">Samba Spotlight</h3>
+          <p class="text-white/80 mb-6">
+            A dynamic 15-minute performance featuring two professional dancers
+            in authentic carnival costumes.
+          </p>
+          <p class="text-2xl font-bold mb-6">From $600</p>
+          <ul class="text-left space-y-2 mb-8">
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>2 professional dancers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>15-minute performance</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Authentic costumes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Custom music selection</span>
+            </li>
+          </ul>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="text-white text-center py-6">
+          <h3 class="text-2xl font-bold mb-4">Carnival Experience</h3>
+          <p class="text-white/80 mb-6">
+            Our most popular package featuring a 30-minute show with four
+            dancers and interactive elements.
+          </p>
+          <p class="text-2xl font-bold mb-6">From $1,200</p>
+          <ul class="text-left space-y-2 mb-8">
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>4 professional dancers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>30-minute performance</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Multiple costume changes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Audience interaction</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Professional sound equipment</span>
+            </li>
+          </ul>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="text-white text-center py-6">
+          <h3 class="text-2xl font-bold mb-4">Rio Spectacular</h3>
+          <p class="text-white/80 mb-6">
+            An extravagant full-scale production with dancers, live percussion,
+            and a complete Brazilian carnival experience.
+          </p>
+          <p class="text-2xl font-bold mb-6">From $2,500</p>
+          <ul class="text-left space-y-2 mb-8">
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>6+ professional performers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>45-60 minute production</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Live percussion musicians</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Spectacular costumes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Interactive workshop segment</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-white mr-2">✓</span>
+              <span>Custom choreography</span>
+            </li>
+          </ul>
+        </div>
+      </Card>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Perfect for Any Event"
+      subtitle="Our performances can be tailored to enhance any occasion."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-5xl mb-4 text-db-pink">🎭</div>
+        <h3 class="text-xl font-bold mb-3">Corporate Events</h3>
+        <p>
+          Liven up your corporate functions, product launches, and team-building
+          events.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-5xl mb-4 text-db-pink">💍</div>
+        <h3 class="text-xl font-bold mb-3">Weddings</h3>
+        <p>
+          Add a unique and memorable entertainment element to your special day.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-5xl mb-4 text-db-pink">🎉</div>
+        <h3 class="text-xl font-bold mb-3">Private Parties</h3>
+        <p>
+          Make your birthday, anniversary, or celebration an unforgettable
+          experience.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-5xl mb-4 text-db-pink">🎪</div>
+        <h3 class="text-xl font-bold mb-3">Festivals & Public Events</h3>
+        <p>
+          Enhance your festival, fair, or public event with vibrant Brazilian
+          energy.
+        </p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-gray-50">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <SectionTitle
+          title="Book Your Show Today"
+          subtitle="Contact us to discuss your event requirements and secure your booking."
+        />
+
+        <div class="mt-8">
+          <p class="mb-4">
+            <strong>Booking Process:</strong>
+          </p>
+          <ol class="space-y-3 mb-6 list-decimal pl-5">
+            <li>Fill out the contact form with your event details</li>
+            <li>We'll get in touch to discuss your requirements</li>
+            <li>Receive a customized proposal and quote</li>
+            <li>Confirm your booking with a deposit</li>
+            <li>Experience the magic of Brazil at your event!</li>
+          </ol>
+
+          <p class="mb-4">
+            <strong>Note:</strong> We recommend booking at least 4-6 weeks in advance
+            to ensure availability, especially during busy seasons.
+          </p>
+        </div>
+      </div>
+
+      <ContactForm
+        title="Event Inquiry"
+        subtitle="Tell us about your event and we'll be in touch to discuss how we can make it spectacular."
+      />
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <div class="text-center">
+      <SectionTitle
+        title="Frequently Asked Questions"
+        subtitle="Have questions about booking our shows? Find answers to common inquiries below."
+        centered={true}
+      />
+
+      <div class="mt-12 max-w-3xl mx-auto text-left">
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-db-pink">
+            How much space do you need for a performance?
+          </h3>
+          <p>
+            Our standard performances require a minimum area of 4m x 4m, but
+            larger shows may need more space. We can adapt to your venue and
+            will discuss specific requirements during consultation.
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-db-pink">
+            Do you provide your own sound system?
+          </h3>
+          <p>
+            Our Carnival Experience and Rio Spectacular packages include basic
+            sound equipment. For the Samba Spotlight package, we can use your
+            venue's system or provide our own for an additional fee.
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-db-pink">
+            Can you customize the music for our event?
+          </h3>
+          <p>
+            Absolutely! We can tailor our music selection to match your event
+            theme or incorporate specific songs upon request.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-db-pink">
+            Do you travel outside of Perth?
+          </h3>
+          <p>
+            Yes, we are available for performances throughout Western Australia.
+            Travel fees may apply for locations outside the Perth metropolitan
+            area.
+          </p>
+        </div>
+      </div>
+    </div>
+  </SectionContainer>
+</Layout>

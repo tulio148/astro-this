@@ -1,1 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
+
+
+@theme {
+    --font-db: "Raleway", "sans-serif";
+    --color-db-pink: #EB00DE;
+    --color-db-light-pink: #FF00F7;
+    --color-db-green: #00CC81;
+    --color-special-blue: #5c749d;
+    --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+    /* ... */
+  }

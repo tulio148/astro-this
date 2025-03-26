@@ -1,25 +1,270 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 // Component Imports
-import Button from '../components/Button.astro';
+import Button from "../components/Button.astro";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro + TailwindCSS</title>
+  </head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
+  <body>
+    <Layout
+      title="Home"
+      description="Perth's premier Brazilian dance studio offering Samba and Brazilian Funk classes, professional shows for hire, and authentic costume rentals."
+    >
+      <Hero
+        title="The best Samba in Perth"
+        subtitle="Experience Perth's premier dance school, offering diverse styles, a vibrant community, professional event shows, and costume hire services."
+      />
+
+      <!-- About Section -->
+      <SectionContainer id="about">
+        <SectionTitle
+          title="More than just steps"
+          subtitle="At Dance Bloc Brazil, we believe dance is more than just physical activity. It's a celebration of culture, a way to connect with your body, and a chance to build a supportive community."
+          centered={true}
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <Card>
+            <div class="text-white text-center py-6">
+              <div class="text-5xl mb-4">💃</div>
+              <h3 class="text-xl font-bold mb-3">Learn Authentic Samba</h3>
+              <p>
+                Master the authentic movements and techniques of Brazilian Samba
+                with our expert instructors.
+              </p>
+            </div>
+          </Card>
+
+          <Card>
+            <div class="text-white text-center py-6">
+              <div class="text-5xl mb-4">🎵</div>
+              <h3 class="text-xl font-bold mb-3">
+                Experience Brazilian Culture
+              </h3>
+              <p>
+                Immerse yourself in Brazilian rhythms, traditions, and the
+                joyful spirit of Carnival.
+              </p>
+            </div>
+          </Card>
+
+          <Card>
+            <div class="text-white text-center py-6">
+              <div class="text-5xl mb-4">👥</div>
+              <h3 class="text-xl font-bold mb-3">Join Our Community</h3>
+              <p>
+                Become part of our welcoming dance family and connect with
+                fellow passionate dancers.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </SectionContainer>
+
+      <!-- Shows Section -->
+      <SectionContainer id="shows" class="bg-gray-50">
+        <SectionTitle
+          title="Beyond the studio"
+          subtitle="We don't just teach dance; we bring it to life! Dance Bloc Brazil is a sought-after entertainment company, adding a touch of Brazilian flair to events throughout Perth."
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="aspect-video rounded-lg overflow-hidden">
+            <img
+              src="/images/show-performance.jpg"
+              alt="Dance Bloc Brazil performance"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <div class="flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              Book us for your next event
+            </h3>
+            <p class="mb-6">
+              Our professional dancers bring the energy and excitement of Brazil
+              to any occasion. From corporate functions to weddings and
+              festivals, we create unforgettable experiences.
+            </p>
+            <a
+              href="/show-for-hire"
+              class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-6 rounded-lg transition-colors inline-block self-start"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </SectionContainer>
+
+      <!-- Costumes Section -->
+      <SectionContainer id="costumes">
+        <SectionTitle
+          title="Dress to impress"
+          subtitle="At Dance Bloc Brazil, we offer a range of eye-catching, authentic costumes that will make your event unforgettable. Whether you're looking for dazzling outfits for a dance performance or a themed party, our costumes are designed to bring the excitement and color of Carnival right to you."
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              Authentic Brazilian Costumes
+            </h3>
+            <p class="mb-6">
+              Transform your event with our stunning collection of authentic
+              Brazilian costumes. Each piece is carefully crafted with attention
+              to detail and vibrant colors to capture the true essence of
+              Brazilian Carnival.
+            </p>
+            <a
+              href="/costume-hire"
+              class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-6 rounded-lg transition-colors inline-block self-start"
+            >
+              View Costumes
+            </a>
+          </div>
+
+          <div
+            class="aspect-video rounded-lg overflow-hidden order-1 md:order-2"
+          >
+            <img
+              src="/images/costume-showcase.jpg"
+              alt="Brazilian Carnival costumes"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </SectionContainer>
+
+      <!-- Testimonials Section -->
+      <SectionContainer id="testimonials" class="bg-gray-50">
+        <SectionTitle
+          title="What our students say"
+          subtitle="Hear from our community about their experiences at Dance Bloc Brazil."
+          centered={true}
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <TestimonialCard
+            quote="Learning Samba at Dance Bloc Brazil has been an incredible journey. The instructors are passionate and the community is so welcoming. I've never had so much fun getting fit!"
+            author="Sarah Johnson"
+          />
+
+          <TestimonialCard
+            quote="As someone with no dance experience, I was nervous to start, but the team at Dance Bloc Brazil made me feel comfortable from day one. Now I'm addicted to Samba!"
+            author="Michael Chen"
+          />
+
+          <TestimonialCard
+            quote="The authentic approach to Brazilian dance at Dance Bloc is unmatched in Perth. I feel like I'm getting a genuine cultural experience with every class."
+            author="Emma Williams"
+          />
+        </div>
+      </SectionContainer>
+
+      <!-- FAQ Section -->
+      <SectionContainer id="faq">
+        <SectionTitle
+          title="Frequently Asked Questions"
+          subtitle="Got questions? We've got answers."
+          centered={true}
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-12">
+          <FAQItem
+            question="Do I need any prior dance experience to take your classes?"
+            answer="Not at all! We offer classes for all levels and welcome everyone, from experienced dancers to those who've only danced as a guest at a wedding. We believe anyone can learn to love these rhythms and move their body with confidence! So come along for a dance, and see if you don't surprise yourself!"
+          />
+
+          <FAQItem
+            question="What should I wear to class?"
+            answer="Wear comfortable clothing that allows for movement. Comfortable shoes, like sneakers, are a great option. If you can wear it to the gym, you can wear it to dance!"
+          />
+
+          <FAQItem
+            question="Do I need a partner for the classes?"
+            answer="No partner is necessary - that's the beauty of our classes. Of course, if you have a partner or friend who wants to join the fun, they're totally welcome, too."
+          />
+
+          <FAQItem
+            question="Do you offer drop-in classes?"
+            answer="We totally understand that commitment is a scary word these days! That's why we're happy to offer drop-in classes and they are advertised as casual classes on the class bookings page."
+          />
+
+          <FAQItem
+            question="What's the atmosphere like?"
+            answer="We have a fun and welcoming atmosphere! Our classes are a great way to meet new people, learn a new skill and get some exercise."
+          />
+
+          <FAQItem
+            question="Can I take photos or videos to post to my social media?"
+            answer="Absolutely! We only ask two things: (1) try to be a stealthy ninja and avoid capturing any classmates if they are camera-shy, and (2) tag us @danceblocbrazil so we can shower your post with likes (because, let's face it, everyone loves a little social media validation, and you deserve it!)"
+          />
+
+          <FAQItem
+            question="Will I have to perform?"
+            answer="Occasionally we have performance opportunities for our students and the spotlight is all yours, if you want it. But fear not, there's absolutely no pressure to perform if that's not your thing. We believe in having fun and learning at your own pace. So, come for the supportive atmosphere, stay for the killer dance moves, and perform only if you're feeling like a total superstar (which you will be!)"
+          />
+        </div>
+      </SectionContainer>
+
+      <!-- Contact Section -->
+      <SectionContainer id="contact" class="bg-gray-50">
+        <SectionTitle
+          title="Get in Touch"
+          subtitle="Have questions or ready to join? Contact us today!"
+          centered={true}
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              Visit Our Studio
+            </h3>
+            <p class="mb-6">
+              123 Dance Street<br />
+              Perth, WA 6000
+            </p>
+
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              Contact Information
+            </h3>
+            <p class="mb-2">
+              <span class="font-bold">Email:</span> info@danceblocbrazil.com
+            </p>
+            <p class="mb-6">
+              <span class="font-bold">Phone:</span> (08) 1234 5678
+            </p>
+
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">Opening Hours</h3>
+            <p class="mb-2">
+              <span class="font-bold">Monday-Friday:</span> 9:00 AM - 9:00 PM
+            </p>
+            <p class="mb-6">
+              <span class="font-bold">Saturday-Sunday:</span> 10:00 AM - 6:00 PM
+            </p>
+          </div>
+
+          <ContactForm />
+        </div>
+      </SectionContainer>
+    </Layout>
+  </body>
 </html>

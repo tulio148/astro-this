@@ -1,0 +1,117 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Perth's premier Brazilian dance studio offering Samba and Brazilian Funk classes, professional show performances, and costume hire services.",
+} = Astro.props;
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} | Dance Bloc Brazil</title>
+  </head>
+  <body class="font-db">
+    <header class="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+          <div class="flex items-center">
+            <a href="/" class="flex-shrink-0 flex items-center">
+              <span class="text-2xl font-bold text-db-pink"
+                >Dance Bloc Brazil</span
+              >
+            </a>
+          </div>
+          <nav class="flex items-center space-x-8">
+            <a
+              href="/"
+              class="text-gray-800 hover:text-db-pink transition-colors">Home</a
+            >
+            <a
+              href="/about"
+              class="text-gray-800 hover:text-db-pink transition-colors"
+              >About</a
+            >
+            <a
+              href="/classes"
+              class="text-gray-800 hover:text-db-pink transition-colors"
+              >Classes</a
+            >
+            <a
+              href="/show-for-hire"
+              class="text-gray-800 hover:text-db-pink transition-colors"
+              >Show for Hire</a
+            >
+            <a
+              href="/costume-hire"
+              class="text-gray-800 hover:text-db-pink transition-colors"
+              >Costume Hire</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-20">
+      <slot />
+    </main>
+
+    <footer class="bg-db-pink text-white py-10 mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Dance Bloc Brazil</h3>
+            <p>Perth's premier Brazilian dance studio</p>
+            <p class="mt-4">123 Dance Street, Perth, WA 6000</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/" class="hover:underline">Home</a></li>
+              <li><a href="/about" class="hover:underline">About</a></li>
+              <li><a href="/classes" class="hover:underline">Classes</a></li>
+              <li>
+                <a href="/show-for-hire" class="hover:underline"
+                  >Show for Hire</a>
+              </li>
+              <li>
+                <a href="/costume-hire" class="hover:underline">Costume Hire</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+            <div class="flex space-x-4 mb-4">
+              <a href="#" class="hover:text-db-green transition-colors"
+                >Instagram</a
+              >
+              <a href="#" class="hover:text-db-green transition-colors"
+                >Facebook</a
+              >
+              <a href="#" class="hover:text-db-green transition-colors"
+                >YouTube</a
+              >
+            </div>
+            <p>Email: info@danceblocbrazil.com</p>
+            <p>Phone: (08) 1234 5678</p>
+          </div>
+        </div>
+        <div class="border-t border-white/20 mt-8 pt-8 text-center">
+          <p>
+            &copy; {new Date().getFullYear()} Dance Bloc Brazil. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
