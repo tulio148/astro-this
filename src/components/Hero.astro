@@ -12,37 +12,69 @@ const {
 } = Astro.props;
 ---
 
-<div class="relative min-h-[80vh] flex items-center">
-  <div class="absolute inset-0 bg-black/60 z-10"></div>
+<div class="relative min-h-screen flex items-end overflow-hidden">
+  <!-- Background image -->
   <div
-    class="absolute inset-0 bg-cover bg-center z-0"
+    class="absolute inset-0 bg-cover bg-center z-0 scale-105 animate-slow-zoom"
     style={`background-image: url(${backgroundImage})`}
   >
   </div>
 
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-    <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-        {title}
-      </h1>
-      <p class="text-xl md:text-2xl text-white/90 mb-8 font-light">
-        {subtitle}
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a
-          href="/classes"
-          class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-6 rounded-lg transition-colors"
+  <div
+    class="container pb-[60px] md:pb-[100px] mx-auto px-6 sm:px-10 lg:px-16 relative z-20"
+  >
+    <div class="max-w-3xl opacity-0 transform translate-y-10 animate-fade-in">
+      <div
+        class="bg-gradient-to-t from-db-pink rounded-3xl border-l-2 border-b-2 border-white/20 px-4 pt-4 overflow-hidden"
+      >
+        <h1
+          class="text-6xl md:text-7xl font-semibold tracking-wider text-white mb-2 text-balance hero-title"
         >
-          Explore Classes
-        </a>
-        <a
-          href="/contact"
-          class="bg-white hover:bg-gray-100 text-db-pink font-bold py-3 px-6 rounded-lg transition-colors"
+          {title}
+        </h1>
+        <p
+          class="text-xl md:text-2xl pb-4 max-w-fit font-light text-white tracking-wider hero-subtitle leading-tight"
         >
-          Contact Us
-        </a>
+          {subtitle}
+        </p>
       </div>
     </div>
   </div>
 </div>
 
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-in forwards;
+    animation-delay: 0.3s;
+  }
+
+  .animate-slow-zoom {
+    animation: slowZoom 15s ease-out forwards;
+  }
+
+  .hero-title {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slowZoom {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+</style>

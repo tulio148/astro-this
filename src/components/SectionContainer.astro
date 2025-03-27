@@ -9,8 +9,39 @@ const { class: className = "", id } = Astro.props;
 
 <section
   id={id}
-  class={`py-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl ${className}`}
+  class={`py-32 px-6 sm:px-10 lg:px-16 mx-auto max-w-7xl section-container opacity-0 ${className}`}
 >
-  <slot />
+  <div class="max-w-7xl mx-auto">
+    <slot />
+  </div>
 </section>
 
+<script>
+  // Simple fade-in animation for sections
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section-container");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add(
+                "opacity-100",
+                "transition-opacity",
+                "duration-1000",
+                "ease-in-out"
+              );
+            }, 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>

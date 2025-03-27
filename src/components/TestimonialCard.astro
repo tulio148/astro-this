@@ -1,22 +1,72 @@
 ---
+import { Image } from "astro:assets";
+// Import the SVG icon
+import Quote from "../images/icon/quote.svg";
+
 interface Props {
   quote: string;
   author: string;
-  image?: string;
+  image?: any;
 }
 
 const { quote, author, image = "/images/avatar-placeholder.jpg" } = Astro.props;
 ---
 
-<div class="bg-white p-6 rounded-lg shadow-md">
-  <div class="flex items-center mb-4">
-    <img
+<div class="testimonial-card relative mt-24 opacity-0 transform translate-y-10">
+  <div class="absolute -top-28 bg-db-pink/40 rounded-full w-64 h-64">
+    <Image
       src={image}
       alt={author}
-      class="w-12 h-12 rounded-full object-cover mr-4"
+      width={200}
+      height={200}
+      class="w-full h-full object-contain rounded-full border-x-4 border-db-pink"
     />
-    <h3 class="font-bold">{author}</h3>
   </div>
-  <p class="italic text-gray-700">"{quote}"</p>
+  <div
+    class="pt-40 pb-8 px-8 bg-white rounded-2xl shadow-lg border border-db-pink/10"
+  >
+    <h3 class="font-bold text-xl text-center tracking-wider text-db-pink mb-6">
+      {author}
+    </h3>
+    <div class="relative">
+      <div class="absolute -left-4 -top-4 text-6xl text-db-pink/30">
+        <img src={Quote.src} alt="Quote" class="w-6 h-6" />
+      </div>
+      <p
+        class="relative px-2 z-10 text-center text-db-pink text-balance leading-relaxed"
+      >
+        {quote}
+      </p>
+      <div class="absolute -right-4 -bottom-4 text-6xl text-db-pink rotate-180">
+        <img src={Quote.src} alt="Quote" class="w-6 h-6" />
+      </div>
+    </div>
+  </div>
 </div>
 
+<script>
+  // Simple fade-in animation for testimonial cards
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".testimonial-card");
+
+    function animateCards() {
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (isVisible) {
+          setTimeout(() => {
+            card.classList.add("opacity-100", "translate-y-0");
+            card.classList.add("transition-all", "duration-700", "ease-out");
+          }, index * 150);
+        }
+      });
+    }
+
+    // Initial check
+    animateCards();
+
+    // On scroll
+    window.addEventListener("scroll", animateCards, { passive: true });
+  });
+</script>

@@ -1,9 +1,10 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
   title: string;
   description: string;
   price: number;
-  image: string;
+  image: any; // Accept any type of image
 }
 
 const { title, description, price, image } = Astro.props;
@@ -14,9 +15,11 @@ const { title, description, price, image } = Astro.props;
     class="m-4 px-4 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink/80 to-db-pink/80 shadow-lg shadow-white/40 rounded-xl overflow-hidden"
   >
     <div class="aspect-square overflow-hidden rounded-lg mb-6">
-      <img
+      <Image
         src={image}
         alt={title}
+        width={400}
+        height={400}
         class="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
       />
     </div>
@@ -36,4 +39,3 @@ const { title, description, price, image } = Astro.props;
     </div>
   </div>
 </div>
-

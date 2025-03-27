@@ -4,11 +4,34 @@
 
 @theme {
     --font-db: "Raleway", "sans-serif";
-    --color-db-pink: #EB00DE;
+    --color-db-pink: #9E0096;
     --color-db-light-pink: #FF00F7;
     --color-db-green: #00CC81;
     --color-special-blue: #5c749d;
     --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
     --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
     /* ... */
+  }
+
+  @layer utilities {
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: #9E0096;
+      border-radius: 8px;
+      border: 2px solid #ff00f754;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      height: 150px;
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2595be85;
+    }
   }

@@ -7,8 +7,54 @@ interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<div class="mb-6 last:mb-0">
-  <h3 class="text-xl font-semibold mb-2 text-db-pink">{question}</h3>
-  <p class="text-gray-700">{answer}</p>
+<div class="mb-10 last:mb-0 overflow-hidden">
+  <div class="faq-question cursor-pointer flex justify-between items-center">
+    <h3 class="text-xl font-semibold text-db-pink pr-4">{question}</h3>
+    <span
+      class="faq-icon transition-transform duration-300 text-db-pink text-2xl"
+      >+</span
+    >
+  </div>
+  <div
+    class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+  >
+    <p class="text-gray-700 pt-6 pb-2 px-1">{answer}</p>
+    <div
+      class="h-0.5 w-full bg-gradient-to-r from-db-pink/20 via-db-pink/10 to-transparent rounded-full"
+    >
+    </div>
+  </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll(".faq-question");
+
+    faqItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const parent = item.parentElement;
+        const answer = parent?.querySelector(".faq-answer");
+        const icon = item.querySelector(".faq-icon");
+
+        // Toggle this FAQ
+        answer?.classList.toggle("max-h-0");
+        answer?.classList.toggle("max-h-96");
+        icon?.classList.toggle("rotate-45");
+
+        // Close other FAQs
+        document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
+          if (
+            otherAnswer !== answer &&
+            !otherAnswer.classList.contains("max-h-0")
+          ) {
+            otherAnswer.classList.add("max-h-0");
+            otherAnswer.classList.remove("max-h-96");
+            otherAnswer.parentElement
+              ?.querySelector(".faq-icon")
+              ?.classList.remove("rotate-45");
+          }
+        });
+      });
+    });
+  });
+</script>

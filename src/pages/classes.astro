@@ -3,65 +3,70 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import ClassCard from "../components/ClassCard.astro";
+import { Image } from "astro:assets";
+
+// Import images
+import danceclassHero from "../images/danceclassHero.avif";
+import noBgDancer1 from "../images/noBgDancer1.avif";
+import noBgDancer2 from "../images/noBgDancer2.avif";
+import noBgDancer3 from "../images/noBgDancer3.avif";
+import noBgDancer4 from "../images/noBgDancer4.avif";
+import dancer from "../images/dancer.avif";
+import dancer2 from "../images/dancer2.avif";
+import cartoonDanceSingle from "../images/cartoonDanceSingle.avif";
 
 // Mock CMS data for classes - in a real implementation, this would come from Sanity CMS
 const sambaClasses = [
   {
     title: "Beginner Samba",
-    description:
-      "Perfect for those new to Samba. Learn the fundamental steps and rhythms in a fun, supportive environment.",
-    image: "/images/samba-beginner.jpg",
+    instructor: "Maria Santos",
     level: "Beginner",
     day: "Monday",
     time: "6:30 PM",
+    spots: 8,
   },
   {
     title: "Intermediate Samba",
-    description:
-      "Build upon the basics and develop more complex footwork, body movements, and choreography.",
-    image: "/images/samba-intermediate.jpg",
+    instructor: "Carlos Oliveira",
     level: "Intermediate",
     day: "Wednesday",
     time: "7:00 PM",
+    spots: 5,
   },
   {
     title: "Advanced Samba",
-    description:
-      "For experienced dancers ready to master challenging techniques, improvisations, and performance-level choreography.",
-    image: "/images/samba-advanced.jpg",
+    instructor: "Luisa Fernandes",
     level: "Advanced",
     day: "Thursday",
     time: "7:30 PM",
+    spots: 3,
   },
 ];
 
 const funkClasses = [
   {
     title: "Beginner Brazilian Funk",
-    description:
-      "Introduce yourself to the energetic, rhythmic movements of Brazilian Funk in this welcoming beginner class.",
-    image: "/images/funk-beginner.jpg",
+    instructor: "Pedro Lima",
     level: "Beginner",
     day: "Tuesday",
     time: "6:30 PM",
+    spots: 6,
   },
   {
     title: "Intermediate Brazilian Funk",
-    description:
-      "Enhance your Brazilian Funk skills with more challenging routines and authentic techniques.",
-    image: "/images/funk-intermediate.jpg",
+    instructor: "Isabella Costa",
     level: "Intermediate",
     day: "Friday",
     time: "7:00 PM",
+    spots: 4,
   },
   {
     title: "Funk Fusion",
-    description:
-      "Explore creative combinations of Brazilian Funk with contemporary dance styles in this dynamic class.",
-    image: "/images/funk-fusion.jpg",
+    instructor: "Rafael Gomes",
     level: "All Levels",
     day: "Saturday",
     time: "11:00 AM",
+    spots: 7,
   },
 ];
 ---
@@ -74,7 +79,7 @@ const funkClasses = [
     <div class="absolute inset-0 bg-black/60 z-10"></div>
     <div
       class="absolute inset-0 bg-cover bg-center z-0"
-      style="background-image: url('/images/classes-header.jpg')"
+      style={`background-image: url(${danceclassHero})`}
     >
     </div>
 
@@ -101,18 +106,18 @@ const funkClasses = [
         sambaClasses.map((classItem) => (
           <ClassCard
             title={classItem.title}
-            description={classItem.description}
-            image={classItem.image}
+            instructor={classItem.instructor}
             level={classItem.level}
             day={classItem.day}
             time={classItem.time}
+            spots={classItem.spots}
           />
         ))
       }
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gray-50">
+  <SectionContainer class="bg-gray-50 relative">
     <SectionTitle
       title="Brazilian Funk Classes"
       subtitle="Experience the energetic and expressive dance style of Brazilian Funk in our dynamic classes."
@@ -123,14 +128,24 @@ const funkClasses = [
         funkClasses.map((classItem) => (
           <ClassCard
             title={classItem.title}
-            description={classItem.description}
-            image={classItem.image}
+            instructor={classItem.instructor}
             level={classItem.level}
             day={classItem.day}
             time={classItem.time}
+            spots={classItem.spots}
           />
         ))
       }
+    </div>
+
+    <div class="absolute -bottom-20 -right-10 hidden lg:block">
+      <Image
+        src={cartoonDanceSingle}
+        alt="Cartoon dancer decoration"
+        width={150}
+        height={200}
+        class="opacity-90"
+      />
     </div>
   </SectionContainer>
 
@@ -249,7 +264,6 @@ const funkClasses = [
       <SectionTitle
         title="Private Events & Workshops"
         subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
-        centered={true}
       />
 
       <div class="mt-8">
@@ -263,4 +277,3 @@ const funkClasses = [
     </div>
   </SectionContainer>
 </Layout>
-

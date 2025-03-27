@@ -4,6 +4,16 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import ContactForm from "../components/ContactForm.astro";
 import CostumeCard from "../components/CostumeCard.astro";
+import { Image } from "astro:assets";
+
+// Import images
+import costumeHireHero from "../images/costumeHireHeroAvif.avif";
+import noBgDancer1 from "../images/noBgDancer1.avif";
+import noBgDancer2 from "../images/noBgDancer2.avif";
+import noBgDancer3 from "../images/noBgDancer3.avif";
+import noBgDancer4 from "../images/noBgDancer4.avif";
+import dancer from "../images/dancer.avif";
+import dancer2 from "../images/dancer2.avif";
 
 // Mock CMS data for costumes - in a real implementation, this would come from Sanity CMS
 const costumes = [
@@ -12,42 +22,42 @@ const costumes = [
     description:
       "A stunning, colorful costume with elaborate headdress and embellished bikini, perfect for performances and events.",
     price: 85,
-    image: "/images/costume-1.jpg",
+    image: noBgDancer1,
   },
   {
     title: "Samba Fringe Dress",
     description:
       "Vibrant, fringed samba dress that creates dramatic movement with every step. Available in multiple colors.",
     price: 65,
-    image: "/images/costume-2.jpg",
+    image: noBgDancer2,
   },
   {
     title: "Feathered Carnival Cape",
     description:
       "Statement-making feathered cape in bright colors to make a grand entrance at any event.",
     price: 75,
-    image: "/images/costume-3.jpg",
+    image: noBgDancer3,
   },
   {
     title: "Bahia Traditional Outfit",
     description:
       "Traditional white Bahian costume with colorful accessories, representing the authentic culture of Northeast Brazil.",
     price: 60,
-    image: "/images/costume-4.jpg",
+    image: noBgDancer4,
   },
   {
     title: "Maracatu Royal Set",
     description:
       "Regal costume set inspired by the Maracatu tradition, featuring crowns and ornate embellishments.",
     price: 90,
-    image: "/images/costume-5.jpg",
+    image: dancer,
   },
   {
     title: "Carnival Accessories Bundle",
     description:
       "Complete your look with this bundle of authentic accessories including headdress, arm bands, and leg pieces.",
     price: 45,
-    image: "/images/costume-6.jpg",
+    image: dancer2,
   },
 ];
 ---
@@ -60,7 +70,7 @@ const costumes = [
     <div class="absolute inset-0 bg-black/60 z-10"></div>
     <div
       class="absolute inset-0 bg-cover bg-center z-0"
-      style="background-image: url('/images/costume-header.jpg')"
+      style={`background-image: url(${costumeHireHero})`}
     >
     </div>
 
@@ -99,11 +109,10 @@ const costumes = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gray-50">
+  <SectionContainer class="bg-gray-50 relative">
     <SectionTitle
       title="Our Costume Collection"
       subtitle="Browse our selection of authentic Brazilian costumes available for hire."
-      centered={true}
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -117,6 +126,16 @@ const costumes = [
           />
         ))
       }
+    </div>
+
+    <div class="absolute -bottom-20 -right-10 hidden lg:block">
+      <Image
+        src={noBgDancer3}
+        alt="Dancer decoration"
+        width={200}
+        height={300}
+        class="opacity-80 rotate-6"
+      />
     </div>
   </SectionContainer>
 
@@ -275,7 +294,6 @@ const costumes = [
       <SectionTitle
         title="Ready to Bring Brazil to Your Event?"
         subtitle="Contact us today to discuss your costume needs and check availability."
-        centered={true}
       />
 
       <div class="mt-8">
@@ -295,4 +313,3 @@ const costumes = [
     </div>
   </SectionContainer>
 </Layout>
-

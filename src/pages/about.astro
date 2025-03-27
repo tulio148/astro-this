@@ -3,6 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+
+// Import images
+import abouthero from "../images/abouthero.avif";
+import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
+import dancer from "../images/dancer.avif";
+import dancer2 from "../images/dancer2.avif";
+import noBgDancer1 from "../images/noBgDancer1.avif";
+import noBgDancer2 from "../images/noBgDancer2.avif";
+import noBgDancer3 from "../images/noBgDancer3.avif";
+import noBgDancer4 from "../images/noBgDancer4.avif";
+// import dancerWithoutBg3 from "../images/dancerWithoutBg3.webp";
 ---
 
 <Layout
@@ -10,10 +22,10 @@ import Card from "../components/Card.astro";
   description="Learn about Dance Bloc Brazil, Perth's premier Brazilian dance studio dedicated to sharing the joy, rhythm, and spirit of samba with people of all ages and backgrounds."
 >
   <div class="relative h-[40vh] flex items-center">
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div class="absolute inset-0 z-10"></div>
     <div
       class="absolute inset-0 bg-cover bg-center z-0"
-      style="background-image: url('/images/about-header.jpg')"
+      style={`background-image: url(${abouthero})`}
     >
     </div>
 
@@ -50,29 +62,32 @@ import Card from "../components/Card.astro";
       </div>
 
       <div class="aspect-square rounded-lg overflow-hidden">
-        <img
-          src="/images/about-image.jpg"
+        <Image
+          src={cartoonDanceDouble}
           alt="Dance Bloc Brazil team"
+          width={600}
+          height={600}
           class="w-full h-full object-cover"
         />
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gray-50">
+  <SectionContainer class="bg-gray-50 relative">
     <SectionTitle
       title="Meet Our Team"
       subtitle="Our passionate instructors bring years of experience and authentic Brazilian dance knowledge to every class."
-      centered={true}
     />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
       <Card>
         <div class="text-white text-center py-6">
           <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <img
-              src="/images/instructor-1.jpg"
+            <Image
+              src={noBgDancer2}
               alt="Maria Silva"
+              width={128}
+              height={128}
               class="w-full h-full object-cover"
             />
           </div>
@@ -88,9 +103,11 @@ import Card from "../components/Card.astro";
       <Card>
         <div class="text-white text-center py-6">
           <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <img
-              src="/images/instructor-2.jpg"
+            <Image
+              src={noBgDancer3}
               alt="Carlos Santos"
+              width={128}
+              height={128}
               class="w-full h-full object-cover"
             />
           </div>
@@ -106,9 +123,11 @@ import Card from "../components/Card.astro";
       <Card>
         <div class="text-white text-center py-6">
           <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <img
-              src="/images/instructor-3.jpg"
+            <Image
+              src={noBgDancer4}
               alt="Sophia Lee"
+              width={128}
+              height={128}
               class="w-full h-full object-cover"
             />
           </div>
@@ -121,6 +140,16 @@ import Card from "../components/Card.astro";
         </div>
       </Card>
     </div>
+
+    <div class="absolute -bottom-20 -left-10 hidden lg:block">
+      <Image
+        src={noBgDancer1}
+        alt="Dancer decoration"
+        width={220}
+        height={350}
+        class="opacity-80"
+      />
+    </div>
   </SectionContainer>
 
   <SectionContainer>
@@ -131,9 +160,11 @@ import Card from "../components/Card.astro";
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
       <div class="aspect-video rounded-lg overflow-hidden">
-        <img
-          src="/images/studio-image.jpg"
+        <Image
+          src={dancer}
           alt="Dance Bloc Brazil studio"
+          width={800}
+          height={450}
           class="w-full h-full object-cover"
         />
       </div>
@@ -178,7 +209,6 @@ import Card from "../components/Card.astro";
       <SectionTitle
         title="Ready to Join the Dance?"
         subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
-        centered={true}
       />
 
       <div class="mt-8">
@@ -198,4 +228,3 @@ import Card from "../components/Card.astro";
     </div>
   </SectionContainer>
 </Layout>
-

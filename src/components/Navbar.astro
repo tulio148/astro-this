@@ -1,0 +1,8 @@
+---
+import NavbarReact from "./react/Navbar";
+
+const { currentPath } = Astro.props;
+---
+
+<NavbarReact client:load currentPath={currentPath} />
+

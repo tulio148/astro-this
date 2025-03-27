@@ -1,0 +1,13 @@
+---
+import AnimatedHamburgerReact from "./react/AnimatedHamburger";
+
+interface Props {
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+const { isOpen, toggle } = Astro.props;
+---
+
+<AnimatedHamburgerReact client:load isOpen={isOpen} toggle={toggle} />
+

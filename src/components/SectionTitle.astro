@@ -2,14 +2,56 @@
 interface Props {
   title: string;
   subtitle?: string;
-  centered?: boolean;
 }
 
-const { title, subtitle, centered = false } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
-<div class={`mb-12 ${centered ? "text-center" : ""}`}>
-  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-db-pink">{title}</h2>
-  {subtitle && <p class="text-lg max-w-2xl">{subtitle}</p>}
+<div class="mb-20 section-title opacity-0">
+  <h2
+    class="text-5xl md:text-6xl font-bold mb-6 text-db-pink relative inline-block"
+  >
+    {title}
+    <div
+      class="absolute left-0 h-1 w-full bg-gradient-to-r from-db-green to-transparent rounded-full"
+    >
+    </div>
+  </h2>
+  {
+    subtitle && (
+      <p class="text-lg md:text-xl text-left max-w-3xl leading-relaxed text-db-pink">
+        {subtitle}
+      </p>
+    )
+  }
 </div>
 
+<script>
+  // Animation for section titles
+  document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll(".section-title");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(
+              "opacity-100",
+              "transition-all",
+              "duration-700",
+              "ease-out"
+            );
+            entry.target.classList.add("transform", "translate-y-0");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    titles.forEach((title) => {
+      title.classList.add("transform", "translate-y-10");
+      observer.observe(title);
+    });
+  });
+</script>
