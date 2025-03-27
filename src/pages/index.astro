@@ -10,7 +10,7 @@ import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import ClassCard from "../components/ClassCard.astro";
 import { Image } from "astro:assets";
-
+import Picture from "astro/components/Picture.astro";
 // Import images
 import hero from "../images/hero.avif";
 import showForHireHero from "../images/showhero.avif";
@@ -40,7 +40,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       <Hero
         title="The best samba in Perth"
         subtitle="Experience Perth's premier dance school with diverse styles, a vibrant community, and professional event shows."
-        backgroundImage={hero.src}
+        backgroundImage={hero}
       />
 
       <!-- About Section -->
@@ -52,7 +52,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
             title="More than just steps"
             subtitle="At Dance Bloc Brazil, we believe dance is more than just physical activity. It's a celebration of culture, a way to connect with your body, and a chance to build a supportive community where everyone feels welcome and empowered."
           />
-          <Image
+          <Picture
             src={noBgDancer3}
             alt="Dance Bloc Brazil"
             width={600}
@@ -118,13 +118,14 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
         <div
           class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
         >
-          <Image
+          <Picture
             src={noBgDancer1}
             alt="Dance Bloc Brazil"
-            width={800}
-            height={1000}
+            widths={[320, 480, 640, 800, 1000]}
+            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 800px"
             class="rounded-t-full mt-16 bg-gradient-to-b from-db-pink/40 p-4"
           />
+
           <div class="self-end">
             <SectionTitle
               title="Upcoming Classes"
@@ -182,11 +183,11 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
           <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
             <div class="w-full h-full shows-image opacity-0">
-              <Image
+              <Picture
                 src={showForHireHero}
                 alt="Dance Bloc Brazil performance"
-                width={800}
-                height={450}
+                widths={[320, 480, 640, 800, 1200]}
+                sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -253,7 +254,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
             class="aspect-video rounded-2xl overflow-hidden shadow-lg order-1 md:order-2"
           >
             <div class="w-full h-full costumes-image opacity-0">
-              <Image
+              <Picture
                 src={costumeHireHero}
                 alt="Brazilian Carnival costumes"
                 width={800}
@@ -300,7 +301,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
         id="faq"
         class="bg-gradient-to-b from-white to-gray-50/50"
       >
-        <Image
+        <Picture
           src={cartoonDanceDouble}
           alt="Dance Bloc Brazil"
           width={600}

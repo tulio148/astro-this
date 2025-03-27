@@ -4,6 +4,7 @@ import AnimatedHamburger from "./AnimatedHamburger";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import logoNoBg from "../../images/icon/logoNoBg.webp";
+import Picture from "astro/components/Picture.astro";
 
 const navbarVariants = {
   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
@@ -92,13 +93,27 @@ const Navbar = ({ currentPath }: NavbarProps) => {
       <div className="container mx-auto sm:px-16">
         <div className="flex justify-between items-center h-12">
           <a href="/" className="text-xl font-bold text-gray-800">
-            <img
-              src={logoNoBg.src}
-              alt="Dance Bloc Brazil Logo"
-              width={30}
-              height={20}
-              className="mx-auto h-auto w-[70px] lg:w-[70px]"
-            />
+            <picture>
+              <source
+                srcSet={logoNoBg.src}
+                media="(max-width: 480px)"
+                width="30"
+                height="20"
+              />
+              <source
+                srcSet={logoNoBg.src}
+                media="(max-width: 768px)"
+                width="50"
+                height="30"
+              />
+              <img
+                src={logoNoBg.src}
+                alt="Dance Bloc Brazil Logo"
+                className="mx-auto h-auto w-[70px] lg:w-[70px]"
+                width={70}
+                height={40}
+              />
+            </picture>
           </a>
           <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
         </div>
