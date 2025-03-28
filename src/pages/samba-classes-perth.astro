@@ -78,28 +78,19 @@ const funkClasses = [
     />
     {/* Gradient Overlay */}
     <div
-      class="absolute inset-0 bg-gradient-to-b from-db-green/20 to-white from-80% z-10"
+      class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"
     >
     </div>
   </div>
 
-  <SectionContainer class="mt-[-100px]">
+  <SectionContainer class="mt-[-40px] mb-64">
     <SectionTitle
       title="Our Classes"
       subtitle=`Discover the passion of Brazilian Samba with our expert instructors in
 Perth. Whether you're a beginner or advanced dancer, we offer fun and
 energetic classes to suit all levels.`
     />
-    <h3 class="text-3xl font-bold mt-54 mb-4 text-db-pink">
-      Book us for your next event
-    </h3>
-    <p class="mb-8 leading-relaxed text-lg text-slate-600">
-      Our professional dancers bring the energy and excitement of Brazil to any
-      occasion. From corporate functions to weddings and festivals, we create
-      unforgettable experiences that transport your guests straight to the
-      vibrant streets of Rio. Our performances are meticulously choreographed
-      and feature authentic costumes to deliver a spectacular visual feast.
-    </p>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
       {
         sambaClasses.map((classItem) => (
@@ -116,7 +107,7 @@ energetic classes to suit all levels.`
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gray-50 relative">
+  <SectionContainer class="mb-64">
     <SectionTitle
       title="Brazilian Funk Classes"
       subtitle="Experience the energetic and expressive dance style of Brazilian Funk in our dynamic classes."
@@ -138,7 +129,7 @@ energetic classes to suit all levels.`
     </div>
   </SectionContainer>
 
-  <SectionContainer>
+  <SectionContainer class="mb-64 bg-db-light-pink/5 rounded-3xl">
     <SectionTitle
       title="Class Information"
       subtitle="Everything you need to know before attending your first class at Dance Bloc Brazil."
@@ -244,57 +235,21 @@ energetic classes to suit all levels.`
   </SectionContainer>
 
   <SectionContainer
-    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl"
+    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64"
   >
     <SectionTitle
       title="Private Events & Workshops"
       subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
+      class="mb-24"
     />
 
     <div class="mt-8">
       <a
         href="/contact"
-        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mb-5"
       >
         Inquire About Private Events
       </a>
     </div>
   </SectionContainer>
 </Layout>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Select elements to animate
-    const classInfo = document.querySelectorAll(".grid > div");
-    const classCards = document.querySelectorAll(".md\\:grid-cols-3 > div");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(
-              "opacity-100",
-              "translate-y-0",
-              "transition-all",
-              "duration-1000",
-              "ease-out"
-            );
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Add initial opacity-0 and transform classes
-    classInfo.forEach((el) => {
-      el.classList.add("opacity-0", "translate-y-8");
-      observer.observe(el);
-    });
-
-    classCards.forEach((el) => {
-      el.classList.add("opacity-0", "translate-y-8");
-      observer.observe(el);
-    });
-  });
-</script>

@@ -48,6 +48,7 @@ const NAV_LINKS = [
   { name: "Classes", path: "/samba-classes-perth" },
   { name: "Costume Hire", path: "/samba-costume-hire-perth" },
   { name: "Shows for Hire", path: "/samba-show-for-hire-perth" },
+  { name: "Contact", path: "/#contact" },
 ];
 
 // Props for navigation with client:only
