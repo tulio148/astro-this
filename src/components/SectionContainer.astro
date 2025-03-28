@@ -9,7 +9,7 @@ const { class: className = "", id } = Astro.props;
 
 <section
   id={id}
-  class={`py-32 px-6 sm:px-10 lg:px-16 mx-auto max-w-7xl section-container opacity-0 mb-80 ${className}`}
+  class={`py-4 px-6 sm:px-10 lg:px-16 mx-auto max-w-7xl section-container opacity-0  ${className}`}
 >
   <div class="max-w-7xl mx-auto">
     <slot />
@@ -29,7 +29,7 @@ const { class: className = "", id } = Astro.props;
               entry.target.classList.add(
                 "opacity-100",
                 "transition-opacity",
-                "duration-1000",
+                "duration-500",
                 "ease-in-out"
               );
             }, 100);

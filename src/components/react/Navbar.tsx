@@ -4,14 +4,6 @@ import AnimatedHamburger from "./AnimatedHamburger";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import logoNoBg from "../../images/icon/logoNoBg.webp";
-// const navbarVariants = {
-//   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
-//   visible: {
-//     y: 0,
-//     opacity: 1,
-//     transition: { type: "spring", stiffness: 340, damping: 30 },
-//   },
-// };
 
 const menuVariants = {
   closed: {
@@ -48,6 +40,7 @@ const NAV_LINKS = [
   { name: "Classes", path: "/samba-classes-perth" },
   { name: "Costume Hire", path: "/samba-costume-hire-perth" },
   { name: "Shows for Hire", path: "/samba-show-for-hire-perth" },
+  { name: "Contact", path: "/#contact" },
 ];
 
 // Props for navigation with client:only

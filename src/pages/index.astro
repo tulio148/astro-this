@@ -19,7 +19,8 @@ import testimonial2 from "../images/testimonial2.png";
 import testimonial3 from "../images/testimonial3.png";
 import noBgDancer3 from "../images/noBgDancer3.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
-import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
+import noBgDancer2 from "../images/noBgDancer2.avif";
+import cartoonDancerDouble from "../images/cartoonDancerDouble.avif";
 ---
 
 <html lang="en">
@@ -43,25 +44,26 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       />
 
       <!-- About Section -->
-      <SectionContainer id="about">
+      <SectionContainer id="about" class="my-64">
         <div
-          class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 items-center"
+          class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center"
         >
           <SectionTitle
             title="More than just steps"
             subtitle="At Dance Bloc Brazil, we believe dance is more than just physical activity. It's a celebration of culture, a way to connect with your body, and a chance to build a supportive community where everyone feels welcome and empowered."
+            class="mb-16"
           />
           <Picture
             src={noBgDancer3}
             alt="Dance Bloc Brazil"
-            width={600}
-            height={600}
-            class="rounded-full"
+            widths={[480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 rounded-full"
           />
         </div>
 
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 grid-auto-flow items-baseline justify-center gap-12"
+          class="grid grid-cols-1 lg:grid-cols-2 grid-auto-flow items-baseline justify-center gap-12 mt-40"
         >
           <Card>
             <div class="text-left py-6">
@@ -110,22 +112,23 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Classes Section -->
-      <SectionContainer id="classes">
+      <SectionContainer id="classes" class="my-64">
         <div
           class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
         >
           <Picture
             src={noBgDancer1}
             alt="Dance Bloc Brazil"
-            widths={[320, 480, 640, 800, 1000]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 800px"
-            class="rounded-tr-full mt-16 px-2"
+            widths={[480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 rounded-full"
           />
 
-          <div class="self-end">
+          <div class="">
             <SectionTitle
               title="Upcoming Classes"
               subtitle="Join us for our vibrant and energetic dance classes designed for all levels. Our experienced instructors will guide you through every step in a supportive and fun environment."
+              class="mb-16"
             />
           </div>
         </div>
@@ -170,14 +173,26 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Shows Section -->
-      <SectionContainer id="shows">
-        <SectionTitle
-          title="Beyond the studio"
-          subtitle="We don't just teach dance; we bring it to life! Dance Bloc Brazil is a sought-after entertainment company, adding a touch of Brazilian flair to events throughout Perth, creating unforgettable experiences that will leave your guests mesmerized."
-        />
+      <SectionContainer id="shows" class="my-64">
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center mb-56"
+        >
+          <Picture
+            src={noBgDancer2}
+            alt="Dance Bloc Brazil performance"
+            widths={[480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 rounded-l-full bg-gradient-to-l from-transparent to-db-light-pink/10 from-10%"
+          />
+          <SectionTitle
+            title="Beyond the studio"
+            subtitle="We don't just teach dance; we bring it to life! Dance Bloc Brazil is a sought-after entertainment company, adding a touch of Brazilian flair to events throughout Perth, creating unforgettable experiences that will leave your guests mesmerized."
+            class="mb-16"
+          />
+        </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
-          <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+          <div class="aspect-auto rounded-2xl overflow-hidden shadow-lg">
             <div class="w-full h-full shows-image opacity-0">
               <Picture
                 src={showForHireHero}
@@ -213,10 +228,11 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Costumes Section -->
-      <SectionContainer id="costumes">
+      <SectionContainer id="costumes" class="my-64">
         <SectionTitle
           title="Dress to impress"
           subtitle="At Dance Bloc Brazil, we offer a range of eye-catching, authentic costumes that will make your event unforgettable. Whether you're looking for dazzling outfits for a dance performance or a themed party, our costumes are designed to bring the excitement and color of Carnival right to you."
+          class="mb-8"
         />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
@@ -260,14 +276,15 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Testimonials Section -->
-      <SectionContainer id="testimonials">
+      <SectionContainer id="testimonials" class="my-64">
         <SectionTitle
           title="What our students say"
           subtitle="Hear from our community about their experiences at Dance Bloc Brazil and discover why our students love being part of our vibrant dance family."
+          class="mb-16"
         />
 
         <div
-          class="grid grid-cols-1 lg:grid-cols-3 grid-auto-flow gap-24 lg:gap-12 mt-32"
+          class="grid grid-cols-1 lg:grid-cols-3 grid-auto-flow gap-24 lg:gap-12"
         >
           <TestimonialCard
             quote="Learning Samba at Dance Bloc Brazil has been an incredible journey. The instructors are passionate and the community is so welcoming. I've never had so much fun getting fit! Every class feels like a celebration."
@@ -290,12 +307,9 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- FAQ Section -->
-      <SectionContainer
-        id="faq"
-        class="bg-gradient-to-b from-white to-gray-50/50"
-      >
+      <SectionContainer id="faq" class="bg-db-green/5 rounded-3xl my-64">
         <Picture
-          src={cartoonDanceDouble}
+          src={cartoonDancerDouble}
           alt="Dance Bloc Brazil"
           width={600}
           height={600}
@@ -345,10 +359,14 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Contact Section -->
-      <SectionContainer id="contact">
+      <SectionContainer
+        id="contact"
+        class="bg-db-light-pink/5 rounded-3xl mb-64"
+      >
         <SectionTitle
           title="Get in Touch"
           subtitle="Have questions or ready to join our vibrant dance community? Contact us today and take the first step on your Brazilian dance journey!"
+          class="mb-16"
         />
 
         <ContactForm />

@@ -30,13 +30,14 @@ import dancers from "../images/dancers.avif";
     </div>
   </div>
 
-  <SectionContainer class="mt-[-100px]">
+  <SectionContainer class="mt-[-40px]">
     <SectionTitle
       title="Love is samba"
       subtitle="Located in the vibrant heart of Perth, Dance Bloc Brazil is dedicated to bringing the exhilarating energy and rich cultural heritage of Brazilian samba to our community. Whether you're a seasoned dancer or a complete beginner, our school offers a welcoming and dynamic environment for everyone."
+      class="mb-56"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 items-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 items-center mb-64">
       <div>
         <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Mission</h3>
         <p class="mb-6 text-slate-600 text-lg">
@@ -57,7 +58,7 @@ import dancers from "../images/dancers.avif";
         </p>
       </div>
 
-      <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
+      <div class="aspect-auto rounded-2xl overflow-hidden shadow-lg">
         <div class="w-full h-full">
           <Picture
             src={abouthero}
@@ -77,67 +78,22 @@ import dancers from "../images/dancers.avif";
     <SectionTitle
       title="Ready to Join the Dance?"
       subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
+      class="mb-40"
     />
 
     <div class="mt-8">
       <a
-        href="/classes"
+        href="/samba-classes-perth"
         class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
       >
         View Classes
       </a>
       <a
-        href="/contact"
+        href="/#contact"
         class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
       >
         Contact Us
       </a>
     </div>
   </SectionContainer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Select elements to animate
-      const missionContent = document.querySelector(
-        ".grid.grid-cols-1.md\\:grid-cols-2"
-      );
-      const heroImage = document.querySelector(".aspect-video.rounded-2xl");
-      const ctaButtons = document.querySelectorAll(".bg-db-pink, .bg-white");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add(
-                "opacity-100",
-                "translate-y-0",
-                "transition-all",
-                "duration-1000",
-                "ease-out"
-              );
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      // Add initial opacity-0 and transform classes
-      if (missionContent) {
-        missionContent.classList.add("opacity-0", "translate-y-8");
-        observer.observe(missionContent);
-      }
-
-      if (heroImage) {
-        heroImage.classList.add("opacity-0", "translate-y-8");
-        observer.observe(heroImage);
-      }
-
-      ctaButtons.forEach((el, index) => {
-        el.classList.add("opacity-0", "translate-y-8");
-        el.style.transitionDelay = `${index * 150}ms`;
-        observer.observe(el);
-      });
-    });
-  </script>
 </Layout>
