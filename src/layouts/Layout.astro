@@ -4,11 +4,15 @@ import "@fontsource-variable/raleway";
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  url?: string;
 }
 
 const {
   title,
   description = "Perth's premier Brazilian dance school offering Samba and Brazilian Funk classes, professional show performances, and costume hire services.",
+  image = "/images/hero.avif",
+  url = "https://sambadanceperth.com",
 } = Astro.props;
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
@@ -21,8 +25,44 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+
+    <!-- Primary Meta Tags -->
     <title>{title} | Dance Bloc Brazil</title>
+    <meta name="title" content={`${title} | Dance Bloc Brazil`} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="samba, brazilian dance, perth, dance classes, dance shows, costume hire, brazilian carnival"
+    />
+    <meta name="author" content="Dance Bloc Brazil" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={`${title} | Dance Bloc Brazil`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Dance Bloc Brazil" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={`${title} | Dance Bloc Brazil`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#FF69B4" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="English" />
   </head>
   <body>
     <Navigation />
