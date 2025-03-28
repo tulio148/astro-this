@@ -1,12 +1,47 @@
 ---
+import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
 import Picture from "astro/components/Picture.astro";
 
 // Import images
 import abouthero from "../images/abouthero.avif";
 import dancers from "../images/dancers.avif";
+
+export const metadata = {
+  title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
+  description:
+    "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
+  openGraph: {
+    title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
+    description:
+      "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
+    url: "https://sambadanceperth.com/about",
+    siteName: "Samba Dance Perth",
+    images: [
+      {
+        url: abouthero.src,
+        width: 1200,
+        height: 630,
+        alt: "About Samba Dance Perth - Brazilian Dance in Western Australia",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
+    description:
+      "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
+    image: abouthero.src,
+  },
+};
 ---
 
 <Layout

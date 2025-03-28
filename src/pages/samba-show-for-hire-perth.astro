@@ -1,14 +1,54 @@
 ---
+import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import ContactForm from "../components/ContactForm.astro";
+import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
-import { Picture } from "astro:assets";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Picture from "astro/components/Picture.astro";
+import { Picture as AstroPicture } from "astro:assets";
 
 // Import images
-import showhero from "../images/showhero.avif";
-import dancer from "../images/dancer.avif";
+import showForHireHero from "../images/showhero.avif";
+import noBgDancer1 from "../images/noBgDancer1.avif";
+import noBgDancer2 from "../images/noBgDancer2.avif";
+import noBgDancer3 from "../images/noBgDancer3.avif";
+import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
+
+export const metadata = {
+  title:
+    "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
+  description:
+    "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
+  openGraph: {
+    title:
+      "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
+    description:
+      "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
+    url: "https://sambadanceperth.com/samba-show-for-hire-perth",
+    siteName: "Samba Dance Perth",
+    images: [
+      {
+        url: showForHireHero.src,
+        width: 1200,
+        height: 630,
+        alt: "Samba Show for Hire Perth - Professional Brazilian Dance Performances",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
+    description:
+      "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
+    image: showForHireHero.src,
+  },
+};
 ---
 
 <Layout
@@ -16,8 +56,8 @@ import dancer from "../images/dancer.avif";
   description="Book Dance Bloc Brazil's electrifying Brazilian samba carnival performances for your event in Perth. Our talented dancers bring the vibrant spirit of Brazil to corporate events, private parties, and festivals."
 >
   <div class="relative h-[65vh] flex items-center">
-    <Picture
-      src={showhero}
+    <AstroPicture
+      src={showForHireHero}
       alt=""
       class="absolute inset-0 w-full h-full object-cover z-0"
       widths={[480, 768, 1024, 1280, 1920]}
@@ -42,8 +82,8 @@ import dancer from "../images/dancer.avif";
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-48 mb-64">
       <div class="aspect-auto md:w-full overflow-hidden">
         <div class="w-full h-full">
-          <Picture
-            src={dancer}
+          <AstroPicture
+            src={noBgDancer1}
             alt="Dance Bloc Brazil performance"
             widths={[320, 480, 640, 800, 1200]}
             sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"

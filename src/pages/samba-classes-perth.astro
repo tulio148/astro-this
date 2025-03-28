@@ -1,65 +1,66 @@
 ---
+import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
 import ClassCard from "../components/ClassCard.astro";
-
+import Picture from "astro/components/Picture.astro";
+import { client, type DanceClass } from "../lib/sanity";
 import danceclassHero from "../images/danceclassHero.avif";
-import { Picture } from "astro:assets";
+import { Picture as AstroPicture } from "astro:assets";
 
-const sambaClasses = [
-  {
-    title: "Beginner Samba",
-    instructor: "Maria Santos",
-    level: "Beginner",
-    day: "Monday",
-    time: "6:30 PM",
-    spots: 8,
+export const metadata = {
+  title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
+  description:
+    "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
+  openGraph: {
+    title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
+    description:
+      "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
+    url: "https://sambadanceperth.com/samba-classes-perth",
+    siteName: "Samba Dance Perth",
+    images: [
+      {
+        url: danceclassHero.src,
+        width: 1200,
+        height: 630,
+        alt: "Samba Dance Classes Perth - Learn Brazilian Samba",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
   },
-  {
-    title: "Intermediate Samba",
-    instructor: "Carlos Oliveira",
-    level: "Intermediate",
-    day: "Wednesday",
-    time: "7:00 PM",
-    spots: 5,
+  twitter: {
+    card: "summary_large_image",
+    title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
+    description:
+      "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
+    image: danceclassHero.src,
   },
-  {
-    title: "Advanced Samba",
-    instructor: "Luisa Fernandes",
-    level: "Advanced",
-    day: "Thursday",
-    time: "7:30 PM",
-    spots: 3,
-  },
-];
+};
 
-const funkClasses = [
-  {
-    title: "Beginner Brazilian Funk",
-    instructor: "Pedro Lima",
-    level: "Beginner",
-    day: "Tuesday",
-    time: "6:30 PM",
-    spots: 6,
-  },
-  {
-    title: "Intermediate Brazilian Funk",
-    instructor: "Isabella Costa",
-    level: "Intermediate",
-    day: "Friday",
-    time: "7:00 PM",
-    spots: 4,
-  },
-  {
-    title: "Funk Fusion",
-    instructor: "Rafael Gomes",
-    level: "All Levels",
-    day: "Saturday",
-    time: "11:00 AM",
-    spots: 7,
-  },
-];
+// Fetch all dance classes from Sanity
+const danceClasses = await client.fetch<DanceClass[]>(
+  `*[_type == "danceClass"] | order(date asc)`
+);
+
+// Filter classes by style
+const sambaClasses = danceClasses.filter(
+  (classItem) => classItem.style === "samba"
+);
+const funkClasses = danceClasses.filter(
+  (classItem) => classItem.style === "brazilianFunk"
+);
+
+// Helper function to format date to day name
+function getDayName(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", { weekday: "long" });
+}
 ---
 
 <Layout
@@ -67,7 +68,7 @@ const funkClasses = [
   description="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels."
 >
   <div class="relative h-[65vh] flex items-center">
-    <Picture
+    <AstroPicture
       src={danceclassHero}
       alt=""
       class="absolute inset-0 w-full h-full object-cover z-0"
@@ -86,21 +87,20 @@ const funkClasses = [
   <SectionContainer class="mt-[-40px] mb-64">
     <SectionTitle
       title="Our Classes"
-      subtitle=`Discover the passion of Brazilian Samba with our expert instructors in
-Perth. Whether you're a beginner or advanced dancer, we offer fun and
-energetic classes to suit all levels.`
+      subtitle="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes to suit all levels."
     />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
       {
         sambaClasses.map((classItem) => (
           <ClassCard
-            title={classItem.title}
-            instructor={classItem.instructor}
-            level={classItem.level}
-            day={classItem.day}
+            title={classItem.name}
+            instructor={classItem.instructor || "TBA"}
+            level={
+              classItem.level.charAt(0).toUpperCase() + classItem.level.slice(1)
+            }
+            day={getDayName(classItem.date)}
             time={classItem.time}
-            spots={classItem.spots}
           />
         ))
       }
@@ -117,12 +117,13 @@ energetic classes to suit all levels.`
       {
         funkClasses.map((classItem) => (
           <ClassCard
-            title={classItem.title}
-            instructor={classItem.instructor}
-            level={classItem.level}
-            day={classItem.day}
+            title={classItem.name}
+            instructor={classItem.instructor || "TBA"}
+            level={
+              classItem.level.charAt(0).toUpperCase() + classItem.level.slice(1)
+            }
+            day={getDayName(classItem.date)}
             time={classItem.time}
-            spots={classItem.spots}
           />
         ))
       }
