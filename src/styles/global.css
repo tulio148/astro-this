@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'); */
+/* @import '@fontsource-variable/raleway'; */
 @import 'tailwindcss';
 
-
+body {
+  font-family: 'Raleway Variable', sans-serif;
+}
 @theme {
-    --font-db: "Raleway", "sans-serif";
     --color-db-pink: #9E0096;
     --color-db-light-pink: #FF00F7;
     --color-db-green: #00CC81;

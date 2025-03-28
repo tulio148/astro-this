@@ -4,16 +4,14 @@ import AnimatedHamburger from "./AnimatedHamburger";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import logoNoBg from "../../images/icon/logoNoBg.webp";
-import Picture from "astro/components/Picture.astro";
-
-const navbarVariants = {
-  hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 340, damping: 30 },
-  },
-};
+// const navbarVariants = {
+//   hidden: { y: -80, opacity: 0, transition: { duration: 0.01 } },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//     transition: { type: "spring", stiffness: 340, damping: 30 },
+//   },
+// };
 
 const menuVariants = {
   closed: {
@@ -47,9 +45,9 @@ const itemVariants = {
 const NAV_LINKS = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Classes", path: "/classes" },
-  { name: "Costume Hire", path: "/costume-hire" },
-  { name: "Show for Hire", path: "/show-for-hire" },
+  { name: "Classes", path: "/samba-classes-perth" },
+  { name: "Costume Hire", path: "/samba-costume-hire-perth" },
+  { name: "Shows for Hire", path: "/samba-show-for-hire-perth" },
 ];
 
 // Props for navigation with client:only
@@ -84,11 +82,16 @@ const Navbar = ({ currentPath }: NavbarProps) => {
   };
 
   return (
-    <motion.nav
-      className={"fixed top-0 left-0 px-6 py-4 right-0 bg-db-pink z-50"}
-      initial="hidden"
-      animate={hasScrolled ? "visible" : "hidden"}
-      variants={navbarVariants}
+    // <motion.nav
+    //   className={"fixed top-0 left-0 px-6 py-4 right-0 bg-db-pink z-50"}
+    //   initial="hidden"
+    //   animate={hasScrolled ? "visible" : "hidden"}
+    //   variants={navbarVariants}
+    // >
+    <nav
+      className={`fixed top-0 left-0 px-6 py-4 right-0 z-50 transition-colors duration-300 ${
+        hasScrolled ? "bg-db-pink" : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto sm:px-16">
         <div className="flex justify-between items-center h-12">
@@ -169,7 +172,7 @@ const Navbar = ({ currentPath }: NavbarProps) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

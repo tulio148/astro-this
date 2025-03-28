@@ -1,22 +1,23 @@
 ---
-import { Image } from "astro:assets";
 import faviconpng from "../images/icon/faviconpng-removebg-preview.png";
+import Picture from "astro/components/Picture.astro";
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="bg-db-pink text-white py-12 mt-16 relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-baseline">
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-8 items-baseline">
       <div>
-        <Image
-          src={faviconpng}
-          alt="Dance Bloc Brazil"
-          width={200}
-          height={200}
-          class="rounded-t-full bg-gradient-to-b from-black/70 from-75% p-2"
-        />
         <p class="text-lg mb-6">Perth's premier Brazilian dance school</p>
         <p class="mb-4">Email: info@danceblocbrazil.com</p>
+
+        <Picture
+          src={faviconpng}
+          alt="Dance Bloc Brazil Logo"
+          width={150}
+          height={150}
+          class="bg-gradient-to-b from-black/50 via-black/40 to-black/80 p-3 rounded-4xl"
+        />
       </div>
 
       <div class="flex flex-col items-start md:items-end">

@@ -2,48 +2,44 @@
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Card from "../components/Card.astro";
-import { Image } from "astro:assets";
+import Picture from "astro/components/Picture.astro";
 
 // Import images
 import abouthero from "../images/abouthero.avif";
-import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
-import dancer from "../images/dancer.avif";
-import dancer2 from "../images/dancer2.avif";
-import noBgDancer1 from "../images/noBgDancer1.avif";
-import noBgDancer2 from "../images/noBgDancer2.avif";
-import noBgDancer3 from "../images/noBgDancer3.avif";
-import noBgDancer4 from "../images/noBgDancer4.avif";
-// import dancerWithoutBg3 from "../images/dancerWithoutBg3.webp";
+import dancers from "../images/dancers.avif";
 ---
 
 <Layout
   title="About Us"
   description="Learn about Dance Bloc Brazil, Perth's premier Brazilian dance studio dedicated to sharing the joy, rhythm, and spirit of samba with people of all ages and backgrounds."
 >
-  <div class="relative h-[40vh] flex items-center">
-    <div class="absolute inset-0 z-10"></div>
+  <div class="relative h-[65vh] flex items-center">
+    <Picture
+      src={dancers}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      widths={[480, 768, 1024, 1280, 1920]}
+      sizes="(max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1920px"
+      loading="eager"
+      fetchpriority="high"
+    />
+    {/* Gradient Overlay */}
     <div
-      class="absolute inset-0 bg-cover bg-center z-0"
-      style={`background-image: url(${abouthero})`}
+      class="absolute inset-0 bg-gradient-to-b from-db-green/20 to-white from-80% z-10"
     >
-    </div>
-
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">About Us</h1>
     </div>
   </div>
 
-  <SectionContainer>
+  <SectionContainer class="mt-[-100px]">
     <SectionTitle
       title="Love is samba"
       subtitle="Located in the vibrant heart of Perth, Dance Bloc Brazil is dedicated to bringing the exhilarating energy and rich cultural heritage of Brazilian samba to our community. Whether you're a seasoned dancer or a complete beginner, our school offers a welcoming and dynamic environment for everyone."
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 items-center">
       <div>
         <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Mission</h3>
-        <p class="mb-6">
+        <p class="mb-6 text-slate-600 text-lg">
           At Dance Bloc Brazil, our mission is to share the joy, rhythm, and
           spirit of samba with people of all ages and backgrounds. We strive to
           create a supportive and inclusive space where students can explore the
@@ -52,7 +48,7 @@ import noBgDancer4 from "../images/noBgDancer4.avif";
         </p>
 
         <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Vision</h3>
-        <p class="mb-6">
+        <p class="mb-6 text-slate-600 text-lg">
           We envision a Perth where Brazilian dance is celebrated, where people
           from all walks of life come together to experience the transformative
           power of movement and music. Through our classes, performances, and
@@ -61,170 +57,87 @@ import noBgDancer4 from "../images/noBgDancer4.avif";
         </p>
       </div>
 
-      <div class="aspect-square rounded-lg overflow-hidden">
-        <Image
-          src={cartoonDanceDouble}
-          alt="Dance Bloc Brazil team"
-          width={600}
-          height={600}
-          class="w-full h-full object-cover"
-        />
+      <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
+        <div class="w-full h-full">
+          <Picture
+            src={abouthero}
+            alt="Dance Bloc Brazil performance"
+            widths={[320, 480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gray-50 relative">
+  <SectionContainer
+    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl"
+  >
     <SectionTitle
-      title="Meet Our Team"
-      subtitle="Our passionate instructors bring years of experience and authentic Brazilian dance knowledge to every class."
+      title="Ready to Join the Dance?"
+      subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-      <Card>
-        <div class="text-white text-center py-6">
-          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <Image
-              src={noBgDancer2}
-              alt="Maria Silva"
-              width={128}
-              height={128}
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <h3 class="text-xl font-bold mb-2">Maria Silva</h3>
-          <p class="text-white/80 mb-3">Founder & Lead Instructor</p>
-          <p>
-            Born and raised in Rio de Janeiro, Maria brings authentic Brazilian
-            samba techniques and passion to every class.
-          </p>
-        </div>
-      </Card>
-
-      <Card>
-        <div class="text-white text-center py-6">
-          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <Image
-              src={noBgDancer3}
-              alt="Carlos Santos"
-              width={128}
-              height={128}
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <h3 class="text-xl font-bold mb-2">Carlos Santos</h3>
-          <p class="text-white/80 mb-3">Brazilian Funk Specialist</p>
-          <p>
-            With over 15 years of experience, Carlos specializes in Brazilian
-            funk and contemporary dance styles.
-          </p>
-        </div>
-      </Card>
-
-      <Card>
-        <div class="text-white text-center py-6">
-          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
-            <Image
-              src={noBgDancer4}
-              alt="Sophia Lee"
-              width={128}
-              height={128}
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <h3 class="text-xl font-bold mb-2">Sophia Lee</h3>
-          <p class="text-white/80 mb-3">Beginner Samba Instructor</p>
-          <p>
-            Sophia's patient teaching approach makes her classes perfect for
-            newcomers to Brazilian dance.
-          </p>
-        </div>
-      </Card>
-    </div>
-
-    <div class="absolute -bottom-20 -left-10 hidden lg:block">
-      <Image
-        src={noBgDancer1}
-        alt="Dancer decoration"
-        width={220}
-        height={350}
-        class="opacity-80"
-      />
+    <div class="mt-8">
+      <a
+        href="/classes"
+        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+      >
+        View Classes
+      </a>
+      <a
+        href="/contact"
+        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+      >
+        Contact Us
+      </a>
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Our Studio"
-      subtitle="Located in the heart of Perth, our spacious and well-equipped studio provides the perfect environment for learning and practicing Brazilian dance."
-    />
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Select elements to animate
+      const missionContent = document.querySelector(
+        ".grid.grid-cols-1.md\\:grid-cols-2"
+      );
+      const heroImage = document.querySelector(".aspect-video.rounded-2xl");
+      const ctaButtons = document.querySelectorAll(".bg-db-pink, .bg-white");
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-      <div class="aspect-video rounded-lg overflow-hidden">
-        <Image
-          src={dancer}
-          alt="Dance Bloc Brazil studio"
-          width={800}
-          height={450}
-          class="w-full h-full object-cover"
-        />
-      </div>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(
+                "opacity-100",
+                "translate-y-0",
+                "transition-all",
+                "duration-1000",
+                "ease-out"
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
 
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">
-          State-of-the-Art Facilities
-        </h3>
-        <ul class="space-y-3 mb-6">
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span>Professional dance floors with shock absorption</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span>Full-length mirrors for technique refinement</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span>Premium sound system for authentic Brazilian rhythms</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span>Comfortable changing rooms and amenities</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span>Air-conditioned spaces for year-round comfort</span>
-          </li>
-        </ul>
+      // Add initial opacity-0 and transform classes
+      if (missionContent) {
+        missionContent.classList.add("opacity-0", "translate-y-8");
+        observer.observe(missionContent);
+      }
 
-        <p>
-          Visit us at 123 Dance Street, Perth, WA 6000 to experience our
-          facilities firsthand.
-        </p>
-      </div>
-    </div>
-  </SectionContainer>
+      if (heroImage) {
+        heroImage.classList.add("opacity-0", "translate-y-8");
+        observer.observe(heroImage);
+      }
 
-  <SectionContainer class="bg-gray-50">
-    <div class="text-center">
-      <SectionTitle
-        title="Ready to Join the Dance?"
-        subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
-      />
-
-      <div class="mt-8">
-        <a
-          href="/classes"
-          class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
-        >
-          View Classes
-        </a>
-        <a
-          href="/contact"
-          class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
-        >
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </SectionContainer>
+      ctaButtons.forEach((el, index) => {
+        el.classList.add("opacity-0", "translate-y-8");
+        el.style.transitionDelay = `${index * 150}ms`;
+        observer.observe(el);
+      });
+    });
+  </script>
 </Layout>

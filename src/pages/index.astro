@@ -9,7 +9,6 @@ import TestimonialCard from "../components/TestimonialCard.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import ClassCard from "../components/ClassCard.astro";
-import { Image } from "astro:assets";
 import Picture from "astro/components/Picture.astro";
 // Import images
 import hero from "../images/hero.avif";
@@ -62,14 +61,14 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
         </div>
 
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 grid-auto-flow items-baseline justify-center gap-12 mt-16"
+          class="grid grid-cols-1 lg:grid-cols-2 grid-auto-flow items-baseline justify-center gap-12"
         >
           <Card>
             <div class="text-left py-6">
               <h3 class="text-3xl font-bold mb-4 text-db-pink">
                 Learn Authentic Samba
               </h3>
-              <p class="leading-relaxed text-lg">
+              <p class="leading-relaxed text-lg text-slate-600">
                 Master the authentic movements and techniques of Brazilian Samba
                 with our expert instructors who bring years of experience and
                 passion to every class. Our teaching methods focus on proper
@@ -84,7 +83,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
               <h3 class="text-3xl font-bold mb-4 text-db-pink">
                 Experience Brazilian Culture
               </h3>
-              <p class="leading-relaxed text-lg">
+              <p class="leading-relaxed text-lg text-slate-600">
                 Immerse yourself in Brazilian rhythms, traditions, and the
                 joyful spirit of Carnival. We go beyond just teaching steps – we
                 share the rich cultural heritage that makes Brazilian dance so
@@ -98,7 +97,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
               <h3 class="text-3xl font-bold mb-4 text-db-pink">
                 Join Our Community
               </h3>
-              <p class="leading-relaxed text-lg">
+              <p class="leading-relaxed text-lg text-slate-600">
                 Become part of our welcoming dance family and connect with
                 fellow passionate dancers. We foster a supportive environment
                 where lifelong friendships are formed, and everyone is
@@ -111,10 +110,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Classes Section -->
-      <SectionContainer
-        id="classes"
-        class="bg-gradient-to-b from-white to-gray-50/50"
-      >
+      <SectionContainer id="classes">
         <div
           class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
         >
@@ -123,7 +119,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
             alt="Dance Bloc Brazil"
             widths={[320, 480, 640, 800, 1000]}
             sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 800px"
-            class="rounded-t-full mt-16 bg-gradient-to-b from-db-pink/40 p-4"
+            class="rounded-tr-full mt-16 px-2"
           />
 
           <div class="self-end">
@@ -134,7 +130,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ClassCard
             title="Beginner Samba"
             day="Mondays"
@@ -197,7 +193,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
             <h3 class="text-3xl font-bold mb-4 text-db-pink">
               Book us for your next event
             </h3>
-            <p class="mb-8 leading-relaxed text-gray-700">
+            <p class="mb-8 leading-relaxed text-lg text-slate-600">
               Our professional dancers bring the energy and excitement of Brazil
               to any occasion. From corporate functions to weddings and
               festivals, we create unforgettable experiences that transport your
@@ -217,10 +213,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
       </SectionContainer>
 
       <!-- Costumes Section -->
-      <SectionContainer
-        id="costumes"
-        class="bg-gradient-to-b from-white to-gray-50/50"
-      >
+      <SectionContainer id="costumes">
         <SectionTitle
           title="Dress to impress"
           subtitle="At Dance Bloc Brazil, we offer a range of eye-catching, authentic costumes that will make your event unforgettable. Whether you're looking for dazzling outfits for a dance performance or a themed party, our costumes are designed to bring the excitement and color of Carnival right to you."
@@ -233,7 +226,7 @@ import cartoonDanceDouble from "../images/cartoonDanceDouble.avif";
             <h3 class="text-3xl font-bold mb-6 text-db-pink">
               Authentic Brazilian Costumes
             </h3>
-            <p class="mb-8 leading-relaxed text-gray-700">
+            <p class="mb-8 leading-relaxed text-slate-600 text-lg">
               Transform your event with our stunning collection of authentic
               Brazilian costumes. Each piece is carefully crafted with attention
               to detail and vibrant colors to capture the true essence of

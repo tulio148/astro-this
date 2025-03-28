@@ -67,18 +67,18 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
         <motion.span
           variants={topLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white via-white/60 to-white mb-2 rounded-full shadow-sm"
+          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 mb-2 rounded-full shadow-sm"
         />
         <motion.span
           variants={middleLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white via-white/60 to-white mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-db-pink/40 self-end"
+          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-db-pink/40 self-end"
         />
 
         <motion.span
           variants={bottomLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white via-white/60 to-white rounded-full shadow-sm"
+          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 rounded-full shadow-sm"
         />
       </motion.div>
     </button>

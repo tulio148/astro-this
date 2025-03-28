@@ -4,10 +4,7 @@ interface Props {
   subtitle?: string;
 }
 
-const {
-  title = "Get In Touch",
-  subtitle = "We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.",
-} = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <div

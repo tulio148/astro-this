@@ -1,4 +1,6 @@
 ---
+// Supports weights 100-900
+import "@fontsource-variable/raleway";
 interface Props {
   title: string;
   description?: string;
@@ -22,7 +24,7 @@ import Footer from "../components/Footer.astro";
     <meta name="description" content={description} />
     <title>{title} | Dance Bloc Brazil</title>
   </head>
-  <body class="font-db">
+  <body>
     <Navigation />
 
     <main class="pt-0">

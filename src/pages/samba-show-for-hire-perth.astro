@@ -4,62 +4,63 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Card from "../components/Card.astro";
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 // Import images
 import showhero from "../images/showhero.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
+import dancer from "../images/dancer.avif";
 ---
 
 <Layout
   title="Show for Hire"
   description="Book Dance Bloc Brazil's electrifying Brazilian samba carnival performances for your event in Perth. Our talented dancers bring the vibrant spirit of Brazil to corporate events, private parties, and festivals."
 >
-  <div class="relative h-[40vh] flex items-center">
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
+  <div class="relative h-[65vh] flex items-center">
+    <Picture
+      src={showhero}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      widths={[480, 768, 1024, 1280, 1920]}
+      sizes="(max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1920px"
+      loading="eager"
+      fetchpriority="high"
+    />
+    {/* Gradient Overlay */}
     <div
-      class="absolute inset-0 bg-cover bg-center z-0"
-      style={`background-image: url(${showhero})`}
+      class="absolute inset-0 bg-gradient-to-b from-db-green/20 to-white from-80% z-10"
     >
-    </div>
-
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Show for Hire
-      </h1>
-      <p class="text-xl text-white/90 mb-8 max-w-2xl">
-        Make a statement with our breathtaking Brazilian Samba Carnival Shows in
-        Perth.
-      </p>
     </div>
   </div>
 
-  <SectionContainer>
+  <SectionContainer class="mt-[-100px]">
     <SectionTitle
       title="Breathtaking Brazilian Samba Carnival Shows in Perth"
       subtitle="Make a lasting impression with our electrifying Brazilian samba carnival performances. Our talented dancers and musicians bring the vibrant spirit of Brazil to life, creating an unforgettable spectacle for your guests."
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-      <div class="aspect-video rounded-lg overflow-hidden">
-        <Image
-          src={noBgDancer1}
-          alt="Dance Bloc Brazil performance"
-          width={800}
-          height={450}
-          class="w-full h-full object-cover"
-        />
+      <div class="aspect-video rounded-2xl overflow-hidden shadow-lg">
+        <div class="w-full h-full">
+          <Picture
+            src={dancer}
+            alt="Dance Bloc Brazil performance"
+            widths={[320, 480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
       </div>
 
       <div class="flex flex-col justify-center">
-        <p class="mb-6">
+        <p class="mb-6 text-lg text-slate-600">
           From dazzling costumes to infectious rhythms, our samba carnival
           performances are guaranteed to captivate your audience. Our
           experienced team will work closely with you to create a tailored show
           that perfectly complements your event theme. Let us add a touch of
           Brazilian magic to your special occasion.
         </p>
-        <p>
+        <p class="text-lg text-slate-600">
           Whether you're planning a corporate event, a private party, or a
           festival, our customizable shows will exceed your expectations and
           leave a lasting impression on your guests.
@@ -308,3 +309,56 @@ import noBgDancer1 from "../images/noBgDancer1.avif";
     </div>
   </SectionContainer>
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Select elements to animate
+    const performancePackages = document.querySelectorAll(
+      ".md\\:grid-cols-3 > div"
+    );
+    const eventCards = document.querySelectorAll(".lg\\:grid-cols-4 > div");
+    const contentSections = document.querySelectorAll(
+      ".grid.grid-cols-1.md\\:grid-cols-2 > div"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(
+              "opacity-100",
+              "translate-y-0",
+              "transition-all",
+              "duration-1000",
+              "ease-out"
+            );
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Add initial opacity-0 and transform classes
+    performancePackages.forEach((el, index) => {
+      el.classList.add("opacity-0", "translate-y-8");
+      // Add staggered delay effect
+      setTimeout(() => {
+        observer.observe(el);
+      }, index * 150);
+    });
+
+    eventCards.forEach((el, index) => {
+      el.classList.add("opacity-0", "translate-y-8");
+      // Add staggered delay effect
+      setTimeout(() => {
+        observer.observe(el);
+      }, index * 100);
+    });
+
+    contentSections.forEach((el) => {
+      el.classList.add("opacity-0", "translate-y-8");
+      observer.observe(el);
+    });
+  });
+</script>
