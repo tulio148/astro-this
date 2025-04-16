@@ -3,16 +3,18 @@
 import "@fontsource-variable/raleway";
 interface Props {
   title: string;
-  description?: string;
-  image?: string;
-  url?: string;
+  description: string;
+  image: string;
+  url: string;
+  structuredData?: any[];
 }
 
 const {
   title,
   description = "Perth's premier Brazilian dance school offering Samba and Brazilian Funk classes, professional show performances, and costume hire services.",
   image = "/images/hero.avif",
-  url = "https://sambadanceperth.com",
+  url = "https://danceblocbrazil.com",
+  structuredData = [],
 } = Astro.props;
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
@@ -23,7 +25,12 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/icon/logoNoBgSm.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="/images/icon/logoNoBgSm.png"
+    />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
@@ -62,6 +69,12 @@ import Footer from "../components/Footer.astro";
     <meta name="format-detection" content="telephone=no" />
     <meta name="revisit-after" content="7 days" />
     <meta name="language" content="English" />
+
+    {
+      structuredData.map((data, index) => (
+        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      ))
+    }
   </head>
   <body>
     <Navigation />

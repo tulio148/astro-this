@@ -3,12 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
 import ClassCard from "../components/ClassCard.astro";
-import Picture from "astro/components/Picture.astro";
 import { client, type DanceClass } from "../lib/sanity";
 import danceclassHero from "../images/danceclassHero.avif";
 import { Picture as AstroPicture } from "astro:assets";
@@ -21,7 +16,7 @@ export const metadata = {
     title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
     description:
       "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
-    url: "https://sambadanceperth.com/samba-classes-perth",
+    url: "https://danceblocbrazil.com/samba-classes-perth",
     siteName: "Samba Dance Perth",
     images: [
       {
@@ -66,6 +61,8 @@ function getDayName(dateString: string) {
 <Layout
   title="Classes"
   description="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels."
+  image={danceclassHero.src}
+  url="https://danceblocbrazil.com/samba-classes-perth"
 >
   <div class="relative h-[65vh] flex items-center">
     <AstroPicture
@@ -92,17 +89,46 @@ function getDayName(dateString: string) {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
       {
-        sambaClasses.map((classItem) => (
-          <ClassCard
-            title={classItem.name}
-            instructor={classItem.instructor || "TBA"}
-            level={
-              classItem.level.charAt(0).toUpperCase() + classItem.level.slice(1)
-            }
-            day={getDayName(classItem.date)}
-            time={classItem.time}
-          />
-        ))
+        sambaClasses.length > 0 ? (
+          sambaClasses.map((classItem) => (
+            <ClassCard
+              title={classItem.name}
+              instructor={classItem.instructor || "TBA"}
+              level={
+                classItem.level.charAt(0).toUpperCase() +
+                classItem.level.slice(1)
+              }
+              day={getDayName(classItem.date)}
+              time={classItem.time}
+            />
+          ))
+        ) : (
+          <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              We're Planning Our Next Samba Term
+            </h3>
+            <p class="mb-6 text-slate-600">
+              We are currently planning our future samba classes. Leave your
+              email below to be notified when new classes are available!
+            </p>
+            <form class="max-w-md mx-auto">
+              <div class="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-db-pink"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="px-6 py-2 bg-db-pink text-white rounded-lg hover:bg-db-light-pink transition-colors"
+                >
+                  Notify Me
+                </button>
+              </div>
+            </form>
+          </div>
+        )
       }
     </div>
   </SectionContainer>
@@ -115,17 +141,46 @@ function getDayName(dateString: string) {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
       {
-        funkClasses.map((classItem) => (
-          <ClassCard
-            title={classItem.name}
-            instructor={classItem.instructor || "TBA"}
-            level={
-              classItem.level.charAt(0).toUpperCase() + classItem.level.slice(1)
-            }
-            day={getDayName(classItem.date)}
-            time={classItem.time}
-          />
-        ))
+        funkClasses.length > 0 ? (
+          funkClasses.map((classItem) => (
+            <ClassCard
+              title={classItem.name}
+              instructor={classItem.instructor || "TBA"}
+              level={
+                classItem.level.charAt(0).toUpperCase() +
+                classItem.level.slice(1)
+              }
+              day={getDayName(classItem.date)}
+              time={classItem.time}
+            />
+          ))
+        ) : (
+          <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
+            <h3 class="text-2xl font-bold mb-4 text-db-pink">
+              We're Planning Our Next Funk Term
+            </h3>
+            <p class="mb-6 text-slate-600">
+              We are currently planning our future Brazilian Funk classes. Leave
+              your email below to be notified when new classes are available!
+            </p>
+            <form class="max-w-md mx-auto">
+              <div class="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-db-pink"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="px-6 py-2 bg-db-pink text-white rounded-lg hover:bg-db-light-pink transition-colors"
+                >
+                  Notify Me
+                </button>
+              </div>
+            </form>
+          </div>
+        )
       }
     </div>
   </SectionContainer>
