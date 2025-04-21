@@ -39,7 +39,7 @@ const NAV_LINKS = [
   { name: "About", path: "/about" },
   { name: "Classes", path: "/samba-classes-perth" },
   { name: "Costume Hire", path: "/samba-costume-hire-perth" },
-  { name: "Shows for Hire", path: "/samba-show-for-hire-perth" },
+  { name: "Book a Show", path: "/book-a-samba-show-perth" },
   { name: "Contact", path: "/#contact" },
 ];
 
