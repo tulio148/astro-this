@@ -4,9 +4,26 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import ClassCard from "../components/ClassCard.astro";
-import { client, type DanceClass } from "../lib/sanity";
+import TermCard from "../components/TermCard.astro";
+// import { client, type DanceClass } from "../lib/sanity";
 import danceclassHero from "../images/danceclassHero.avif";
 import { Picture as AstroPicture } from "astro:assets";
+import { terms } from "../data/terms";
+
+// Define terms data
+// const terms = [
+//   {
+//     name: "Samba Beginners Term 1",
+//     level: "Beginner",
+//     dateBegin: "8th May 2025",
+//     dateEnd: "5th June 2025",
+//     time: "7:30pm - 8:30pm",
+//     location: "Balcatta",
+//     price: "$110",
+//     bookingLink:
+//       "https://checkout.square.site/merchant/G3RV3Q4J8CFQJ/checkout/Q3CUDWNQV6I4NRFX34LZGM2K?src=sheet",
+//   },
+// ];
 
 export const metadata = {
   title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
@@ -39,17 +56,17 @@ export const metadata = {
 };
 
 // Fetch all dance classes from Sanity
-const danceClasses = await client.fetch<DanceClass[]>(
-  `*[_type == "danceClass"] | order(date asc)`
-);
+// const danceClasses = await client.fetch<DanceClass[]>(
+//   `*[_type == "danceClass"] | order(date asc)`
+// );
 
-// Filter classes by style
-const sambaClasses = danceClasses.filter(
-  (classItem) => classItem.style === "samba"
-);
-const funkClasses = danceClasses.filter(
-  (classItem) => classItem.style === "brazilianFunk"
-);
+// // Filter classes by style
+// const sambaClasses = danceClasses.filter(
+//   (classItem) => classItem.style === "samba"
+// );
+// const funkClasses = danceClasses.filter(
+//   (classItem) => classItem.style === "brazilianFunk"
+// );
 
 // Helper function to format date to day name
 function getDayName(dateString: string) {
@@ -87,53 +104,26 @@ function getDayName(dateString: string) {
       subtitle="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes to suit all levels."
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-24">
       {
-        sambaClasses.length > 0 ? (
-          sambaClasses.map((classItem) => (
-            <ClassCard
-              title={classItem.name}
-              instructor={classItem.instructor || "TBA"}
-              level={
-                classItem.level.charAt(0).toUpperCase() +
-                classItem.level.slice(1)
-              }
-              day={getDayName(classItem.date)}
-              time={classItem.time}
-            />
-          ))
-        ) : (
-          <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
-            <h3 class="text-2xl font-bold mb-4 text-db-pink">
-              We're Planning Our Next Samba Term
-            </h3>
-            <p class="mb-6 text-slate-600">
-              We are currently planning our future samba classes. Leave your
-              email below to be notified when new classes are available!
-            </p>
-            <form class="max-w-md mx-auto">
-              <div class="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-db-pink"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="px-6 py-2 bg-db-pink text-white rounded-lg hover:bg-db-light-pink transition-colors"
-                >
-                  Notify Me
-                </button>
-              </div>
-            </form>
-          </div>
-        )
+        terms.map((term) => (
+          <TermCard
+            name={term.name}
+            level={term.level}
+            dateBegin={term.dateBegin}
+            dateEnd={term.dateEnd}
+            time={term.time}
+            location={term.location}
+            price={term.price}
+            bookingLink={term.bookingLink}
+            description={term.description}
+          />
+        ))
       }
     </div>
   </SectionContainer>
 
-  <SectionContainer class="mb-64">
+  <!-- <SectionContainer class="mb-64">
     <SectionTitle
       title="Brazilian Funk Classes"
       subtitle="Experience the energetic and expressive dance style of Brazilian Funk in our dynamic classes."
@@ -183,7 +173,7 @@ function getDayName(dateString: string) {
         )
       }
     </div>
-  </SectionContainer>
+  </SectionContainer> -->
 
   <SectionContainer class="mb-64 bg-db-light-pink/5 rounded-3xl">
     <SectionTitle

@@ -8,11 +8,11 @@ import sanity from "@sanity/astro";
 export default defineConfig({
   integrations: [
     react(),
-    sanity({
-      projectId: "6edws5st",
-      dataset: "production",
-      useCdn: false,
-    }),
+    // sanity({
+    //   projectId: "6edws5st",
+    //   dataset: "production",
+    //   useCdn: false,
+    // }),
   ],
   vite: {
     plugins: [tailwindcss()],

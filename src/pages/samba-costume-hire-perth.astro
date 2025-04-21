@@ -104,14 +104,16 @@ export const metadata = {
     </div>
   </SectionContainer>
 
-  <SectionContainer class="mb-64">
+  <SectionContainer class="mb-24">
     <SectionTitle
       title="Our Costume Collection"
       subtitle="Browse our selection of authentic Brazilian costumes available for hire."
     />
   </SectionContainer>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 max-w-7xl mx-auto"
+  >
     {
       costumes.map((costume) => (
         <CostumeCard

@@ -8,9 +8,10 @@ import Card from "../components/Card.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
-import ClassCard from "../components/ClassCard.astro";
+import TermCard from "../components/TermCard.astro";
 import Picture from "astro/components/Picture.astro";
 import { client, type DanceClass } from "../lib/sanity";
+import { terms } from "../data/terms";
 // Import images
 import hero from "../images/hero.avif";
 import showForHireHero from "../images/showhero.avif";
@@ -184,8 +185,8 @@ function getDayName(dateString: string) {
       </div>
     </SectionContainer>
 
-    <!-- Classes Section -->
-    <SectionContainer id="classes" class="my-64">
+    <!-- Terms Section -->
+    <SectionContainer id="terms" class="my-64">
       <div
         class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
       >
@@ -199,30 +200,29 @@ function getDayName(dateString: string) {
 
         <div class="">
           <SectionTitle
-            title="Upcoming Classes"
-            subtitle="Join us for our vibrant and energetic dance classes designed for all levels. Our experienced instructors will guide you through every step in a supportive and fun environment."
+            title="Upcoming Terms"
+            subtitle="Join us for our vibrant and energetic dance terms designed for all levels. Our experienced instructors will guide you through every step in a supportive and fun environment."
             class="mb-16"
           />
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-24">
         {
-          sambaClasses.length > 0 ? (
-            sambaClasses
-              .slice(0, 3)
-              .map((classItem) => (
-                <ClassCard
-                  title={classItem.name}
-                  instructor={classItem.instructor || "TBA"}
-                  level={
-                    classItem.level.charAt(0).toUpperCase() +
-                    classItem.level.slice(1)
-                  }
-                  day={getDayName(classItem.date)}
-                  time={classItem.time}
-                />
-              ))
+          terms.length > 0 ? (
+            terms.map((term) => (
+              <TermCard
+                name={term.name}
+                level={term.level}
+                dateBegin={term.dateBegin}
+                dateEnd={term.dateEnd}
+                time={term.time}
+                location={term.location}
+                price={term.price}
+                bookingLink={term.bookingLink}
+                description={term.description}
+              />
+            ))
           ) : (
             <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
               <h3 class="text-2xl font-bold mb-4 text-db-pink">
@@ -259,9 +259,9 @@ function getDayName(dateString: string) {
           class="inline-block px-8 py-3 bg-gradient-to-r from-db-pink to-db-light-pink text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
         >
           <span class="sr-only"
-            >View all available dance classes at Dance Bloc Brazil</span
+            >View all available dance terms at Dance Bloc Brazil</span
           >
-          View All Classes
+          View All Terms
         </a>
       </div>
     </SectionContainer>
