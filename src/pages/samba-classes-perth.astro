@@ -5,7 +5,7 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
 import danceclassHero from "../images/danceclassHero.avif";
-import { Picture as AstroPicture } from "astro:assets";
+import { Picture } from "astro:assets";
 import { terms } from "../data/terms";
 
 export const metadata = {
@@ -37,6 +37,7 @@ export const metadata = {
     image: danceclassHero.src,
   },
 };
+---
 
 <Layout
   title="Classes"
@@ -45,7 +46,7 @@ export const metadata = {
   url="https://danceblocbrazil.com/samba-classes-perth"
 >
   <div class="relative h-[65vh] flex items-center">
-    <AstroPicture
+    <Picture
       src={danceclassHero}
       alt=""
       class="absolute inset-0 w-full h-full object-cover z-0"
@@ -54,8 +55,10 @@ export const metadata = {
       loading="eager"
       fetchpriority="high"
     />
-    {/* Gradient Overlay */}
-    <div class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"
+    >
+    </div>
   </div>
 
   <SectionContainer class="mt-[-40px] mb-64">
@@ -65,19 +68,21 @@ export const metadata = {
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-24">
-      {terms.map((term) => (
-        <TermCard
-          name={term.name}
-          level={term.level}
-          dateBegin={term.dateBegin}
-          dateEnd={term.dateEnd}
-          time={term.time}
-          location={term.location}
-          price={term.price}
-          bookingLink={term.bookingLink}
-          description={term.description}
-        />
-      ))}
+      {
+        terms.map((term) => (
+          <TermCard
+            name={term.name}
+            level={term.level}
+            dateBegin={term.dateBegin}
+            dateEnd={term.dateEnd}
+            time={term.time}
+            location={term.location}
+            price={term.price}
+            bookingLink={term.bookingLink}
+            description={term.description}
+          />
+        ))
+      }
     </div>
   </SectionContainer>
 
@@ -186,7 +191,9 @@ export const metadata = {
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64">
+  <SectionContainer
+    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64"
+  >
     <SectionTitle
       title="Private Events & Workshops"
       subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
@@ -203,4 +210,3 @@ export const metadata = {
     </div>
   </SectionContainer>
 </Layout>;
----
