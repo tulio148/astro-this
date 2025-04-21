@@ -3,29 +3,10 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import ClassCard from "../components/ClassCard.astro";
 import TermCard from "../components/TermCard.astro";
-// import { client, type DanceClass } from "../lib/sanity";
-import TermCard from "../components/TermCard.astro";
-// import { client, type DanceClass } from "../lib/sanity";
 import danceclassHero from "../images/danceclassHero.avif";
 import { Picture as AstroPicture } from "astro:assets";
 import { terms } from "../data/terms";
-
-// Define terms data
-// const terms = [
-//   {
-//     name: "Samba Beginners Term 1",
-//     level: "Beginner",
-//     dateBegin: "8th May 2025",
-//     dateEnd: "5th June 2025",
-//     time: "7:30pm - 8:30pm",
-//     location: "Balcatta",
-//     price: "$110",
-//     bookingLink:
-//       "https://checkout.square.site/merchant/G3RV3Q4J8CFQJ/checkout/Q3CUDWNQV6I4NRFX34LZGM2K?src=sheet",
-//   },
-// ];
 
 export const metadata = {
   title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
@@ -57,36 +38,6 @@ export const metadata = {
   },
 };
 
-// Fetch all dance classes from Sanity
-// const danceClasses = await client.fetch<DanceClass[]>(
-//   `*[_type == "danceClass"] | order(date asc)`
-// );
-// const danceClasses = await client.fetch<DanceClass[]>(
-//   `*[_type == "danceClass"] | order(date asc)`
-// );
-
-// // Filter classes by style
-// const sambaClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "samba"
-// );
-// const funkClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "brazilianFunk"
-// );
-// // Filter classes by style
-// const sambaClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "samba"
-// );
-// const funkClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "brazilianFunk"
-// );
-
-// Helper function to format date to day name
-function getDayName(dateString: string) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", { weekday: "long" });
-}
----
-
 <Layout
   title="Classes"
   description="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels."
@@ -104,10 +55,7 @@ function getDayName(dateString: string) {
       fetchpriority="high"
     />
     {/* Gradient Overlay */}
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"
-    >
-    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"></div>
   </div>
 
   <SectionContainer class="mt-[-40px] mb-64">
@@ -117,194 +65,142 @@ function getDayName(dateString: string) {
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-24">
-      {
-        terms.map((term) => (
-          <TermCard
-            name={term.name}
-            level={term.level}
-            dateBegin={term.dateBegin}
-            dateEnd={term.dateEnd}
-            time={term.time}
-            location={term.location}
-            price={term.price}
-            bookingLink={term.bookingLink}
-            description={term.description}
-          />
-        ))
-      }
+      {terms.map((term) => (
+        <TermCard
+          name={term.name}
+          level={term.level}
+          dateBegin={term.dateBegin}
+          dateEnd={term.dateEnd}
+          time={term.time}
+          location={term.location}
+          price={term.price}
+          bookingLink={term.bookingLink}
+          description={term.description}
+        />
+      ))}
     </div>
   </SectionContainer>
 
-  <!-- <SectionContainer class="mb-64">
-  <!-- <SectionContainer class="mb-64">
+  <SectionContainer class="mb-64 bg-db-light-pink/5 rounded-3xl">
     <SectionTitle
-      title="Brazilian Funk Classes"
-      subtitle="Experience the energetic and expressive dance style of Brazilian Funk in our dynamic classes."
+      title="Class Information"
+      subtitle="Everything you need to know before attending your first class at Dance Bloc Brazil."
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-      {
-        funkClasses.length > 0 ? (
-          funkClasses.map((classItem) => (
-            <ClassCard
-              title={classItem.name}
-              instructor={classItem.instructor || "TBA"}
-              level={
-                classItem.level.charAt(0).toUpperCase() +
-                classItem.level.slice(1)
-              }
-              day={getDayName(classItem.date)}
-              time={classItem.time}
-            />
-          ))
-        ) : (
-          <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
-            <h3 class="text-2xl font-bold mb-4 text-db-pink">
-              We're Planning Our Next Funk Term
-            </h3>
-            <p class="mb-6 text-slate-600">
-              We are currently planning our future Brazilian Funk classes. Leave
-              your email below to be notified when new classes are available!
-            </p>
-            <form class="max-w-md mx-auto">
-              <div class="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-db-pink"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="px-6 py-2 bg-db-pink text-white rounded-lg hover:bg-db-light-pink transition-colors"
-                >
-                  Notify Me
-                </button>
-              </div>
-            </form>
-          </div>
-        )
-      }
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">What to Bring</h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span class="text-slate-600">
+              Comfortable clothing that allows for movement
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span class="text-slate-600">
+              Sneakers or dance shoes with non-marking soles
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span class="text-slate-600">Water bottle to stay hydrated</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span class="text-slate-600">Small towel (optional)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">✓</span>
+            <span class="text-slate-600">Positive attitude and energy!</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Class Structure</h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">1.</span>
+            <span class="text-slate-600">Warm-up (10-15 minutes)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">2.</span>
+            <span class="text-slate-600">
+              Technique practice (15-20 minutes)
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">3.</span>
+            <span class="text-slate-600">
+              Choreography learning (20-25 minutes)
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">4.</span>
+            <span class="text-slate-600">
+              Practice and refinement (10-15 minutes)
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-db-pink mr-2">5.</span>
+            <span class="text-slate-600">
+              Cool-down and stretching (5-10 minutes)
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Pricing</h3>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start">
+            <span class="font-bold mr-2">Drop-in Class:</span>
+            <span class="text-slate-600">$35 per class</span>
+          </li>
+          <li class="flex items-start">
+            <span class="font-bold mr-2">5-Class Pass:</span>
+            <span class="text-slate-600">$160</span>
+          </li>
+          <li class="flex items-start">
+            <span class="font-bold mr-2">Private Lessons:</span>
+            <span class="text-slate-600">Starting at $100 per hour</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">
+          Booking Information
+        </h3>
+        <p class="mb-4 text-slate-600">
+          Classes can be booked by email or by phone. We recommend booking in
+          advance as classes often fill up quickly.
+        </p>
+        <p class="mb-4 text-slate-600">
+          For cancellations, please notify us at least 24 hours in advance to
+          receive a credit for a future class.
+        </p>
+      </div>
     </div>
-  </SectionContainer> -->
-</Layout> -->
+  </SectionContainer>
 
-<SectionContainer class="mb-64 bg-db-light-pink/5 rounded-3xl">
-  <SectionTitle
-    title="Class Information"
-    subtitle="Everything you need to know before attending your first class at Dance Bloc Brazil."
-  />
+  <SectionContainer class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64">
+    <SectionTitle
+      title="Private Events & Workshops"
+      subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
+      class="mb-24"
+    />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-12">
-    <div>
-      <h3 class="text-2xl font-bold mb-4 text-db-pink">What to Bring</h3>
-      <ul class="space-y-3 mb-6">
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">✓</span>
-          <span class="text-slate-600"
-            >Comfortable clothing that allows for movement</span
-          >
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">✓</span>
-          <span class="text-slate-600"
-            >Sneakers or dance shoes with non-marking soles</span
-          >
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">✓</span>
-          <span class="text-slate-600">Water bottle to stay hydrated</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">✓</span>
-          <span class="text-slate-600">Small towel (optional)</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">✓</span>
-          <span class="text-slate-600">Positive attitude and energy!</span>
-        </li>
-      </ul>
+    <div class="mt-8">
+      <a
+        href="/contact"
+        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mb-5"
+      >
+        Inquire About Private Events
+      </a>
     </div>
-
-    <div>
-      <h3 class="text-2xl font-bold mb-4 text-db-pink">Class Structure</h3>
-      <ul class="space-y-3 mb-6">
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">1.</span>
-          <span class="text-slate-600">Warm-up (10-15 minutes)</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">2.</span>
-          <span class="text-slate-600">Technique practice (15-20 minutes)</span>
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">3.</span>
-          <span class="text-slate-600"
-            >Choreography learning (20-25 minutes)</span
-          >
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">4.</span>
-          <span class="text-slate-600"
-            >Practice and refinement (10-15 minutes)</span
-          >
-        </li>
-        <li class="flex items-start">
-          <span class="text-db-pink mr-2">5.</span>
-          <span class="text-slate-600"
-            >Cool-down and stretching (5-10 minutes)</span
-          >
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-2xl font-bold mb-4 text-db-pink">Pricing</h3>
-      <ul class="space-y-3 mb-6">
-        <li class="flex items-start">
-          <span class="font-bold mr-2">Drop-in Class:</span>
-          <span class="text-slate-600">$35 per class</span>
-        </li>
-        <li class="flex items-start">
-          <span class="font-bold mr-2">5-Class Pass:</span>
-          <span class="text-slate-600">$160</span>
-        </li>
-        <li class="flex items-start">
-          <span class="font-bold mr-2">Private Lessons:</span>
-          <span class="text-slate-600">Starting at $100 per hour</span>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-2xl font-bold mb-4 text-db-pink">Booking Information</h3>
-      <p class="mb-4 text-slate-600">
-        Classes can be booked by email or by phone. We recommend booking in
-        advance as classes often fill up quickly.
-      </p>
-      <p class="mb-4 text-slate-600">
-        For cancellations, please notify us at least 24 hours in advance to
-        receive a credit for a future class.
-      </p>
-    </div>
-  </div>
-</SectionContainer>
-
-<SectionContainer
-  class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64"
->
-  <SectionTitle
-    title="Private Events & Workshops"
-    subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
-    class="mb-24"
-  />
-
-  <div class="mt-8">
-    <a
-      href="/contact"
-      class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mb-5"
-    >
-      Inquire About Private Events
-    </a>
-  </div>
-</SectionContainer>
+  </SectionContainer>
+</Layout>;
+---

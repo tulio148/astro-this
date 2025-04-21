@@ -76,23 +76,23 @@ const faqSchema = {
 };
 
 // Fetch all dance classes from Sanity
-const danceClasses = await client.fetch<DanceClass[]>(
-  `*[_type == "danceClass"] | order(date asc)`
-);
-// const danceClasses: DanceClass[] = [];
-// Filter classes by style
-const sambaClasses = danceClasses.filter(
-  (classItem) => classItem.style === "samba"
-);
-const funkClasses = danceClasses.filter(
-  (classItem) => classItem.style === "brazilianFunk"
-);
+// const danceClasses = await client.fetch<DanceClass[]>(
+//   `*[_type == "danceClass"] | order(date asc)`
+// );
+// // const danceClasses: DanceClass[] = [];
+// // Filter classes by style
+// const sambaClasses = danceClasses.filter(
+//   (classItem) => classItem.style === "samba"
+// );
+// const funkClasses = danceClasses.filter(
+//   (classItem) => classItem.style === "brazilianFunk"
+// );
 
 // Helper function to format date to day name
-function getDayName(dateString: string) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", { weekday: "long" });
-}
+// function getDayName(dateString: string) {
+//   const date = new Date(dateString);
+//   return date.toLocaleDateString("en-US", { weekday: "long" });
+// }
 ---
 
 <Layout
