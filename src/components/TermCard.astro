@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  level: string;
+  dateBegin: string;
+  dateEnd: string;
+  location: string;
+  price: string;
+  bookingLink: string;
+}
+
+const { name, level, dateBegin, dateEnd, location, price, bookingLink } =
+  Astro.props;
+---
+
+<div
+  class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+>
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-db-pink mb-2">{name}</h3>
+    <div class="space-y-3">
+      <div class="flex items-center">
+        <span class="text-slate-600 font-medium mr-2">Level:</span>
+        <span class="text-slate-800">{level}</span>
+      </div>
+      <div class="flex items-center">
+        <span class="text-slate-600 font-medium mr-2">Dates:</span>
+        <span class="text-slate-800">{dateBegin} - {dateEnd}</span>
+      </div>
+      <div class="flex items-center">
+        <span class="text-slate-600 font-medium mr-2">Location:</span>
+        <span class="text-slate-800">{location}</span>
+      </div>
+      <div class="flex items-center">
+        <span class="text-slate-600 font-medium mr-2">Price:</span>
+        <span class="text-slate-800">{price}</span>
+      </div>
+    </div>
+    <div class="mt-6">
+      <a
+        href={bookingLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full bg-db-pink hover:bg-db-light-pink text-white text-center font-bold py-2 px-4 rounded-lg transition-colors"
+      >
+        Book Now
+      </a>
+    </div>
+  </div>
+</div>
+
