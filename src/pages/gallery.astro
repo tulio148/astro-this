@@ -1,0 +1,283 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Picture from "astro/components/Picture.astro";
+
+// Import images
+import dancer from "../images/dancer.avif";
+import dancers from "../images/dancers.avif";
+import events1 from "../images/events1.webp";
+import danceclassHero from "../images/danceclassHero.avif";
+import costumeHireHero from "../images/costumeHireHeroAvif.avif";
+
+export const metadata = {
+  title: "Gallery | Brazilian Dance Performances in Perth",
+  description:
+    "Explore our gallery of Brazilian dance performances, classes, and events in Perth. Witness the vibrant energy and passion of our dance community.",
+  openGraph: {
+    title: "Gallery | Brazilian Dance Performances in Perth",
+    description:
+      "Explore our gallery of Brazilian dance performances, classes, and events in Perth. Witness the vibrant energy and passion of our dance community.",
+    url: "https://danceblocbrazil.com/gallery",
+    siteName: "Samba Dance Perth",
+    images: [
+      {
+        url: dancer.src,
+        width: 1200,
+        height: 630,
+        alt: "Brazilian Dance Gallery - Perth",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gallery | Brazilian Dance Performances in Perth",
+    description:
+      "Explore our gallery of Brazilian dance performances, classes, and events in Perth. Witness the vibrant energy and passion of our dance community.",
+    image: dancer.src,
+  },
+};
+---
+
+<Layout
+  title="Gallery"
+  description="Explore our vibrant gallery of dance performances, classes, and events at Dance Bloc Brazil"
+  image={dancer.src}
+  url="https://danceblocbrazil.com/gallery"
+>
+  <div class="relative h-[25vh] flex items-center">
+    {/* Gradient Overlay */}
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-db-pink/80 to-white z-10"
+    >
+    </div>
+  </div>
+
+  <SectionContainer class="mt-[-40px]">
+    <SectionTitle
+      title="Our Gallery"
+      subtitle="Explore the vibrant moments and performances that capture the essence of our dance journey. From energetic performances to intimate class moments, our gallery showcases the passion and dedication of our dance community."
+      class="mb-56"
+    />
+
+    <!-- Main Gallery Carousel -->
+    <div class="swiper main-gallery mb-12">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="relative aspect-video rounded-lg overflow-hidden">
+            <Picture
+              src={dancer}
+              alt="Dance performance"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative aspect-video rounded-lg overflow-hidden">
+            <Picture
+              src={dancers}
+              alt="Group dance performance"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative aspect-video rounded-lg overflow-hidden">
+            <Picture
+              src={events1}
+              alt="Dance event"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative aspect-video rounded-lg overflow-hidden">
+            <Picture
+              src={danceclassHero}
+              alt="Dance class"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative aspect-video rounded-lg overflow-hidden">
+            <Picture
+              src={costumeHireHero}
+              alt="Dance costumes"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Thumbnail Gallery -->
+    <div class="swiper thumbnail-gallery">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div
+            class="relative aspect-video rounded-lg overflow-hidden cursor-pointer"
+          >
+            <Picture
+              src={dancer}
+              alt="Dance performance thumbnail"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="relative aspect-video rounded-lg overflow-hidden cursor-pointer"
+          >
+            <Picture
+              src={dancers}
+              alt="Group dance performance thumbnail"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="relative aspect-video rounded-lg overflow-hidden cursor-pointer"
+          >
+            <Picture
+              src={events1}
+              alt="Dance event thumbnail"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="relative aspect-video rounded-lg overflow-hidden cursor-pointer"
+          >
+            <Picture
+              src={danceclassHero}
+              alt="Dance class thumbnail"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div
+            class="relative aspect-video rounded-lg overflow-hidden cursor-pointer"
+          >
+            <Picture
+              src={costumeHireHero}
+              alt="Dance costumes thumbnail"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer
+    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl"
+  >
+    <SectionTitle
+      title="Ready to Join the Dance?"
+      subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
+      class="mb-40"
+    />
+
+    <div class="mt-8">
+      <a
+        href="/samba-classes-perth"
+        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+      >
+        View Classes
+      </a>
+      <a
+        href="/#contact"
+        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+      >
+        Contact Us
+      </a>
+    </div>
+  </SectionContainer>
+</Layout>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Thumbs } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/thumbs";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const thumbnailSwiper = new Swiper(".thumbnail-gallery", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    const mainSwiper = new Swiper(".main-gallery", {
+      modules: [Navigation, Pagination, Thumbs],
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      thumbs: {
+        swiper: thumbnailSwiper,
+      },
+    });
+  });
+</script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ff69b4;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ff69b4;
+  }
+
+  .thumbnail-gallery .swiper-slide {
+    opacity: 0.4;
+  }
+
+  .thumbnail-gallery .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+</style>

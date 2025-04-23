@@ -1,0 +1,253 @@
+---
+interface Props {
+  basePrices?: {
+    sambaSpotlight: number;
+    carnivalExperience: number;
+    rioSpectacular: number;
+  };
+}
+
+const {
+  basePrices = {
+    sambaSpotlight: 800,
+    carnivalExperience: 1800,
+    rioSpectacular: 3800,
+  },
+} = Astro.props;
+
+const addOns = {
+  livePercussion: 500,
+  customChoreography: 300,
+  interactiveWorkshop: 400,
+  premiumCostumes: 200,
+  extendedPerformance: 400,
+  multiplePerformances: 600,
+  earlyBirdDiscount: -200,
+  weekendSurcharge: 300,
+};
+
+const eventTypeMultipliers = {
+  corporate: 1.2,
+  wedding: 1.3,
+  private: 1.0,
+  festival: 1.1,
+};
+---
+
+<div class="bg-white rounded-lg shadow-lg p-6">
+  <h3 class="text-2xl font-bold mb-6 text-db-pink">Show Cost Estimator</h3>
+
+  <form class="space-y-6" id="showEstimatorForm">
+    <!-- Event Type -->
+    <div>
+      <label class="block text-lg font-medium mb-2">Event Type</label>
+      <select
+        name="eventType"
+        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-db-pink focus:border-db-pink"
+        required
+      >
+        <option value="corporate">Corporate Event</option>
+        <option value="wedding">Wedding</option>
+        <option value="private">Private Party</option>
+        <option value="festival">Festival/Public Event</option>
+      </select>
+    </div>
+
+    <!-- Event Date -->
+    <div>
+      <label class="block text-lg font-medium mb-2">Event Date</label>
+      <input
+        type="date"
+        name="eventDate"
+        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-db-pink focus:border-db-pink"
+        required
+      />
+    </div>
+
+    <!-- Package Selection -->
+    <div>
+      <label class="block text-lg font-medium mb-2">Package</label>
+      <select
+        name="package"
+        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-db-pink focus:border-db-pink"
+        required
+      >
+        <option value="sambaSpotlight"
+          >Samba Spotlight (2 dancers, 10 min)</option
+        >
+        <option value="carnivalExperience"
+          >Carnival Experience (4 dancers, 20 min)</option
+        >
+        <option value="rioSpectacular"
+          >Rio Spectacular (4+ dancers, 45-60 min)</option
+        >
+      </select>
+    </div>
+
+    <!-- Additional Options -->
+    <div>
+      <label class="block text-lg font-medium mb-2">Additional Options</label>
+      <div class="space-y-2">
+        <label class="flex items-center">
+          <input type="checkbox" name="livePercussion" class="mr-2" />
+          <span>Live Percussion (+${addOns.livePercussion})</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" name="customChoreography" class="mr-2" />
+          <span>Custom Choreography (+${addOns.customChoreography})</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" name="interactiveWorkshop" class="mr-2" />
+          <span>Interactive Workshop (+${addOns.interactiveWorkshop})</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" name="premiumCostumes" class="mr-2" />
+          <span>Premium Costumes (+${addOns.premiumCostumes})</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" name="extendedPerformance" class="mr-2" />
+          <span>Extended Performance (+${addOns.extendedPerformance})</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" name="multiplePerformances" class="mr-2" />
+          <span>Multiple Performances (+${addOns.multiplePerformances})</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Estimated Cost Display -->
+    <div class="bg-db-light-pink/10 p-4 rounded-lg">
+      <h4 class="text-lg font-medium mb-2">Estimated Cost</h4>
+      <p class="text-2xl font-bold text-db-pink" id="estimatedCost">$0</p>
+      <div id="costBreakdown" class="mt-2 text-sm text-slate-600"></div>
+    </div>
+
+    <!-- Get Quote Button -->
+    <div class="mt-6">
+      <button
+        type="button"
+        id="getQuoteBtn"
+        class="w-full bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer"
+      >
+        Get Detailed Quote
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("showEstimatorForm") as HTMLFormElement;
+  const estimatedCost = document.getElementById(
+    "estimatedCost"
+  ) as HTMLParagraphElement;
+  const costBreakdown = document.getElementById(
+    "costBreakdown"
+  ) as HTMLDivElement;
+  const getQuoteBtn = document.getElementById(
+    "getQuoteBtn"
+  ) as HTMLButtonElement;
+
+  if (!form || !estimatedCost || !costBreakdown || !getQuoteBtn) {
+    console.error("Required form elements not found");
+  } else {
+    const basePrices = {
+      sambaSpotlight: 800,
+      carnivalExperience: 1800,
+      rioSpectacular: 3800,
+    };
+
+    const addOns = {
+      livePercussion: 500,
+      customChoreography: 300,
+      interactiveWorkshop: 400,
+      premiumCostumes: 200,
+      extendedPerformance: 400,
+      multiplePerformances: 600,
+      earlyBirdDiscount: -200,
+      weekendSurcharge: 300,
+    };
+
+    const eventTypeMultipliers = {
+      corporate: 1.2,
+      wedding: 1.3,
+      private: 1.0,
+      festival: 1.1,
+    };
+
+    function calculateCost() {
+      const formData = new FormData(form);
+      const selectedPackage = formData.get(
+        "package"
+      ) as keyof typeof basePrices;
+      const eventType = formData.get(
+        "eventType"
+      ) as keyof typeof eventTypeMultipliers;
+      const eventDate = new Date(formData.get("eventDate") as string);
+
+      let basePrice = basePrices[selectedPackage] || 0;
+      let total = basePrice;
+      let breakdown = [`Base Package: $${basePrice}`];
+
+      // Apply event type multiplier
+      const multiplier = eventTypeMultipliers[eventType] || 1;
+      const adjustedBase = basePrice * multiplier;
+      if (multiplier !== 1) {
+        breakdown.push(
+          `Event Type Adjustment: $${Math.round(adjustedBase - basePrice)}`
+        );
+        total = adjustedBase;
+      }
+
+      // Check for weekend surcharge
+      if (eventDate.getDay() === 0 || eventDate.getDay() === 6) {
+        total += addOns.weekendSurcharge;
+        breakdown.push(`Weekend Surcharge: $${addOns.weekendSurcharge}`);
+      }
+
+      // Check for early bird discount (if booking more than 2 months in advance)
+      const today = new Date();
+      const monthsInAdvance =
+        (eventDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24 * 30);
+      if (monthsInAdvance > 2) {
+        total += addOns.earlyBirdDiscount;
+        breakdown.push(
+          `Early Bird Discount: $${Math.abs(addOns.earlyBirdDiscount)}`
+        );
+      }
+
+      // Add selected add-ons
+      for (const [addOn, price] of Object.entries(addOns)) {
+        if (formData.get(addOn) && price > 0) {
+          total += price;
+          breakdown.push(
+            `${addOn.replace(/([A-Z])/g, " $1").trim()}: $${price}`
+          );
+        }
+      }
+
+      estimatedCost.textContent = `$${Math.round(total)}`;
+      costBreakdown.innerHTML = breakdown.join("<br>");
+    }
+
+    function handleGetQuote() {
+      const formData = new FormData(form);
+      const queryParams = new URLSearchParams();
+
+      // Add all form data to query params
+      for (const [key, value] of formData.entries()) {
+        queryParams.append(key, value as string);
+      }
+
+      // Redirect to contact page with pre-filled data
+      window.location.href = `/contact?${queryParams.toString()}`;
+    }
+
+    // Add event listeners
+    form.addEventListener("change", calculateCost);
+    form.addEventListener("input", calculateCost);
+    getQuoteBtn.addEventListener("click", handleGetQuote);
+
+    // Initial calculation
+    calculateCost();
+  }
+</script>

@@ -7,6 +7,7 @@ import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ShowCostEstimator from "../components/ShowCostEstimator.astro";
 import Picture from "astro/components/Picture.astro";
 import { Picture as AstroPicture } from "astro:assets";
 
@@ -200,6 +201,11 @@ export const metadata = {
           </ul>
         </div>
       </Card>
+    </div>
+
+    <!-- Add the Show Cost Estimator -->
+    <div class="mt-16">
+      <ShowCostEstimator />
     </div>
   </SectionContainer>
 
