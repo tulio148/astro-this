@@ -10,7 +10,6 @@ import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import TermCard from "../components/TermCard.astro";
 import Picture from "astro/components/Picture.astro";
-import { client, type DanceClass } from "../lib/sanity";
 import { terms } from "../data/terms";
 // Import images
 import hero from "../images/hero.avif";
@@ -74,19 +73,6 @@ const faqSchema = {
     },
   ],
 };
-
-// Fetch all dance classes from Sanity
-// const danceClasses = await client.fetch<DanceClass[]>(
-//   `*[_type == "danceClass"] | order(date asc)`
-// );
-// // const danceClasses: DanceClass[] = [];
-// // Filter classes by style
-// const sambaClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "samba"
-// );
-// const funkClasses = danceClasses.filter(
-//   (classItem) => classItem.style === "brazilianFunk"
-// );
 
 // Helper function to format date to day name
 // function getDayName(dateString: string) {

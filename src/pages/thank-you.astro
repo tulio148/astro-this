@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Picture from "astro/components/Picture.astro";
+import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
+
+const title = "Thank You | Dance Bloc Brazil";
+const description =
+  "Thank you for contacting Dance Bloc Brazil. We'll get back to you soon!";
+const image = cartoonDancerDouble.src;
+const url = "https://danceblocbrazil.com/thank-you";
+---
+
+<Layout title={title} description={description} image={image} url={url}>
+  <main class="min-h-screen flex items-center justify-center py-16">
+    <SectionContainer class="my-32">
+      <div class="max-w-3xl mx-auto text-center">
+        <Picture
+          src={cartoonDancerDouble}
+          alt="Dance Bloc Brazil"
+          width={300}
+          height={300}
+          class="rounded-full mx-auto mb-8"
+        />
+
+        <SectionTitle
+          title="Thank You!"
+          subtitle="Your message has been sent successfully. We'll get back to you as soon as possible."
+          class="mb-12"
+        />
+
+        <div class="space-y-6">
+          <p class="text-lg text-slate-600">
+            We appreciate you reaching out to Dance Bloc Brazil. Our team will
+            review your message and respond shortly.
+          </p>
+
+          <div class="pt-8">
+            <a
+              href="/"
+              class="inline-block px-8 py-3 bg-gradient-to-r from-db-pink to-db-light-pink text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Return to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </SectionContainer>
+  </main>
+</Layout>
