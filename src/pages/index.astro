@@ -537,8 +537,8 @@ const faqSchema = {
     // Initialize animations
     animateOnScroll();
 
-    // Form validation
-    const emailForm = document.querySelector("form");
+    // Form validation - ONLY for the notification form, not contact form
+    const emailForm = document.querySelector(".md\\:col-span-3 form");
     if (emailForm) {
       emailForm.addEventListener("submit", (e) => {
         e.preventDefault();
