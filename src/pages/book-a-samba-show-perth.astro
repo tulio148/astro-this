@@ -56,6 +56,7 @@ export const metadata = {
   description="Book Dance Bloc Brazil's electrifying Brazilian samba carnival performances for your event in Perth. Our talented dancers bring the vibrant spirit of Brazil to corporate events, private parties, and festivals."
   image={showForHireHero.src}
   url="https://danceblocbrazil.com/book-a-samba-show-perth"
+  pageEvent="BookSambaShowView"
 >
   <div class="relative h-[65vh] flex items-center">
     <AstroPicture
@@ -120,7 +121,7 @@ export const metadata = {
     />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-      <Card>
+      <Card data-track="SambaSpotlightInterest">
         <div class="py-6">
           <h3 class="text-2xl font-bold mb-4 text-db-pink">Samba Spotlight</h3>
           <p class="mb-6">
@@ -141,7 +142,7 @@ export const metadata = {
         </div>
       </Card>
 
-      <Card>
+      <Card data-track="CarnivalExperienceInterest">
         <div class="py-6">
           <h3 class="text-2xl font-bold mb-4 text-db-pink">
             Carnival Experience
@@ -164,7 +165,7 @@ export const metadata = {
         </div>
       </Card>
 
-      <Card>
+      <Card data-track="RioSpectacularInterest">
         <div class="py-6">
           <h3 class="text-2xl font-bold mb-4 text-db-pink">Rio Spectacular</h3>
           <p class="mb-6">

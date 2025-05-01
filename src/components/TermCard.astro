@@ -130,6 +130,13 @@ const {
       target="_blank"
       rel="noopener noreferrer"
       class="block w-full bg-db-pink hover:bg-db-light-pink text-white text-center font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
+      data-track="BookClassClick"
+      data-track-params={JSON.stringify({
+        class_name: name,
+        class_level: level,
+        class_price: price,
+        class_location: location,
+      })}
     >
       Book Now
     </a>

@@ -7,6 +7,7 @@ interface Props {
   image: string;
   url: string;
   structuredData?: any[];
+  pageEvent?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   image = "/images/hero.avif",
   url = "https://danceblocbrazil.com",
   structuredData = [],
+  pageEvent = "",
 } = Astro.props;
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
@@ -75,6 +77,47 @@ import Footer from "../components/Footer.astro";
         <script type="application/ld+json" set:html={JSON.stringify(data)} />
       ))
     }
+
+    <!-- Meta Pixel Code -->
+    <script is:inline define:vars={{ pageEvent }}>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1320158689084358");
+      fbq("track", "PageView");
+      if (pageEvent) {
+        fbq("track", pageEvent);
+      }
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1320158689084358&ev=PageView&noscript=1"
+      /></noscript
+    >
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
     <Navigation />
@@ -84,5 +127,16 @@ import Footer from "../components/Footer.astro";
     </main>
 
     <Footer />
+
+    <!-- Initialize button click tracking -->
+    <script>
+      import { initClickTracking } from "../lib/pixelEvents.js";
+
+      // Wait for the DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize click tracking for elements with data-track attribute
+        initClickTracking();
+      });
+    </script>
   </body>
 </html>

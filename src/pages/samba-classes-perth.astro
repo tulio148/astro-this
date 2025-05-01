@@ -44,6 +44,7 @@ export const metadata = {
   description="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels."
   image={danceclassHero.src}
   url="https://danceblocbrazil.com/samba-classes-perth"
+  pageEvent="SambaClassesView"
 >
   <div class="relative h-[65vh] flex items-center">
     <Picture
@@ -204,6 +205,8 @@ export const metadata = {
       <a
         href="/contact"
         class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mb-5"
+        data-track="PrivateEventsInquiry"
+        data-track-params='{"source":"classes_page", "event_type":"workshop"}'
       >
         Inquire About Private Events
       </a>
