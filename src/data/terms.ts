@@ -16,7 +16,7 @@ export const terms: Term[] = [
     level: "Beginner",
     dateBegin: "26th June 2025",
     dateEnd: "24th July 2025",
-    time: "7:30pm - 8:30pm",
+    time: "7:40pm - 8:40pm",
     location: "Balcatta",
     price: "$110",
     bookingLink:
