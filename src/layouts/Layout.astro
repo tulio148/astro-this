@@ -192,8 +192,9 @@ import Footer from "../components/Footer.astro";
           .privacy-footer { margin-top: 8px; text-align: center; font-size: 10px; color: #64748b; }
           .privacy-footer a { color: #9E0096; text-decoration: none; }
           .privacy-footer a:hover { text-decoration: underline; }
-          a { color: #9E0096; text-decoration: underline; transition: all 0.2s; }
-          a:hover { color: #FF00F7; }
+          /* Scope anchor styles to the chat widget only so global anchors aren't affected */
+          .chat-widget a { color: #9E0096; text-decoration: underline; transition: all 0.2s; }
+          .chat-widget a:hover { color: #FF00F7; }
            @media (max-width: 440px) {
   /* Approach 1: Reset positioning completely for mobile */
   .chat-container {
