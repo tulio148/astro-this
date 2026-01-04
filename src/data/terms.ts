@@ -14,8 +14,8 @@ export const terms: Term[] = [
   {
     name: "Samba no Pe Beginners",
     level: "Beginner",
-    dateBegin: "8th January 2026",
-    dateEnd: "5th February 2026",
+    dateBegin: "15th January 2026",
+    dateEnd: "12nd February 2026",
     time: "7:40pm - 8:30pm",
     location: "Balcatta",
     price: "$110",
