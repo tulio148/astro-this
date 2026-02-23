@@ -12,7 +12,7 @@ export interface Term {
 
 export const terms: Term[] = [
   {
-    name: "Samba no Pe Beginners",
+    name: "Samba no Pe Beginners/Intermediate",
     level: "Beginner",
     dateBegin: "11th March 2026",
     dateEnd: "8th April 2026",
