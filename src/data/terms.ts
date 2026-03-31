@@ -65,8 +65,7 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
     time: "",
     location: "",
     price: "",
-    bookingLink:
-      "https://checkout.square.site/merchant/G3RV3Q4J8CFQJ/checkout/Q3CUDWNQV6I4NRFX34LZGM2K?src=sheet",
+    bookingLink: "https://square.link/u/i9DNtnt3?src=sheet",
     description:
       "Can’t make the full term but still want to join here and there? No problem. Jump into class whenever it suits you.",
     showDetails: false,
