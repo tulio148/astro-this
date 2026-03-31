@@ -31,7 +31,7 @@ Class structure:
 First 30min (7:00–7:30pm)
 A beginner-focused session covering samba basics, technique, and simple steps, with plenty of guidance and individual feedback.
 
-Second 30 minutes (7:30–8:00pm)
+Second 30min (7:30–8:00pm)
 Join our intermediate dancers for a fun, high-energy choreography session. This section is designed to be beginner-friendly, with options to suit all levels - helping you build confidence, coordination, and enjoy the full samba vibe.`,
   },
   {
@@ -52,7 +52,7 @@ Class structure:
 First 30min (7:30–8:00pm)
 Begin with a shared, high-energy choreography session alongside the beginner group. This section focuses on coordination, musicality, arm styling, and endurance through a dynamic routine, helping you build performance quality.
 
-Second 30 minutes (8:00–8:30pm)
+Second 30min (8:00–8:30pm)
 A dedicated intermediate session with more focused technique work, drills, and skill development to help you clean your movement and progress with confidence.
 
 Expect a challenge, plenty of growth, and lots of samba energy.`,
