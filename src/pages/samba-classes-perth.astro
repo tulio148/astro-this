@@ -4,10 +4,11 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import Hero from "../components/Hero.astro";
+import { Picture } from "astro:assets";
 import classesHero from "../images/classesHero.avif";
+import servicePathClasses from "../images/service-path-classes.avif";
 import { terms } from "../data/terms";
 import { faqSchema, serviceSchema } from "../lib/schema";
 
@@ -47,6 +48,29 @@ const structuredData = [
     image: classesHero.src,
   }),
   faqSchema(faqs),
+];
+
+const firstClassSteps = [
+  "Arrive a few minutes early, settle in, and ask any first-class questions.",
+  "Warm up with simple rhythm, posture, and coordination work.",
+  "Learn the samba no pe basic step with clear timing and repetition.",
+  "Add hips, arms, direction changes, and beginner-friendly styling options.",
+  "Finish with a short routine or movement phrase that ties the class together.",
+];
+
+const progressionSteps = [
+  {
+    title: "Beginner foundation",
+    body: "Build the basic step, timing, balance, and confidence to keep moving.",
+  },
+  {
+    title: "Coordination",
+    body: "Layer arms, hips, direction changes, and simple choreography without rushing.",
+  },
+  {
+    title: "Intermediate training",
+    body: "Refine technique, stamina, musicality, and performance quality.",
+  },
 ];
 ---
 
@@ -120,17 +144,37 @@ const structuredData = [
   </SectionContainer>
 
   <SectionContainer>
-    <MediaPlaceholder
-      title="Classes page media"
-      assetNeed="Real class environment proof for the samba classes page."
-      ratio="4:5 portrait image or 16:9 video"
-      subject="Show a beginner-friendly class, teacher/demo moment, or group energy inside the class environment."
-      options={[
-        "Beginner class photo",
-        "Short class video showing instruction and group energy",
-        "Teacher/demo photo in studio",
-      ]}
+    <Picture
+      src={servicePathClasses}
+      alt="Beginner samba class in a bright Perth studio with students following the teacher"
+      widths={[480, 720, 960, 1200, 1440]}
+      sizes="(max-width: 768px) 100vw, 1120px"
+      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-[2rem] object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
+      loading="lazy"
     />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Your first class"
+      subtitle="A clear class flow helps first-timers know what will happen before they walk in."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-5">
+      {
+        firstClassSteps.map((step, index) => (
+          <div class="motion-card reveal-on-scroll min-h-[190px] rounded-[1.5rem] border border-db-pink/10 bg-white p-6 shadow-[0_14px_36px_rgba(0,204,129,0.08)]">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
+              Step {index + 1}
+            </p>
+            <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
+              {step}
+            </p>
+          </div>
+        ))
+      }
+    </div>
   </SectionContainer>
 
   <SectionContainer id="class-times">
@@ -187,6 +231,27 @@ const structuredData = [
           <li>A willingness to start where you are</li>
         </ul>
       </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Progression path"
+      subtitle="You can stay in classes for fitness and confidence, or use the training as a pathway into stronger technique and performance energy."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        progressionSteps.map((step) => (
+          <div class="motion-card motion-band reveal-on-scroll rounded-[1.75rem] bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2b0b3a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.18)]">
+            <h3 class="text-2xl font-black text-db-green">{step.title}</h3>
+            <p class="mt-4 text-lg leading-relaxed text-white/78">
+              {step.body}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </SectionContainer>
 

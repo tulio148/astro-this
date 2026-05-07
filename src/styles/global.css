@@ -5,6 +5,15 @@
 body {
   font-family: 'Raleway Variable', sans-serif;
 }
+
+.bg-db-green:not(:hover),
+.bg-emerald-400:not(:hover),
+.hover\:bg-db-green:hover,
+.group:hover .group-hover\:bg-db-green {
+  color: #9E0096;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+}
+
 @theme {
     --color-db-pink: #9E0096;
     --color-db-light-pink: #FF00F7;
@@ -47,5 +56,240 @@ body {
       inset: 0;
       background-color: rgba(0, 0, 0, 0.1);
       pointer-events: none;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0.72;
+      transform: scale(0.985);
+      transition:
+        opacity 0.8s var(--ease-fluid),
+        transform 0.8s var(--ease-fluid);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal-section {
+      opacity: 0.84;
+      transform: scale(0.992);
+      transition:
+        opacity 0.72s var(--ease-fluid),
+        transform 0.72s var(--ease-fluid);
+    }
+
+    .reveal-section.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-reveal-item {
+      --hero-reveal-delay: 0ms;
+      --hero-reveal-duration: 900ms;
+      opacity: 0;
+      transform: translate3d(18px, 22px, 0);
+      clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+      animation: heroDiagonalReveal var(--hero-reveal-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--hero-reveal-delay) both;
+      will-change: clip-path, opacity, transform;
+    }
+
+    .hero-reveal-eyebrow {
+      --hero-reveal-delay: 120ms;
+    }
+
+    .hero-reveal-title {
+      --hero-reveal-delay: 230ms;
+    }
+
+    .hero-reveal-subtitle {
+      --hero-reveal-delay: 350ms;
+    }
+
+    .hero-reveal-cta {
+      --hero-reveal-delay: 480ms;
+    }
+
+    .motion-card {
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(0);
+      animation: ambientLift 6.5s ease-in-out infinite;
+      transition:
+        transform 0.28s var(--ease-snappy),
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+    }
+
+    .motion-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(255, 255, 255, 0.42) 48%,
+        transparent 62%,
+        transparent 100%
+      );
+      opacity: 0;
+      transform: translateX(-65%);
+      transition:
+        opacity 0.24s ease,
+        transform 0.55s var(--ease-fluid);
+    }
+
+    .motion-card:hover {
+      transform: scale(1.012);
+      border-color: color-mix(in oklab, var(--color-db-green) 55%, transparent);
+      box-shadow: 0 24px 58px rgba(158, 0, 150, 0.14);
+    }
+
+    .motion-card:hover::before {
+      opacity: 1;
+      transform: translateX(65%);
+    }
+
+    .motion-ribbon {
+      animation: ribbonDrift 4.8s ease-in-out infinite;
+    }
+
+    .motion-ribbon-alt {
+      animation: ribbonDriftAlt 5.6s ease-in-out infinite;
+    }
+
+    .motion-band {
+      background-size: 180% 180%;
+      animation: bandShift 4.8s ease-in-out infinite;
+    }
+
+    .timeline-pulse {
+      animation: timelinePulse 1.9s ease-in-out infinite;
+    }
+
+    .motion-cta {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      animation: ctaBreath 2.6s ease-in-out infinite;
+    }
+
+    .motion-cta::after {
+      content: '';
+      position: absolute;
+      inset: -40% -20%;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 48%);
+      opacity: 0;
+      transform: translateX(-50%) rotate(12deg);
+      transition:
+        opacity 0.22s ease,
+        transform 0.55s var(--ease-fluid);
+    }
+
+    .motion-cta:hover::after {
+      opacity: 1;
+      transform: translateX(45%) rotate(12deg);
+    }
+
+    @keyframes ribbonDrift {
+      0%, 100% {
+        transform: scaleX(1) rotate(-8deg);
+        opacity: 0.48;
+      }
+      50% {
+        transform: scaleX(1.08) rotate(-3deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes ribbonDriftAlt {
+      0%, 100% {
+        transform: scaleX(1) rotate(11deg);
+        opacity: 0.48;
+      }
+      50% {
+        transform: scaleX(1.08) rotate(6deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bandShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes timelinePulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 204, 129, 0.45);
+      }
+      50% {
+        box-shadow: 0 0 0 18px rgba(0, 204, 129, 0);
+      }
+    }
+
+    @keyframes ambientLift {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.006);
+      }
+    }
+
+    @keyframes ctaBreath {
+      0%, 100% {
+        box-shadow: 0 14px 30px rgba(0, 204, 129, 0.24);
+      }
+      50% {
+        box-shadow: 0 20px 44px rgba(0, 204, 129, 0.42);
+      }
+    }
+
+    @keyframes heroDiagonalReveal {
+      0% {
+        opacity: 0;
+        transform: translate3d(18px, 22px, 0);
+        clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+      }
+      45% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        clip-path: polygon(-12% -12%, 112% -12%, 112% 112%, -12% 112%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll,
+      .reveal-section,
+      .hero-reveal-item,
+      .motion-card,
+      .motion-ribbon,
+      .motion-ribbon-alt,
+      .motion-band,
+      .timeline-pulse,
+      .motion-cta::after {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none;
+      }
+
+      .hero-reveal-item {
+        clip-path: none;
+      }
+
+      .motion-card::before {
+        display: none;
+      }
     }
   }

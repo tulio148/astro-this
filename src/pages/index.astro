@@ -9,6 +9,7 @@ import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import TermCard from "../components/TermCard.astro";
+import ServicePathSelector from "../components/react/ServicePathSelector";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
 import { faqSchema, organizationSchema, serviceSchema } from "../lib/schema";
@@ -21,6 +22,10 @@ import noBgDancer3 from "../images/noBgDancer3.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
 import noBgDancer2 from "../images/noBgDancer2.avif";
 import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
+import servicePathClasses from "../images/service-path-classes.avif";
+import servicePathWorkshops from "../images/service-path-workshops.avif";
+import servicePathShows from "../images/service-path-shows.avif";
+import servicePathCostumes from "../images/service-path-costumes.avif";
 
 const title = "Brazilian Samba in Perth | Classes, Shows & Costume Hire";
 const description =
@@ -61,6 +66,84 @@ const structuredData = [
     image,
   }),
   faqSchema(homeFaqs),
+];
+
+const servicePaths = [
+  {
+    key: "classes",
+    label: "Start learning",
+    title: "Samba classes",
+    description:
+      "Join beginner-friendly samba no pe classes in Balcatta with clear steps, rhythm work, and a realistic path into intermediate training.",
+    href: "/samba-classes-perth#class-times",
+    cta: "Book a Class",
+    image: servicePathClasses.src,
+    imageAlt:
+      "Beginner samba class in a bright Perth studio with students following the teacher",
+  },
+  {
+    key: "workshops",
+    label: "Bring a group",
+    title: "Private workshops",
+    description:
+      "Plan an active group workshop for teams, hens parties, birthdays, schools, community groups, or event programs.",
+    href: "/private-samba-workshops-perth#workshop-enquiry",
+    cta: "Request a Workshop Quote",
+    image: servicePathWorkshops.src,
+    imageAlt:
+      "Private samba workshop group learning a routine together in an event room",
+  },
+  {
+    key: "shows",
+    label: "Lift the room",
+    title: "Book a show",
+    description:
+      "Add samba dancers, Carnival-style costumes, guest interaction, and optional live music or drumming to a Perth event.",
+    href: "/book-a-samba-show-perth#show-enquiry",
+    cta: "Request a Show Quote",
+    image: servicePathShows.src,
+    imageAlt:
+      "Brazilian samba dancers performing in Carnival costumes at a Perth event",
+  },
+  {
+    key: "costumes",
+    label: "Make it visual",
+    title: "Costume hire",
+    description:
+      "Hire standout samba and Carnival-style costumes for themed events, photoshoots, performances, and celebrations.",
+    href: "/samba-costume-hire-perth#book-costume",
+    cta: "Check Costume Availability",
+    image: servicePathCostumes.src,
+    imageAlt:
+      "Brazilian Carnival costume details with feathers, rhinestones, cuffs, and headpiece",
+  },
+];
+
+const journeySteps = [
+  {
+    title: "First class",
+    body: "Start with samba no pe basics, timing, posture, and movement patterns that make sense from the first session.",
+  },
+  {
+    title: "Rhythm and confidence",
+    body: "Build coordination, stamina, musicality, and the confidence to move with more freedom.",
+  },
+  {
+    title: "Progression",
+    body: "Move into intermediate training when the basic step, rhythm, and class pace feel familiar.",
+  },
+  {
+    title: "Performance energy",
+    body: "Use the same samba foundations in workshops, event moments, choreography, and optional performance pathways.",
+  },
+];
+
+const trustPoints = [
+  "Beginner-friendly teaching with clear level guidance",
+  "Brazilian samba focus across classes, shows, workshops, and costume hire",
+  "Perth-based booking support for students and event organisers",
+  "Practical enquiry details so quotes and bookings move faster",
+  "High-impact costumes and movement for event visuals",
 ];
 
 // Helper function to format date to day name
@@ -174,26 +257,39 @@ const structuredData = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
         <a
           href="/beginner-samba-classes-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
+          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
         >
           <span>Beginner Samba Classes</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
+          <span class="text-xl transition">→</span>
         </a>
         <a
           href="/private-samba-workshops-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
+          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
         >
           <span>Private Samba Workshops</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
+          <span class="text-xl transition">→</span>
         </a>
         <a
           href="/wedding-corporate-event-entertainment-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
+          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
         >
           <span>Wedding & Corporate Entertainment</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
+          <span class="text-xl transition">→</span>
         </a>
       </div>
+    </SectionContainer>
+
+    <SectionContainer id="choose-path" class="my-40">
+      <SectionTitle
+        title="Choose your samba path"
+        subtitle="Start with the route that matches what you need now, then move between classes, workshops, shows, and costume hire when the moment is right."
+        class="mb-16"
+      />
+
+      <ServicePathSelector
+        client:load
+        paths={servicePaths}
+      />
     </SectionContainer>
 
     <!-- Terms Section -->
@@ -274,13 +370,40 @@ const structuredData = [
       <div class="text-center mt-24">
         <a
           href="/samba-classes-perth"
-          class="inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-slate-950 shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-1 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
+          class="motion-cta inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
         >
           <span class="sr-only"
             >View all available samba class terms at Dance Bloc Brazil</span
           >
           Book a Class
         </a>
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="journey" class="my-40 bg-db-light-pink/5">
+      <SectionTitle
+        title="From first step to stage energy"
+        subtitle="Classes build the movement foundation; workshops, shows, and costume hire give that energy different places to go."
+        class="mb-16"
+      />
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+        {
+          journeySteps.map((step, index) => (
+            <div class="motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-[1.75rem] border border-db-pink/10 bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)]">
+              <div class="absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
+              <div class="timeline-pulse relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-db-pink text-xl font-black text-white shadow-[0_12px_30px_rgba(158,0,150,0.22)]">
+                {index + 1}
+              </div>
+              <h3 class="relative z-10 mt-8 text-2xl font-black text-db-pink">
+                {step.title}
+              </h3>
+              <p class="relative z-10 mt-4 text-base leading-relaxed text-slate-600">
+                {step.body}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </SectionContainer>
 
@@ -337,7 +460,7 @@ const structuredData = [
           <a
             href="/book-a-samba-show-perth"
             data-astro-prefetch
-            class="inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
           >
             <span class="sr-only"
               >Learn more about booking Brazilian samba dancers for your next
@@ -345,6 +468,27 @@ const structuredData = [
             >
             Request a Show Quote
           </a>
+        </div>
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="why-dance-bloc" class="my-40 bg-db-green/5">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <SectionTitle
+          title="Why Dance Bloc Brazil"
+          subtitle="Clear teaching, practical booking details, and visually strong samba moments for Perth classes and events."
+        />
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            trustPoints.map((point) => (
+              <div class="motion-card reveal-on-scroll rounded-[1.5rem] border border-db-pink/10 bg-white p-6 shadow-[0_16px_38px_rgba(0,204,129,0.08)]">
+                <p class="text-lg font-black leading-snug text-db-pink">
+                  {point}
+                </p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </SectionContainer>
@@ -373,7 +517,7 @@ const structuredData = [
           <a
             href="/samba-costume-hire-perth"
             data-astro-prefetch
-            class="inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
           >
             <span class="sr-only"
               >Browse the Dance Bloc Brazil samba costume hire collection for
@@ -401,8 +545,8 @@ const structuredData = [
     <!-- Proof Media Placeholder -->
     <SectionContainer id="proof" class="my-40">
       <SectionTitle
-        title="Proof needed before launch"
-        subtitle="This section intentionally blocks launch until real class, event, or costume media is supplied."
+        title="Real moments needed before launch"
+        subtitle="This section intentionally blocks launch until real class, event, or costume media is supplied. Prompt suggestions are included for visual direction only."
         class="mb-16"
       />
 
@@ -415,6 +559,11 @@ const structuredData = [
           "20-45 second class atmosphere video",
           "Event performance reel",
           "Three-photo strip covering class, show, and costume hire",
+        ]}
+        promptSuggestions={[
+          "File: homepage-class-proof-strip.avif. Create a three-panel proof image for the homepage showing Dance Bloc Brazil class atmosphere in Balcatta: panel one has beginner students warming up, panel two has the teacher demonstrating samba no pe footwork, panel three has a small group moving together with relaxed confidence. Use natural studio lighting, practical activewear, warm skin tones, and subtle magenta-green motion accents. Wide 16:9 strip, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
+          "File: homepage-show-performance.avif. Create a premium event-performance image for the homepage. Show samba dancers in Carnival-style costumes performing at a Perth event with audience reaction, stage lighting, feathers, sequins, and confident movement. The composition should feel like real event proof, not a poster. Landscape 16:9, vivid but polished, restrained magenta-green accents, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
+          "File: homepage-costume-detail.avif. Create a homepage costume-detail image showing feathers, rhinestones, cuffs, headpiece, belt, beads, and sequins arranged in a clean editorial layout. Prioritize sharp texture, hire-condition clarity, and premium styling. Landscape 16:9, soft studio light, neutral background with small magenta-green Dance Bloc Brazil accents, no text, no logos, no fake signage.",
         ]}
       />
     </SectionContainer>

@@ -23,17 +23,25 @@ export default function CostumeCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-pink-100 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.10)] transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-emerald-300 hover:shadow-[0_22px_60px_rgba(158,0,150,0.16)]">
+    <div className="motion-card group overflow-hidden rounded-[1.75rem] border border-pink-100 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.10)]">
       <div className="image-container aspect-[3/4] overflow-hidden rounded-b-[2rem] relative">
         <img
           src={image.src}
           alt={title}
           width={400}
           height={533}
-          className="costume-image w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+          className="costume-image w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute inset-0 bg-black/10 transition duration-300 group-hover:bg-black/0"></div>
+        <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/20 bg-slate-950/72 px-4 py-3 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-300">
+            Quick hire check
+          </p>
+          <p className="mt-1 text-sm font-bold leading-snug">
+            Confirm size, pieces, deposit, and date before booking.
+          </p>
+        </div>
       </div>
 
       <div className="content p-6">
@@ -66,7 +74,7 @@ export default function CostumeCard({
           </button>
         </div>
 
-        <p className="material text-sm text-gray-700 mb-5">
+        <p className="material text-sm text-db-pink mb-5">
           <span className="material-label font-semibold">Material: </span>
           {material}
         </p>
@@ -77,7 +85,7 @@ export default function CostumeCard({
           </span>
           <a
             href="/samba-costume-hire-perth#book-costume"
-            className="book-button rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-black uppercase tracking-[0.12em] text-slate-950 shadow-[0_12px_25px_rgba(52,211,153,0.28)] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-[var(--color-primary,#9E0096)] hover:text-white hover:shadow-md"
+            className="motion-cta book-button rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-black uppercase tracking-[0.12em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_12px_25px_rgba(52,211,153,0.28)] transition duration-200 ease-in-out hover:bg-[var(--color-primary,#9E0096)] hover:text-white hover:shadow-md"
           >
             Book Now
           </a>

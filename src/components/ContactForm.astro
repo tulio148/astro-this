@@ -6,7 +6,7 @@ interface Props {
 
 const { title, subtitle } = Astro.props;
 const inputClass =
-  "w-full rounded-2xl border border-slate-200 bg-white/85 px-5 py-4 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-db-green focus:bg-white focus:ring-4 focus:ring-db-green/15";
+  "w-full rounded-2xl border border-slate-200 bg-white/85 px-5 py-4 text-db-pink outline-none transition placeholder:text-slate-400 focus:border-db-green focus:bg-white focus:ring-4 focus:ring-db-green/15";
 ---
 
 <div
@@ -37,13 +37,13 @@ const inputClass =
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label for="name" class="block mb-2 text-sm font-black text-slate-800">
+          <label for="name" class="block mb-2 text-sm font-black text-db-pink">
             Name
           </label>
           <input type="text" id="name" name="name" required class={inputClass} />
         </div>
         <div>
-          <label for="email" class="block mb-2 text-sm font-black text-slate-800">
+          <label for="email" class="block mb-2 text-sm font-black text-db-pink">
             Email
           </label>
           <input type="email" id="email" name="email" required class={inputClass} />
@@ -51,21 +51,21 @@ const inputClass =
       </div>
 
       <div>
-        <label for="phone" class="block mb-2 text-sm font-black text-slate-800">
+        <label for="phone" class="block mb-2 text-sm font-black text-db-pink">
           Phone Number
         </label>
         <input type="tel" id="phone" name="phone" class={inputClass} />
       </div>
 
       <div>
-        <label for="subject" class="block mb-2 text-sm font-black text-slate-800">
+        <label for="subject" class="block mb-2 text-sm font-black text-db-pink">
           Subject
         </label>
         <input type="text" id="subject" name="subject" required class={inputClass} />
       </div>
 
       <div>
-        <label for="message" class="block mb-2 text-sm font-black text-slate-800">
+        <label for="message" class="block mb-2 text-sm font-black text-db-pink">
           Message
         </label>
         <textarea
@@ -89,7 +89,7 @@ const inputClass =
 
       <button
         type="submit"
-        class="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-slate-950 shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)] focus:outline-none focus:ring-4 focus:ring-db-green/25 md:w-auto"
+        class="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)] focus:outline-none focus:ring-4 focus:ring-db-green/25 md:w-auto"
       >
         Send Message
       </button>

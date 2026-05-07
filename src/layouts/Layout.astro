@@ -135,7 +135,7 @@ const socialImage = absoluteUrl(image);
       /></noscript
     >
   </head>
-  <body class="bg-[#fbfaf8] text-slate-900 antialiased">
+  <body class="bg-[#fbfaf8] text-db-pink antialiased">
     <Navigation />
 
     <main class="pt-0">
@@ -143,5 +143,36 @@ const socialImage = absoluteUrl(image);
     </main>
 
     <Footer />
+    <script>
+      document.addEventListener("astro:page-load", () => {
+        const revealItems = document.querySelectorAll(
+          ".reveal-on-scroll, .reveal-section"
+        );
+
+        if (!("IntersectionObserver" in window)) {
+          revealItems.forEach((item) => item.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        revealItems.forEach((item, index) => {
+          if (item instanceof HTMLElement) {
+            item.style.transitionDelay = `${Math.min(index % 6, 5) * 45}ms`;
+          }
+          observer.observe(item);
+        });
+      });
+    </script>
   </body>
 </html>

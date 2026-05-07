@@ -163,7 +163,7 @@ const thirtyMinuteRegex =
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Dates:</span>
-              <span class="text-slate-800 ml-2">{dateBegin} - {dateEnd}</span>
+              <span class="text-db-pink ml-2">{dateBegin} - {dateEnd}</span>
             </div>
           </div>
 
@@ -182,7 +182,7 @@ const thirtyMinuteRegex =
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Time:</span>
-              <span class="text-slate-800 ml-2">{time}</span>
+              <span class="text-db-pink ml-2">{time}</span>
             </div>
           </div>
 
@@ -207,7 +207,7 @@ const thirtyMinuteRegex =
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Location:</span>
-              <span class="text-slate-800 ml-2">{location}</span>
+              <span class="text-db-pink ml-2">{location}</span>
             </div>
           </div>
 
@@ -227,7 +227,7 @@ const thirtyMinuteRegex =
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Price:</span>
-              <span class="text-slate-800 ml-2">{price}</span>
+              <span class="text-db-pink ml-2">{price}</span>
             </div>
           </div>
         </div>
@@ -238,7 +238,7 @@ const thirtyMinuteRegex =
       showDetails === false && price && (
         <div class="mb-6 rounded-2xl border border-slate-200/80 bg-slate-50/70 p-5">
           <span class="text-slate-600 font-medium">Price:</span>
-          <span class="text-slate-800 ml-2">{price}</span>
+          <span class="text-db-pink ml-2">{price}</span>
         </div>
       )
     }
@@ -247,7 +247,7 @@ const thirtyMinuteRegex =
       href={bookingLink}
       target="_blank"
       rel="noopener noreferrer"
-      class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
+      class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
       data-track="BookClassClick"
       data-track-params={JSON.stringify({
         class_name: name,

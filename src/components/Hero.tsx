@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import React from "react";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -54,45 +54,25 @@ export default function Hero({
         <div className="max-w-4xl">
           <div className="overflow-hidden rounded-3xl px-5 py-5 sm:px-7 sm:py-6 backdrop-blur-[1px]">
             {eyebrow && (
-              <motion.p
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-3 text-xs sm:text-sm font-bold uppercase tracking-[0.24em] text-db-green drop-shadow-md"
-              >
+              <p className="hero-reveal-item hero-reveal-eyebrow mb-4 text-xs font-black uppercase tracking-[0.34em] text-db-green sm:text-sm">
                 {eyebrow}
-              </motion.p>
+              </p>
             )}
 
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.92] text-white text-balance hero-title"
-            >
+            <h1 className="hero-reveal-item hero-reveal-title max-w-4xl text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.92] text-white text-balance hero-title">
               {title}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 max-w-3xl text-lg sm:text-xl md:text-2xl font-light text-white tracking-wide hero-subtitle leading-tight"
-            >
+            <p className="hero-reveal-item hero-reveal-subtitle mt-4 max-w-3xl text-lg sm:text-xl md:text-2xl font-light text-white tracking-wide hero-subtitle leading-tight">
               {subtitle}
-            </motion.p>
+            </p>
 
             {(primaryCta || secondaryCta) && (
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 flex flex-col sm:flex-row gap-3"
-              >
+              <div className="hero-reveal-item hero-reveal-cta mt-6 flex flex-col sm:flex-row gap-3">
                 {primaryCta && (
                   <a
                     href={primaryCta.href}
-                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-green px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-slate-950 shadow-[0_16px_35px_rgba(0,204,129,0.34)] transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-green px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.34)] transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink hover:drop-shadow-none"
                   >
                     {primaryCta.label}
                   </a>
@@ -105,7 +85,7 @@ export default function Hero({
                     {secondaryCta.label}
                   </a>
                 )}
-              </motion.div>
+              </div>
             )}
           </div>
         </div>

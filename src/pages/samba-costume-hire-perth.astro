@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
@@ -11,6 +10,7 @@ import CostumeCard from "../components/CostumeCard.astro";
 import { Picture } from "astro:assets";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import noBgDancer4 from "../images/noBgDancer4.avif";
+import servicePathCostumes from "../images/service-path-costumes.avif";
 import { costumes } from "../data/costumes";
 import { costumeItemListSchema, faqSchema, serviceSchema } from "../lib/schema";
 
@@ -58,6 +58,20 @@ const structuredData = [
     })),
   }),
   faqSchema(faqs),
+];
+
+const costumeDetails = [
+  "Headpieces, cuffs, neckpieces, belts, and costume pieces are confirmed item by item.",
+  "Feathers, rhinestones, sequins, beads, and fabric details should be checked before hire.",
+  "Fit, sizing, included pieces, deposit, and condition are confirmed before booking.",
+  "Styling, hair, makeup, delivery, or collection support can be discussed as optional add-ons.",
+];
+
+const hireTimeline = [
+  "Choose the costume or style you want to check.",
+  "Send the date, hire duration, sizing, and event or photoshoot details.",
+  "Confirm availability, inclusions, hire fee, deposit, and handover plan.",
+  "Collect or receive the costume, then return it by the agreed time and condition.",
 ];
 ---
 
@@ -120,17 +134,32 @@ const structuredData = [
   </SectionContainer>
 
   <SectionContainer>
-    <MediaPlaceholder
-      title="Costume detail and fit proof"
-      assetNeed="Costume detail and fit proof for the samba costume hire page."
-      ratio="1:1 or 4:5 item photos"
-      subject="Show item-level costume detail, real inclusions, fit, and condition clearly enough for hire decisions."
-      options={[
-        "Detail shots of feathers, rhinestones, and inclusions",
-        "Front and back costume photos on a plain background",
-        "Styled costume photoshoot",
-      ]}
+    <Picture
+      src={servicePathCostumes}
+      alt="Brazilian Carnival costume details with feathers, rhinestones, cuffs, and headpiece"
+      widths={[480, 720, 960, 1200, 1440]}
+      sizes="(max-width: 768px) 100vw, 1120px"
+      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-[2rem] object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
+      loading="lazy"
     />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Costume detail guide"
+      subtitle="The collection shows the style; the hire conversation confirms the exact pieces, fit, and condition."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {
+        costumeDetails.map((detail) => (
+          <div class="motion-card motion-band reveal-on-scroll rounded-[1.75rem] bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#311047,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
+            <p class="text-lg font-black leading-relaxed">{detail}</p>
+          </div>
+        ))
+      }
+    </div>
   </SectionContainer>
 
   <SectionContainer>
@@ -211,6 +240,29 @@ const structuredData = [
           </li>
         </ul>
       </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Hire timeline"
+      subtitle="A simple sequence keeps costume availability, deposit, pickup, and return expectations clear."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+      {
+        hireTimeline.map((step, index) => (
+          <div class="motion-card reveal-on-scroll min-h-[200px] rounded-[1.5rem] border border-db-pink/10 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
+              Step {index + 1}
+            </p>
+            <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
+              {step}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </SectionContainer>
 
