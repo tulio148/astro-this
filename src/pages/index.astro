@@ -139,11 +139,26 @@ const journeySteps = [
 ];
 
 const trustPoints = [
-  "Beginner-friendly teaching with clear level guidance",
-  "Brazilian samba focus across classes, shows, workshops, and costume hire",
-  "Perth-based booking support for students and event organisers",
-  "Practical enquiry details so quotes and bookings move faster",
-  "High-impact costumes and movement for event visuals",
+  {
+    label: "Teaching",
+    title: "Clear beginner pathways",
+    body: "Level guidance, practical foundations, and a realistic route into confident samba no pe training.",
+  },
+  {
+    label: "Samba",
+    title: "Brazilian samba across classes and events",
+    body: "One focused style connects weekly classes, workshops, performances, and Carnival-style costume hire.",
+  },
+  {
+    label: "Booking",
+    title: "Perth-based booking support",
+    body: "Local enquiry support helps students and event organisers move from questions to clear next steps.",
+  },
+  {
+    label: "Visuals",
+    title: "High-impact costumes and movement",
+    body: "Bold costumes, stage energy, and polished samba moments create memorable visuals for classes and events.",
+  },
 ];
 
 // Helper function to format date to day name
@@ -178,7 +193,6 @@ const trustPoints = [
       backgroundImage={hero}
       mobileImage={heroMobile}
       imagePosition="center"
-      eyebrow="Brazilian samba in Perth"
       primaryCta={{
         label: "Book a Class",
         href: "/samba-classes-perth#class-times",
@@ -211,71 +225,78 @@ const trustPoints = [
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-1 lg:grid-cols-3 items-baseline justify-center gap-8 mt-24"
-      >
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Learn Samba no Pe
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Learn the foundations of Brazilian samba no pe in a class format
-              built for confidence, rhythm, and clear progression from the first
-              step.
-            </p>
-          </div>
-        </Card>
+      <div class="grid grid-cols-1 gap-8 mt-24 lg:grid-cols-3">
+        <div class="flex h-full flex-col gap-6">
+          <Card>
+            <div class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]">
+              <h3 class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink">
+                Learn Samba no Pe
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Learn the foundations of Brazilian samba no pe in a class format
+                built for confidence, rhythm, and clear progression from the
+                first step.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/beginner-samba-classes-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Beginner Samba Classes</span>
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80">
+              →
+            </span>
+          </a>
+        </div>
 
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Book Event Entertainment
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Bring samba dancers, Carnival-style costumes, and optional live
-              music or drumming to weddings, corporate events, private parties,
-              and festivals.
-            </p>
-          </div>
-        </Card>
+        <div class="flex h-full flex-col gap-6">
+          <Card>
+            <div class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]">
+              <h3 class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink">
+                Book Event Entertainment
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Bring samba dancers, Carnival-style costumes, and optional live
+                music or drumming to weddings, corporate events, private
+                parties, and festivals.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/private-samba-workshops-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Private Samba Workshops</span>
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80">
+              →
+            </span>
+          </a>
+        </div>
 
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Plan a Workshop or Costume Hire
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Create a private group workshop, hire standout costumes, or add a
-              visual samba element to a photoshoot, themed event, or
-              performance.
-            </p>
-          </div>
-        </Card>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-        <a
-          href="/beginner-samba-classes-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
-        >
-          <span>Beginner Samba Classes</span>
-          <span class="text-xl transition">→</span>
-        </a>
-        <a
-          href="/private-samba-workshops-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
-        >
-          <span>Private Samba Workshops</span>
-          <span class="text-xl transition">→</span>
-        </a>
-        <a
-          href="/wedding-corporate-event-entertainment-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:border-db-green/50 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
-        >
-          <span>Wedding & Corporate Entertainment</span>
-          <span class="text-xl transition">→</span>
-        </a>
+        <div class="flex h-full flex-col gap-6">
+          <Card>
+            <div class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]">
+              <h3 class="max-w-[12ch] text-3xl font-black leading-tight text-db-pink">
+                Plan a Workshop or Costume Hire
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Create a private group workshop, hire standout costumes, or add
+                a visual samba element to a photoshoot, themed event, or
+                performance.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/wedding-corporate-event-entertainment-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Wedding & Corporate Entertainment</span>
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80">
+              →
+            </span>
+          </a>
+        </div>
       </div>
     </SectionContainer>
 
@@ -286,10 +307,7 @@ const trustPoints = [
         class="mb-16"
       />
 
-      <ServicePathSelector
-        client:load
-        paths={servicePaths}
-      />
+      <ServicePathSelector client:load paths={servicePaths} />
     </SectionContainer>
 
     <!-- Terms Section -->
@@ -370,7 +388,7 @@ const trustPoints = [
       <div class="text-center mt-24">
         <a
           href="/samba-classes-perth"
-          class="motion-cta inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
+          class="motion-cta inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
         >
           <span class="sr-only"
             >View all available samba class terms at Dance Bloc Brazil</span
@@ -460,7 +478,7 @@ const trustPoints = [
           <a
             href="/book-a-samba-show-perth"
             data-astro-prefetch
-            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
           >
             <span class="sr-only"
               >Learn more about booking Brazilian samba dancers for your next
@@ -472,20 +490,38 @@ const trustPoints = [
       </div>
     </SectionContainer>
 
-    <SectionContainer id="why-dance-bloc" class="my-40 bg-db-green/5">
-      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+    <SectionContainer
+      id="why-dance-bloc"
+      class="my-40 bg-[linear-gradient(180deg,rgba(0,204,129,0.08),rgba(0,204,129,0.04))] py-24"
+    >
+      <div
+        class="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
+      >
         <SectionTitle
           title="Why Dance Bloc Brazil"
           subtitle="Clear teaching, practical booking details, and visually strong samba moments for Perth classes and events."
         />
 
-        <div class="grid gap-4 sm:grid-cols-2">
+        <div class="grid gap-5 sm:grid-cols-2">
           {
-            trustPoints.map((point) => (
-              <div class="motion-card reveal-on-scroll rounded-[1.5rem] border border-db-pink/10 bg-white p-6 shadow-[0_16px_38px_rgba(0,204,129,0.08)]">
-                <p class="text-lg font-black leading-snug text-db-pink">
-                  {point}
-                </p>
+            trustPoints.map((point, index) => (
+              <div class="motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-[1.5rem] border border-db-pink/10 bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)]">
+                <div class="flex items-center justify-between gap-4">
+                  <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">
+                    {point.label}
+                  </p>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-db-green/10 text-sm font-black text-db-pink">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div class="mt-8">
+                  <h3 class="text-2xl font-black leading-tight text-db-pink">
+                    {point.title}
+                  </h3>
+                  <p class="mt-4 text-base leading-relaxed text-slate-600">
+                    {point.body}
+                  </p>
+                </div>
               </div>
             ))
           }
@@ -517,7 +553,7 @@ const trustPoints = [
           <a
             href="/samba-costume-hire-perth"
             data-astro-prefetch
-            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
           >
             <span class="sr-only"
               >Browse the Dance Bloc Brazil samba costume hire collection for

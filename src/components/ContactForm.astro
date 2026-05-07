@@ -14,10 +14,12 @@ const inputClass =
 >
   <div
     class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink"
-  ></div>
+  >
+  </div>
   <div
     class="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-db-light-pink/10"
-  ></div>
+  >
+  </div>
   <div class="relative">
     {
       title && (
@@ -40,13 +42,25 @@ const inputClass =
           <label for="name" class="block mb-2 text-sm font-black text-db-pink">
             Name
           </label>
-          <input type="text" id="name" name="name" required class={inputClass} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class={inputClass}
+          />
         </div>
         <div>
           <label for="email" class="block mb-2 text-sm font-black text-db-pink">
             Email
           </label>
-          <input type="email" id="email" name="email" required class={inputClass} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class={inputClass}
+          />
         </div>
       </div>
 
@@ -61,7 +75,13 @@ const inputClass =
         <label for="subject" class="block mb-2 text-sm font-black text-db-pink">
           Subject
         </label>
-        <input type="text" id="subject" name="subject" required class={inputClass} />
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          required
+          class={inputClass}
+        />
       </div>
 
       <div>
@@ -73,8 +93,7 @@ const inputClass =
           name="message"
           rows="5"
           required
-          class={`${inputClass} resize-none`}
-        ></textarea>
+          class={`${inputClass} resize-none`}></textarea>
       </div>
 
       <input
@@ -89,7 +108,7 @@ const inputClass =
 
       <button
         type="submit"
-        class="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)] focus:outline-none focus:ring-4 focus:ring-db-green/25 md:w-auto"
+        class="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)] focus:outline-none focus:ring-4 focus:ring-db-green/25 md:w-auto"
       >
         Send Message
       </button>

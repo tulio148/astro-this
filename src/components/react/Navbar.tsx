@@ -143,24 +143,12 @@ const Navbar = ({ currentPath }: NavbarProps) => {
             variants={menuVariants}
             className="relative z-40 flex flex-col text-white"
           >
-            <div className="mx-auto flex w-full max-w-5xl flex-col justify-start px-7 pb-10 pt-4 sm:px-10 sm:pb-12 sm:pt-8">
-              <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
-                <a href="/" onClick={handleLinkClick}>
-                  <img
-                    src={logoNoBg.src}
-                    alt="Dance Bloc Brazil Logo"
-                    width={150}
-                    height={100}
-                    className="w-[88px] sm:w-[120px]"
-                  />
-                </a>
-              </motion.div>
-
-              <div className="grid gap-1 sm:gap-2">
+            <div className="mx-auto flex w-full max-w-5xl flex-col justify-start px-7 pb-12 pt-6 sm:px-10 sm:pb-14 sm:pt-10">
+              <div className="grid gap-4 sm:gap-6">
                 {NAV_LINKS.map(({ name, path }) => (
                   <motion.div key={name} variants={itemVariants}>
                     <a
-                    className={`group flex items-center justify-between gap-6 border-b border-white/12 py-2 transition hover:text-db-green ${
+                      className={`group flex items-center justify-between gap-6 border-b border-white/12 py-4 transition hover:text-db-green ${
                         currentPath === path ? "text-db-green" : "text-white"
                       }`}
                       href={path}
@@ -187,14 +175,14 @@ const Navbar = ({ currentPath }: NavbarProps) => {
 
               <motion.div
                 variants={itemVariants}
-                className="mt-6 grid gap-3 sm:flex sm:flex-wrap"
+                className="mt-6 grid gap-4 sm:flex sm:flex-wrap"
               >
                 {CTA_LINKS.map(({ name, path }) => (
                   <a
                     key={name}
                     href={path}
                     onClick={handleLinkClick}
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-db-green/70 bg-db-green px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-[0.16em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_32px_rgba(0,204,129,0.25)] transition hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-db-pink hover:drop-shadow-none"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-db-green/70 bg-db-green px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_32px_rgba(0,204,129,0.25)] transition hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-db-pink hover:drop-shadow-none"
                   >
                     {name}
                     <ArrowUpRight className="h-4 w-4" />

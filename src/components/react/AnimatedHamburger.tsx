@@ -61,10 +61,10 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
   return (
     <button
       onClick={toggle}
-      className={`z-50 cursor-pointer rounded-full border-2 p-2 shadow-[0_14px_34px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.34)] backdrop-blur-md transition duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-db-green/35 lg:p-3 ${
+      className={`z-50 cursor-pointer rounded-full p-2 transition duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-db-green/35 lg:p-3 ${
         isOpen
-          ? "border-db-green bg-db-pink text-white"
-          : "border-db-green/85 bg-slate-950/58 text-white hover:border-white hover:bg-db-pink/90"
+          ? "bg-db-pink text-white"
+          : "bg-slate-950/58 text-white hover:bg-db-pink/90"
       }`}
       aria-label="Toggle navigation menu"
       aria-expanded={isOpen}

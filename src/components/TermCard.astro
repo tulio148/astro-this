@@ -32,14 +32,16 @@ const descriptionParagraphs = description
   .map((paragraph) => paragraph.trim())
   .filter(Boolean);
 
-const thirtyMinuteRegex =
-  /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
+const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
 ---
 
 <div
   class="group overflow-hidden rounded-[1.75rem] border border-db-pink/10 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-db-green/40 hover:shadow-[0_22px_60px_rgba(158,0,150,0.14)]"
 >
-  <div class="h-1.5 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink"></div>
+  <div
+    class="h-1.5 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink"
+  >
+  </div>
   <div class="p-7 sm:p-8">
     <div class="flex justify-between items-start mb-4">
       <h3 class="text-2xl font-black leading-tight text-db-pink">{name}</h3>
@@ -54,28 +56,24 @@ const thirtyMinuteRegex =
       enableMobileReadMore ? (
         <div class="mb-6">
           <div class="hidden md:block space-y-4">
-            {
-              descriptionParagraphs.map((paragraph) => {
-                const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
+            {descriptionParagraphs.map((paragraph) => {
+              const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
 
-                return (
-                  <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
-                    {
-                      paragraph.toLowerCase() === "class structure:" ? (
-                        <span class="underline">Class structure:</span>
-                      ) : thirtyMinuteMatch ? (
-                        <>
-                          <strong>{thirtyMinuteMatch[1]}</strong>
-                          {thirtyMinuteMatch[2]}
-                        </>
-                      ) : (
-                        paragraph
-                      )
-                    }
-                  </p>
-                );
-              })
-            }
+              return (
+                <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
+                  {paragraph.toLowerCase() === "class structure:" ? (
+                    <span class="underline">Class structure:</span>
+                  ) : thirtyMinuteMatch ? (
+                    <>
+                      <strong>{thirtyMinuteMatch[1]}</strong>
+                      {thirtyMinuteMatch[2]}
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                </p>
+              );
+            })}
           </div>
 
           <div class="md:hidden" data-read-more-container>
@@ -83,28 +81,24 @@ const thirtyMinuteRegex =
               data-read-more-content
               class="space-y-4 overflow-hidden max-h-7 transition-[max-height] duration-300"
             >
-              {
-                descriptionParagraphs.map((paragraph) => {
-                  const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
+              {descriptionParagraphs.map((paragraph) => {
+                const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
 
-                  return (
-                    <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
-                      {
-                        paragraph.toLowerCase() === "class structure:" ? (
-                          <span class="underline">Class structure:</span>
-                        ) : thirtyMinuteMatch ? (
-                          <>
-                            <strong>{thirtyMinuteMatch[1]}</strong>
-                            {thirtyMinuteMatch[2]}
-                          </>
-                        ) : (
-                          paragraph
-                        )
-                      }
-                    </p>
-                  );
-                })
-              }
+                return (
+                  <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
+                    {paragraph.toLowerCase() === "class structure:" ? (
+                      <span class="underline">Class structure:</span>
+                    ) : thirtyMinuteMatch ? (
+                      <>
+                        <strong>{thirtyMinuteMatch[1]}</strong>
+                        {thirtyMinuteMatch[2]}
+                      </>
+                    ) : (
+                      paragraph
+                    )}
+                  </p>
+                );
+              })}
             </div>
             <button
               type="button"
@@ -118,28 +112,24 @@ const thirtyMinuteRegex =
         </div>
       ) : (
         <div class="mb-6 space-y-4">
-          {
-            descriptionParagraphs.map((paragraph) => {
-              const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
+          {descriptionParagraphs.map((paragraph) => {
+            const thirtyMinuteMatch = paragraph.match(thirtyMinuteRegex);
 
-              return (
-                <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
-                  {
-                    paragraph.toLowerCase() === "class structure:" ? (
-                      <span class="underline">Class structure:</span>
-                    ) : thirtyMinuteMatch ? (
-                      <>
-                        <strong>{thirtyMinuteMatch[1]}</strong>
-                        {thirtyMinuteMatch[2]}
-                      </>
-                    ) : (
-                      paragraph
-                    )
-                  }
-                </p>
-              );
-            })
-          }
+            return (
+              <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
+                {paragraph.toLowerCase() === "class structure:" ? (
+                  <span class="underline">Class structure:</span>
+                ) : thirtyMinuteMatch ? (
+                  <>
+                    <strong>{thirtyMinuteMatch[1]}</strong>
+                    {thirtyMinuteMatch[2]}
+                  </>
+                ) : (
+                  paragraph
+                )}
+              </p>
+            );
+          })}
         </div>
       )
     }
@@ -159,11 +149,13 @@ const thirtyMinuteRegex =
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
+              />
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Dates:</span>
-              <span class="text-db-pink ml-2">{dateBegin} - {dateEnd}</span>
+              <span class="text-db-pink ml-2">
+                {dateBegin} - {dateEnd}
+              </span>
             </div>
           </div>
 
@@ -178,7 +170,8 @@ const thirtyMinuteRegex =
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Time:</span>
@@ -198,12 +191,13 @@ const thirtyMinuteRegex =
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              ></path>
+              />
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Location:</span>
@@ -223,7 +217,7 @@ const thirtyMinuteRegex =
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
+              />
             </svg>
             <div>
               <span class="text-slate-600 font-medium">Price:</span>
@@ -247,7 +241,7 @@ const thirtyMinuteRegex =
       href={bookingLink}
       target="_blank"
       rel="noopener noreferrer"
-      class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-db-pink drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
+      class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
       data-track="BookClassClick"
       data-track-params={JSON.stringify({
         class_name: name,

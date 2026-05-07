@@ -15,7 +15,8 @@ const description =
   "Start samba no pe in a welcoming beginner class in Balcatta. Learn the basics, build confidence, and join at your own pace.";
 const url = "/beginner-samba-classes-perth";
 const beginnerTerm = terms.find((term) => term.level === "Beginner");
-const bookingUrl = beginnerTerm?.bookingLink ?? "/samba-classes-perth#class-times";
+const bookingUrl =
+  beginnerTerm?.bookingLink ?? "/samba-classes-perth#class-times";
 
 const faqs = [
   {
@@ -62,9 +63,11 @@ const structuredData = [
     title="Beginner Samba Classes in Perth"
     subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
     backgroundImage={danceclassHero}
-    eyebrow="Start here"
     primaryCta={{ label: "Book the Beginner Course", href: bookingUrl }}
-    secondaryCta={{ label: "See All Classes", href: "/samba-classes-perth#class-times" }}
+    secondaryCta={{
+      label: "See All Classes",
+      href: "/samba-classes-perth#class-times",
+    }}
   />
 
   <SectionContainer>
@@ -121,15 +124,23 @@ const structuredData = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-slate-600">
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Wear</h3>
-        <p>Comfortable clothes and sneakers or dance shoes with non-marking soles.</p>
+        <p>
+          Comfortable clothes and sneakers or dance shoes with non-marking
+          soles.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Bring</h3>
-        <p>A water bottle and an open mind. You do not need special equipment.</p>
+        <p>
+          A water bottle and an open mind. You do not need special equipment.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Expect</h3>
-        <p>Clear guidance, repetition, music, movement, and a beginner-friendly pace.</p>
+        <p>
+          Clear guidance, repetition, music, movement, and a beginner-friendly
+          pace.
+        </p>
       </div>
     </div>
   </SectionContainer>
@@ -142,7 +153,11 @@ const structuredData = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 

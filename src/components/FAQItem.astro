@@ -32,7 +32,7 @@ const { question, answer } = Astro.props;
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     const faqItems = document.querySelectorAll(".faq-question");
 
     faqItems.forEach((item) => {

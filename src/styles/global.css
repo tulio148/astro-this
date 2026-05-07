@@ -6,14 +6,6 @@ body {
   font-family: 'Raleway Variable', sans-serif;
 }
 
-.bg-db-green:not(:hover),
-.bg-emerald-400:not(:hover),
-.hover\:bg-db-green:hover,
-.group:hover .group-hover\:bg-db-green {
-  color: #9E0096;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
-}
-
 @theme {
     --color-db-pink: #9E0096;
     --color-db-light-pink: #FF00F7;
@@ -25,6 +17,14 @@ body {
   }
 
   @layer utilities {
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -177,21 +177,7 @@ body {
     }
 
     .motion-cta::after {
-      content: '';
-      position: absolute;
-      inset: -40% -20%;
-      z-index: -1;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 48%);
-      opacity: 0;
-      transform: translateX(-50%) rotate(12deg);
-      transition:
-        opacity 0.22s ease,
-        transform 0.55s var(--ease-fluid);
-    }
-
-    .motion-cta:hover::after {
-      opacity: 1;
-      transform: translateX(45%) rotate(12deg);
+      display: none;
     }
 
     @keyframes ribbonDrift {

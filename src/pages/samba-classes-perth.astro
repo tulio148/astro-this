@@ -86,9 +86,11 @@ const progressionSteps = [
     title="Samba Classes in Perth"
     subtitle="Beginner, intermediate, and casual samba no pe classes in Balcatta. No partner needed."
     backgroundImage={classesHero}
-    eyebrow="Classes"
     primaryCta={{ label: "See Class Times", href: "#class-times" }}
-    secondaryCta={{ label: "Beginner Classes", href: "/beginner-samba-classes-perth" }}
+    secondaryCta={{
+      label: "Beginner Classes",
+      href: "/beginner-samba-classes-perth",
+    }}
   />
 
   <SectionContainer>
@@ -99,7 +101,9 @@ const progressionSteps = [
     />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Beginners</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           For first-timers and dancers returning after time away. Learn the
@@ -113,7 +117,9 @@ const progressionSteps = [
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Intermediate</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           For dancers who know the samba basic and want more technique, stamina,
@@ -127,7 +133,9 @@ const progressionSteps = [
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Private Groups</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           Planning a team activity, hens party, birthday, or community event?
@@ -211,7 +219,9 @@ const progressionSteps = [
       class="mb-12"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600"
+    >
       <div>
         <h3 class="text-2xl font-bold mb-4 text-db-pink">In class</h3>
         <ul class="space-y-3">
@@ -263,7 +273,11 @@ const progressionSteps = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 

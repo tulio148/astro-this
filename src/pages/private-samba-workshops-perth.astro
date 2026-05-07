@@ -76,8 +76,10 @@ const fitFor = [
     title="Private Samba Workshops in Perth"
     subtitle="Book a Brazilian samba workshop for team building, hens parties, birthdays, schools, community groups, and events."
     backgroundImage={danceclassHero}
-    eyebrow="Private groups"
-    primaryCta={{ label: "Request a Workshop Quote", href: "#workshop-enquiry" }}
+    primaryCta={{
+      label: "Request a Workshop Quote",
+      href: "#workshop-enquiry",
+    }}
     secondaryCta={{ label: "See Classes", href: "/samba-classes-perth" }}
   />
 
@@ -88,20 +90,32 @@ const fitFor = [
       class="mb-16"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600"
+    >
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold text-db-pink mb-3">Team Building</h3>
-        <p>Bring the group together through rhythm, movement, and shared focus.</p>
+        <p>
+          Bring the group together through rhythm, movement, and shared focus.
+        </p>
       </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold text-db-pink mb-3">Hens & Birthdays</h3>
         <p>Add a lively activity to a private celebration or themed party.</p>
       </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold text-db-pink mb-3">Schools & Community</h3>
         <p>Introduce Brazilian samba movement in an accessible group format.</p>
       </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold text-db-pink mb-3">Event Programs</h3>
         <p>Use a workshop as an interactive activation or guest experience.</p>
       </div>
@@ -198,7 +212,11 @@ const fitFor = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 

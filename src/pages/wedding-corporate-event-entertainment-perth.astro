@@ -10,7 +10,8 @@ import Hero from "../components/Hero.astro";
 import showForHireHero from "../images/showhero.avif";
 import { faqSchema, serviceSchema } from "../lib/schema";
 
-const title = "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
+const title =
+  "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
 const description =
   "Add Brazilian samba entertainment to Perth weddings, gala nights, launches, conferences, and corporate celebrations.";
 const url = "/wedding-corporate-event-entertainment-perth";
@@ -60,8 +61,10 @@ const structuredData = [
     title="Wedding and Corporate Event Entertainment in Perth"
     subtitle="Brazilian samba dancers for receptions, gala nights, launches, conferences, and corporate celebrations."
     backgroundImage={showForHireHero}
-    eyebrow="Planner-friendly entertainment"
-    primaryCta={{ label: "Plan Your Event Entertainment", href: "#event-enquiry" }}
+    primaryCta={{
+      label: "Plan Your Event Entertainment",
+      href: "#event-enquiry",
+    }}
     secondaryCta={{ label: "Show Hire", href: "/book-a-samba-show-perth" }}
   />
 
@@ -73,7 +76,9 @@ const structuredData = [
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Weddings</h3>
         <p class="mb-6">
           Add samba dancers to a reception entrance, feature performance, guest
@@ -88,7 +93,9 @@ const structuredData = [
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Corporate Events</h3>
         <p class="mb-6">
           Use Brazilian samba entertainment for launches, gala dinners,
@@ -133,7 +140,10 @@ const structuredData = [
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Roving Dancers</h3>
-        <p>Visual energy across arrivals, cocktail hours, festivals, or activations.</p>
+        <p>
+          Visual energy across arrivals, cocktail hours, festivals, or
+          activations.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Music Options</h3>
@@ -150,7 +160,11 @@ const structuredData = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 
