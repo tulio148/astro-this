@@ -165,7 +165,9 @@ const structuredData = [
       class="mb-12"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600"
+    >
       <div>
         <h3 class="text-2xl font-bold mb-4 text-db-pink">Hire process</h3>
         <ol class="space-y-3 list-decimal pl-5">
@@ -191,7 +193,9 @@ const structuredData = [
         <ul class="space-y-3">
           <li>Confirm size and included pieces before booking.</li>
           <li>Ask about fitting or styling support if needed.</li>
-          <li>Item photos and descriptions are a guide to the available style.</li>
+          <li>
+            Item photos and descriptions are a guide to the available style.
+          </li>
         </ul>
       </div>
 
@@ -199,8 +203,12 @@ const structuredData = [
         <h3 class="text-2xl font-bold mb-4 text-db-pink">Optional add-ons</h3>
         <ul class="space-y-3">
           <li>Styling guidance can be discussed.</li>
-          <li>Hair and makeup are optional add-ons, subject to availability.</li>
-          <li>Delivery or collection support may be available by arrangement.</li>
+          <li>
+            Hair and makeup are optional add-ons, subject to availability.
+          </li>
+          <li>
+            Delivery or collection support may be available by arrangement.
+          </li>
         </ul>
       </div>
     </div>
@@ -214,7 +222,11 @@ const structuredData = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 

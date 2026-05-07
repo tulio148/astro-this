@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
+import Hero from "../components/Hero.tsx";
 import Card from "../components/Card.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
@@ -14,6 +14,7 @@ import { terms } from "../data/terms";
 import { faqSchema, organizationSchema, serviceSchema } from "../lib/schema";
 // Import images
 import hero from "../images/hero.avif";
+import heroMobile from "../images/hero-mobile.avif";
 import showForHireHero from "../images/showhero.avif";
 import costumeHireHero from "../images/costumeHireHeroAvif.avif";
 import noBgDancer3 from "../images/noBgDancer3.avif";
@@ -88,9 +89,12 @@ const structuredData = [
   <main id="main-content">
     <!-- <div class="relative h-[65vh] flex items-center"> -->
     <Hero
+      client:load
       title="Brazilian Samba Classes, Shows and Costume Hire in Perth"
       subtitle="Dance Bloc Brazil brings samba no pe classes, event entertainment, private workshops, and Carnival-style costume hire to Perth."
       backgroundImage={hero}
+      mobileImage={heroMobile}
+      imagePosition="center"
       eyebrow="Brazilian samba in Perth"
       primaryCta={{
         label: "Book a Class",

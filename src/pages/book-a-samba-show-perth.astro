@@ -65,7 +65,10 @@ const structuredData = [
     backgroundImage={showForHireHero}
     eyebrow="Event entertainment"
     primaryCta={{ label: "Request a Show Quote", href: "#show-enquiry" }}
-    secondaryCta={{ label: "Wedding & Corporate", href: "/wedding-corporate-event-entertainment-perth" }}
+    secondaryCta={{
+      label: "Wedding & Corporate",
+      href: "/wedding-corporate-event-entertainment-perth",
+    }}
   />
 
   <SectionContainer>
@@ -81,7 +84,7 @@ const structuredData = [
         alt="Brazilian samba dancer available for event entertainment in Perth"
         widths={[320, 480, 640, 800, 1200]}
         sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
-          class="w-full h-full max-h-[720px] object-cover transition-transform duration-700 hover:scale-[1.02] image-overlay"
+        class="w-full h-full max-h-[720px] object-cover transition-transform duration-700 hover:scale-[1.02] image-overlay"
       />
 
       <div class="text-slate-600 text-lg leading-relaxed space-y-6">
@@ -127,7 +130,9 @@ const structuredData = [
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Corporate Events</h3>
         <p class="text-slate-600">
           Gala nights, launches, conferences, team celebrations, and client
@@ -135,7 +140,9 @@ const structuredData = [
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Weddings</h3>
         <p class="text-slate-600">
           Reception entrances, feature performances, guest interaction, and
@@ -143,7 +150,9 @@ const structuredData = [
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Private Parties</h3>
         <p class="text-slate-600">
           Birthdays, anniversaries, hens parties, and celebrations that need a
@@ -151,11 +160,13 @@ const structuredData = [
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Festivals</h3>
         <p class="text-slate-600">
-          Stage shows, roving entertainment, cultural programs, and public
-          event activations.
+          Stage shows, roving entertainment, cultural programs, and public event
+          activations.
         </p>
       </div>
     </div>
@@ -179,7 +190,9 @@ const structuredData = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
       <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Performance options</h3>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">
+          Performance options
+        </h3>
         <ul class="space-y-3">
           <li>Number of dancers and performance length</li>
           <li>Recorded music or optional live music/drumming</li>
@@ -208,7 +221,11 @@ const structuredData = [
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 
@@ -222,9 +239,13 @@ const structuredData = [
 
         <ol class="mt-8 space-y-3 text-lg text-slate-600 list-decimal pl-5">
           <li>Send your event details through the enquiry form.</li>
-          <li>We discuss timing, format, dancers, music options, and costumes.</li>
+          <li>
+            We discuss timing, format, dancers, music options, and costumes.
+          </li>
           <li>You receive a quote shaped around your event requirements.</li>
-          <li>Your booking is confirmed once details and deposit are finalised.</li>
+          <li>
+            Your booking is confirmed once details and deposit are finalised.
+          </li>
         </ol>
       </div>
 
