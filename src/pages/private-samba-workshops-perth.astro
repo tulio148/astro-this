@@ -1,0 +1,166 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Hero from "../components/Hero.astro";
+import danceclassHero from "../images/danceclassHero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Private Samba Workshops Perth | Team Building, Parties & Events";
+const description =
+  "Book a private Brazilian samba workshop in Perth for team building, hens parties, birthdays, schools, community groups, or special events.";
+const url = "/private-samba-workshops-perth";
+
+const faqs = [
+  {
+    question: "Who are private samba workshops for?",
+    answer:
+      "Workshops can suit team building, hens parties, birthdays, schools, community groups, and event programs. The format is shaped around the group.",
+  },
+  {
+    question: "Do participants need dance experience?",
+    answer:
+      "No. Workshop content can be beginner-friendly and adjusted for confidence, group size, and event style.",
+  },
+  {
+    question: "Can you come to our venue?",
+    answer:
+      "Venue and travel details can be discussed during enquiry. Include your suburb, venue type, group size, and preferred date.",
+  },
+  {
+    question: "How long is a workshop?",
+    answer:
+      "Duration depends on the group and event format. Share your run sheet or preferred timing so the workshop can be scoped properly.",
+  },
+];
+
+const structuredData = [
+  serviceSchema({
+    name: "Private samba workshops in Perth",
+    description,
+    url,
+    image: danceclassHero.src,
+  }),
+  faqSchema(faqs),
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={danceclassHero.src}
+  url={url}
+  structuredData={structuredData}
+>
+  <Hero
+    title="Private Samba Workshops in Perth"
+    subtitle="Book a Brazilian samba workshop for team building, hens parties, birthdays, schools, community groups, and events."
+    backgroundImage={danceclassHero}
+    eyebrow="Private groups"
+    primaryCta={{ label: "Request a Workshop Quote", href: "#workshop-enquiry" }}
+    secondaryCta={{ label: "See Classes", href: "/samba-classes-perth" }}
+  />
+
+  <SectionContainer>
+    <SectionTitle
+      title="A group activity with movement and energy"
+      subtitle="Private workshops are designed for organisers who want something active, inclusive, and easy to brief."
+      class="mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600">
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold text-db-pink mb-3">Team Building</h3>
+        <p>Bring the group together through rhythm, movement, and shared focus.</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold text-db-pink mb-3">Hens & Birthdays</h3>
+        <p>Add a lively activity to a private celebration or themed party.</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold text-db-pink mb-3">Schools & Community</h3>
+        <p>Introduce Brazilian samba movement in an accessible group format.</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold text-db-pink mb-3">Event Programs</h3>
+        <p>Use a workshop as an interactive activation or guest experience.</p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <MediaPlaceholder
+      title="Private workshop proof"
+      assetNeed="Group workshop proof for the private samba workshops page."
+      ratio="Landscape 16:9 or three-image grid"
+      subject="Show real group participation, not staged solo performance only."
+      options={[
+        "Team-building workshop photo",
+        "Hens or birthday workshop photo",
+        "Short group participation video",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="Workshop details to plan"
+      subtitle="The best quote comes from clear group and venue information."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Format options</h3>
+        <ul class="space-y-3">
+          <li>Beginner-friendly samba movement session</li>
+          <li>Team-building or social group format</li>
+          <li>Event activation with simple guest participation</li>
+          <li>Theme-aligned workshop for private celebrations</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Enquiry details</h3>
+        <ul class="space-y-3">
+          <li>Date, time, suburb, and venue type</li>
+          <li>Group size and audience type</li>
+          <li>Preferred duration and event purpose</li>
+          <li>Any access, sound, or floor-space details</li>
+        </ul>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Workshop FAQs"
+      subtitle="Answers for organisers before enquiring."
+      class="mb-12"
+    />
+
+    <div class="max-w-5xl mx-auto">
+      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="workshop-enquiry">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <SectionTitle
+          title="Request a Workshop Quote"
+          subtitle="Tell us about the group, date, venue, and the kind of workshop experience you want."
+        />
+      </div>
+
+      <ContactForm
+        title="Workshop Inquiry"
+        subtitle="Include the group size, suburb, venue type, date, and preferred workshop length."
+      />
+    </div>
+  </SectionContainer>
+</Layout>

@@ -23,8 +23,8 @@ export default function CostumeCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className=" bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg ">
-      <div className="image-container aspect-[3/4] overflow-hidden">
+    <div className="overflow-hidden rounded-[1.75rem] border border-pink-100 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.10)] transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-emerald-300 hover:shadow-[0_22px_60px_rgba(158,0,150,0.16)]">
+      <div className="image-container aspect-[3/4] overflow-hidden rounded-b-[2rem] relative">
         <img
           src={image.src}
           alt={title}
@@ -33,18 +33,19 @@ export default function CostumeCard({
           className="costume-image w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       <div className="content p-6">
-        <h3 className="title text-2xl font-bold mb-3 text-[var(--color-primary,#d946ef)]">
+        <h3 className="title mb-3 text-2xl font-black text-[var(--color-primary,#9E0096)]">
           {title}
         </h3>
 
-        <div className="tags flex gap-2 mb-4">
-          <span className="tag tag-size text-xs px-3 py-1 rounded-full bg-pink-100 text-pink-900">
+        <div className="tags flex flex-wrap gap-2 mb-4">
+          <span className="tag tag-size rounded-full border border-pink-100 bg-pink-50 px-3 py-1 text-xs font-bold text-pink-900">
             {size}
           </span>
-          <span className="tag tag-color text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-900">
+          <span className="tag tag-color rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
             {color}
           </span>
         </div>
@@ -59,7 +60,7 @@ export default function CostumeCard({
           </p>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-[var(--color-primary,#d946ef)] font-semibold  mb-2 block cursor-pointer underline"
+            className="mb-2 block cursor-pointer font-bold text-[var(--color-primary,#9E0096)] underline"
           >
             {isExpanded ? "Read Less" : "Read More"}
           </button>
@@ -70,13 +71,13 @@ export default function CostumeCard({
           {material}
         </p>
 
-        <div className="footer flex justify-between items-center pt-4 border-t border-gray-200">
-          <span className="price text-xl font-bold text-[var(--color-primary,#d946ef)]">
+        <div className="footer flex items-center justify-between gap-4 border-t border-gray-200 pt-4">
+          <span className="price text-xl font-black text-[var(--color-primary,#9E0096)]">
             {price}/day
           </span>
           <a
             href="/samba-costume-hire-perth#book-costume"
-            className="book-button bg-gradient-to-r from-[var(--color-primary,#d946ef)] to-[var(--color-secondary,#ec4899)] text-white font-medium px-4 py-2 rounded-lg transition-transform duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md"
+            className="book-button rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-black uppercase tracking-[0.12em] text-slate-950 shadow-[0_12px_25px_rgba(52,211,153,0.28)] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-[var(--color-primary,#9E0096)] hover:text-white hover:shadow-md"
           >
             Book Now
           </a>

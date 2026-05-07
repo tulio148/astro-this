@@ -4,71 +4,143 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
-import danceclassHero from "../images/danceclassHero.avif";
-import { Picture } from "astro:assets";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
+import FAQItem from "../components/FAQItem.astro";
+import Hero from "../components/Hero.astro";
+import classesHero from "../images/classesHero.avif";
 import { terms } from "../data/terms";
+import { faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata = {
-  title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
-  description:
-    "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
-  openGraph: {
-    title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
-    description:
-      "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
-    url: "https://danceblocbrazil.com/samba-classes-perth",
-    siteName: "Samba Dance Perth",
-    images: [
-      {
-        url: danceclassHero.src,
-        width: 1200,
-        height: 630,
-        alt: "Samba Dance Classes Perth - Learn Brazilian Samba",
-      },
-    ],
-    locale: "en_AU",
-    type: "website",
+const title = "Samba Classes Perth | Beginner to Intermediate Samba no Pe";
+const description =
+  "Brazilian samba classes in Balcatta for beginners, intermediate dancers, and casual drop-ins. No partner needed.";
+const url = "/samba-classes-perth";
+
+const faqs = [
+  {
+    question: "Do I need dance experience?",
+    answer:
+      "No. Beginner samba classes are built for people starting from the basics, and the casual option gives you a flexible way to join when available.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Samba Dance Classes in Perth | Learn Brazilian Samba",
-    description:
-      "Join our fun and energetic Samba dance classes in Perth. Perfect for beginners and experienced dancers. Learn authentic Brazilian dance moves in a welcoming environment.",
-    image: danceclassHero.src,
+  {
+    question: "Do I need a partner?",
+    answer:
+      "No partner is needed. Samba no pe is a solo Brazilian samba style, so classes focus on individual movement, rhythm, and technique.",
   },
-};
+  {
+    question: "What should I wear?",
+    answer:
+      "Wear comfortable clothing you can move in, plus sneakers or dance shoes with non-marking soles. Bring water.",
+  },
+  {
+    question: "Can I join casually?",
+    answer:
+      "Casual classes are listed when available. If you want steady progress, a full term is the best option.",
+  },
+];
+
+const structuredData = [
+  serviceSchema({
+    name: "Samba classes in Perth",
+    description,
+    url,
+    image: classesHero.src,
+  }),
+  faqSchema(faqs),
+];
 ---
 
 <Layout
-  title="Classes"
-  description="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels."
-  image={danceclassHero.src}
-  url="https://danceblocbrazil.com/samba-classes-perth"
+  title={title}
+  description={description}
+  image={classesHero.src}
+  url={url}
+  structuredData={structuredData}
   pageEvent="SambaClassesView"
 >
-  <div class="relative h-[65vh] flex items-center">
-    <Picture
-      src={danceclassHero}
-      alt=""
-      class="absolute inset-0 w-full h-full object-cover z-0"
-      widths={[480, 768, 1024, 1280, 1920]}
-      sizes="(max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1920px"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-db-pink/20 to-white from-70% z-10"
-    >
-    </div>
-  </div>
+  <Hero
+    title="Samba Classes in Perth"
+    subtitle="Beginner, intermediate, and casual samba no pe classes in Balcatta. No partner needed."
+    backgroundImage={classesHero}
+    eyebrow="Classes"
+    primaryCta={{ label: "See Class Times", href: "#class-times" }}
+    secondaryCta={{ label: "Beginner Classes", href: "/beginner-samba-classes-perth" }}
+  />
 
-  <SectionContainer class="mt-[-40px] mb-64">
+  <SectionContainer>
     <SectionTitle
-      title="Our Classes"
-      subtitle="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes to suit all levels."
+      title="Choose the right class"
+      subtitle="Start with the basics, build your technique, or join casually when your schedule allows."
+      class="mb-16"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Beginners</h3>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          For first-timers and dancers returning after time away. Learn the
+          samba basic, timing, coordination, and simple movement patterns.
+        </p>
+        <a
+          href="/beginner-samba-classes-perth"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Start with beginners
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Intermediate</h3>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          For dancers who know the samba basic and want more technique, stamina,
+          musicality, and choreography practice.
+        </p>
+        <a
+          href="#class-times"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          See current terms
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Private Groups</h3>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          Planning a team activity, hens party, birthday, or community event?
+          Private samba workshops can be shaped around your group.
+        </p>
+        <a
+          href="/private-samba-workshops-perth"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Plan a workshop
+        </a>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <MediaPlaceholder
+      title="Classes page media"
+      assetNeed="Real class environment proof for the samba classes page."
+      ratio="4:5 portrait image or 16:9 video"
+      subject="Show a beginner-friendly class, teacher/demo moment, or group energy inside the class environment."
+      options={[
+        "Beginner class photo",
+        "Short class video showing instruction and group energy",
+        "Teacher/demo photo in studio",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer id="class-times">
+    <SectionTitle
+      title="Class times and bookings"
+      subtitle="Current term and casual options are listed below. Dates, prices, and booking links should be checked before you book."
+      class="mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         terms.map((term) => (
           <TermCard
@@ -88,63 +160,62 @@ export const metadata = {
     </div>
   </SectionContainer>
 
-  <SectionContainer class="mb-64 bg-db-light-pink/5 rounded-3xl">
+  <SectionContainer class="bg-db-light-pink/5">
     <SectionTitle
-      title="Class Information"
-      subtitle="Everything you need to know before attending your first class at Dance Bloc Brazil."
+      title="What to expect"
+      subtitle="A practical, welcoming class focused on rhythm, movement, coordination, and confidence."
+      class="mb-12"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600">
       <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">What to Bring</h3>
-        <ul class="space-y-3 mb-6">
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span class="text-slate-600">
-              Comfortable clothing that allows for movement
-            </span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span class="text-slate-600">
-              Sneakers or dance shoes with non-marking soles
-            </span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span class="text-slate-600">Water bottle to stay hydrated</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span class="text-slate-600">Small towel (optional)</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-db-pink mr-2">✓</span>
-            <span class="text-slate-600">Positive attitude and energy!</span>
-          </li>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">In class</h3>
+        <ul class="space-y-3">
+          <li>Samba no pe basics and rhythm work</li>
+          <li>Technique drills for feet, hips, posture, and arms</li>
+          <li>Beginner-friendly choreography options</li>
+          <li>Clear level guidance so you know where to start</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">What to bring</h3>
+        <ul class="space-y-3">
+          <li>Comfortable clothes for movement</li>
+          <li>Sneakers or dance shoes with non-marking soles</li>
+          <li>Water bottle</li>
+          <li>A willingness to start where you are</li>
         </ul>
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer
-    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl mb-64"
-  >
+  <SectionContainer>
     <SectionTitle
-      title="Private Events & Workshops"
-      subtitle="Looking for a unique team-building activity or special celebration? We offer private workshops and custom dance experiences for groups."
-      class="mb-24"
+      title="Samba class FAQs"
+      subtitle="Answers for first-timers and returning dancers."
+      class="mb-12"
     />
 
-    <div class="mt-8">
-      <a
-        href="/contact"
-        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mb-5"
-        data-track="PrivateEventsInquiry"
-        data-track-params='{"source":"classes_page", "event_type":"workshop"}'
-      >
-        Inquire About Private Events
-      </a>
+    <div class="max-w-5xl mx-auto">
+      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
     </div>
   </SectionContainer>
-</Layout>;
+
+  <SectionContainer>
+    <SectionTitle
+      title="Want a class for your group?"
+      subtitle="Private samba workshops are available for teams, parties, community groups, and event programs."
+      class="mb-12"
+    />
+
+    <a
+      href="/private-samba-workshops-perth"
+      class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+      data-track="PrivateEventsInquiry"
+      data-track-params='{"source":"classes_page", "event_type":"workshop"}'
+    >
+      Request a Workshop Quote
+    </a>
+  </SectionContainer>
+</Layout>

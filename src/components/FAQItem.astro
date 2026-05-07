@@ -7,22 +7,27 @@ interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<div class="mb-10 last:mb-0 overflow-hidden">
-  <div class="faq-question cursor-pointer flex justify-between items-center">
-    <h3 class="text-xl font-semibold text-db-pink pr-4">{question}</h3>
+<div class="faq-item mb-5 overflow-hidden rounded-[1.5rem] border border-db-pink/10 bg-white px-5 py-5 shadow-[0_14px_35px_rgba(158,0,150,0.08)] transition hover:border-db-green/40 hover:shadow-[0_18px_45px_rgba(158,0,150,0.12)] sm:px-7 sm:py-6 last:mb-0">
+  <button
+    type="button"
+    class="faq-question flex w-full cursor-pointer items-center justify-between gap-6 text-left"
+    aria-expanded="false"
+  >
+    <span class="text-lg sm:text-xl font-black leading-snug text-slate-900">
+      {question}
+    </span>
     <span
-      class="faq-icon transition-transform duration-300 text-db-pink text-2xl"
+      class="faq-icon grid h-10 w-10 shrink-0 place-items-center rounded-full border border-db-pink/20 bg-db-light-pink/5 text-lg font-black text-db-pink transition"
       >+</span
     >
-  </div>
+  </button>
   <div
-    class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+      class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
   >
-    <p class="text-slate-600 text-lg pt-6 pb-2 px-1">{answer}</p>
-    <div
-      class="h-0.5 w-full bg-gradient-to-r from-db-pink/20 via-db-pink/10 to-transparent rounded-full"
-    >
-    </div>
+    <p class="max-w-3xl pt-5 text-base sm:text-lg leading-relaxed text-slate-600">
+      {answer}
+    </p>
+    <div class="mt-5 h-px w-full bg-gradient-to-r from-db-green/50 via-db-pink/15 to-transparent rounded-full"></div>
   </div>
 </div>
 
@@ -35,24 +40,23 @@ const { question, answer } = Astro.props;
         const parent = item.parentElement;
         const answer = parent?.querySelector(".faq-answer");
         const icon = item.querySelector(".faq-icon");
+        const isOpen = item.getAttribute("aria-expanded") === "true";
 
-        // Toggle this FAQ
-        answer?.classList.toggle("max-h-0");
-        answer?.classList.toggle("max-h-96");
-        icon?.classList.toggle("rotate-45");
+        item.setAttribute("aria-expanded", String(!isOpen));
+        answer?.classList.toggle("max-h-0", isOpen);
+        answer?.classList.toggle("max-h-96", !isOpen);
+        icon?.classList.toggle("rotate-45", !isOpen);
+        icon?.classList.toggle("bg-db-pink", !isOpen);
+        icon?.classList.toggle("text-white", !isOpen);
 
-        // Close other FAQs
-        document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
-          if (
-            otherAnswer !== answer &&
-            !otherAnswer.classList.contains("max-h-0")
-          ) {
-            otherAnswer.classList.add("max-h-0");
-            otherAnswer.classList.remove("max-h-96");
-            otherAnswer.parentElement
-              ?.querySelector(".faq-icon")
-              ?.classList.remove("rotate-45");
-          }
+        document.querySelectorAll(".faq-question").forEach((otherItem) => {
+          if (otherItem === item) return;
+          otherItem.setAttribute("aria-expanded", "false");
+          const otherAnswer = otherItem.parentElement?.querySelector(".faq-answer");
+          const otherIcon = otherItem.querySelector(".faq-icon");
+          otherAnswer?.classList.add("max-h-0");
+          otherAnswer?.classList.remove("max-h-96");
+          otherIcon?.classList.remove("rotate-45", "bg-db-pink", "text-white");
         });
       });
     });

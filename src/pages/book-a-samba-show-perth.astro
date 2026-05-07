@@ -4,190 +4,233 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
-import Picture from "astro/components/Picture.astro";
-import { Picture as AstroPicture } from "astro:assets";
-
-// Import images
+import { Picture } from "astro:assets";
 import showForHireHero from "../images/showhero.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
-import noBgDancer2 from "../images/noBgDancer2.avif";
-import noBgDancer3 from "../images/noBgDancer3.avif";
-import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata = {
-  title:
-    "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
-  description:
-    "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
-  openGraph: {
-    title:
-      "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
-    description:
-      "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
-    url: "https://danceblocbrazil.com/book-a-samba-show-perth",
-    siteName: "Samba Dance Perth",
-    images: [
-      {
-        url: showForHireHero.src,
-        width: 1200,
-        height: 630,
-        alt: "Samba Show for Hire Perth - Professional Brazilian Dance Performances",
-      },
-    ],
-    locale: "en_AU",
-    type: "website",
+const title = "Brazilian Samba Show Hire Perth | Samba Dancers for Events";
+const description =
+  "Book Brazilian samba dancers in Perth for weddings, corporate events, parties, festivals, and themed entertainment.";
+const url = "/book-a-samba-show-perth";
+
+const faqs = [
+  {
+    question: "What events can you perform at?",
+    answer:
+      "Dance Bloc Brazil can provide samba entertainment for weddings, corporate events, private parties, festivals, launches, and themed events in Perth.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Samba Show for Hire in Perth | Professional Brazilian Dance Performances",
-    description:
-      "Book our professional Samba dancers for your events in Perth. Perfect for corporate events, weddings, parties, and festivals. Authentic Brazilian dance performances.",
+  {
+    question: "Can bookings include live music or drumming?",
+    answer:
+      "Yes. Live musicians or drummers can be discussed as part of the booking options. Availability and format depend on the event requirements.",
+  },
+  {
+    question: "How far ahead should I enquire?",
+    answer:
+      "Send your enquiry as early as possible, especially for weekends and peak event periods. Four to six weeks of notice is a helpful guide.",
+  },
+  {
+    question: "Can the show be tailored to my event?",
+    answer:
+      "Yes. The performance format, number of dancers, timing, music options, and costume direction can be discussed during the quote process.",
+  },
+];
+
+const structuredData = [
+  serviceSchema({
+    name: "Brazilian samba show hire in Perth",
+    description,
+    url,
     image: showForHireHero.src,
-  },
-};
+  }),
+  faqSchema(faqs),
+];
 ---
 
 <Layout
-  title="Show for Hire"
-  description="Book Dance Bloc Brazil's electrifying Brazilian samba carnival performances for your event in Perth. Our talented dancers bring the vibrant spirit of Brazil to corporate events, private parties, and festivals."
+  title={title}
+  description={description}
   image={showForHireHero.src}
-  url="https://danceblocbrazil.com/book-a-samba-show-perth"
+  url={url}
+  structuredData={structuredData}
   pageEvent="BookSambaShowView"
 >
-  <div class="relative h-[65vh] flex items-center">
-    <AstroPicture
-      src={showForHireHero}
-      alt=""
-      class="absolute inset-0 w-full h-full object-cover z-0"
-      widths={[480, 768, 1024, 1280, 1920]}
-      sizes="(max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1920px"
-      loading="eager"
-      fetchpriority="high"
-    />
-    {/* Gradient Overlay */}
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-transparent to-white from-70% z-10"
-    >
-    </div>
-  </div>
+  <Hero
+    title="Brazilian Samba Show Hire in Perth"
+    subtitle="Book samba dancers, Carnival-style costumes, and optional live music or drumming for Perth events."
+    backgroundImage={showForHireHero}
+    eyebrow="Event entertainment"
+    primaryCta={{ label: "Request a Show Quote", href: "#show-enquiry" }}
+    secondaryCta={{ label: "Wedding & Corporate", href: "/wedding-corporate-event-entertainment-perth" }}
+  />
 
-  <SectionContainer class="mt-[-40px]">
+  <SectionContainer>
     <SectionTitle
-      title="Breathtaking Brazilian Samba Carnival Shows in Perth"
-      subtitle="Make a lasting impression with our electrifying Brazilian samba carnival performances. Our talented dancers and musicians bring the vibrant spirit of Brazil to life, creating an unforgettable spectacle for your guests."
-      class="mb-56"
+      title="Samba entertainment for your run sheet"
+      subtitle="Add a high-energy performance moment, roving visual impact, or interactive celebration to your event."
+      class="mb-16"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-48 mb-64">
-      <div class="aspect-auto md:w-full overflow-hidden">
-        <div class="w-full h-full">
-          <AstroPicture
-            src={noBgDancer1}
-            alt="Dance Bloc Brazil performance"
-            widths={[320, 480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <Picture
+        src={noBgDancer1}
+        alt="Brazilian samba dancer available for event entertainment in Perth"
+        widths={[320, 480, 640, 800, 1200]}
+        sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
+          class="w-full h-full max-h-[720px] object-cover transition-transform duration-700 hover:scale-[1.02] image-overlay"
+      />
 
-      <div
-        class="flex flex-col justify-center border-r-2 text-right border-db-light-pink/90 p-4 text-2xl tracking-wide leading-relaxed text-slate-600"
-      >
-        <p class="mb-6">
-          From dazzling costumes to infectious rhythms, our samba carnival
-          performances are guaranteed to captivate your audience. Our
-          experienced team will work closely with you to create a tailored show
-          that perfectly complements your event theme. Let us add a touch of
-          Brazilian magic to your special occasion.
+      <div class="text-slate-600 text-lg leading-relaxed space-y-6">
+        <p>
+          Dance Bloc Brazil offers Brazilian samba show hire for weddings,
+          corporate events, private parties, festivals, launches, and themed
+          celebrations across Perth.
         </p>
-        <p class="">
-          Whether you're planning a corporate event, a private party, or a
-          festival, our customizable shows will exceed your expectations and
-          leave a lasting impression on your guests.
+        <p>
+          Bookings can be shaped around your event: a feature performance,
+          roving dancers, guest interaction, Carnival-style costumes, and
+          optional live music or drumming where suitable.
         </p>
+        <a
+          href="#show-enquiry"
+          class="inline-block px-8 py-3 bg-db-pink text-white font-bold rounded-lg hover:bg-db-light-pink transition-colors"
+        >
+          Request a Show Quote
+        </a>
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer class="mb-64">
+  <SectionContainer>
+    <MediaPlaceholder
+      title="Show hire performance proof"
+      assetNeed="Performance proof for the Brazilian samba show hire page."
+      ratio="16:9 video first, image fallback"
+      subject="Show event-ready performance energy, audience context, costumes, and optional live music or drumming if available."
+      options={[
+        "Event performance reel",
+        "Stage or roving dancer photo",
+        "Dancers with optional live musicians or drummers",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
     <SectionTitle
-      title="Perfect for Any Event"
-      subtitle="Our performances can be tailored to enhance any occasion."
+      title="Event types"
+      subtitle="Choose the format that fits your audience, venue, and timing."
+      class="mb-12"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <div class="text-5xl mb-4 text-db-pink">🎭</div>
-        <h3 class="text-xl font-bold mb-3">Corporate Events</h3>
-        <p>
-          Liven up your corporate functions, product launches, and team-building
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold mb-3 text-db-pink">Corporate Events</h3>
+        <p class="text-slate-600">
+          Gala nights, launches, conferences, team celebrations, and client
           events.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <div class="text-5xl mb-4 text-db-pink">💍</div>
-        <h3 class="text-xl font-bold mb-3">Weddings</h3>
-        <p>
-          Add a unique and memorable entertainment element to your special day.
+      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold mb-3 text-db-pink">Weddings</h3>
+        <p class="text-slate-600">
+          Reception entrances, feature performances, guest interaction, and
+          themed wedding moments.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <div class="text-5xl mb-4 text-db-pink">🎉</div>
-        <h3 class="text-xl font-bold mb-3">Private Parties</h3>
-        <p>
-          Make your birthday, anniversary, or celebration an unforgettable
-          experience.
+      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold mb-3 text-db-pink">Private Parties</h3>
+        <p class="text-slate-600">
+          Birthdays, anniversaries, hens parties, and celebrations that need a
+          strong visual moment.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <div class="text-5xl mb-4 text-db-pink">🎪</div>
-        <h3 class="text-xl font-bold mb-3">Festivals & Public Events</h3>
-        <p>
-          Enhance your festival, fair, or public event with vibrant Brazilian
-          energy.
+      <div class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5">
+        <h3 class="text-xl font-bold mb-3 text-db-pink">Festivals</h3>
+        <p class="text-slate-600">
+          Stage shows, roving entertainment, cultural programs, and public
+          event activations.
         </p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="/wedding-corporate-event-entertainment-perth"
+        class="inline-block text-db-pink font-bold hover:text-db-light-pink"
+      >
+        View wedding and corporate entertainment details
+      </a>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Booking details to discuss"
+      subtitle="Clear logistics help the quote match the event."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Performance options</h3>
+        <ul class="space-y-3">
+          <li>Number of dancers and performance length</li>
+          <li>Recorded music or optional live music/drumming</li>
+          <li>Roving, stage, entrance, or interactive moments</li>
+          <li>Costume direction and event theme</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Planner details</h3>
+        <ul class="space-y-3">
+          <li>Event date, time, suburb, and venue type</li>
+          <li>Available performance space and flooring</li>
+          <li>Run-sheet timing and sound setup</li>
+          <li>Audience size and style of event</li>
+        </ul>
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5 rounded-3xl mb-64">
+  <SectionContainer>
+    <SectionTitle
+      title="Show hire FAQs"
+      subtitle="Useful answers before requesting a quote."
+      class="mb-12"
+    />
+
+    <div class="max-w-5xl mx-auto">
+      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="show-enquiry">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <div>
         <SectionTitle
-          title="Book Your Show Today"
-          subtitle="Contact us to discuss your event requirements and secure your booking."
+          title="Request a Show Quote"
+          subtitle="Tell us about your event, date, venue, audience, and the kind of samba entertainment you have in mind."
         />
 
-        <div class="mt-8">
-          <p class="mb-4">
-            <strong>Booking Process:</strong>
-          </p>
-          <ol class="space-y-3 mb-6 list-decimal pl-5">
-            <li>Fill out the contact form with your event details</li>
-            <li>We'll get in touch to discuss your requirements</li>
-            <li>Receive a customized proposal and quote</li>
-            <li>Confirm your booking with a deposit</li>
-            <li>Experience the magic of Brazil at your event!</li>
-          </ol>
-
-          <p class="mb-4">
-            <strong>Note:</strong> We recommend booking at least 4-6 weeks in advance
-            to ensure availability, especially during busy seasons.
-          </p>
-        </div>
+        <ol class="mt-8 space-y-3 text-lg text-slate-600 list-decimal pl-5">
+          <li>Send your event details through the enquiry form.</li>
+          <li>We discuss timing, format, dancers, music options, and costumes.</li>
+          <li>You receive a quote shaped around your event requirements.</li>
+          <li>Your booking is confirmed once details and deposit are finalised.</li>
+        </ol>
       </div>
 
       <ContactForm
         title="Event Inquiry"
-        subtitle="Tell us about your event and we'll be in touch to discuss how we can make it spectacular."
+        subtitle="Share the date, venue, guest numbers, and whether you are interested in dancers only or dancers with live music/drumming."
       />
     </div>
   </SectionContainer>

@@ -1,0 +1,172 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Hero from "../components/Hero.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
+const description =
+  "Add Brazilian samba entertainment to Perth weddings, gala nights, launches, conferences, and corporate celebrations.";
+const url = "/wedding-corporate-event-entertainment-perth";
+
+const faqs = [
+  {
+    question: "Is samba entertainment suitable for formal events?",
+    answer:
+      "Yes. The format can be shaped around the audience, venue, and run sheet, from a polished feature performance to a more interactive celebration.",
+  },
+  {
+    question: "Can you perform at a wedding reception?",
+    answer:
+      "Yes. Samba entertainment can be planned for entrances, reception highlights, guest interaction, or themed wedding moments.",
+  },
+  {
+    question: "Can this work for corporate events?",
+    answer:
+      "Yes. Samba dancers can suit gala nights, launches, conferences, team celebrations, and client events when the format is planned clearly.",
+  },
+  {
+    question: "What do planners need to provide?",
+    answer:
+      "Provide date, venue, run-sheet timing, available space, audience size, sound setup, and whether you want dancers only or optional live music/drumming.",
+  },
+];
+
+const structuredData = [
+  serviceSchema({
+    name: "Wedding and corporate event entertainment in Perth",
+    description,
+    url,
+    image: showForHireHero.src,
+  }),
+  faqSchema(faqs),
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={showForHireHero.src}
+  url={url}
+  structuredData={structuredData}
+>
+  <Hero
+    title="Wedding and Corporate Event Entertainment in Perth"
+    subtitle="Brazilian samba dancers for receptions, gala nights, launches, conferences, and corporate celebrations."
+    backgroundImage={showForHireHero}
+    eyebrow="Planner-friendly entertainment"
+    primaryCta={{ label: "Plan Your Event Entertainment", href: "#event-enquiry" }}
+    secondaryCta={{ label: "Show Hire", href: "/book-a-samba-show-perth" }}
+  />
+
+  <SectionContainer>
+    <SectionTitle
+      title="Entertainment that fits the event"
+      subtitle="Plan a samba performance around your guests, venue, timing, and tone."
+      class="mb-16"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Weddings</h3>
+        <p class="mb-6">
+          Add samba dancers to a reception entrance, feature performance, guest
+          interaction moment, or themed celebration. The performance can be
+          planned around your run sheet and venue.
+        </p>
+        <a
+          href="#event-enquiry"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Ask about wedding entertainment
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Corporate Events</h3>
+        <p class="mb-6">
+          Use Brazilian samba entertainment for launches, gala dinners,
+          conferences, team celebrations, client nights, and branded event
+          activations.
+        </p>
+        <a
+          href="#event-enquiry"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Ask about corporate entertainment
+        </a>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <MediaPlaceholder
+      title="Wedding and corporate event proof"
+      assetNeed="Planner-facing event proof for wedding and corporate entertainment."
+      ratio="Landscape 16:9"
+      subject="Show a polished event environment that helps planners understand fit, tone, and run-sheet placement."
+      options={[
+        "Wedding reception performance photo",
+        "Corporate or gala event photo",
+        "Polished run-sheet or event moment reel",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="Package pathways"
+      subtitle="The exact booking is scoped after your event details are known."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-slate-600">
+      <div>
+        <h3 class="text-xl font-bold text-db-pink mb-3">Feature Show</h3>
+        <p>A planned performance moment for guests to watch and photograph.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-db-pink mb-3">Roving Dancers</h3>
+        <p>Visual energy across arrivals, cocktail hours, festivals, or activations.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-db-pink mb-3">Music Options</h3>
+        <p>Recorded music or optional live music/drumming can be discussed.</p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Planner FAQs"
+      subtitle="Details that help make the booking practical."
+      class="mb-12"
+    />
+
+    <div class="max-w-5xl mx-auto">
+      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="event-enquiry">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <SectionTitle
+          title="Plan Your Event Entertainment"
+          subtitle="Share your date, venue, guest numbers, run-sheet timing, and preferred samba entertainment style."
+        />
+      </div>
+
+      <ContactForm
+        title="Wedding or Corporate Inquiry"
+        subtitle="Tell us about the event type, date, venue, guest numbers, and whether you want dancers only or optional music/drumming."
+      />
+    </div>
+  </SectionContainer>
+</Layout>

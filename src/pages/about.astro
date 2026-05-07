@@ -4,130 +4,143 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
-import Picture from "astro/components/Picture.astro";
-
-// Import images
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
+import { Picture } from "astro:assets";
 import abouthero from "../images/abouthero.avif";
 import dancers from "../images/dancers.avif";
+import { organizationSchema } from "../lib/schema";
 
-export const metadata = {
-  title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
-  description:
-    "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
-  openGraph: {
-    title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
-    description:
-      "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
-    url: "https://danceblocbrazil.com/about",
-    siteName: "Samba Dance Perth",
-    images: [
-      {
-        url: abouthero.src,
-        width: 1200,
-        height: 630,
-        alt: "About Samba Dance Perth - Brazilian Dance in Western Australia",
-      },
-    ],
-    locale: "en_AU",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Samba Dance Perth | Brazilian Dance in Western Australia",
-    description:
-      "Learn about Samba Dance Perth, your premier destination for Brazilian dance in Western Australia. Our story, mission, and commitment to authentic Samba culture.",
-    image: abouthero.src,
-  },
-};
+const title = "About Dance Bloc Brazil | Brazilian Samba in Perth";
+const description =
+  "Learn about Dance Bloc Brazil, our samba classes, event entertainment, private workshops, and costume hire in Perth.";
+const url = "/about";
 ---
 
 <Layout
-  title="About Us"
-  description="Learn about Dance Bloc Brazil, Perth's premier Brazilian dance studio dedicated to sharing the joy, rhythm, and spirit of samba with people of all ages and backgrounds."
+  title={title}
+  description={description}
   image={abouthero.src}
-  url="https://danceblocbrazil.com/about"
+  url={url}
+  structuredData={[organizationSchema()]}
 >
-  <div class="relative h-[65vh] flex items-center">
-    <Picture
-      src={dancers}
-      alt=""
-      class="absolute inset-0 w-full h-full object-cover z-0"
-      widths={[480, 768, 1024, 1280, 1920]}
-      sizes="(max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1920px"
-      loading="eager"
-      fetchpriority="high"
-    />
-    {/* Gradient Overlay */}
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-db-green/20 to-white from-80% z-10"
-    >
-    </div>
-  </div>
+  <Hero
+    title="About Dance Bloc Brazil"
+    subtitle="A Perth-based Brazilian samba business offering samba no pe classes, event entertainment, workshops, and costume hire."
+    backgroundImage={dancers}
+    eyebrow="About"
+    primaryCta={{ label: "View Classes", href: "/samba-classes-perth" }}
+    secondaryCta={{ label: "Contact Us", href: "/#contact" }}
+  />
 
-  <SectionContainer class="mt-[-40px]">
-    <SectionTitle
-      title="Love is samba"
-      subtitle="Located in the vibrant heart of Perth, Dance Bloc Brazil is dedicated to bringing the exhilarating energy and rich cultural heritage of Brazilian samba to our community. Whether you're a seasoned dancer or a complete beginner, our school offers a welcoming and dynamic environment for everyone."
-      class="mb-56"
-    />
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 items-center mb-64">
+  <SectionContainer>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Mission</h3>
-        <p class="mb-6 text-slate-600 text-lg">
-          At Dance Bloc Brazil, our mission is to share the joy, rhythm, and
-          spirit of samba with people of all ages and backgrounds. We strive to
-          create a supportive and inclusive space where students can explore the
-          beauty of Brazilian dance, improve their skills, and connect with a
-          passionate community.
-        </p>
+        <SectionTitle
+          title="Samba in the studio, streets, and stages"
+          subtitle="Dance Bloc Brazil helps people experience Brazilian samba through movement, celebration, and visually striking performance."
+          class="mb-12"
+        />
 
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Our Vision</h3>
-        <p class="mb-6 text-slate-600 text-lg">
-          We envision a Perth where Brazilian dance is celebrated, where people
-          from all walks of life come together to experience the transformative
-          power of movement and music. Through our classes, performances, and
-          community events, we aim to foster cultural understanding and create
-          lasting connections.
-        </p>
+        <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+          <p>
+            Dance Bloc Brazil offers samba no pe classes in Balcatta, private
+            samba workshops, event entertainment, and Carnival-style costume
+            hire across Perth.
+          </p>
+          <p>
+            The business is built around clear instruction, welcoming class
+            energy, strong visual performance, and practical booking details for
+            students, event organisers, and costume hire clients.
+          </p>
+        </div>
       </div>
 
-      <div class="aspect-auto rounded-2xl overflow-hidden shadow-lg">
-        <div class="w-full h-full">
-          <Picture
-            src={abouthero}
-            alt="Dance Bloc Brazil performance"
-            widths={[320, 480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
-            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </div>
+      <Picture
+        src={abouthero}
+        alt="Dance Bloc Brazil samba performers in colourful costumes"
+        widths={[320, 480, 640, 800, 1200]}
+        sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, 800px"
+        class="w-full h-full object-cover image-overlay"
+      />
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <MediaPlaceholder
+      title="Trust-building people asset"
+      assetNeed="People-focused asset for the about page."
+      ratio="Portrait 4:5 or landscape editorial photo"
+      subject="Show the teacher, team, class community, or preparation context in a way that builds trust."
+      options={[
+        "Teacher or team portrait",
+        "Class or community photo",
+        "Performance backstage or prep photo",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="What we offer"
+      subtitle="Four connected ways to work with Dance Bloc Brazil."
+      class="mb-12"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg text-slate-600">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Samba classes</h3>
+        <p>
+          Beginner, intermediate, and casual samba no pe classes in Balcatta,
+          with no partner needed.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Private workshops</h3>
+        <p>
+          Group samba workshops for team building, hens parties, birthdays,
+          schools, community groups, and special events.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Event entertainment</h3>
+        <p>
+          Brazilian samba dancers for weddings, corporate events, private
+          parties, festivals, launches, and themed celebrations.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-db-pink">Costume hire</h3>
+        <p>
+          Samba and Carnival-style costume hire for performances, themed events,
+          photoshoots, and special occasions.
+        </p>
       </div>
     </div>
   </SectionContainer>
 
-  <SectionContainer
-    class="bg-gradient-to-t from-db-green/10 to-white rounded-b-3xl"
-  >
+  <SectionContainer class="bg-db-green/5">
     <SectionTitle
-      title="Ready to Join the Dance?"
-      subtitle="Experience the joy of Brazilian dance with Dance Bloc Brazil."
-      class="mb-40"
+      title="Ready to join or enquire?"
+      subtitle="Start with classes, request a show or workshop quote, or check costume availability."
+      class="mb-12"
     />
 
-    <div class="mt-8">
+    <div class="mt-8 flex flex-wrap gap-4">
       <a
         href="/samba-classes-perth"
-        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block"
       >
         View Classes
       </a>
       <a
+        href="/book-a-samba-show-perth"
+        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+      >
+        Request a Show Quote
+      </a>
+      <a
         href="/#contact"
-        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block mx-2 my-2"
+        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block"
       >
         Contact Us
       </a>

@@ -4,19 +4,22 @@ import Picture from "astro/components/Picture.astro";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-db-pink text-white py-12 mt-16 relative overflow-hidden">
+<footer class="bg-gradient-to-br from-db-pink via-db-pink to-db-light-pink text-white py-14 mt-16 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-8 items-baseline">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
       <div>
-        <p class="text-lg mb-6">Perth's premier Brazilian dance school</p>
-        <p class="mb-4">Email: info@danceblocbrazil.com</p>
+        <p class="text-xl leading-relaxed mb-6 max-w-xl text-white">
+          Brazilian samba classes, event entertainment, workshops, and costume
+          hire in Perth.
+        </p>
+        <p class="mb-6 text-white/85">Email: info@danceblocbrazil.com</p>
 
         <Picture
           src={faviconpng}
           alt="Dance Bloc Brazil Logo"
           width={150}
           height={150}
-          class="bg-gradient-to-b from-black/50 via-black/40 to-black/80 p-3 rounded-4xl"
+          class="bg-gradient-to-b from-black/50 via-black/40 to-black/80 p-3 rounded-3xl border border-white/15 image-overlay"
         />
       </div>
 
@@ -133,20 +136,28 @@ const currentYear = new Date().getFullYear();
             >
           </li>
           <li>
-            <a href="/classes" class="hover:text-db-green transition-colors"
+            <a
+              href="/samba-classes-perth"
+              class="hover:text-db-green transition-colors"
               >Classes</a
             >
           </li>
           <li>
             <a
-              href="/show-for-hire"
+              href="/book-a-samba-show-perth"
               class="hover:text-db-green transition-colors">Show for Hire</a
             >
           </li>
           <li>
             <a
-              href="/costume-hire"
+              href="/samba-costume-hire-perth"
               class="hover:text-db-green transition-colors">Costume Hire</a
+            >
+          </li>
+          <li>
+            <a
+              href="/private-samba-workshops-perth"
+              class="hover:text-db-green transition-colors">Workshops</a
             >
           </li>
         </ul>
@@ -157,7 +168,7 @@ const currentYear = new Date().getFullYear();
       <p class="text-sm">
         &copy; {currentYear} Dance Bloc Brazil. All rights reserved. <span
           class="hidden md:inline">|</span
-        ><br class="md:hidden" /> Move to the rhythm, feel the passion! 💃
+        ><br class="md:hidden" /> Brazilian samba in Perth.
       </p>
       <p class="text-sm mt-2 text-white/80 hover:text-white transition-colors">
         <a
@@ -172,18 +183,6 @@ const currentYear = new Date().getFullYear();
           >
         </a>
       </p>
-    </div>
-  </div>
-
-  <!-- Decorative elements -->
-  <div
-    class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none"
-  >
-    <div class="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-db-green">
-    </div>
-    <div class="absolute top-1/3 right-0 w-32 h-32 rounded-full bg-yellow-400">
-    </div>
-    <div class="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-db-green">
     </div>
   </div>
 </footer>

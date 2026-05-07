@@ -7,43 +7,19 @@ const { class: className = "" } = Astro.props;
 ---
 
 <div
-  class={`flex flex-col justify-center items-center card-animate opacity-0 transform translate-y-8 ${className}`}
+  class={`flex flex-col justify-center items-center card-animate ${className}`}
 >
   <div
-    class="w-full px-6 py-10 sm:p-10 border-2 border-db-pink/20 bg-gradient-to-br from-white to-db-light-pink/5 shadow-lg shadow-db-pink/10 rounded-3xl hover:shadow-2xl hover:shadow-db-pink/15 transition-all duration-300"
+    class="group relative w-full overflow-hidden rounded-[2rem] border border-db-pink/12 bg-white px-6 py-9 shadow-[0_18px_50px_rgba(158,0,150,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-db-green/50 hover:shadow-[0_22px_60px_rgba(158,0,150,0.16)] sm:p-10"
   >
+    <div
+      class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink opacity-80"
+    ></div>
+    <div
+      class="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-db-light-pink/8 transition-transform duration-500 group-hover:scale-125"
+    ></div>
     <div class="relative z-10">
       <slot />
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card-animate");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add(
-                "opacity-100",
-                "translate-y-0",
-                "transition-all",
-                "duration-700",
-                "ease-out"
-              );
-            }, index * 100);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>

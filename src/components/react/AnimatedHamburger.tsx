@@ -61,28 +61,28 @@ const AnimatedHamburger = ({ isOpen, toggle }: AnimatedHamburgerProps) => {
   return (
     <button
       onClick={toggle}
-      className="z-50 cursor-pointer"
+      className="z-50 cursor-pointer rounded-full border-2 border-white/50 bg-black/40 p-2 transition hover:scale-105 hover:border-db-green hover:bg-db-pink focus:outline-none focus:ring-4 focus:ring-db-green/30 lg:p-3"
       aria-label="Toggle navigation menu"
     >
       <motion.div
-        className="group flex flex-col items-center justify-center p-2 rounded-lg  transition-colors duration-200  focus:outline-none "
+        className="group flex h-10 w-12 flex-col items-center justify-center rounded-full transition-colors duration-200 focus:outline-none lg:h-12 lg:w-14"
         whileTap={{ scale: 0.95 }}
       >
         <motion.span
           variants={topLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 mb-2 rounded-full shadow-sm"
+          className="mb-2 h-[3px] w-10 rounded-full bg-white shadow-sm shadow-black/40 lg:w-11"
         />
         <motion.span
           variants={middleLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 mb-2 rounded-full shadow-sm transition-all duration-200 group-hover:w-6 group-hover:bg-db-pink/40 self-end"
+          className="mb-2 h-[3px] w-10 self-end rounded-full bg-db-green shadow-sm shadow-black/40 transition-all duration-200 group-hover:w-6 lg:w-11"
         />
 
         <motion.span
           variants={bottomLineVariants}
           animate={isOpen ? "open" : "closed"}
-          className="w-12 h-[2px] bg-gradient-to-r from-white/90 via-white/60 to-white/90 rounded-full shadow-sm"
+          className="h-[3px] w-10 rounded-full bg-white shadow-sm shadow-black/40 lg:w-11"
         />
       </motion.div>
     </button>

@@ -36,4 +36,16 @@ body {
     ::-webkit-scrollbar-thumb:hover {
       background: #2595be85;
     }
+
+    .image-overlay {
+      position: relative;
+    }
+
+    .image-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
   }

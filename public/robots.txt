@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://dance-astro.vercel.app/sitemap-index.xml 
+Sitemap: https://danceblocbrazil.com/sitemap-index.xml
