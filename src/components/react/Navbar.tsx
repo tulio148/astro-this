@@ -44,7 +44,7 @@ const NAV_LINKS = [
 
 const CTA_LINKS = [
   { name: "Book a Class", path: "/samba-classes-perth#class-times" },
-  { name: "Request a Quote", path: "/#contact" },
+  { name: "Instant Quote Estimate", path: "/#contact" },
 ];
 
 // Props for navigation with client:only
