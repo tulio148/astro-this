@@ -8,7 +8,7 @@ import Card from "../components/Card.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
-import TermCard from "../components/TermCard.astro";
+import HomeTermCard from "../components/HomeTermCard.astro";
 import ServicePathSelector from "../components/react/ServicePathSelector";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
@@ -161,6 +161,18 @@ const trustPoints = [
   },
 ];
 
+const getTermSummary = (description: string) =>
+  description
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .find(
+      (paragraph) =>
+        paragraph.length > 0 &&
+        paragraph.toLowerCase() !== "class structure:" &&
+        !/^first\s*30\s*min/i.test(paragraph) &&
+        !/^second\s*30\s*min/i.test(paragraph),
+    ) ?? "Join this class and keep building your samba with clear, practical progression.";
+
 // Helper function to format date to day name
 // function getDayName(dateString: string) {
 //   const date = new Date(dateString);
@@ -202,14 +214,14 @@ const trustPoints = [
     <!-- </div> -->
 
     <!-- About Section -->
-    <SectionContainer id="about" class="my-40">
+    <SectionContainer spacing="hero-offset" id="about">
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center"
       >
         <SectionTitle
           title="Start in the studio, bring it to the stage"
           subtitle="Dance Bloc Brazil brings Brazilian samba to Perth through beginner-friendly classes, vibrant event performances, private workshops, and Carnival-style costume hire."
-          class="mb-16"
+          class="section-intro"
         />
         <div
           class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[48%_52%_44%_56%/55%_43%_57%_45%] bg-gradient-to-br from-db-light-pink/10 via-white to-db-green/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
@@ -225,7 +237,7 @@ const trustPoints = [
         </div>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 mt-24 lg:grid-cols-3">
+      <div class="grid grid-cols-1 section-grid-base section-block-gap lg:grid-cols-3">
         <div class="flex h-full flex-col gap-6">
           <Card>
             <div
@@ -318,20 +330,20 @@ const trustPoints = [
       </div>
     </SectionContainer>
 
-    <SectionContainer id="choose-path" class="my-40">
+    <SectionContainer id="choose-path">
       <SectionTitle
         title="Choose your samba path"
         subtitle="Start with the route that matches what you need now, then move between classes, workshops, shows, and costume hire when the moment is right."
-        class="mb-16"
+        class="section-intro"
       />
 
       <ServicePathSelector client:load paths={servicePaths} />
     </SectionContainer>
 
     <!-- Terms Section -->
-    <SectionContainer id="terms" class="my-40">
+    <SectionContainer id="terms">
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base justify-center items-center"
       >
         <div
           class="relative order-2 sm:order-1 aspect-[4/5] sm:aspect-square overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
@@ -350,31 +362,29 @@ const trustPoints = [
           <SectionTitle
             title="Upcoming Samba Terms"
             subtitle="Join samba no pe classes in Balcatta, with beginner, intermediate, and casual options when available."
-            class="mb-16"
+            class="section-intro"
           />
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base section-block-gap">
         {
           terms.length > 0 ? (
             terms.map((term) => (
-              <TermCard
+              <HomeTermCard
                 name={term.name}
                 level={term.level}
+                summary={getTermSummary(term.description)}
                 dateBegin={term.dateBegin}
                 dateEnd={term.dateEnd}
                 time={term.time}
                 location={term.location}
                 price={term.price}
                 bookingLink={term.bookingLink}
-                description={term.description}
-                showDetails={term.showDetails}
-                enableMobileReadMore={true}
               />
             ))
           ) : (
-            <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
+            <div class="md:col-span-2 text-center p-8 bg-db-light-pink/5 rounded-xl">
               <h3 class="text-2xl font-bold mb-4 text-db-pink">
                 We're Planning Our Next Term
               </h3>
@@ -403,7 +413,7 @@ const trustPoints = [
         }
       </div>
 
-      <div class="text-center mt-24">
+      <div class="text-center section-block-gap">
         <a
           href="/samba-classes-perth"
           class="motion-cta inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
@@ -416,11 +426,11 @@ const trustPoints = [
       </div>
     </SectionContainer>
 
-    <SectionContainer id="journey" class="my-40 bg-db-light-pink/5">
+    <SectionContainer id="journey" class="bg-db-light-pink/5">
       <SectionTitle
         title="From first step to stage energy"
         subtitle="Classes build the movement foundation; workshops, shows, and costume hire give that energy different places to go."
-        class="mb-16"
+        class="section-intro"
       />
 
       <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
@@ -444,9 +454,9 @@ const trustPoints = [
     </SectionContainer>
 
     <!-- Shows Section -->
-    <SectionContainer id="shows" class="my-40">
+    <SectionContainer id="shows">
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center mb-28"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center mb-28"
       >
         <div
           class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% p-4 shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
@@ -463,11 +473,11 @@ const trustPoints = [
         <SectionTitle
           title="Brazilian samba for events"
           subtitle="Book dancers, costumes, show moments, and optional live music or drumming for Perth weddings, corporate events, private parties, festivals, and launches."
-          class="mb-16"
+          class="section-intro"
         />
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 section-grid-base section-block-gap items-center">
         <div
           class="aspect-[4/5] md:aspect-video rounded-[2rem] overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
@@ -510,10 +520,10 @@ const trustPoints = [
 
     <SectionContainer
       id="why-dance-bloc"
-      class="my-40 bg-[linear-gradient(180deg,rgba(0,204,129,0.08),rgba(0,204,129,0.04))] py-24"
+      class="bg-[linear-gradient(180deg,rgba(0,204,129,0.08),rgba(0,204,129,0.04))]"
     >
       <div
-        class="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
+        class="grid grid-cols-1 section-grid-wide lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
       >
         <SectionTitle
           title="Why Dance Bloc Brazil"
@@ -548,14 +558,14 @@ const trustPoints = [
     </SectionContainer>
 
     <!-- Costumes Section -->
-    <SectionContainer id="costumes" class="my-40">
+    <SectionContainer id="costumes">
       <SectionTitle
         title="Carnival-style costume hire"
         subtitle="Hire samba and Carnival-style costumes for performances, themed events, photoshoots, and special occasions in Perth."
         class="mb-8"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide section-block-gap items-center">
         <div
           class="flex flex-col justify-center order-2 md:order-1 rounded-[2rem] border border-db-pink/10 bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
         >
@@ -597,11 +607,11 @@ const trustPoints = [
     </SectionContainer>
 
     <!-- Proof Media Placeholder -->
-    <SectionContainer id="proof" class="my-40">
+    <SectionContainer id="proof">
       <SectionTitle
         title="Real moments needed before launch"
         subtitle="This section intentionally blocks launch until real class, event, or costume media is supplied. Prompt suggestions are included for visual direction only."
-        class="mb-16"
+        class="section-intro"
       />
 
       <MediaPlaceholder
@@ -623,7 +633,7 @@ const trustPoints = [
     </SectionContainer>
 
     <!-- FAQ Section -->
-    <SectionContainer id="faq" class="my-40">
+    <SectionContainer id="faq">
       <Picture
         src={cartoonDancerDouble}
         alt="Dance Bloc Brazil samba dancers illustration for frequently asked questions"
@@ -636,7 +646,7 @@ const trustPoints = [
         subtitle="Key details for samba classes, event entertainment, workshops, and costume hire."
       />
 
-      <div class="max-w-5xl mx-auto mt-16">
+      <div class="max-w-5xl mx-auto section-block-gap">
         <FAQItem
           question="Do I need any prior dance experience to take your classes?"
           answer={homeFaqs[0].answer}
@@ -675,11 +685,11 @@ const trustPoints = [
     </SectionContainer>
 
     <!-- Contact Section -->
-    <SectionContainer id="contact" class="mb-40">
+    <SectionContainer spacing="footer-offset" id="contact">
       <SectionTitle
         title="Get in Touch"
         subtitle="Have a class, show, workshop, or costume hire question? Send an enquiry and we will point you to the right next step."
-        class="mb-16"
+        class="section-intro"
       />
 
       <ContactForm />

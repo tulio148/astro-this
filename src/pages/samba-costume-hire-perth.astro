@@ -91,13 +91,13 @@ const hireTimeline = [
     secondaryCta={{ label: "Book Dancers", href: "/book-a-samba-show-perth" }}
   />
 
-  <SectionContainer>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <SectionContainer spacing="hero-offset">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide items-center">
       <div>
         <SectionTitle
           title="Standout costumes, clear hire terms"
           subtitle="Browse costume pieces with feathers, rhinestones, sequins, and bold colour. Hire is subject to size, availability, deposit, and return terms."
-          class="mb-12"
+          class="section-intro"
         />
         <p class="text-lg leading-relaxed text-slate-600">
           Dance Bloc Brazil offers samba and Carnival-style costume hire in
@@ -147,7 +147,7 @@ const hireTimeline = [
     <SectionTitle
       title="Costume detail guide"
       subtitle="The collection shows the style; the hire conversation confirms the exact pieces, fit, and condition."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -169,7 +169,7 @@ const hireTimeline = [
   </SectionContainer>
 
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 max-w-7xl mx-auto"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 section-grid-base p-4 max-w-7xl mx-auto"
   >
     {
       costumes.map((costume) => (
@@ -190,7 +190,7 @@ const hireTimeline = [
     <SectionTitle
       title="Hire information"
       subtitle="The exact inclusions and terms are confirmed before booking."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div
@@ -246,7 +246,7 @@ const hireTimeline = [
     <SectionTitle
       title="Hire timeline"
       subtitle="A simple sequence keeps costume availability, deposit, pickup, and return expectations clear."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
@@ -269,7 +269,7 @@ const hireTimeline = [
     <SectionTitle
       title="Costume hire FAQs"
       subtitle="Key details before you enquire."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
@@ -281,8 +281,8 @@ const hireTimeline = [
     </div>
   </SectionContainer>
 
-  <SectionContainer id="book-costume">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <SectionContainer spacing="footer-offset" id="book-costume">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
       <div>
         <SectionTitle
           title="Check Costume Availability"

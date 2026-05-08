@@ -93,14 +93,14 @@ const progressionSteps = [
     }}
   />
 
-  <SectionContainer>
+  <SectionContainer spacing="hero-offset">
     <SectionTitle
       title="Choose the right class"
       subtitle="Start with the basics, build your technique, or join casually when your schedule allows."
-      class="mb-16"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 section-grid-base">
       <div
         class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5"
       >
@@ -166,7 +166,7 @@ const progressionSteps = [
     <SectionTitle
       title="Your first class"
       subtitle="A clear class flow helps first-timers know what will happen before they walk in."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-5">
@@ -189,10 +189,10 @@ const progressionSteps = [
     <SectionTitle
       title="Class times and bookings"
       subtitle="Current term and casual options are listed below. Dates, prices, and booking links should be checked before you book."
-      class="mb-16"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base">
       {
         terms.map((term) => (
           <TermCard
@@ -216,7 +216,7 @@ const progressionSteps = [
     <SectionTitle
       title="What to expect"
       subtitle="A practical, welcoming class focused on rhythm, movement, coordination, and confidence."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div
@@ -248,7 +248,7 @@ const progressionSteps = [
     <SectionTitle
       title="Progression path"
       subtitle="You can stay in classes for fitness and confidence, or use the training as a pathway into stronger technique and performance energy."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -269,7 +269,7 @@ const progressionSteps = [
     <SectionTitle
       title="Samba class FAQs"
       subtitle="Answers for first-timers and returning dancers."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
@@ -281,11 +281,11 @@ const progressionSteps = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
+  <SectionContainer spacing="footer-offset">
     <SectionTitle
       title="Want a class for your group?"
       subtitle="Private samba workshops are available for teams, parties, community groups, and event programs."
-      class="mb-12"
+      class="section-intro"
     />
 
     <a

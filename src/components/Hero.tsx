@@ -64,7 +64,7 @@ export default function Hero({
                 {primaryCta && (
                   <a
                     href={primaryCta.href}
-                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-green px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.34)] transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink hover:drop-shadow-none"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-green px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink"
                   >
                     {primaryCta.label}
                   </a>
@@ -72,7 +72,7 @@ export default function Hero({
                 {secondaryCta && (
                   <a
                     href={secondaryCta.href}
-                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-pink px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-db-pink px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-db-pink"
                   >
                     {secondaryCta.label}
                   </a>
