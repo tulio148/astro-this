@@ -95,6 +95,7 @@ export default function ServicePathSelector({ paths }: Props) {
           {paths.map((path, idx) => {
             const Icon = iconMap[path.key as keyof typeof iconMap] ?? Sparkles;
             const selected = idx === activeIndex;
+            const borderVariant = idx % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b";
 
             return (
               <button
@@ -104,7 +105,7 @@ export default function ServicePathSelector({ paths }: Props) {
                 className={`motion-card group grid min-h-[118px] grid-cols-[48px_1fr] gap-4 rounded-[1.75rem] border p-5 text-left transition ${
                   selected
                     ? "border-db-green bg-slate-950 text-white shadow-[0_22px_55px_rgba(0,204,129,0.18)]"
-                    : "border-db-pink/10 bg-white text-db-pink shadow-[0_14px_36px_rgba(158,0,150,0.07)] hover:border-db-green/60"
+                    : `${borderVariant} bg-white text-db-pink shadow-[0_14px_36px_rgba(158,0,150,0.07)] hover:border-db-green/60`
                 }`}
                 aria-pressed={selected}
               >

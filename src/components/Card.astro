@@ -1,16 +1,17 @@
 ---
 interface Props {
   class?: string;
+  cardClass?: string;
 }
 
-const { class: className = "" } = Astro.props;
+const { class: className = "", cardClass = "" } = Astro.props;
 ---
 
 <div
   class={`flex h-full flex-col justify-center items-stretch card-animate ${className}`}
 >
   <div
-    class="group relative flex h-full w-full overflow-hidden rounded-[2rem] border border-db-pink/12 bg-white px-6 py-9 shadow-[0_18px_50px_rgba(158,0,150,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-db-green/50 hover:shadow-[0_22px_60px_rgba(158,0,150,0.16)] sm:p-10"
+    class={`group relative flex h-full w-full overflow-hidden rounded-[2rem] border bg-white px-6 py-9 shadow-[0_18px_50px_rgba(158,0,150,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-db-green/50 hover:shadow-[0_22px_60px_rgba(158,0,150,0.16)] sm:p-10 ${cardClass || "db-border-alt-a"}`}
   >
     <div
       class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink opacity-80"
