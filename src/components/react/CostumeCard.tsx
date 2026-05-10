@@ -23,7 +23,7 @@ export default function CostumeCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="motion-card group overflow-hidden rounded-[1.75rem] border border-pink-100 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.10)]">
+    <div className="motion-card group overflow-hidden rounded-xl border border-db-pink/80 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.10)]">
       <div className="image-container aspect-[3/4] overflow-hidden rounded-b-[2rem] relative">
         <img
           src={image.src}
@@ -34,7 +34,7 @@ export default function CostumeCard({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-black/10 transition duration-300 group-hover:bg-black/0"></div>
-        <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/20 bg-slate-950/72 px-4 py-3 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
+        <div className="absolute inset-x-4 bottom-4 rounded-xl border border-white/20 bg-slate-950/72 px-4 py-3 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
           <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-300">
             Quick hire check
           </p>
@@ -50,10 +50,10 @@ export default function CostumeCard({
         </h3>
 
         <div className="tags flex flex-wrap gap-2 mb-4">
-          <span className="tag tag-size rounded-full border border-pink-100 bg-pink-50 px-3 py-1 text-xs font-bold text-pink-900">
+          <span className="tag tag-size rounded-full border border-db-pink/80 bg-pink-50 px-3 py-1 text-xs font-bold text-pink-900">
             {size}
           </span>
-          <span className="tag tag-color rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
+          <span className="tag tag-color rounded-full border border-db-pink/80 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-900">
             {color}
           </span>
         </div>

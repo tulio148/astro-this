@@ -257,7 +257,7 @@ const getTermSummary = (description: string) =>
           </Card>
           <a
             href="/beginner-samba-classes-perth"
-            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
           >
             <span>Beginner Samba Classes</span>
             <span
@@ -287,7 +287,7 @@ const getTermSummary = (description: string) =>
           </Card>
           <a
             href="/private-samba-workshops-perth"
-            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
           >
             <span>Private Samba Workshops</span>
             <span
@@ -317,7 +317,7 @@ const getTermSummary = (description: string) =>
           </Card>
           <a
             href="/wedding-corporate-event-entertainment-perth"
-            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-green hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
           >
             <span>Wedding & Corporate Entertainment</span>
             <span
@@ -437,7 +437,7 @@ const getTermSummary = (description: string) =>
       <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
         {
           journeySteps.map((step, index) => (
-            <div class={`motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-[1.75rem] border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
+            <div class={`motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
               <div class="absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
               <div class="timeline-pulse relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-db-pink text-xl font-black text-white shadow-[0_12px_30px_rgba(158,0,150,0.22)]">
                 {index + 1}
@@ -480,7 +480,7 @@ const getTermSummary = (description: string) =>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 section-grid-base section-block-gap items-center">
         <div
-          class="aspect-[4/5] md:aspect-video rounded-[2rem] overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+          class="aspect-[4/5] md:aspect-video rounded-xl overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
           <Picture
             src={showForHireHero}
@@ -493,7 +493,7 @@ const getTermSummary = (description: string) =>
         </div>
 
         <div
-          class="flex flex-col justify-center rounded-[2rem] border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
+          class="flex flex-col justify-center rounded-xl border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
         >
           <h3 class="text-3xl font-black mb-4 text-db-pink">
             Book us for your next event
@@ -534,7 +534,7 @@ const getTermSummary = (description: string) =>
         <div class="grid gap-5 sm:grid-cols-2">
           {
             trustPoints.map((point, index) => (
-              <div class={`motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-[1.5rem] border bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
+              <div class={`motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-xl border bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
                 <div class="flex items-center justify-between gap-4">
                   <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">
                     {point.label}
@@ -568,7 +568,7 @@ const getTermSummary = (description: string) =>
 
       <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide section-block-gap items-center">
         <div
-          class="flex flex-col justify-center order-2 md:order-1 rounded-[2rem] border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
+          class="flex flex-col justify-center order-2 md:order-1 rounded-xl border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
         >
           <h3 class="text-3xl font-black mb-6 text-db-pink">
             Samba Costume Hire
@@ -593,7 +593,7 @@ const getTermSummary = (description: string) =>
         </div>
 
         <div
-          class="aspect-video rounded-[2rem] overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10 order-1 md:order-2"
+          class="aspect-video rounded-xl overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10 order-1 md:order-2"
         >
           <Picture
             src={costumeHireHero}

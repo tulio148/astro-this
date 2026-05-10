@@ -102,10 +102,10 @@ export default function ServicePathSelector({ paths }: Props) {
                 key={path.key}
                 type="button"
                 onClick={() => goTo(idx)}
-                className={`motion-card group grid min-h-[118px] grid-cols-[48px_1fr] gap-4 rounded-[1.75rem] border p-5 text-left transition ${
+                className={`motion-card group grid min-h-[118px] grid-cols-[48px_1fr] gap-4 rounded-xl border p-5 text-left transition ${
                   selected
-                    ? "border-db-green bg-slate-950 text-white shadow-[0_22px_55px_rgba(0,204,129,0.18)]"
-                    : `${borderVariant} bg-white text-db-pink shadow-[0_14px_36px_rgba(158,0,150,0.07)] hover:border-db-green/60`
+                    ? "border-db-pink/80 bg-slate-950 text-white shadow-[0_22px_55px_rgba(0,204,129,0.18)]"
+                    : `${borderVariant} bg-white text-db-pink shadow-[0_14px_36px_rgba(158,0,150,0.07)] hover:border-db-pink/80`
                 }`}
                 aria-pressed={selected}
               >
@@ -138,7 +138,7 @@ export default function ServicePathSelector({ paths }: Props) {
           })}
         </div>
 
-        <div className="relative min-h-[520px] overflow-hidden rounded-[2rem] border border-db-pink/10 bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.22)]">
+        <div className="relative min-h-[520px] overflow-hidden rounded-xl border border-db-pink/80 bg-slate-950 text-white shadow-[0_28px_80px_rgba(15,23,42,0.22)]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={active.key}
@@ -195,7 +195,7 @@ export default function ServicePathSelector({ paths }: Props) {
         onMouseEnter={stopAutoplay}
         onMouseLeave={startAutoplay}
       >
-        <div className="relative overflow-hidden rounded-[2rem] border border-db-pink/10 bg-slate-950 text-white shadow-[0_24px_62px_rgba(15,23,42,0.24)]">
+        <div className="relative overflow-hidden rounded-xl border border-db-pink/80 bg-slate-950 text-white shadow-[0_24px_62px_rgba(15,23,42,0.24)]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={`mobile-${active.key}`}
@@ -225,7 +225,7 @@ export default function ServicePathSelector({ paths }: Props) {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.04),rgba(15,23,42,0.22)_45%,rgba(15,23,42,0.9))]" />
 
               <div className="absolute inset-x-0 bottom-0 z-10 p-5">
-                <div className="rounded-[1.5rem] border border-db-green/45 bg-slate-950/20 p-4 backdrop-blur-[1px]">
+                <div className="rounded-xl border border-db-pink/80 bg-slate-950/20 p-4 backdrop-blur-[1px]">
                   <p className="text-[11px] font-black uppercase tracking-[0.2em] text-db-green">
                     {active.label}
                   </p>

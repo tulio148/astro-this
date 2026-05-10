@@ -139,7 +139,7 @@ const quoteDetails = [
       alt="Brazilian samba dancers performing in Carnival costumes at a Perth event"
       widths={[480, 720, 960, 1200, 1440]}
       sizes="(max-width: 768px) 100vw, 1120px"
-      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-[2rem] object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
+      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-xl object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
       loading="lazy"
     />
   </SectionContainer>
@@ -154,7 +154,7 @@ const quoteDetails = [
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       {
         performanceFormats.map((format) => (
-          <div class="motion-card motion-band reveal-on-scroll min-h-[220px] rounded-[1.75rem] bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#3c0f4a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
+          <div class="motion-card motion-band reveal-on-scroll min-h-[220px] rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#3c0f4a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
             <h3 class="text-2xl font-black text-db-green">{format.title}</h3>
             <p class="mt-4 text-base leading-relaxed text-white/78">
               {format.body}
@@ -174,7 +174,7 @@ const quoteDetails = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div
-        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
       >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Corporate Events</h3>
         <p class="text-slate-600">
@@ -184,7 +184,7 @@ const quoteDetails = [
       </div>
 
       <div
-        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
       >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Weddings</h3>
         <p class="text-slate-600">
@@ -194,7 +194,7 @@ const quoteDetails = [
       </div>
 
       <div
-        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
       >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Private Parties</h3>
         <p class="text-slate-600">
@@ -204,7 +204,7 @@ const quoteDetails = [
       </div>
 
       <div
-        class="bg-white p-6 rounded-2xl border border-db-pink/10 shadow-md shadow-db-pink/5"
+        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
       >
         <h3 class="text-xl font-bold mb-3 text-db-pink">Festivals</h3>
         <p class="text-slate-600">
@@ -234,7 +234,7 @@ const quoteDetails = [
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       {
         quoteDetails.map((detail) => (
-          <div class="motion-card reveal-on-scroll rounded-[1.5rem] border border-db-pink/10 bg-white p-6 text-lg font-bold leading-relaxed text-slate-700 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+          <div class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-bold leading-relaxed text-slate-700 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
             {detail}
           </div>
         ))

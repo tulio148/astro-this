@@ -6,11 +6,11 @@ interface Props {
 
 const { title, subtitle } = Astro.props;
 const inputClass =
-  "w-full rounded-2xl border border-slate-200 bg-white/85 px-5 py-4 text-db-pink outline-none transition placeholder:text-slate-400 focus:border-db-green focus:bg-white focus:ring-4 focus:ring-db-green/15";
+  "w-full rounded-xl border border-slate-200 bg-white/85 px-5 py-4 text-db-pink outline-none transition placeholder:text-slate-400 focus:border-db-pink/80 focus:bg-white focus:ring-4 focus:ring-db-green/15";
 ---
 
 <div
-  class="contact-form-shell relative overflow-hidden rounded-[2rem] border border-db-pink/10 bg-white p-6 shadow-[0_24px_70px_rgba(158,0,150,0.12)] sm:p-10"
+  class="contact-form-shell relative overflow-hidden rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_24px_70px_rgba(158,0,150,0.12)] sm:p-10"
 >
   <div
     class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink"

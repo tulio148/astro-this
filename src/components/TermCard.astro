@@ -36,7 +36,7 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
 ---
 
 <div
-  class="group overflow-hidden rounded-[1.75rem] border border-db-pink/10 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-db-green/40 hover:shadow-[0_22px_60px_rgba(158,0,150,0.14)]"
+  class="group overflow-hidden rounded-xl border border-db-pink/80 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-db-pink/80 hover:shadow-[0_22px_60px_rgba(158,0,150,0.14)]"
 >
   <div
     class="h-1.5 bg-gradient-to-r from-db-green via-db-light-pink to-db-pink"
@@ -46,7 +46,7 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
     <div class="flex justify-between items-start mb-4">
       <h3 class="text-2xl font-black leading-tight text-db-pink">{name}</h3>
       <span
-        class="ml-4 shrink-0 rounded-full border border-db-pink/10 bg-db-light-pink/10 px-3 py-1 text-sm font-bold text-db-pink"
+        class="ml-4 shrink-0 rounded-full border border-db-pink/80 bg-db-light-pink/10 px-3 py-1 text-sm font-bold text-db-pink"
       >
         {level}
       </span>
@@ -136,7 +136,7 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
 
     {
       showDetails !== false && (
-        <div class="space-y-4 mb-6 rounded-2xl border border-slate-200/80 bg-slate-50/70 p-5">
+        <div class="space-y-4 mb-6 rounded-xl border border-slate-200/80 bg-slate-50/70 p-5">
           <div class="flex items-start">
             <svg
               class="w-5 h-5 text-db-pink mt-0.5 mr-3"
@@ -230,7 +230,7 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
 
     {
       showDetails === false && price && (
-        <div class="mb-6 rounded-2xl border border-slate-200/80 bg-slate-50/70 p-5">
+        <div class="mb-6 rounded-xl border border-slate-200/80 bg-slate-50/70 p-5">
           <span class="text-slate-600 font-medium">Price:</span>
           <span class="text-db-pink ml-2">{price}</span>
         </div>

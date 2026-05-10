@@ -182,7 +182,7 @@ const Navbar = ({ currentPath }: NavbarProps) => {
                     key={name}
                     href={path}
                     onClick={handleLinkClick}
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-db-green/70 bg-db-green px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_32px_rgba(0,204,129,0.25)] transition hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-db-pink hover:drop-shadow-none"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-db-pink/80 bg-db-green px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_32px_rgba(0,204,129,0.25)] transition hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-db-pink hover:drop-shadow-none"
                   >
                     {name}
                     <ArrowUpRight className="h-4 w-4" />
