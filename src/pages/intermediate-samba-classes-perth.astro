@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import classesHero from "../images/classesHero.webp";
 import { terms } from "../data/terms";
@@ -36,8 +35,8 @@ const structuredData = [serviceSchema({ name: "Intermediate samba classes in Per
 ---
 
 <Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Intermediate Samba Classes in Perth" subtitle="Refine your technique, build musicality, and take on choreography that pushes your movement quality." backgroundImage={classesHero} primaryCta={{ label: "See Class Times", href: "/samba-classes-perth#schedule" }} secondaryCta={{ label: "Am I Ready?", href: "#readiness" }} />
-  <SectionContainer spacing="hero-offset">
+  <SectionContainer>
+    <SectionTitle title="Intermediate Samba Classes in Perth" subtitle="Refine your technique, build musicality, and take on choreography that pushes your movement quality." class="section-intro" />
     <SectionTitle title="More than the next level - a different kind of training" subtitle="Intermediate class is where samba stops being about remembering the steps and starts being about how you move." class="section-intro" />
     <div class="overflow-x-auto rounded-xl border border-db-green/40 bg-white">
       <table class="min-w-[780px] w-full text-left text-sm"><thead class="bg-db-green text-white"><tr><th class="p-4">Area</th><th class="p-4">Beginner</th><th class="p-4">Intermediate</th></tr></thead><tbody class="divide-y divide-slate-100">{comparison.map((row)=><tr class="odd:bg-white even:bg-slate-50"><td class="p-4 font-black text-db-pink">{row.area}</td><td class="p-4 text-slate-600">{row.beginner}</td><td class="p-4 text-slate-700">{row.intermediate}</td></tr>)}</tbody></table>

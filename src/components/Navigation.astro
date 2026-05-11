@@ -1,6 +1,7 @@
 ---
 import Navbar from "./Navbar.astro";
 const currentPath = Astro.url.pathname;
+const { hasHero = false } = Astro.props;
 ---
 
-<Navbar currentPath={currentPath} />
+<Navbar currentPath={currentPath} hasHero={hasHero} />

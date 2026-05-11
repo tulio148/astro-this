@@ -10,7 +10,7 @@ import RecentEventsStrip from "../components/RecentEventsStrip.astro";
 import { Picture } from "astro:assets";
 import showForHireHero from "../images/showhero.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
-import servicePathShows from "../images/service-path-shows.avif";
+import showsVideo from "../videos/shows-video.mp4";
 import { recentEvents } from "../data/recentEvents";
 import { faqSchema, localBusinessSchema, serviceSchema } from "../lib/schema";
 
@@ -98,6 +98,7 @@ const eventTypeCards = [
   url={url}
   structuredData={structuredData}
   pageEvent="BookSambaShowView"
+  hasHero={true}
 >
   <Hero
     title="Brazilian Samba Entertainment for Corporate Events & Weddings in Perth"
@@ -148,14 +149,21 @@ const eventTypeCards = [
   </SectionContainer>
 
   <SectionContainer>
-    <Picture
-      src={servicePathShows}
-      alt="Brazilian samba dancers performing in Carnival costumes at a Perth event"
-      widths={[480, 720, 960, 1200, 1440]}
-      sizes="(max-width: 768px) 100vw, 1120px"
-      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-xl object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
-      loading="lazy"
-    />
+    <div
+      class="reveal-on-scroll relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
+    >
+      <video
+        class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster={showForHireHero.src}
+      >
+        <source src={showsVideo} type="video/mp4" />
+      </video>
+      <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
+    </div>
   </SectionContainer>
 
   <SectionContainer>

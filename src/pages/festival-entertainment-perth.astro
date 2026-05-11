@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -21,8 +20,10 @@ const structuredData = [serviceSchema({ name: "Festival samba entertainment in P
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Brazilian Samba for Perth Festivals and Outdoor Events" subtitle="Roving performers, stage shows, and crowd activation for festivals, markets, cultural programs, and outdoor events." backgroundImage={showForHireHero} primaryCta={{ label: "Request Festival Quote", href: "#festival-enquiry" }} />
-  <SectionContainer spacing="hero-offset"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Roving or stage - choose for the crowd" subtitle="Festival programming works best when the format matches density, sightlines, weather, and timetable." /><div class="space-y-5 text-lg text-slate-600"><p>Roving works across arrivals, markets, and dense public spaces. Stage shows suit programmed cultural moments, headline blocks, and public performance areas.</p><p>Dance Bloc Brazil can support multicultural programs, outdoor activations, and community festivals with clear bump-in and safety expectations.</p></div></div></SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Brazilian Samba for Perth Festivals and Outdoor Events" subtitle="Roving performers, stage shows, and crowd activation for festivals, markets, cultural programs, and outdoor events." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+<SectionTitle title="Roving or stage - choose for the crowd" subtitle="Festival programming works best when the format matches density, sightlines, weather, and timetable." /><div class="space-y-5 text-lg text-slate-600"><p>Roving works across arrivals, markets, and dense public spaces. Stage shows suit programmed cultural moments, headline blocks, and public performance areas.</p><p>Dance Bloc Brazil can support multicultural programs, outdoor activations, and community festivals with clear bump-in and safety expectations.</p></div></div></SectionContainer>
   <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Outdoor and weather logistics" class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-4">{["Shade or cover in heat", "Wet-weather plan", "Safe floor or ground surface", "Bump-in mapped to timetable"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 font-bold text-slate-700">{item}</div>)}</div></SectionContainer>
   <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Cultural programming angle" subtitle="Brazilian samba can sit as a cultural act in multicultural festival programs, not only as visual entertainment." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
   <SectionContainer><SectionTitle title="Festival FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>

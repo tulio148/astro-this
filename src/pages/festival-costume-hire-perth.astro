@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import ContactForm from "../components/ContactForm.astro";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import { serviceSchema } from "../lib/schema";
@@ -15,8 +14,10 @@ const structuredData = [serviceSchema({ name: "Festival costume hire in Perth", 
 ---
 
 <Layout title={title} description={description} image={costumeHireHeroImage.src} url={url} structuredData={structuredData}>
-  <Hero title="Festival Costume Hire in Perth" subtitle="Standout Carnival-inspired pieces for Fringe, New Year's Eve, themed festivals, and high-colour events." backgroundImage={costumeHireHeroImage} primaryCta={{ label: "Ask About Festival Hire", href: "#festival-costume-enquiry" }} />
-  <SectionContainer spacing="hero-offset"><SectionTitle title="Festival-appropriate pieces" subtitle="The right hire pieces need to be secure, durable, sweat-aware, and realistic for the event conditions." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Headpieces and cuffs", "Belts and accessories", "Selected full costumes"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Festival Costume Hire in Perth" subtitle="Standout Carnival-inspired pieces for Fringe, New Year's Eve, themed festivals, and high-colour events." class="section-intro" />
+    <SectionContainer spacing="hero-offset">
+<SectionTitle title="Festival-appropriate pieces" subtitle="The right hire pieces need to be secure, durable, sweat-aware, and realistic for the event conditions." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Headpieces and cuffs", "Belts and accessories", "Selected full costumes"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
   <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Practical festival advice" subtitle="Security deposit, condition expectations, pickup and return timing, and what can safely be worn in crowds are confirmed before hire." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
   <SectionContainer spacing="footer-offset" id="festival-costume-enquiry"><ContactForm title="Festival Costume Hire Enquiry" subtitle="Include festival name, date, hire duration, costume style, and whether you need lighter accessory pieces or a full look." subject="Festival Costume Hire Enquiry" /></SectionContainer>
 </Layout>

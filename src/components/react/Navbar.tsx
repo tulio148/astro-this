@@ -147,7 +147,7 @@ const dropdownItemVariants = {
   open: { opacity: 1, y: 0, transition: { duration: 0.14, ease: [0.22, 1, 0.36, 1] } },
 };
 
-type NavbarProps = { currentPath?: string };
+type NavbarProps = { currentPath?: string; hasHero?: boolean };
 
 const normalizePath = (path = "") => {
   const withoutHash = path.split("#")[0];
@@ -155,7 +155,7 @@ const normalizePath = (path = "") => {
   return withoutHash.replace(/\/$/, "");
 };
 
-const Navbar = ({ currentPath }: NavbarProps) => {
+const Navbar = ({ currentPath, hasHero = false }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
@@ -239,9 +239,11 @@ const Navbar = ({ currentPath }: NavbarProps) => {
       className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-300 ${
         isMenuOpen
           ? "bottom-0 overflow-y-auto bg-gradient-to-br from-slate-950 via-db-pink to-slate-950 text-white"
-          : hasScrolled
+          : hasHero && !hasScrolled
+            ? "bg-transparent"
+            : hasScrolled
             ? "bg-db-pink/92 shadow-lg backdrop-blur-md"
-            : "bg-transparent"
+            : "bg-db-pink shadow-lg"
       }`}
     >
       <div className="relative z-50 mx-auto max-w-7xl px-4 py-4 sm:px-6">

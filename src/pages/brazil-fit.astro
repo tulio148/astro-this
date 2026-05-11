@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import classesHero from "../images/classesHero.webp";
 import { terms } from "../data/terms";
@@ -38,8 +37,9 @@ const structuredData = [serviceSchema({ name: "Brazil Fit samba-based fitness cl
 ---
 
 <Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Brazil Fit" subtitle="Samba-powered cardio and movement. High energy, zero pressure, any fitness level." backgroundImage={classesHero} primaryCta={{ label: "See the Schedule", href: "/samba-classes-perth#schedule" }} secondaryCta={{ label: "What Is Brazil Fit?", href: "#about-brazil-fit" }} />
-  <SectionContainer id="about-brazil-fit" spacing="hero-offset">
+  <SectionContainer>
+    <SectionTitle title="Brazil Fit" subtitle="Samba-powered cardio and movement. High energy, zero pressure, any fitness level." class="section-intro" />
+    <div id="about-brazil-fit">
     <SectionTitle title="Not a dance class. A workout that happens to be samba." subtitle="Brazil Fit is built around movement, music, and energy - not technique targets or performance goals." class="section-intro [&_h2]:text-db-green" />
     <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
       <div class="space-y-4">{features.map((item)=><div class="border-l-4 border-db-green bg-white px-6 py-5 shadow-[0_14px_36px_rgba(0,204,129,0.08)]"><h3 class="text-xl font-black text-db-pink">{item.title}</h3><p class="mt-2 text-slate-600">{item.body}</p></div>)}</div>

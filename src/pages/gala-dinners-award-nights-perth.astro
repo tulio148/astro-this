@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -38,8 +37,8 @@ const structuredData = [serviceSchema({ name: "Gala dinner samba entertainment i
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Samba Entertainment for Gala Dinners and Award Nights" subtitle="A choreographed performance moment that elevates the evening without disrupting the run sheet." backgroundImage={showForHireHero} primaryCta={{ label: "Request a Brief", href: "#gala-enquiry" }} />
-  <SectionContainer spacing="hero-offset">
+  <SectionContainer>
+    <SectionTitle title="Samba Entertainment for Gala Dinners and Award Nights" subtitle="A choreographed performance moment that elevates the evening without disrupting the run sheet." class="section-intro" />
     <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
       <SectionTitle title="The entertainment highlight your guests will still be talking about" subtitle="A gala is not a concert. The entertainment moment needs to land hard, respect the program, and leave the room energised - not distracted." />
       <div class="space-y-5 text-lg leading-relaxed text-slate-600">

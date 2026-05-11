@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -26,8 +25,10 @@ const structuredData = [serviceSchema({ name: "Conference and launch entertainme
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Entertainment for Conferences and Product Launches in Perth" subtitle="A high-energy performance moment that opens the event, energises the room mid-day, or closes the conference on a high." backgroundImage={showForHireHero} primaryCta={{ label: "Request a Launch Brief", href: "#launch-enquiry" }} />
-  <SectionContainer spacing="hero-offset"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Avoid the flat finish" subtitle="A generic keynote close is forgettable. A precisely timed samba moment gives the room something to feel and remember." /><p class="text-lg leading-relaxed text-slate-600">Conference entertainment works when it respects the program. Dance Bloc Brazil can open a room, lift energy after a keynote, or create a launch reveal moment with music, movement, and strong visual impact.</p></div></SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Entertainment for Conferences and Product Launches in Perth" subtitle="A high-energy performance moment that opens the event, energises the room mid-day, or closes the conference on a high." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+<SectionTitle title="Avoid the flat finish" subtitle="A generic keynote close is forgettable. A precisely timed samba moment gives the room something to feel and remember." /><p class="text-lg leading-relaxed text-slate-600">Conference entertainment works when it respects the program. Dance Bloc Brazil can open a room, lift energy after a keynote, or create a launch reveal moment with music, movement, and strong visual impact.</p></div></SectionContainer>
   <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Conference formats" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{formats.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-7"><h3 class="text-2xl font-black text-db-green">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div></SectionContainer>
   <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Technical and logistics" subtitle="Confirm room layout, PA access, AV contact, entry path, and screen sightlines before the run sheet is final." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">{["Room layout and clear floor", "PA or AV contact details", "Stage or floor entry path", "Brand colour or reveal timing"].map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-6 font-bold text-slate-700">{item}</div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="Conference FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>

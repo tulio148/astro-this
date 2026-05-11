@@ -5,7 +5,6 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
-import Hero from "../components/Hero.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { terms } from "../data/terms";
 import { faqSchema, serviceSchema } from "../lib/schema";
@@ -59,21 +58,10 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
 >
-  <Hero
-    title="Beginner Samba Classes in Perth"
-    subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
-    backgroundImage={danceclassHero}
-    primaryCta={{ label: "Book the Beginner Course", href: bookingUrl }}
-    secondaryCta={{
-      label: "See All Classes",
-      href: "/samba-classes-perth#class-times",
-    }}
-  />
-
-  <SectionContainer spacing="hero-offset">
+  <SectionContainer>
     <SectionTitle
-      title="Your first samba class"
-      subtitle="The beginner pathway is built for people who want to start clearly, safely, and without pressure to already know the style."
+      title="Beginner Samba Classes in Perth"
+      subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
       class="section-intro"
     />
 

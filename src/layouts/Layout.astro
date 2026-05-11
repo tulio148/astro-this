@@ -9,6 +9,7 @@ import {
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Navigation from "../components/Navigation.astro";
+import NonHeroTopAccent from "../components/NonHeroTopAccent.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
   pageEvent?: string;
   noindex?: boolean;
   ogType?: "website" | "article";
+  hasHero?: boolean;
 }
 
 const {
@@ -33,6 +35,7 @@ const {
   pageEvent = "",
   noindex = false,
   ogType = "website",
+  hasHero = false,
 } = Astro.props;
 
 const pageTitle = titleWithBrand(title);
@@ -136,7 +139,8 @@ const socialImage = absoluteUrl(image);
     >
   </head>
   <body class="bg-[#fbfaf8] text-db-pink antialiased">
-    <Navigation />
+    <Navigation hasHero={hasHero} />
+    {!hasHero && <NonHeroTopAccent />}
 
     <main class="pt-0">
       <slot />

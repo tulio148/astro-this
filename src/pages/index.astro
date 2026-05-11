@@ -5,11 +5,9 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.tsx";
 import Card from "../components/Card.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import HomeTermCard from "../components/HomeTermCard.astro";
-import VideoSection from "../components/VideoSection.astro";
 import ServicePathSelector from "../components/react/ServicePathSelector";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
@@ -21,13 +19,11 @@ import {
 } from "../lib/schema";
 // Import images
 import hero from "../images/hero.avif";
-import heroMobile from "../images/hero-mobile.avif";
 import showForHireHero from "../images/showhero.avif";
 import costumeHireHero from "../images/costumeHireHeroAvif.avif";
 import heroVideo from "../videos/hero-video.mp4";
-import noBgDancer3 from "../images/noBgDancer3.avif";
-import noBgDancer1 from "../images/noBgDancer1.avif";
-import noBgDancer2 from "../images/noBgDancer2.avif";
+import showsVideo from "../videos/shows-video.mp4";
+import classesVideo from "../videos/classes-video.mp4";
 import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
 import servicePathClasses from "../images/service-path-classes.avif";
 import servicePathWorkshops from "../images/service-path-workshops.avif";
@@ -195,6 +191,7 @@ const getTermSummary = (description: string) =>
   url={url}
   structuredData={structuredData}
   pageEvent="HomePageView"
+  hasHero={true}
 >
   <!-- Skip Navigation Link -->
   <a
@@ -210,8 +207,7 @@ const getTermSummary = (description: string) =>
       client:load
       title="Brazilian Samba Classes, Shows and Costume Hire in Perth"
       subtitle="Perth's Brazilian samba entertainment company. High-impact shows for corporate events, galas, and weddings — plus samba classes, workshops, and costume hire."
-      backgroundImage={hero}
-      mobileImage={heroMobile}
+      backgroundVideo={heroVideo}
       imagePosition="center"
       primaryCta={{
         label: "Book a Class",
@@ -220,13 +216,6 @@ const getTermSummary = (description: string) =>
       secondaryCta={{ label: "Explore Services", href: "#about" }}
     />
     <!-- </div> -->
-
-    <VideoSection
-      src={heroVideo}
-      poster={hero.src}
-      overlayTitle="See the atmosphere"
-      overlaySubtitle="What a room looks like when samba walks in."
-    />
 
     <!-- About Section -->
     <SectionContainer spacing="hero-offset" id="about">
@@ -239,16 +228,17 @@ const getTermSummary = (description: string) =>
           class="section-intro"
         />
         <div
-          class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[48%_52%_44%_56%/55%_43%_57%_45%] bg-gradient-to-br from-db-light-pink/10 via-white to-db-green/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+          class="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[48%_52%_44%_56%/55%_43%_57%_45%] bg-gradient-to-br from-db-light-pink/10 via-white to-db-green/10 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
           <Picture
-            src={noBgDancer3}
+            src={hero}
             alt="Samba dancer in a bright Brazilian costume representing Dance Bloc Brazil classes and performances"
             widths={[480, 640, 800, 1200]}
             sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
+            class="w-full h-full object-cover object-[50%_10%] image-overlay"
             loading="eager"
           />
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
         </div>
       </div>
 
@@ -361,16 +351,19 @@ const getTermSummary = (description: string) =>
         class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base justify-center items-center"
       >
         <div
-          class="relative order-2 sm:order-1 aspect-[4/5] sm:aspect-square overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+          class="relative order-2 sm:order-1 aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
-          <Picture
-            src={noBgDancer1}
-            alt="Dance Bloc Brazil samba dancer promoting upcoming class terms in Perth"
-            widths={[480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
-            loading="eager"
-          />
+          <video
+            class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster={hero.src}
+          >
+            <source src={classesVideo} type="video/mp4" />
+          </video>
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
         </div>
 
         <div class="order-1 sm:order-2">
@@ -478,16 +471,19 @@ const getTermSummary = (description: string) =>
         class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center mb-28"
       >
         <div
-          class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% p-4 shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
+          class="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
         >
-          <Picture
-            src={noBgDancer2}
-            alt="Dance Bloc Brazil samba dancer for Perth event entertainment"
-            widths={[480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
-            loading="eager"
-          />
+          <video
+            class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster={hero.src}
+          >
+            <source src={showsVideo} type="video/mp4" />
+          </video>
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
         </div>
         <SectionTitle
           title="Brazilian samba for events"
@@ -626,32 +622,6 @@ const getTermSummary = (description: string) =>
           />
         </div>
       </div>
-    </SectionContainer>
-
-    <!-- Proof Media Placeholder -->
-    <SectionContainer id="proof">
-      <SectionTitle
-        title="Real moments needed before launch"
-        subtitle="This section intentionally blocks launch until real class, event, or costume media is supplied. Prompt suggestions are included for visual direction only."
-        class="section-intro"
-      />
-
-      <MediaPlaceholder
-        title="Homepage proof/media strip"
-        assetNeed="Real class or event proof that supports the main service pathways before launch."
-        ratio="Landscape 16:9 video or three 4:5 images"
-        subject="Show real Dance Bloc Brazil class atmosphere, event performance, and costume hire proof."
-        options={[
-          "20-45 second class atmosphere video",
-          "Event performance reel",
-          "Three-photo strip covering class, show, and costume hire",
-        ]}
-        promptSuggestions={[
-          "File: homepage-class-proof-strip.avif. Create a three-panel proof image for the homepage showing Dance Bloc Brazil class atmosphere in Balcatta: panel one has beginner students warming up, panel two has the teacher demonstrating samba no pe footwork, panel three has a small group moving together with relaxed confidence. Use natural studio lighting, practical activewear, warm skin tones, and subtle magenta-green motion accents. Wide 16:9 strip, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
-          "File: homepage-show-performance.avif. Create a premium event-performance image for the homepage. Show samba dancers in Carnival-style costumes performing at a Perth event with audience reaction, stage lighting, feathers, sequins, and confident movement. The composition should feel like real event proof, not a poster. Landscape 16:9, vivid but polished, restrained magenta-green accents, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
-          "File: homepage-costume-detail.avif. Create a homepage costume-detail image showing feathers, rhinestones, cuffs, headpiece, belt, beads, and sequins arranged in a clean editorial layout. Prioritize sharp texture, hire-condition clarity, and premium styling. Landscape 16:9, soft studio light, neutral background with small magenta-green Dance Bloc Brazil accents, no text, no logos, no fake signage.",
-        ]}
-      />
     </SectionContainer>
 
     <!-- FAQ Section -->

@@ -5,6 +5,7 @@ interface Props {
   title: string;
   subtitle: string;
   backgroundImage?: ImageMetadata;
+  backgroundVideo?: string;
   mobileImage?: ImageMetadata;
   imagePosition?: "left" | "center" | "right";
   primaryCta?: { label: string; href: string };
@@ -15,6 +16,7 @@ export default function Hero({
   title,
   subtitle,
   backgroundImage,
+  backgroundVideo,
   mobileImage,
   imagePosition = "center",
   primaryCta,
@@ -25,7 +27,18 @@ export default function Hero({
       className="relative min-h-screen flex items-end overflow-hidden bg-slate-950"
       style={{ objectPosition: imagePosition }}
     >
-      {backgroundImage && (
+      {backgroundVideo ? (
+        <video
+          className="absolute inset-0 z-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      ) : backgroundImage && (
         <>
           {mobileImage && (
             <img

@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -21,8 +20,10 @@ const structuredData = [serviceSchema({ name: "Client networking event entertain
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Entertainment for Client Events and Networking Functions" subtitle="Roving performers that bring energy to your cocktail hour without interrupting the conversations that matter." backgroundImage={showForHireHero} primaryCta={{ label: "Enquire for Networking", href: "#networking-enquiry" }} />
-  <SectionContainer spacing="hero-offset"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Ambient energy, not a program interruption" subtitle="Networking entertainment needs to create atmosphere while letting guests keep talking." /><p class="text-lg leading-relaxed text-slate-600">Roving samba performers create natural conversation starters, photo moments, and room energy across arrivals or cocktail hour. The format is designed for movement through the room rather than a seated audience.</p></div></SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Entertainment for Client Events and Networking Functions" subtitle="Roving performers that bring energy to your cocktail hour without interrupting the conversations that matter." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+<SectionTitle title="Ambient energy, not a program interruption" subtitle="Networking entertainment needs to create atmosphere while letting guests keep talking." /><p class="text-lg leading-relaxed text-slate-600">Roving samba performers create natural conversation starters, photo moments, and room energy across arrivals or cocktail hour. The format is designed for movement through the room rather than a seated audience.</p></div></SectionContainer>
   <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Best-fit formats" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2">{[{title:"Roving cocktail hour",body:"Dancers move through arrivals, pre-dinner drinks, or a networking floor."},{title:"Short feature close",body:"A brief performance closes networking and transitions guests into dinner or speeches."}].map((item)=><div class="rounded-xl border border-white/12 bg-white/5 p-7"><h3 class="text-2xl font-black text-db-green">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="Venue types" class="section-intro" /><div class="grid grid-cols-2 gap-3 md:grid-cols-4">{["Restaurant private dining", "Hotel pre-function", "Rooftop events", "Private clubs"].map((item)=><div class="rounded-full border border-db-pink/30 bg-white px-5 py-3 text-center font-black text-db-pink">{item}</div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="Networking FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>

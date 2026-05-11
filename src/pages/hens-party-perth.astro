@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -42,9 +41,8 @@ const structuredData = [serviceSchema({ name: "Hens party samba workshops in Per
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <Hero title="Hens Party Entertainment in Perth" subtitle="An experience the bride and every guest actually remembers - samba dancing, Carnival energy, and zero awkwardness." backgroundImage={showForHireHero} primaryCta={{ label: "Lock In the Date", href: "#hens-enquiry" }} secondaryCta={{ label: "See How It Works", href: "#how-it-works" }} />
-
-  <SectionContainer spacing="hero-offset">
+  <SectionContainer>
+    <SectionTitle title="Hens Party Entertainment in Perth" subtitle="An experience the bride and every guest actually remembers - samba dancing, Carnival energy, and zero awkwardness." class="section-intro" />
     <SectionTitle title="Not just a dance class. An experience." subtitle="Designed for groups who want something active, memorable, and genuinely fun - without needing to be dancers." class="section-intro" />
     <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
       {trust.map((item) => (
