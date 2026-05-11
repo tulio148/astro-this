@@ -24,6 +24,7 @@ import hero from "../images/hero.avif";
 import heroMobile from "../images/hero-mobile.avif";
 import showForHireHero from "../images/showhero.avif";
 import costumeHireHero from "../images/costumeHireHeroAvif.avif";
+import heroVideo from "../videos/hero-video.mp4";
 import noBgDancer3 from "../images/noBgDancer3.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
 import noBgDancer2 from "../images/noBgDancer2.avif";
@@ -221,6 +222,8 @@ const getTermSummary = (description: string) =>
     <!-- </div> -->
 
     <VideoSection
+      src={heroVideo}
+      poster={hero.src}
       overlayTitle="See the atmosphere"
       overlaySubtitle="What a room looks like when samba walks in."
     />
