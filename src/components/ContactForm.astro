@@ -2,9 +2,10 @@
 interface Props {
   title?: string;
   subtitle?: string;
+  subject?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, subject = "" } = Astro.props;
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-white/85 px-5 py-4 text-db-pink outline-none transition placeholder:text-slate-400 focus:border-db-pink/80 focus:bg-white focus:ring-4 focus:ring-db-green/15";
 ---
@@ -80,6 +81,7 @@ const inputClass =
           id="subject"
           name="subject"
           required
+          value={subject}
           class={inputClass}
         />
       </div>

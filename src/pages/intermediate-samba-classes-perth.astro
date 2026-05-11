@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import classesHero from "../images/classesHero.avif";
+import { terms } from "../data/terms";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Intermediate Samba Classes Perth | Level Up Your Samba no Pe";
+const description = "Intermediate samba no pe classes in Balcatta for dancers who know the basics and want stronger technique, musicality, and choreography.";
+const url = "/intermediate-samba-classes-perth";
+const intermediateTerm = terms.find((term) => term.level === "Intermediate") ?? terms[1];
+const comparison = [
+  { area: "Footwork", beginner: "Basic step, timing, direction changes", intermediate: "Speed variations, syncopations, complex combinations" },
+  { area: "Hips", beginner: "Basic hip action on the beat", intermediate: "Hip isolation, countermovement, layering with footwork" },
+  { area: "Arms", beginner: "Simple arm styling", intermediate: "Arm port-de-bras, upper body independence" },
+  { area: "Music", beginner: "Moving to the beat", intermediate: "Phrasing, musicality, accenting within the rhythm" },
+  { area: "Choreography", beginner: "Short beginner-friendly combinations", intermediate: "Longer phrases, transitions, performance-quality execution" },
+];
+const readiness = [
+  "You can do the samba no pe basic step without consciously thinking about it.",
+  "You can maintain the step for 2-3 minutes without losing timing.",
+  "You have completed at least one full beginner term or equivalent practice.",
+  "You can move direction while keeping the basic step.",
+  "You want to improve your movement quality, not just repeat what you know.",
+];
+const faqs = [
+  { question: "How do I know which class to join if I am not sure of my level?", answer: "Send an enquiry describing your samba background and we will advise. There is no official assessment - it is based on your honest description of what you can currently do." },
+  { question: "What if I join intermediate and it feels too advanced?", answer: "Speak to the instructor after class. Moving back to beginner is not a failure - it is the right training decision." },
+  { question: "Can I come to intermediate if I learned samba years ago?", answer: "Yes - if you can still do the basic step reliably. A casual drop-in is a good way to assess your current level before committing to a term." },
+];
+const structuredData = [serviceSchema({ name: "Intermediate samba classes in Perth", description, url, image: classesHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
+  <Hero title="Intermediate Samba Classes in Perth" subtitle="Refine your technique, build musicality, and take on choreography that pushes your movement quality." backgroundImage={classesHero} primaryCta={{ label: "See Class Times", href: "/samba-classes-perth#schedule" }} secondaryCta={{ label: "Am I Ready?", href: "#readiness" }} />
+  <SectionContainer spacing="hero-offset">
+    <SectionTitle title="More than the next level - a different kind of training" subtitle="Intermediate class is where samba stops being about remembering the steps and starts being about how you move." class="section-intro" />
+    <div class="overflow-x-auto rounded-xl border border-db-green/40 bg-white">
+      <table class="min-w-[780px] w-full text-left text-sm"><thead class="bg-db-green text-white"><tr><th class="p-4">Area</th><th class="p-4">Beginner</th><th class="p-4">Intermediate</th></tr></thead><tbody class="divide-y divide-slate-100">{comparison.map((row)=><tr class="odd:bg-white even:bg-slate-50"><td class="p-4 font-black text-db-pink">{row.area}</td><td class="p-4 text-slate-600">{row.beginner}</td><td class="p-4 text-slate-700">{row.intermediate}</td></tr>)}</tbody></table>
+    </div>
+  </SectionContainer>
+  <SectionContainer id="readiness" class="bg-db-light-pink/5"><SectionTitle title="How to know you are ready for intermediate" class="section-intro" /><div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">{readiness.map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-db-green text-sm font-black text-white">✓</span><p class="mt-4 text-base font-bold leading-relaxed text-slate-700">{item}</p></div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="How the Tuesday class works" subtitle="Beginner and intermediate classes share the same evening, with a structured overlap that benefits both groups." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["7:00-7:30pm: Beginner-only foundation session", "7:30-8:00pm: Shared choreography session", "8:00-8:30pm: Intermediate-only technique and skill session"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Where does intermediate take you?" subtitle="Intermediate training builds toward stronger performance energy, workshop confidence, choreography retention, and future performance pathways." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
+  <SectionContainer><SectionTitle title="Intermediate FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset"><div class="flex flex-col gap-3 sm:flex-row"><a href={intermediateTerm.bookingLink} target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink" data-track="BookClassClick">Book the Intermediate Term</a><a href="/beginner-samba-classes-perth" class="inline-flex rounded-full border border-db-pink/80 bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white">Back to Beginner</a></div></SectionContainer>
+</Layout>

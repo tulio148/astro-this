@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import classesHero from "../images/classesHero.avif";
+import { organizationSchema } from "../lib/schema";
+
+const title = "Community | Dance Bloc Brazil Classes & Workshops";
+const description = "The community around Dance Bloc Brazil classes, workshops, events, and public samba experiences in Perth.";
+const url = "/community";
+---
+
+<Layout title={title} description={description} image={classesHero.src} url={url} structuredData={[organizationSchema()]}>
+  <Hero title="Dance Bloc Brazil Community" subtitle="The class and workshop community behind the performances, public events, and samba energy." backgroundImage={classesHero} primaryCta={{ label: "View Classes", href: "/samba-classes-perth" }} />
+  <SectionContainer spacing="hero-offset"><SectionTitle title="Who attends" subtitle="Adults of different ages, dance backgrounds, fitness levels, and confidence levels come together through samba." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["First-time students","Returning dancers","Community groups"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer class="bg-db-green/5"><SectionTitle title="Class to performance pathway" subtitle="Students can stay in class for joy and fitness, or gradually move toward stronger technique, workshops, and performance opportunities." /></SectionContainer>
+  <SectionContainer><SectionTitle title="Stay connected" subtitle="Follow social channels for class terms, community events, public performances, and new workshop dates." /><div class="mt-6 flex flex-wrap gap-3"><a href="/samba-classes-perth" class="rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink">Classes</a><a href="/private-samba-workshops-perth" class="rounded-full border border-db-pink/80 bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white">Workshops</a></div></SectionContainer>
+</Layout>

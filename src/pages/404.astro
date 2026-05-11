@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<Layout
+  title="Page Not Found | Dance Bloc Brazil"
+  description="The page you are looking for does not exist."
+  noindex={true}
+>
+  <SectionContainer spacing="hero-offset" class="min-h-[70vh] flex items-center">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="text-8xl font-black text-db-green mb-4">404</p>
+      <SectionTitle
+        title="Page not found"
+        subtitle="The link may have moved or the address was typed incorrectly."
+        align="center"
+      />
+      <div class="mt-8 flex flex-wrap gap-4 justify-center">
+        <a href="/" class="inline-flex min-h-12 items-center justify-center rounded-full bg-db-green px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-db-pink">
+          Back to Home
+        </a>
+        <a href="/samba-classes-perth" class="inline-flex min-h-12 items-center justify-center rounded-full border border-db-pink/80 bg-white px-8 py-3 text-sm font-black uppercase tracking-[0.16em] text-db-pink transition hover:bg-db-pink hover:text-white">
+          View Classes
+        </a>
+      </div>
+    </div>
+  </SectionContainer>
+</Layout>

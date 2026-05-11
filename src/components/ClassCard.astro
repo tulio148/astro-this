@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 interface Props {
   title: string;
   day: string;
@@ -73,7 +72,7 @@ const { title, day, time, instructor, level, spots } = Astro.props;
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     const cards = document.querySelectorAll(".class-card");
 
     const observer = new IntersectionObserver(

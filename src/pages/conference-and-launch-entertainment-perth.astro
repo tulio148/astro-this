@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Conference Entertainment Perth | Samba for Launches & Corporate Events";
+const description = "High-energy Brazilian samba entertainment for Perth conferences, product launches, brand reveals, and corporate event activations.";
+const url = "/conference-and-launch-entertainment-perth";
+const formats = [
+  { title: "Conference opener", body: "Open the day with a short, focused burst of energy before the first keynote." },
+  { title: "Post-keynote energy lift", body: "Reset attention after a heavy session, lunch break, or mid-afternoon lull." },
+  { title: "Product reveal moment", body: "Use dancers and music to frame a reveal, brand colour moment, or launch celebration." },
+];
+const faqs = [
+  { question: "Can this work in a conference centre?", answer: "Yes. Conference rooms, hotel ballrooms, and exhibition spaces are all suitable when floor space and sound access are confirmed." },
+  { question: "How loud is the performance?", answer: "The music is similar to a high-energy event track and can be coordinated with AV staff to suit the room." },
+  { question: "Can it fit around keynote speakers?", answer: "Yes. The performance is timed to the run sheet and can open, transition, or close a conference segment." },
+];
+const structuredData = [serviceSchema({ name: "Conference and launch entertainment in Perth", description, url, image: showForHireHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <Hero title="Entertainment for Conferences and Product Launches in Perth" subtitle="A high-energy performance moment that opens the event, energises the room mid-day, or closes the conference on a high." backgroundImage={showForHireHero} primaryCta={{ label: "Request a Launch Brief", href: "#launch-enquiry" }} />
+  <SectionContainer spacing="hero-offset"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Avoid the flat finish" subtitle="A generic keynote close is forgettable. A precisely timed samba moment gives the room something to feel and remember." /><p class="text-lg leading-relaxed text-slate-600">Conference entertainment works when it respects the program. Dance Bloc Brazil can open a room, lift energy after a keynote, or create a launch reveal moment with music, movement, and strong visual impact.</p></div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Conference formats" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{formats.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-7"><h3 class="text-2xl font-black text-db-green">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div></SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Technical and logistics" subtitle="Confirm room layout, PA access, AV contact, entry path, and screen sightlines before the run sheet is final." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">{["Room layout and clear floor", "PA or AV contact details", "Stage or floor entry path", "Brand colour or reveal timing"].map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-6 font-bold text-slate-700">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Conference FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="launch-enquiry"><ContactForm title="Conference or Launch Enquiry" subtitle="Include the event date, venue, audience size, program timing, and whether this is an opener, energy lift, or reveal moment." subject="Conference or Launch Enquiry" /></SectionContainer>
+</Layout>

@@ -6,11 +6,13 @@ import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
+import RecentEventsStrip from "../components/RecentEventsStrip.astro";
 import { Picture } from "astro:assets";
 import showForHireHero from "../images/showhero.avif";
 import noBgDancer1 from "../images/noBgDancer1.avif";
 import servicePathShows from "../images/service-path-shows.avif";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { recentEvents } from "../data/recentEvents";
+import { faqSchema, localBusinessSchema, serviceSchema } from "../lib/schema";
 
 const title = "Brazilian Samba Show Hire Perth | Samba Dancers for Events";
 const description =
@@ -41,6 +43,7 @@ const faqs = [
 ];
 
 const structuredData = [
+  localBusinessSchema(),
   serviceSchema({
     name: "Brazilian samba show hire in Perth",
     description,
@@ -75,6 +78,17 @@ const quoteDetails = [
   "Preferred format: feature show, roving, entrance, interaction, or a mix",
   "Sound setup, run-sheet constraints, and costume or theme direction",
 ];
+
+const eventTypeCards = [
+  { title: "Corporate Events", body: "Gala nights, launches, conferences, team celebrations, and client events.", href: "/corporate-entertainment-perth" },
+  { title: "Gala Dinners & Award Nights", body: "Formal, black-tie, and awards programs timed to the run sheet.", href: "/gala-dinners-award-nights-perth" },
+  { title: "Conferences & Launches", body: "Openers, product reveals, and high-energy conference moments.", href: "/conference-and-launch-entertainment-perth" },
+  { title: "Client & Networking Events", body: "Roving performers for cocktail hours and relationship events.", href: "/client-networking-events-perth" },
+  { title: "Weddings", body: "Reception entrances, feature performances, and cocktail hour roving.", href: "/wedding-entertainment-perth" },
+  { title: "Hens Parties", body: "Workshop, show, and costume add-on options for private groups.", href: "/hens-party-perth" },
+  { title: "Private Events", body: "Birthdays, anniversaries, engagements, and themed celebrations.", href: "/private-events-perth" },
+  { title: "Festivals & Roving", body: "Festival programs, outdoor activations, and roving entertainment.", href: "/festival-entertainment-perth" },
+];
 ---
 
 <Layout
@@ -86,8 +100,8 @@ const quoteDetails = [
   pageEvent="BookSambaShowView"
 >
   <Hero
-    title="Brazilian Samba Show Hire in Perth"
-    subtitle="Book samba dancers, Carnival-style costumes, and optional live music or drumming for Perth events."
+    title="Brazilian Samba Entertainment for Corporate Events & Weddings in Perth"
+    subtitle="High-impact samba shows, roving dancers, and optional live drumming — tailored to your venue, run sheet, and audience."
     backgroundImage={showForHireHero}
     primaryCta={{ label: "Instant Quote Estimate", href: "#show-enquiry" }}
     secondaryCta={{
@@ -153,8 +167,11 @@ const quoteDetails = [
 
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       {
-        performanceFormats.map((format) => (
-          <div class="motion-card motion-band reveal-on-scroll min-h-[220px] rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#3c0f4a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
+        performanceFormats.map((format, index) => (
+          <div
+            class="motion-card motion-band reveal-on-scroll min-h-[220px] rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#3c0f4a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
             <h3 class="text-2xl font-black text-db-green">{format.title}</h3>
             <p class="mt-4 text-base leading-relaxed text-white/78">
               {format.body}
@@ -162,6 +179,52 @@ const quoteDetails = [
           </div>
         ))
       }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-slate-950 text-white">
+    <RecentEventsStrip events={recentEvents} title="Recent events" />
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Built for planners who need it done right"
+      subtitle="Corporate and premium event bookings are run to a brief - not improvised."
+      class="section-intro"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        [
+          {
+            label: "Run-sheet compatible",
+            body: "Performance timing is confirmed to the minute so your MC, AV, and catering cues are not disrupted.",
+          },
+          {
+            label: "Briefed, not improvised",
+            body: "Venue dimensions, audience size, floor layout, and sound setup are confirmed before the day. No surprises on the night.",
+          },
+          {
+            label: "Professional on the day",
+            body: "Performers arrive costumed, on time, and fully self-sufficient. No coordinator follow-up required during the event.",
+          },
+        ].map((point) => (
+          <div class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]">
+            <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green mb-3">
+              {point.label}
+            </p>
+            <p class="text-lg leading-relaxed text-slate-700">{point.body}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-8 text-center">
+      <a
+        href="/corporate-entertainment-perth"
+        class="inline-flex items-center gap-2 text-db-pink font-black hover:text-db-light-pink transition-colors"
+      >
+        View full corporate entertainment details
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </SectionContainer>
 
@@ -173,53 +236,35 @@ const quoteDetails = [
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div
-        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold mb-3 text-db-pink">Corporate Events</h3>
-        <p class="text-slate-600">
-          Gala nights, launches, conferences, team celebrations, and client
-          events.
-        </p>
-      </div>
-
-      <div
-        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold mb-3 text-db-pink">Weddings</h3>
-        <p class="text-slate-600">
-          Reception entrances, feature performances, guest interaction, and
-          themed wedding moments.
-        </p>
-      </div>
-
-      <div
-        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold mb-3 text-db-pink">Private Parties</h3>
-        <p class="text-slate-600">
-          Birthdays, anniversaries, hens parties, and celebrations that need a
-          strong visual moment.
-        </p>
-      </div>
-
-      <div
-        class="bg-white p-6 rounded-xl border border-db-pink/80 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold mb-3 text-db-pink">Festivals</h3>
-        <p class="text-slate-600">
-          Stage shows, roving entertainment, cultural programs, and public event
-          activations.
-        </p>
-      </div>
+      {
+        eventTypeCards.map((card) => (
+          <a
+            href={card.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-md shadow-db-pink/5 transition hover:-translate-y-1"
+            data-track="ShowEnquiryClick"
+            data-track-params={JSON.stringify({ destination: card.href })}
+          >
+            <h3 class="text-xl font-bold mb-3 text-db-pink">{card.title}</h3>
+            <p class="text-slate-600">{card.body}</p>
+          </a>
+        ))
+      }
     </div>
 
-    <div class="mt-12 text-center">
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-8">
+      <a
+        href="/corporate-entertainment-perth"
+        class="inline-flex items-center gap-2 text-db-pink font-bold hover:text-db-light-pink"
+      >
+        View full corporate entertainment details
+        <span aria-hidden="true">→</span>
+      </a>
       <a
         href="/wedding-corporate-event-entertainment-perth"
-        class="inline-block text-db-pink font-bold hover:text-db-light-pink"
+        class="inline-flex items-center gap-2 text-db-pink font-bold hover:text-db-light-pink"
       >
         View wedding and corporate entertainment details
+        <span aria-hidden="true">→</span>
       </a>
     </div>
   </SectionContainer>

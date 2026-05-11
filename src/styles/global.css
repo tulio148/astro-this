@@ -6,7 +6,7 @@ body {
   font-family: 'Raleway Variable', sans-serif;
 }
 :root {
-  cursor: pointer;
+  cursor: default;
   --space-section-pad-y-mobile: 4.5rem;
   --space-section-pad-y-desktop: 6.5rem;
   --space-section-gap-mobile: 4rem;
@@ -197,6 +197,7 @@ body {
       overflow: hidden;
       transform: translateZ(0);
       animation: ambientLift 6.5s ease-in-out infinite;
+      animation-delay: var(--card-lift-delay, 0ms);
       transition:
         transform 0.28s var(--ease-snappy),
         border-color 0.28s ease,
@@ -230,7 +231,7 @@ body {
     .db-border-alt-b {
       border-style: solid;
       border-width: 1px;
-      border-color: #9e0096cc;
+      border-color: color-mix(in oklab, var(--color-db-green) 60%, transparent);
     }
 
     .motion-card::before {

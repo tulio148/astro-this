@@ -8,7 +8,7 @@ import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
 import showForHireHero from "../images/showhero.avif";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { faqSchema, localBusinessSchema, serviceSchema } from "../lib/schema";
 
 const title =
   "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
@@ -40,6 +40,7 @@ const faqs = [
 ];
 
 const structuredData = [
+  localBusinessSchema(),
   serviceSchema({
     name: "Wedding and corporate event entertainment in Perth",
     description,
@@ -58,17 +59,38 @@ const structuredData = [
   structuredData={structuredData}
 >
   <Hero
-    title="Wedding and Corporate Event Entertainment in Perth"
-    subtitle="Brazilian samba dancers for receptions, gala nights, launches, conferences, and corporate celebrations."
+    title="Corporate Event Entertainment Perth | Brazilian Samba for Galas & Weddings"
+    subtitle="Samba dancers, Carnival costumes, and optional live drumming — planned around your brief, venue, and run sheet."
     backgroundImage={showForHireHero}
     primaryCta={{
-      label: "Plan Your Event Entertainment",
+      label: "Request a Quote",
       href: "#event-enquiry",
     }}
     secondaryCta={{ label: "Show Hire", href: "/book-a-samba-show-perth" }}
   />
 
   <SectionContainer spacing="hero-offset">
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/wedding-entertainment-perth"
+        class="inline-flex items-center gap-2 rounded-full bg-db-pink px-6 py-3 text-sm font-black uppercase tracking-[0.14em] text-white transition hover:bg-db-green"
+        data-track="ShowEnquiryClick"
+        data-track-params='{"destination":"/wedding-entertainment-perth"}'
+      >
+        Dedicated Wedding Entertainment Page →
+      </a>
+      <a
+        href="/corporate-entertainment-perth"
+        class="inline-flex items-center gap-2 rounded-full border border-db-pink/80 bg-white px-6 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink transition hover:bg-db-pink hover:text-white"
+        data-track="ShowEnquiryClick"
+        data-track-params='{"destination":"/corporate-entertainment-perth"}'
+      >
+        Dedicated Corporate Entertainment Page →
+      </a>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
     <SectionTitle
       title="Entertainment that fits the event"
       subtitle="Plan a samba performance around your guests, venue, timing, and tone."
@@ -107,6 +129,12 @@ const structuredData = [
           class="text-db-pink font-bold hover:text-db-light-pink"
         >
           Ask about corporate entertainment
+        </a>
+        <a
+          href="/corporate-entertainment-perth"
+          class="text-db-pink font-bold hover:text-db-light-pink text-sm mt-3 inline-block"
+        >
+          View dedicated corporate entertainment page →
         </a>
       </div>
     </div>

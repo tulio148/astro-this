@@ -63,6 +63,13 @@ const fitFor = [
   "Schools, community groups, and cultural programs",
   "Event activations where guests should participate, not only watch",
 ];
+
+const workshopTypes = [
+  { title: "Corporate Team Building", body: "Movement-based team sessions for offices, HR programs, and corporate events.", href: "/corporate-team-building-perth" },
+  { title: "Virtual & Specialist Workshops", body: "Facilitated online and hybrid samba sessions for remote and professional teams.", href: "/virtual-specialist-workshops-perth" },
+  { title: "School Programs", body: "Age-appropriate Brazilian culture and samba workshops for schools and youth groups.", href: "/school-workshops-perth" },
+  { title: "Community Workshops", body: "Inclusive sessions for community groups, cultural centres, and not-for-profit programs.", href: "/community-workshops-perth" },
+];
 ---
 
 <Layout
@@ -90,35 +97,20 @@ const fitFor = [
       class="section-intro"
     />
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600"
-    >
-      <div
-        class="bg-white rounded-xl border border-db-pink/80 p-6 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold text-db-pink mb-3">Team Building</h3>
-        <p>
-          Bring the group together through rhythm, movement, and shared focus.
-        </p>
-      </div>
-      <div
-        class="bg-white rounded-xl border border-db-pink/80 p-6 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold text-db-pink mb-3">Hens & Birthdays</h3>
-        <p>Add a lively activity to a private celebration or themed party.</p>
-      </div>
-      <div
-        class="bg-white rounded-xl border border-db-pink/80 p-6 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold text-db-pink mb-3">Schools & Community</h3>
-        <p>Introduce Brazilian samba movement in an accessible group format.</p>
-      </div>
-      <div
-        class="bg-white rounded-xl border border-db-pink/80 p-6 shadow-md shadow-db-pink/5"
-      >
-        <h3 class="text-xl font-bold text-db-pink mb-3">Event Programs</h3>
-        <p>Use a workshop as an interactive activation or guest experience.</p>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600">
+      {
+        workshopTypes.map((type) => (
+          <a
+            href={type.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-md shadow-db-pink/5 transition hover:-translate-y-1"
+            data-track="WorkshopEnquiryClick"
+            data-track-params={JSON.stringify({ destination: type.href })}
+          >
+            <h3 class="text-xl font-bold text-db-pink mb-3">{type.title}</h3>
+            <p>{type.body}</p>
+          </a>
+        ))
+      }
     </div>
   </SectionContainer>
 
@@ -165,8 +157,11 @@ const fitFor = [
 
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       {
-        fitFor.map((item) => (
-          <div class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#34104a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
+        fitFor.map((item, index) => (
+          <div
+            class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#34104a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
             <p class="text-lg font-black leading-relaxed">{item}</p>
           </div>
         ))

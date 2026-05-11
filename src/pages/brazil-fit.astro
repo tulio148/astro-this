@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import classesHero from "../images/classesHero.avif";
+import { terms } from "../data/terms";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Brazil Fit Perth | Samba-Based Dance Fitness Classes";
+const description =
+  "Brazil Fit is a high-energy samba-based cardio and movement class in Perth. No experience needed - just show up, move, and leave energised.";
+const url = "/brazil-fit";
+const features = [
+  { title: "Cardio that doesn't feel like cardio", body: "45-60 minutes of continuous samba-based movement. Heart rate up, sweat guaranteed, boredom impossible." },
+  { title: "Rhythm and coordination", body: "Samba rhythm trains your brain and body simultaneously. The coordination benefit carries into everyday movement." },
+  { title: "No partner, no experience, no performance", body: "You are moving to Brazilian music in a room full of people doing the same thing." },
+  { title: "Any fitness level", body: "Faster options for those who want to push. Easier variations always available." },
+];
+const benefits = [
+  { benefit: "Cardiovascular fitness", detail: "Continuous samba movement keeps the heart rate elevated for the full session." },
+  { benefit: "Hip mobility", detail: "The samba hip movement pattern improves range of motion in a way most gym routines ignore." },
+  { benefit: "Core activation", detail: "Maintaining posture and rhythm through samba footwork engages the core continuously." },
+  { benefit: "Coordination", detail: "Combining feet, hips, and arms builds coordination that transfers to daily movement." },
+  { benefit: "Balance", detail: "Weight shifts and directional changes improve proprioception and balance." },
+  { benefit: "Mood", detail: "Brazilian music and group energy produce a direct mood lift." },
+];
+const faqs = [
+  { question: "Is Brazil Fit the same as Zumba?", answer: "No. Brazil Fit uses authentic samba no pe movement - the same footwork, hip action, and rhythm as Brazilian street and Carnival samba. It is specifically samba-based, taught by a samba specialist." },
+  { question: "What should I wear?", answer: "Comfortable workout clothes and sneakers with non-marking soles. Bring water. Nothing else required." },
+  { question: "Can I do Brazil Fit if I have never done samba?", answer: "That is the intended starting point. No prior experience assumed." },
+  { question: "Is it intense?", answer: "Yes - it is a genuine cardio class. Modifications are always available but the default energy is high." },
+  { question: "Can I do both Brazil Fit and samba technique classes?", answer: "Yes. They complement each other well - Brazil Fit builds stamina and rhythm; technique classes build samba skill." },
+];
+const structuredData = [serviceSchema({ name: "Brazil Fit samba-based fitness classes in Perth", description, url, image: classesHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
+  <Hero title="Brazil Fit" subtitle="Samba-powered cardio and movement. High energy, zero pressure, any fitness level." backgroundImage={classesHero} primaryCta={{ label: "See the Schedule", href: "/samba-classes-perth#schedule" }} secondaryCta={{ label: "What Is Brazil Fit?", href: "#about-brazil-fit" }} />
+  <SectionContainer id="about-brazil-fit" spacing="hero-offset">
+    <SectionTitle title="Not a dance class. A workout that happens to be samba." subtitle="Brazil Fit is built around movement, music, and energy - not technique targets or performance goals." class="section-intro [&_h2]:text-db-green" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <div class="space-y-4">{features.map((item)=><div class="border-l-4 border-db-green bg-white px-6 py-5 shadow-[0_14px_36px_rgba(0,204,129,0.08)]"><h3 class="text-xl font-black text-db-pink">{item.title}</h3><p class="mt-2 text-slate-600">{item.body}</p></div>)}</div>
+      <div class="overflow-x-auto rounded-xl border border-db-green/40 bg-white">
+        <table class="min-w-[720px] w-full text-left text-sm">
+          <thead class="bg-db-green text-white"><tr><th class="p-4"></th><th class="p-4">Brazil Fit</th><th class="p-4">Standard fitness class</th><th class="p-4">Samba technique class</th></tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            {[
+              ["Focus","Movement + energy","Exercise targets","Skill development"],
+              ["Experience needed","None","None","None or some"],
+              ["Partner required","No","No","No"],
+              ["Performance goal","No","No","Optional"],
+              ["Music","Brazilian","Mixed/generic","Brazilian"],
+            ].map((row)=><tr class="odd:bg-white even:bg-slate-50">{row.map((cell, index)=><td class:list={["p-4", index === 0 ? "font-black text-db-pink" : ""]}>{cell}</td>)}</tr>)}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="What Brazil Fit actually does to your body" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">{benefits.map((item)=><div class="rounded-xl border border-white/12 bg-white/5 p-6"><h3 class="text-xl font-black text-db-green">{item.benefit}</h3><p class="mt-3 text-white/75">{item.detail}</p></div>)}</div></SectionContainer>
+  <SectionContainer class="bg-db-green/5"><p class="max-w-3xl text-xl leading-relaxed text-slate-600">People who are bored of the gym. People who danced years ago and want to move again without committing to technique classes. People who wanted more intensity or cultural specificity. People who have never thought of themselves as dancers and want to change that. People who just need 60 minutes of loud Brazilian music and high energy once a week.</p><div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">{["Student quote placeholder", "Fitness quote placeholder", "Energy quote placeholder"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Schedule" subtitle="Brazil Fit classes run as part of the Dance Bloc Brazil term schedule." class="section-intro" /><p class="max-w-3xl text-lg text-slate-600">Brazil Fit sessions are listed alongside samba no pe classes. Check the current term for available times. Current terms include {terms.length} booking options.</p><a href="/samba-classes-perth#schedule" class="mt-6 inline-flex rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink" data-track="BookClassClick">See the Class Schedule</a></SectionContainer>
+  <SectionContainer><SectionTitle title="Brazil Fit FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" class="bg-db-green text-white"><SectionTitle title="Ready to move?" subtitle="Check the current schedule and choose the class option that fits your week." class="section-intro [&_h2]:text-white [&_p]:text-white/85" /><a href="/samba-classes-perth#schedule" class="inline-flex rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white" data-track="BookClassClick">See the Class Schedule</a></SectionContainer>
+</Layout>

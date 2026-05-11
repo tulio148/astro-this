@@ -1,0 +1,121 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { costumes } from "../data/costumes";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Wedding Entertainment Perth | Brazilian Samba Dancers for Receptions";
+const description =
+  "Book Brazilian samba dancers for your Perth wedding reception, entrance moment, or cocktail hour. Memorable entertainment tailored to your run sheet and venue.";
+const url = "/wedding-entertainment-perth";
+
+const weddingFormats = [
+  { label: "Most popular", title: "Reception feature show", body: "A choreographed performance timed to a defined moment in the reception - between courses, post-speeches, or as the evening's entertainment highlight. Typically 10-15 minutes." },
+  { label: "Cocktail hour", title: "Roving entertainment", body: "Dancers move through your guests during the cocktail hour or pre-dinner drinks. Creates visual energy and conversation without requiring a stage or seated crowd." },
+  { label: "Dramatic opening", title: "Entrance moment", body: "A choreographed arrival moment for the couple - dancers line the entrance, create a performance corridor, or open the reception with a short burst of samba energy." },
+  { label: "Guest experience", title: "Interactive segment", body: "A short, inclusive participation moment where willing guests join the dancers. Structured to feel warm and fun rather than awkward." },
+];
+
+const faqs = [
+  { question: "How far in advance should we book?", answer: "Four to six months is a comfortable lead time for weddings. Peak season weekends (September-March in Perth) book faster. Send an enquiry early to check availability." },
+  { question: "Can the costume colours be matched to our wedding palette?", answer: "Yes - within the available collection. Share your colour direction and we will advise which costumes work best. Custom colour commissions are outside standard bookings." },
+  { question: "What do we need to tell our venue coordinator?", answer: "We provide a simple technical rider once your booking is confirmed. It covers space requirements, sound inputs, bump-in time, and noise level expectations." },
+  { question: "Can this work alongside a live band or DJ?", answer: "Yes. The performance can be timed between live sets or structured as a standalone segment. Coordination with the band or DJ is discussed during the brief." },
+  { question: "What if it rains or the venue changes the run sheet?", answer: "Flexibility is built into the coordination process. Venue and timing contingencies are discussed before the day so the performance can adapt without disrupting your evening." },
+];
+
+const structuredData = [
+  serviceSchema({ name: "Wedding samba entertainment in Perth", description, url, image: showForHireHero.src }),
+  faqSchema(faqs),
+];
+
+const dotFor = (color: string) =>
+  color.includes("green") ? "#00CC81" :
+  color.includes("blue") ? "#2563eb" :
+  color.includes("gold") || color.includes("yellow") ? "#f59e0b" :
+  color.includes("red") || color.includes("orange") ? "#ef4444" :
+  "#9E0096";
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <Hero
+    title="Brazilian Samba Entertainment for Perth Weddings"
+    subtitle="From cocktail hour roving to a choreographed reception moment - entertainment planned around your venue, run sheet, and colour palette."
+    backgroundImage={showForHireHero}
+    primaryCta={{ label: "Plan Your Wedding Entertainment", href: "#wedding-enquiry" }}
+    secondaryCta={{ label: "View Performance Formats", href: "#formats" }}
+  />
+
+  <SectionContainer spacing="hero-offset">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
+      <SectionTitle title="Entertainment that belongs at your wedding" subtitle="Not every entertainment act suits a wedding environment. Samba brings colour, movement, and energy without dominating the evening." />
+      <div class="space-y-5 text-lg leading-relaxed text-slate-600">
+        <p>Brazilian samba entertainment adds a defined, memorable moment to a wedding without displacing the things that matter most. It works as a cocktail hour ambient experience, a choreographed reception highlight, or a dramatic entrance moment - and can be shaped around your colour palette, timing, and venue.</p>
+        <p>Dance Bloc Brazil works with couples and wedding planners who want guests to talk about the night long after it ends. Every detail - timing, staging, costume direction, what to tell the venue coordinator - is confirmed before the day.</p>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="formats" class="bg-slate-950 text-white">
+    <SectionTitle title="Wedding performance formats" subtitle="Choose one polished moment or combine formats across the reception." class="section-intro [&_h2]:text-white [&_p]:text-white/70" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {weddingFormats.map((format, index) => (
+        <div class="motion-card motion-band reveal-on-scroll min-h-[260px] rounded-xl bg-white/5 p-7 text-white" style={`--card-lift-delay: ${index * 320}ms`}>
+          <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">{format.label}</p>
+          <h3 class="mt-3 text-2xl font-black">{format.title}</h3>
+          <p class="mt-4 text-base leading-relaxed text-white/75">{format.body}</p>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <SectionTitle title="What your venue coordinator needs to know" subtitle="Sharing these details in advance makes the coordination seamless." />
+      <ol class="list-decimal space-y-3 pl-5 text-lg leading-relaxed text-slate-600">
+        <li>Performance space dimensions and floor surface at the venue</li>
+        <li>Sound system access - PA inputs or AV contact details</li>
+        <li>Run-sheet timing and your MC's contact for day-of coordination</li>
+        <li>Bump-in time required and any venue noise restrictions</li>
+        <li>Costume colour direction if you have a wedding palette to match</li>
+      </ol>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle title="Costume colour matching" subtitle="Most costumes can be adjusted toward your wedding colour direction - confirm what's possible during the quote process." class="section-intro" />
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {costumes.map((costume) => (
+        <div class="flex items-center gap-3 rounded-full border border-db-pink/30 bg-white px-4 py-3 text-sm font-black text-db-pink shadow-[0_10px_26px_rgba(158,0,150,0.06)]">
+          <span class="h-3 w-3 rounded-full" style={`background:${dotFor(costume.color)}`}></span>
+          <span>{costume.title}: {costume.color}</span>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle title="Wedding FAQs" subtitle="Answers for couples and planners before enquiring." class="section-intro" />
+    <div class="mx-auto max-w-5xl">{faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}</div>
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset" id="wedding-enquiry">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <div>
+        <SectionTitle title="Wedding Entertainment Enquiry" subtitle="Tell us what is already known, even if the run sheet is still being finalised." />
+        <ul class="mt-8 space-y-3 text-lg text-slate-600">
+          <li>Date, venue name, suburb, and guest numbers</li>
+          <li>Reception timing, MC or planner contact, and preferred format</li>
+          <li>Wedding palette or costume colour direction</li>
+        </ul>
+      </div>
+      <ContactForm title="Wedding Entertainment Enquiry" subtitle="Include your date, venue name, guest numbers, and preferred performance format." subject="Wedding Entertainment Enquiry" />
+    </div>
+  </SectionContainer>
+</Layout>

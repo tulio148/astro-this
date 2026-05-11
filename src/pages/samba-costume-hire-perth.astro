@@ -73,6 +73,14 @@ const hireTimeline = [
   "Confirm availability, inclusions, hire fee, deposit, and handover plan.",
   "Collect or receive the costume, then return it by the agreed time and condition.",
 ];
+
+const hirePaths = [
+  { title: "Carnival Costume Hire", body: "Rio-inspired costumes and statement pieces for themed events and parties.", href: "/carnival-costume-hire-perth" },
+  { title: "Photoshoot Hire", body: "Costume hire for photographers, creators, brands, editorials, and personal campaigns.", href: "/costume-hire-photoshoot-perth" },
+  { title: "Group Hire", body: "Matching sets and complementary colour options for groups and ensembles.", href: "/group-costume-hire-perth" },
+  { title: "Festival Hire", body: "Festival-appropriate headpieces, cuffs, belts, and secure statement pieces.", href: "/festival-costume-hire-perth" },
+  { title: "Styling Add-ons", body: "Hair, makeup, and costume styling support by enquiry and availability.", href: "/styling-add-ons" },
+];
 ---
 
 <Layout
@@ -156,6 +164,31 @@ const hireTimeline = [
           <div class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#311047,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
             <p class="text-lg font-black leading-relaxed">{detail}</p>
           </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="Choose your hire path"
+      subtitle="Start with the context that best matches your booking."
+      class="section-intro"
+    />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+      {
+        hirePaths.map((path) => (
+          <a
+            href={path.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]"
+            data-track="CostumeHireClick"
+            data-track-params={JSON.stringify({ destination: path.href })}
+          >
+            <h3 class="text-xl font-black text-db-pink">{path.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              {path.body}
+            </p>
+          </a>
         ))
       }
     </div>

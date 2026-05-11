@@ -144,6 +144,8 @@ const socialImage = absoluteUrl(image);
 
     <Footer />
     <script>
+      import { initClickTracking } from "../lib/pixelEvents.js";
+
       document.addEventListener("astro:page-load", () => {
         const revealItems = document.querySelectorAll(
           ".reveal-on-scroll, .reveal-section"
@@ -151,6 +153,7 @@ const socialImage = absoluteUrl(image);
 
         if (!("IntersectionObserver" in window)) {
           revealItems.forEach((item) => item.classList.add("is-visible"));
+          initClickTracking();
           return;
         }
 
@@ -172,6 +175,8 @@ const socialImage = absoluteUrl(image);
           }
           observer.observe(item);
         });
+
+        initClickTracking();
       });
     </script>
   </body>

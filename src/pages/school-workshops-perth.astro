@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import ContactForm from "../components/ContactForm.astro";
+import danceclassHero from "../images/danceclassHero.avif";
+import { serviceSchema } from "../lib/schema";
+
+const title = "School Workshops Perth | Brazilian Culture & Samba Programs";
+const description = "Age-appropriate Brazilian samba and culture workshops for Perth schools, universities, youth programs, and student events.";
+const url = "/school-workshops-perth";
+const structuredData = [serviceSchema({ name: "School samba workshops in Perth", description, url, image: danceclassHero.src })];
+const outcomes = ["Rhythm and coordination", "Cultural awareness", "Confidence through movement", "Connection to Brazilian music and geography"];
+---
+
+<Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
+  <Hero title="Brazilian Samba Workshops for Schools" subtitle="Age-appropriate cultural dance programs for primary, secondary, tertiary, and youth groups." backgroundImage={danceclassHero} primaryCta={{ label: "Enquire for a School", href: "#school-enquiry" }} />
+  <SectionContainer spacing="hero-offset"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Movement, rhythm, and cultural context" subtitle="Sessions can connect Brazilian geography, music, history, cultural diversity, and movement in a format that fits a school timetable." /><p class="text-lg leading-relaxed text-slate-600">Workshops can be adjusted for primary, secondary, tertiary, or youth-program groups. A 45-60 minute session fits most class periods and can be shaped for assemblies, cultural days, or student events.</p></div></SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="What students take away" class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-4">{outcomes.map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Booking and safety details" subtitle="Share year level, group size, timetable block, available space, and any safety or child-safe documentation requirements." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="school-enquiry"><ContactForm title="School Workshop Enquiry" subtitle="Include school name, year level, group size, preferred dates, available space, and program goals." subject="School Workshop Enquiry" /></SectionContainer>
+</Layout>

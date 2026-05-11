@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
+import ClassScheduleGrid from "../components/ClassScheduleGrid.astro";
 import FAQItem from "../components/FAQItem.astro";
 import Hero from "../components/Hero.astro";
 import { Picture } from "astro:assets";
@@ -86,7 +87,7 @@ const progressionSteps = [
     title="Samba Classes in Perth"
     subtitle="Beginner, intermediate, and casual samba no pe classes in Balcatta. No partner needed."
     backgroundImage={classesHero}
-    primaryCta={{ label: "See Class Times", href: "#class-times" }}
+    primaryCta={{ label: "See Class Schedule", href: "#schedule" }}
     secondaryCta={{
       label: "Beginner Classes",
       href: "/beginner-samba-classes-perth",
@@ -100,7 +101,7 @@ const progressionSteps = [
       class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 section-grid-base">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 section-grid-base">
       <div
         class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
       >
@@ -126,10 +127,26 @@ const progressionSteps = [
           musicality, and choreography practice.
         </p>
         <a
-          href="#class-times"
+          href="/intermediate-samba-classes-perth"
           class="text-db-pink font-bold hover:text-db-light-pink"
         >
-          See current terms
+          Level up to intermediate
+        </a>
+      </div>
+
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Brazil Fit</h3>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          Samba-based cardio and movement with no technique goal, no partner,
+          and no experience needed.
+        </p>
+        <a
+          href="/brazil-fit"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Try Brazil Fit
         </a>
       </div>
 
@@ -189,6 +206,21 @@ const progressionSteps = [
         ))
       }
     </div>
+  </SectionContainer>
+
+  <SectionContainer id="schedule">
+    <SectionTitle
+      title="Weekly schedule"
+      subtitle="All current classes at a glance. See below for full term details and booking links."
+      class="section-intro"
+    />
+    <ClassScheduleGrid
+      slots={[
+        { day: "Tuesday", term: terms[0] },
+        { day: "Tuesday", term: terms[1] },
+        { day: "Casual", term: terms[2] },
+      ]}
+    />
   </SectionContainer>
 
   <SectionContainer id="class-times">
@@ -259,8 +291,11 @@ const progressionSteps = [
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       {
-        progressionSteps.map((step) => (
-          <div class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2b0b3a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.18)]">
+        progressionSteps.map((step, index) => (
+          <div
+            class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2b0b3a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.18)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
             <h3 class="text-2xl font-black text-db-green">{step.title}</h3>
             <p class="mt-4 text-lg leading-relaxed text-white/78">
               {step.body}

@@ -257,7 +257,7 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
 
 <script>
   const initializeMobileReadMore = () => {
-    document.querySelectorAll("[data-read-more-toggle]").forEach((button) => {
+    document.querySelectorAll<HTMLElement>("[data-read-more-toggle]").forEach((button) => {
       if (button.dataset.bound === "true") return;
 
       const container = button.closest("[data-read-more-container]");
@@ -282,9 +282,5 @@ const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
     });
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeMobileReadMore);
-  } else {
-    initializeMobileReadMore();
-  }
+  document.addEventListener("astro:page-load", initializeMobileReadMore);
 </script>

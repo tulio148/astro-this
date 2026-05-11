@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import ContactForm from "../components/ContactForm.astro";
+import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
+import { serviceSchema } from "../lib/schema";
+
+const title = "Carnival Costume Hire Perth | Rio & Samba Costume Hire";
+const description = "Carnival-style costume hire in Perth for themed parties, performances, New Year's events, photoshoots, and Rio-inspired celebrations.";
+const url = "/carnival-costume-hire-perth";
+const structuredData = [serviceSchema({ name: "Carnival costume hire in Perth", description, url, image: costumeHireHeroImage.src })];
+---
+
+<Layout title={title} description={description} image={costumeHireHeroImage.src} url={url} structuredData={structuredData}>
+  <Hero title="Carnival Costume Hire in Perth" subtitle="Rio-inspired colour, feathers, rhinestones, and statement costume pieces for themed events and photoshoots." backgroundImage={costumeHireHeroImage} primaryCta={{ label: "Check Availability", href: "#carnival-enquiry" }} />
+  <SectionContainer spacing="hero-offset"><SectionTitle title="Carnival-style, samba-built" subtitle="The collection is rooted in samba performance costuming, with pieces that also suit Carnival themes, Mardi Gras-inspired parties, New Year's events, and editorial shoots." /></SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Full costume or individual pieces" class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Full costume", "Headpiece only", "Cuffs, belts, and accessories"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="carnival-enquiry"><ContactForm title="Carnival Costume Hire Enquiry" subtitle="Include your event date, costume style, size, hire duration, and whether you need a full costume or individual pieces." subject="Carnival Costume Hire Enquiry" /></SectionContainer>
+</Layout>

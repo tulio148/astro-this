@@ -9,10 +9,16 @@ import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import HomeTermCard from "../components/HomeTermCard.astro";
+import VideoSection from "../components/VideoSection.astro";
 import ServicePathSelector from "../components/react/ServicePathSelector";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
-import { faqSchema, organizationSchema, serviceSchema } from "../lib/schema";
+import {
+  faqSchema,
+  localBusinessSchema,
+  organizationSchema,
+  serviceSchema,
+} from "../lib/schema";
 // Import images
 import hero from "../images/hero.avif";
 import heroMobile from "../images/hero-mobile.avif";
@@ -59,6 +65,7 @@ const homeFaqs = [
 
 const structuredData = [
   organizationSchema(),
+  localBusinessSchema(),
   serviceSchema({
     name: "Brazilian samba classes, event entertainment, workshops, and costume hire in Perth",
     description,
@@ -70,16 +77,16 @@ const structuredData = [
 
 const servicePaths = [
   {
-    key: "classes",
-    label: "Start learning",
-    title: "Samba classes",
+    key: "shows",
+    label: "Corporate & events",
+    title: "Book a show",
     description:
-      "Join beginner-friendly samba no pe classes in Balcatta with clear steps, rhythm work, and a realistic path into intermediate training.",
-    href: "/samba-classes-perth#class-times",
-    cta: "Book a Class",
-    image: servicePathClasses.src,
+      "Add samba dancers, Carnival-style costumes, guest interaction, and optional live music or drumming to a Perth event.",
+    href: "/book-a-samba-show-perth#show-enquiry",
+    cta: "Request a Quote",
+    image: servicePathShows.src,
     imageAlt:
-      "Beginner samba class in a bright Perth studio with students following the teacher",
+      "Brazilian samba dancers performing in Carnival costumes at a Perth event",
   },
   {
     key: "workshops",
@@ -94,16 +101,16 @@ const servicePaths = [
       "Private samba workshop group learning a routine together in an event room",
   },
   {
-    key: "shows",
-    label: "Lift the room",
-    title: "Book a show",
+    key: "classes",
+    label: "Start learning",
+    title: "Samba classes",
     description:
-      "Add samba dancers, Carnival-style costumes, guest interaction, and optional live music or drumming to a Perth event.",
-    href: "/book-a-samba-show-perth#show-enquiry",
-    cta: "Instant Quote Estimate",
-    image: servicePathShows.src,
+      "Join beginner-friendly samba no pe classes in Balcatta with clear steps, rhythm work, and a realistic path into intermediate training.",
+    href: "/samba-classes-perth#class-times",
+    cta: "Book a Class",
+    image: servicePathClasses.src,
     imageAlt:
-      "Brazilian samba dancers performing in Carnival costumes at a Perth event",
+      "Beginner samba class in a bright Perth studio with students following the teacher",
   },
   {
     key: "costumes",
@@ -201,7 +208,7 @@ const getTermSummary = (description: string) =>
     <Hero
       client:load
       title="Brazilian Samba Classes, Shows and Costume Hire in Perth"
-      subtitle="Dance Bloc Brazil brings samba no pe classes, event entertainment, private workshops, and Carnival-style costume hire to Perth."
+      subtitle="Perth's Brazilian samba entertainment company. High-impact shows for corporate events, galas, and weddings — plus samba classes, workshops, and costume hire."
       backgroundImage={hero}
       mobileImage={heroMobile}
       imagePosition="center"
@@ -212,6 +219,11 @@ const getTermSummary = (description: string) =>
       secondaryCta={{ label: "Explore Services", href: "#about" }}
     />
     <!-- </div> -->
+
+    <VideoSection
+      overlayTitle="See the atmosphere"
+      overlaySubtitle="What a room looks like when samba walks in."
+    />
 
     <!-- About Section -->
     <SectionContainer spacing="hero-offset" id="about">
@@ -246,7 +258,7 @@ const getTermSummary = (description: string) =>
               <h3
                 class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink"
               >
-                Learn Samba no Pe
+                Samba Classes
               </h3>
               <p class="mt-5 leading-relaxed text-lg text-slate-600">
                 Learn the foundations of Brazilian samba no pe in a class format
@@ -276,20 +288,20 @@ const getTermSummary = (description: string) =>
               <h3
                 class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink"
               >
-                Book Event Entertainment
+                Corporate & Event Entertainment
               </h3>
               <p class="mt-5 leading-relaxed text-lg text-slate-600">
-                Bring samba dancers, Carnival-style costumes, and optional live
-                music or drumming to weddings, corporate events, private
-                parties, and festivals.
+                Brazilian samba dancers for galas, launches, conferences, and
+                weddings. Tailored formats, Carnival costumes, and optional live
+                drumming.
               </p>
             </div>
           </Card>
           <a
-            href="/private-samba-workshops-perth"
+            href="/book-a-samba-show-perth"
             class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
           >
-            <span>Private Samba Workshops</span>
+            <span>Book a Show</span>
             <span
               class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80"
             >
@@ -306,20 +318,20 @@ const getTermSummary = (description: string) =>
               <h3
                 class="max-w-[12ch] text-3xl font-black leading-tight text-db-pink"
               >
-                Plan a Workshop or Costume Hire
+                Private Workshops & Costume Hire
               </h3>
               <p class="mt-5 leading-relaxed text-lg text-slate-600">
-                Create a private group workshop, hire standout costumes, or add
-                a visual samba element to a photoshoot, themed event, or
-                performance.
+                Group samba workshops for team events, hens parties, and
+                activations. Carnival-style costume hire for performances and
+                themed occasions.
               </p>
             </div>
           </Card>
           <a
-            href="/wedding-corporate-event-entertainment-perth"
+            href="/private-samba-workshops-perth"
             class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
           >
-            <span>Wedding & Corporate Entertainment</span>
+            <span>Private Workshops</span>
             <span
               class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80"
             >
@@ -437,7 +449,10 @@ const getTermSummary = (description: string) =>
       <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
         {
           journeySteps.map((step, index) => (
-            <div class={`motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
+            <div
+              class={`motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
+              style={`--card-lift-delay: ${index * 420}ms`}
+            >
               <div class="absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
               <div class="timeline-pulse relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-db-pink text-xl font-black text-white shadow-[0_12px_30px_rgba(158,0,150,0.22)]">
                 {index + 1}
@@ -534,7 +549,10 @@ const getTermSummary = (description: string) =>
         <div class="grid gap-5 sm:grid-cols-2">
           {
             trustPoints.map((point, index) => (
-              <div class={`motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-xl border bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}>
+              <div
+                class={`motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-xl border bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
+                style={`--card-lift-delay: ${index * 420}ms`}
+              >
                 <div class="flex items-center justify-between gap-4">
                   <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">
                     {point.label}

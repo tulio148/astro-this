@@ -1,0 +1,341 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title =
+  "Corporate Event Entertainment Perth | Brazilian Samba for Galas & Conferences";
+const description =
+  "Professional Brazilian samba entertainment for corporate gala dinners, award nights, product launches, conferences, and team activations in Perth.";
+const url = "/corporate-entertainment-perth";
+
+const formats = [
+  {
+    label: "Gala & Award Nights",
+    title: "Feature show",
+    body: "A timed, choreographed performance that serves as the entertainment highlight. Typically 10-20 minutes, positioned as a standalone act between courses or after the awards segment.",
+  },
+  {
+    label: "Conferences & Launches",
+    title: "High-energy opener",
+    body: "A short, explosive performance designed to open the event, energise the room before a keynote, or mark a product reveal moment.",
+  },
+  {
+    label: "Cocktail & Networking",
+    title: "Roving performers",
+    body: "Dancers move through the crowd during arrivals or cocktail hour - creating visual energy without requiring a stage or seated audience.",
+  },
+  {
+    label: "Team Events & Activations",
+    title: "Interactive workshop",
+    body: "Guests participate in a short samba movement session. Structured to feel inclusive - not awkward - and works especially well for team-building programs and brand activations.",
+  },
+];
+
+const plannerInfo = [
+  {
+    q: "What do you need from us before the event?",
+    a: "Event date and time, venue address, available performance space dimensions, sound system access or AV contact, run-sheet timing, and any dress code or theme direction. The earlier these are confirmed, the cleaner the coordination.",
+  },
+  {
+    q: "How much space does the performance need?",
+    a: "A feature show requires a clear floor space of approximately 4m x 4m minimum. Roving entertainment works in any crowd density. Workshop formats need enough room for participant movement - typically 2m2 per person.",
+  },
+  {
+    q: "Do you provide your own sound?",
+    a: "We can perform with a venue's existing PA system. A technical rider with input requirements is provided at booking confirmation. Live percussion can be added where venue permits.",
+  },
+  {
+    q: "Can the performance be customised to our brand or event theme?",
+    a: "Yes. Costume colour direction, music selection, and the format sequence can be adjusted within the standard package scope. More specific brand integrations are discussed during the quote process.",
+  },
+  {
+    q: "What is the lead time for a corporate booking?",
+    a: "Four to six weeks is a comfortable minimum for a standard booking. Peak periods - Christmas, EOFY, award season - require earlier enquiry. Some requests can be accommodated with less notice.",
+  },
+  {
+    q: "How is pricing structured?",
+    a: "Pricing is based on performance format, number of performers, duration, and any optional add-ons (live percussion, additional dancers, extended roving time). A quote is provided after the initial brief is received.",
+  },
+];
+
+const eventTypes = [
+  {
+    title: "Gala Dinners",
+    body: "Feature performance or roving entertainment between courses. Timed to the run sheet with no venue disruption.",
+  },
+  {
+    title: "Award Nights",
+    body: "High-energy entertainment moment before, between, or after the awards segment. Lifts energy when the room needs it most.",
+  },
+  {
+    title: "Product Launches",
+    body: "Branded reveal moment or opening performance. Strong visual impact and social content opportunity.",
+  },
+  {
+    title: "Conference Closings",
+    body: "End-of-day energy lift before networking. Removes the flat finish that most conference programs struggle with.",
+  },
+  {
+    title: "Client Entertainment",
+    body: "Premium experience for client-facing events. Memorable and conversation-generating without requiring much floor space.",
+  },
+  {
+    title: "Team Activations",
+    body: "Interactive workshop format. Gets teams moving together without awkward icebreaker energy. Works across all fitness levels.",
+  },
+];
+
+const specificEventTypes = [
+  { title: "Gala Dinners & Award Nights", body: "Formal entertainment for black-tie rooms, awards programs, and corporate galas.", href: "/gala-dinners-award-nights-perth" },
+  { title: "Conferences & Launches", body: "Conference openers, product reveals, and brand moments with clean AV coordination.", href: "/conference-and-launch-entertainment-perth" },
+  { title: "Client & Networking Events", body: "Roving performers and short feature moments for cocktail and relationship events.", href: "/client-networking-events-perth" },
+];
+
+const faqs = [
+  {
+    question: "Do you perform at venues outside the Perth CBD?",
+    answer:
+      "Yes. Dance Bloc Brazil performs at venues across greater Perth. Travel to regional locations can be discussed during the enquiry.",
+  },
+  {
+    question: "Can we add live percussion or drumming?",
+    answer:
+      "Yes. Live percussion can be incorporated depending on the event format and venue sound permissions. This is discussed during the quote process.",
+  },
+  {
+    question: "How many performers are included?",
+    answer:
+      "Package options include different performer numbers. The right configuration depends on the venue size, format, and event type. This is confirmed at quote stage.",
+  },
+  {
+    question: "Is a deposit required to secure the date?",
+    answer:
+      "Yes. A deposit is required to confirm the booking and hold the date. Full terms are provided with the quote.",
+  },
+  {
+    question: "What happens if the event runs over time?",
+    answer:
+      "Performance timing is agreed in advance. If the event schedule shifts, we work with the on-site coordinator to adapt. Extended performance time can be negotiated.",
+  },
+];
+
+const structuredData = [
+  serviceSchema({
+    name: "Corporate event entertainment in Perth",
+    description,
+    url,
+    image: showForHireHero.src,
+  }),
+  faqSchema(faqs),
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={showForHireHero.src}
+  url={url}
+  structuredData={structuredData}
+  pageEvent="CorporatePageView"
+>
+  <Hero
+    title="Corporate Event Entertainment Perth"
+    subtitle="Brazilian samba performances for gala dinners, award nights, launches, conferences, and client events - planned to your brief, timed to your run sheet."
+    backgroundImage={showForHireHero}
+    primaryCta={{ label: "Request a Quote", href: "#corporate-enquiry" }}
+    secondaryCta={{ label: "View Performance Formats", href: "#formats" }}
+  />
+
+  <SectionContainer spacing="hero-offset">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
+      <SectionTitle
+        title="Entertainment that earns its place on the run sheet"
+        subtitle="Corporate crowds are harder to move. The right act doesn't just perform - it changes the energy of the room."
+      />
+
+      <div class="text-lg text-slate-600 leading-relaxed space-y-5">
+        <p>
+          Brazilian samba entertainment creates a defined moment - a high point
+          guests remember and reference after the event. For corporate
+          organisers, that means a clear return on the entertainment budget:
+          atmosphere lift, guest engagement, social media content, and a talking
+          point that lands in post-event surveys.
+        </p>
+        <p>
+          Dance Bloc Brazil works with corporate clients who need professional
+          performers, clean coordination, and zero day-of surprises. The format,
+          timing, staging, and sound requirements are confirmed in advance. On
+          the night, the performance runs to the brief.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {
+            [
+              "Run-sheet timed to the minute",
+              "Staging and sound requirements confirmed in advance",
+              "Professional performers - no coordination required on the day",
+            ].map((badge) => (
+              <span class="inline-flex items-center gap-2 rounded-full border border-db-green/40 bg-db-green/8 px-4 py-2 text-sm font-black text-db-pink">
+                <span class="h-1.5 w-1.5 rounded-full bg-db-green shrink-0" />
+                {badge}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="formats">
+    <SectionTitle
+      title="Performance formats"
+      subtitle="Choose the format that fits your venue, run sheet, and audience. Formats can be combined."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {
+        formats.map((format, index) => (
+          <div
+            class="motion-card motion-band reveal-on-scroll min-h-[260px] rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2a103d,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
+            <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">
+              {format.label}
+            </p>
+            <h3 class="mt-3 text-2xl font-black text-white">
+              {format.title}
+            </h3>
+            <p class="mt-4 text-base leading-relaxed text-white/78">
+              {format.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-slate-950 text-white">
+    <SectionTitle
+      title="What planners actually need to know"
+      subtitle="The questions that matter before a corporate entertainment booking."
+      class="section-intro [&_h2]:text-white [&_p]:text-white/70"
+    />
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {
+        plannerInfo.map((item) => (
+          <div class="rounded-xl border border-white/12 bg-white/5 p-7">
+            <p class="text-sm font-black uppercase tracking-[0.14em] text-db-green mb-3">
+              {item.q}
+            </p>
+            <p class="text-base leading-relaxed text-white/78">{item.a}</p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Corporate event contexts"
+      subtitle="Common event types where Brazilian samba entertainment creates measurable impact."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        eventTypes.map((eventType, index) => (
+          <div
+            class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]"
+            style={`--card-lift-delay: ${index * 350}ms`}
+          >
+            <h3 class="text-2xl font-black text-db-pink">
+              {eventType.title}
+            </h3>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">
+              {eventType.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Specific event types"
+      subtitle="If you already know the corporate context, choose the page that matches the brief."
+      class="section-intro"
+    />
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        specificEventTypes.map((eventType) => (
+          <a
+            href={eventType.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]"
+            data-track="ShowEnquiryClick"
+            data-track-params={JSON.stringify({ destination: eventType.href })}
+          >
+            <h3 class="text-2xl font-black text-db-pink">
+              {eventType.title}
+            </h3>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">
+              {eventType.body}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="Corporate entertainment FAQs"
+      subtitle="Useful answers before requesting a quote."
+      class="section-intro"
+    />
+
+    <div class="max-w-5xl mx-auto">
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset" id="corporate-enquiry">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
+      <div>
+        <SectionTitle
+          title="Request a Corporate Quote"
+          subtitle="Share your brief and we will respond with a quote scoped to your event."
+        />
+
+        <ol class="mt-8 space-y-3 text-lg text-slate-600 list-decimal pl-5">
+          <li>Send your event brief through the form below.</li>
+          <li>
+            We confirm the format, timing, staging, and any optional extras.
+          </li>
+          <li>You receive a quote within 48 hours.</li>
+          <li>
+            Booking is confirmed with a deposit and signed agreement.
+          </li>
+        </ol>
+      </div>
+
+      <ContactForm
+        title="Corporate Event Enquiry"
+        subtitle="Include your event date, venue, expected guest numbers, and preferred performance format."
+      />
+    </div>
+  </SectionContainer>
+</Layout>

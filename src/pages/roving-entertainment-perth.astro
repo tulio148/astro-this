@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Hero from "../components/Hero.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Roving Entertainment Perth | Samba Performers for Events";
+const description = "Roving samba performers for Perth arrivals, cocktail hours, festivals, outdoor markets, and event activations.";
+const url = "/roving-entertainment-perth";
+const faqs = [
+  { question: "What does roving look like in practice?", answer: "Performers move through the event space in short sets, creating visual impact and guest interaction without requiring a seated audience." },
+  { question: "Can roving be paired with a feature show?", answer: "Yes. Many events use roving for arrivals and a short feature show later in the run sheet." },
+  { question: "Does roving need a stage?", answer: "No. It works through circulation paths, arrivals, cocktail hours, and open event areas." },
+];
+const structuredData = [serviceSchema({ name: "Roving samba entertainment in Perth", description, url, image: showForHireHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <Hero title="Roving Samba Entertainment in Perth" subtitle="Performers who move through your crowd - bringing energy, interaction, and visual impact to arrivals, cocktail hours, and activations." backgroundImage={showForHireHero} primaryCta={{ label: "Enquire About Roving", href: "#roving-enquiry" }} />
+  <SectionContainer spacing="hero-offset"><SectionTitle title="Roving in practice" subtitle="Sets, breaks, coverage area, and interaction style are scoped to your venue and crowd." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Short high-impact sets", "Room or crowd coverage", "Warm guest interaction"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Best-fit event contexts" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-2 gap-3 md:grid-cols-4">{["Cocktail hours","Festivals","Outdoor markets","Large indoor events"].map((item)=><div class="rounded-full border border-white/12 bg-white/5 px-5 py-3 text-center font-black text-db-green">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Pair roving with a feature show" subtitle="Use roving to build atmosphere early, then a choreographed show as the run-sheet highlight." /></SectionContainer>
+  <SectionContainer><SectionTitle title="Roving FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="roving-enquiry"><ContactForm title="Roving Entertainment Enquiry" subtitle="Include event type, venue layout, guest numbers, and whether roving should pair with a feature show." subject="Roving Entertainment Enquiry" /></SectionContainer>
+</Layout>
