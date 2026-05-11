@@ -337,7 +337,7 @@ const Navbar = ({ currentPath }: NavbarProps) => {
                   <div className="grid grid-cols-3 gap-6">
                     {hoveredLink.groups.map((group) => (
                       <motion.div key={group.label} variants={dropdownItemVariants}>
-                        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+                        <p className="mb-3 px-2.5 text-base font-black uppercase tracking-[0.22em] text-white">
                           {group.label}
                         </p>
                         <ul className="space-y-0.5">
@@ -457,7 +457,7 @@ const Navbar = ({ currentPath }: NavbarProps) => {
                                   <div className="space-y-4">
                                     {groups.map((group) => (
                                       <div key={group.label}>
-                                        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+                                        <p className="mb-2 px-3 text-base font-black uppercase tracking-[0.22em] text-white">
                                           {group.label}
                                         </p>
                                         <div className="grid grid-cols-2 gap-1.5">
