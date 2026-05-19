@@ -46,7 +46,7 @@ body {
 }
 
 .section-container.section-tone-tint {
-  background-color: color-mix(in oklab, var(--color-db-green) 10%, white);
+  background-color: #f9f7fb;
 }
 
 .section-container + .section-container {
