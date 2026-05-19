@@ -1,0 +1,21 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import showForHireHero from "../images/showhero.avif";
+import { organizationSchema } from "../lib/schema";
+
+const title = "Media & Press | Dance Bloc Brazil";
+const description = "Press information, brand story, image asset notes, and contact details for Dance Bloc Brazil media and venue partners.";
+const url = "/media-and-press";
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={[organizationSchema()]}>
+  <SectionContainer>
+    <SectionTitle title="Media & Press" subtitle="Press-ready information for stories, venue partners, and event collaborators." class="section-intro" />
+    <SectionTitle title="Brand story in 100 words" />
+<p class="mt-6 max-w-4xl text-xl leading-relaxed text-slate-600">Dance Bloc Brazil brings Brazilian samba to Perth through classes, event entertainment, workshops, and Carnival-style costume hire. The business connects movement, culture, visual impact, and practical event coordination for students, corporate planners, couples, community groups, and creative clients.</p></SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Key stats to confirm" subtitle="Replace placeholders with verified business figures before press distribution." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Years active: TBC","Events performed: TBC","Locations served: Perth and WA"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Press assets" subtitle="High-resolution images and logo files should be added here when approved assets are ready." /><p class="mt-6 text-lg text-slate-600">Press contact: <a href="mailto:info@danceblocbrazil.com" class="font-black text-db-pink hover:text-db-light-pink">info@danceblocbrazil.com</a></p></SectionContainer>
+</Layout>

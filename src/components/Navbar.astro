@@ -2,7 +2,8 @@
 import NavbarReact from "./react/Navbar";
 
 const { currentPath } = Astro.props;
+const { hasHero = false } = Astro.props;
 ---
 
-<NavbarReact client:load currentPath={currentPath} />
+<NavbarReact client:load currentPath={currentPath} hasHero={hasHero} />
 

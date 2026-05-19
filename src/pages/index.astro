@@ -5,21 +5,24 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.tsx";
 import Card from "../components/Card.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
-import TermCard from "../components/TermCard.astro";
+import HomeTermCard from "../components/HomeTermCard.astro";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
-import { faqSchema, organizationSchema, serviceSchema } from "../lib/schema";
+import {
+  faqSchema,
+  localBusinessSchema,
+  organizationSchema,
+  serviceSchema,
+} from "../lib/schema";
 // Import images
 import hero from "../images/hero.avif";
-import heroMobile from "../images/hero-mobile.avif";
 import showForHireHero from "../images/showhero.avif";
 import costumeHireHero from "../images/costumeHireHeroAvif.avif";
-import noBgDancer3 from "../images/noBgDancer3.avif";
-import noBgDancer1 from "../images/noBgDancer1.avif";
-import noBgDancer2 from "../images/noBgDancer2.avif";
+import heroVideo from "../videos/hero-video.mp4";
+import showsVideo from "../videos/shows-video.mp4";
+import classesVideo from "../videos/classes-video.mp4";
 import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
 
 const title = "Brazilian Samba in Perth | Classes, Shows & Costume Hire";
@@ -54,6 +57,7 @@ const homeFaqs = [
 
 const structuredData = [
   organizationSchema(),
+  localBusinessSchema(),
   serviceSchema({
     name: "Brazilian samba classes, event entertainment, workshops, and costume hire in Perth",
     description,
@@ -62,6 +66,60 @@ const structuredData = [
   }),
   faqSchema(homeFaqs),
 ];
+
+const journeySteps = [
+  {
+    title: "First class",
+    body: "Start with samba no pe basics, timing, posture, and movement patterns that make sense from the first session.",
+  },
+  {
+    title: "Rhythm and confidence",
+    body: "Build coordination, stamina, musicality, and the confidence to move with more freedom.",
+  },
+  {
+    title: "Progression",
+    body: "Move into intermediate training when the basic step, rhythm, and class pace feel familiar.",
+  },
+  {
+    title: "Performance energy",
+    body: "Use the same samba foundations in workshops, event moments, choreography, and optional performance pathways.",
+  },
+];
+
+const trustPoints = [
+  {
+    label: "Teaching",
+    title: "Clear beginner pathways",
+    body: "Level guidance, practical foundations, and a realistic route into confident samba no pe training.",
+  },
+  {
+    label: "Samba",
+    title: "Brazilian samba across classes and events",
+    body: "One focused style connects weekly classes, workshops, performances, and Carnival-style costume hire.",
+  },
+  {
+    label: "Booking",
+    title: "Perth-based booking support",
+    body: "Local enquiry support helps students and event organisers move from questions to clear next steps.",
+  },
+  {
+    label: "Visuals",
+    title: "High-impact costumes and movement",
+    body: "Bold costumes, stage energy, and polished samba moments create memorable visuals for classes and events.",
+  },
+];
+
+const getTermSummary = (description: string) =>
+  description
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .find(
+      (paragraph) =>
+        paragraph.length > 0 &&
+        paragraph.toLowerCase() !== "class structure:" &&
+        !/^first\s*30\s*min/i.test(paragraph) &&
+        !/^second\s*30\s*min/i.test(paragraph),
+    ) ?? "Join this class and keep building your samba with clear, practical progression.";
 
 // Helper function to format date to day name
 // function getDayName(dateString: string) {
@@ -77,6 +135,7 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
   pageEvent="HomePageView"
+  hasHero={true}
 >
   <!-- Skip Navigation Link -->
   <a
@@ -91,11 +150,9 @@ const structuredData = [
     <Hero
       client:load
       title="Brazilian Samba Classes, Shows and Costume Hire in Perth"
-      subtitle="Dance Bloc Brazil brings samba no pe classes, event entertainment, private workshops, and Carnival-style costume hire to Perth."
-      backgroundImage={hero}
-      mobileImage={heroMobile}
+      subtitle="Perth's Brazilian samba entertainment company. High-impact shows for corporate events, galas, and weddings — plus samba classes, workshops, and costume hire."
+      backgroundVideo={heroVideo}
       imagePosition="center"
-      eyebrow="Brazilian samba in Perth"
       primaryCta={{
         label: "Book a Class",
         href: "/samba-classes-perth#class-times",
@@ -104,145 +161,243 @@ const structuredData = [
     />
     <!-- </div> -->
 
-    <!-- About Section -->
-    <SectionContainer id="about" class="my-40">
+    <div class="relative z-10 bg-white">
+      <!-- About Section -->
+    <SectionContainer spacing="hero-offset" id="about">
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center"
       >
         <SectionTitle
           title="Start in the studio, bring it to the stage"
           subtitle="Dance Bloc Brazil brings Brazilian samba to Perth through beginner-friendly classes, vibrant event performances, private workshops, and Carnival-style costume hire."
-          class="mb-16"
+          class="section-intro"
         />
         <div
-          class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[48%_52%_44%_56%/55%_43%_57%_45%] bg-gradient-to-br from-db-light-pink/10 via-white to-db-green/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+          class="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[48%_52%_44%_56%/55%_43%_57%_45%] bg-gradient-to-br from-db-light-pink/10 via-white to-db-green/10 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
           <Picture
-            src={noBgDancer3}
+            src={hero}
             alt="Samba dancer in a bright Brazilian costume representing Dance Bloc Brazil classes and performances"
             widths={[480, 640, 800, 1200]}
             sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
+            class="w-full h-full object-cover object-[50%_10%] image-overlay"
             loading="eager"
           />
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
         </div>
       </div>
 
+      <div class="grid grid-cols-1 section-grid-base section-block-gap lg:grid-cols-3">
+        <div class="flex h-full flex-col gap-6">
+          <Card cardClass="db-border-alt-a">
+            <div
+              class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]"
+            >
+              <h3
+                class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink"
+              >
+                Samba Classes
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Learn the foundations of Brazilian samba no pe in a class format
+                built for confidence, rhythm, and clear progression from the
+                first step.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/beginner-samba-classes-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Beginner Samba Classes</span>
+            <span
+              class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80"
+            >
+              →
+            </span>
+          </a>
+        </div>
+
+        <div class="flex h-full flex-col gap-6">
+          <Card cardClass="db-border-alt-b">
+            <div
+              class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]"
+            >
+              <h3
+                class="max-w-[11ch] text-3xl font-black leading-tight text-db-pink"
+              >
+                Corporate & Event Entertainment
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Brazilian samba dancers for galas, launches, conferences, and
+                weddings. Tailored formats, Carnival costumes, and optional live
+                drumming.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/book-a-samba-show-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Book a Show</span>
+            <span
+              class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80"
+            >
+              →
+            </span>
+          </a>
+        </div>
+
+        <div class="flex h-full flex-col gap-6">
+          <Card cardClass="db-border-alt-a">
+            <div
+              class="flex min-h-[298px] flex-col justify-center text-left sm:min-h-[260px]"
+            >
+              <h3
+                class="max-w-[12ch] text-3xl font-black leading-tight text-db-pink"
+              >
+                Private Workshops & Costume Hire
+              </h3>
+              <p class="mt-5 leading-relaxed text-lg text-slate-600">
+                Group samba workshops for team events, hens parties, and
+                activations. Carnival-style costume hire for performances and
+                themed occasions.
+              </p>
+            </div>
+          </Card>
+          <a
+            href="/private-samba-workshops-perth"
+            class="motion-cta group flex min-h-[72px] items-center justify-between gap-4 rounded-full border border-db-pink/80 bg-db-pink px-7 py-4 text-white font-black shadow-[0_18px_40px_rgba(158,0,150,0.22)] transition hover:-translate-y-0.5 hover:border-db-pink/80 hover:bg-db-green hover:text-db-pink hover:drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] hover:shadow-[0_22px_44px_rgba(0,204,129,0.24)]"
+          >
+            <span>Private Workshops</span>
+            <span
+              class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/16 text-xl leading-none transition group-hover:translate-x-1 group-hover:bg-white/80"
+            >
+              →
+            </span>
+          </a>
+        </div>
+      </div>
+    </SectionContainer>
+
+    <!-- Shows Section -->
+    <SectionContainer id="shows">
       <div
-        class="grid grid-cols-1 lg:grid-cols-3 items-baseline justify-center gap-8 mt-24"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center mb-28"
       >
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Learn Samba no Pe
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Learn the foundations of Brazilian samba no pe in a class format
-              built for confidence, rhythm, and clear progression from the first
-              step.
-            </p>
-          </div>
-        </Card>
-
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Book Event Entertainment
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Bring samba dancers, Carnival-style costumes, and optional live
-              music or drumming to weddings, corporate events, private parties,
-              and festivals.
-            </p>
-          </div>
-        </Card>
-
-        <Card>
-          <div class="text-left py-6">
-            <h3 class="text-3xl font-bold mb-4 text-db-pink">
-              Plan a Workshop or Costume Hire
-            </h3>
-            <p class="leading-relaxed text-lg text-slate-600">
-              Create a private group workshop, hire standout costumes, or add a
-              visual samba element to a photoshoot, themed event, or
-              performance.
-            </p>
-          </div>
-        </Card>
+        <div
+          class="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
+        >
+          <video
+            class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster={hero.src}
+          >
+            <source src={showsVideo} type="video/mp4" />
+          </video>
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
+        </div>
+        <SectionTitle
+          title="Brazilian samba for events"
+          subtitle="Book dancers, costumes, show moments, and optional live music or drumming for Perth weddings, corporate events, private parties, festivals, and launches."
+          class="section-intro"
+        />
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-        <a
-          href="/beginner-samba-classes-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
+      <div class="grid grid-cols-1 lg:grid-cols-2 section-grid-base section-block-gap items-center">
+        <div
+          class="aspect-[4/5] md:aspect-video rounded-xl overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
-          <span>Beginner Samba Classes</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href="/private-samba-workshops-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
+          <Picture
+            src={showForHireHero}
+            alt="Dance Bloc Brazil Brazilian samba performance for events in Perth"
+            widths={[320, 480, 640, 800, 1200]}
+            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02] image-overlay"
+            loading="eager"
+          />
+        </div>
+
+        <div
+          class="flex flex-col justify-center rounded-xl border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
         >
-          <span>Private Samba Workshops</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href="/wedding-corporate-event-entertainment-perth"
-          class="group flex min-h-20 items-center justify-between gap-4 rounded-full border border-db-pink/10 bg-white px-7 py-5 text-db-pink font-black shadow-[0_12px_30px_rgba(158,0,150,0.08)] transition hover:-translate-y-0.5 hover:border-db-green/50 hover:bg-db-green hover:text-slate-950 hover:shadow-[0_18px_36px_rgba(0,204,129,0.18)]"
-        >
-          <span>Wedding & Corporate Entertainment</span>
-          <span class="text-xl transition group-hover:translate-x-1">→</span>
-        </a>
+          <h3 class="text-3xl font-black mb-4 text-db-pink">
+            Book us for your next event
+          </h3>
+          <p class="mb-8 leading-relaxed text-lg text-slate-600">
+            Dance Bloc Brazil can shape a feature performance, roving visual
+            moment, or interactive samba element around your event. Dancers,
+            Carnival-style costumes, recorded music, and optional live music or
+            drumming can be discussed during enquiry.
+          </p>
+          <a
+            href="/book-a-samba-show-perth"
+            data-astro-prefetch
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+          >
+            <span class="sr-only"
+              >Learn more about booking Brazilian samba dancers for your next
+              event</span
+            >
+            Instant Quote Estimate
+          </a>
+        </div>
       </div>
     </SectionContainer>
 
     <!-- Terms Section -->
-    <SectionContainer id="terms" class="my-40">
+    <SectionContainer id="terms">
       <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 justify-center items-center"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base justify-center items-center"
       >
         <div
-          class="relative order-2 sm:order-1 aspect-[4/5] sm:aspect-square overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 p-4 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+          class="relative order-2 sm:order-1 aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
         >
-          <Picture
-            src={noBgDancer1}
-            alt="Dance Bloc Brazil samba dancer promoting upcoming class terms in Perth"
-            widths={[480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
-            loading="eager"
-          />
+          <video
+            class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster={hero.src}
+          >
+            <source src={classesVideo} type="video/mp4" />
+          </video>
+          <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
         </div>
 
         <div class="order-1 sm:order-2">
           <SectionTitle
             title="Upcoming Samba Terms"
             subtitle="Join samba no pe classes in Balcatta, with beginner, intermediate, and casual options when available."
-            class="mb-16"
+            class="section-intro"
           />
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base section-block-gap">
         {
           terms.length > 0 ? (
-            terms.map((term) => (
-              <TermCard
+            terms.map((term, index) => (
+              <HomeTermCard
                 name={term.name}
                 level={term.level}
+                summary={getTermSummary(term.description)}
                 dateBegin={term.dateBegin}
                 dateEnd={term.dateEnd}
+                dateLabel={term.dateLabel}
                 time={term.time}
                 location={term.location}
                 price={term.price}
                 bookingLink={term.bookingLink}
-                description={term.description}
-                showDetails={term.showDetails}
-                enableMobileReadMore={true}
+                class={index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}
               />
             ))
           ) : (
-            <div class="md:col-span-3 text-center p-8 bg-db-light-pink/5 rounded-xl">
+            <div class="md:col-span-2 text-center p-8 bg-db-light-pink/5 rounded-xl border db-border-alt-a">
               <h3 class="text-2xl font-bold mb-4 text-db-pink">
                 We're Planning Our Next Term
               </h3>
@@ -271,10 +426,10 @@ const structuredData = [
         }
       </div>
 
-      <div class="text-center mt-24">
+      <div class="text-center section-block-gap">
         <a
           href="/samba-classes-perth"
-          class="inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-slate-950 shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:-translate-y-1 hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
+          class="motion-cta inline-flex min-h-14 items-center justify-center rounded-full bg-db-green px-9 py-4 text-sm font-black uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_18px_38px_rgba(0,204,129,0.30)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_22px_45px_rgba(158,0,150,0.25)]"
         >
           <span class="sr-only"
             >View all available samba class terms at Dance Bloc Brazil</span
@@ -284,82 +439,89 @@ const structuredData = [
       </div>
     </SectionContainer>
 
-    <!-- Shows Section -->
-    <SectionContainer id="shows" class="my-40">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 sm:gap-8 items-center mb-28"
-      >
-        <div
-          class="relative aspect-[4/5] sm:aspect-square overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% p-4 shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
-        >
-          <Picture
-            src={noBgDancer2}
-            alt="Dance Bloc Brazil samba dancer for Perth event entertainment"
-            widths={[480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 640px) 480px, (max-width: 800px) 640px, 1200px"
-            class="w-full h-full object-contain transition-transform duration-700 hover:scale-105 image-overlay"
-            loading="eager"
-          />
-        </div>
-        <SectionTitle
-          title="Brazilian samba for events"
-          subtitle="Book dancers, costumes, show moments, and optional live music or drumming for Perth weddings, corporate events, private parties, festivals, and launches."
-          class="mb-16"
-        />
-      </div>
+    <SectionContainer id="journey" class="bg-db-light-pink/5">
+      <SectionTitle
+        title="From first step to stage energy"
+        subtitle="Classes build the movement foundation; workshops, shows, and costume hire give that energy different places to go."
+        class="section-intro"
+      />
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 items-center">
-        <div
-          class="aspect-[4/5] md:aspect-video rounded-[2rem] overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
-        >
-          <Picture
-            src={showForHireHero}
-            alt="Dance Bloc Brazil Brazilian samba performance for events in Perth"
-            widths={[320, 480, 640, 800, 1200]}
-            sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 1200px"
-            class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02] image-overlay"
-            loading="eager"
-          />
-        </div>
-
-        <div
-          class="flex flex-col justify-center rounded-[2rem] border border-db-pink/10 bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
-        >
-          <h3 class="text-3xl font-black mb-4 text-db-pink">
-            Book us for your next event
-          </h3>
-          <p class="mb-8 leading-relaxed text-lg text-slate-600">
-            Dance Bloc Brazil can shape a feature performance, roving visual
-            moment, or interactive samba element around your event. Dancers,
-            Carnival-style costumes, recorded music, and optional live music or
-            drumming can be discussed during enquiry.
-          </p>
-          <a
-            href="/book-a-samba-show-perth"
-            data-astro-prefetch
-            class="inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
-          >
-            <span class="sr-only"
-              >Learn more about booking Brazilian samba dancers for your next
-              event</span
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+        {
+          journeySteps.map((step, index) => (
+            <div
+              class={`journey-step-card motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
+              style={`--card-lift-delay: ${index * 420}ms`}
             >
-            Request a Show Quote
-          </a>
+              <div class="journey-step-decoration absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
+              <div class="timeline-pulse relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-db-pink text-xl font-black text-white shadow-[0_12px_30px_rgba(158,0,150,0.22)]">
+                {index + 1}
+              </div>
+              <h3 class="relative z-10 mt-8 text-2xl font-black text-db-pink">
+                {step.title}
+              </h3>
+              <p class="relative z-10 mt-4 text-base leading-relaxed text-slate-600">
+                {step.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </SectionContainer>
+
+    <SectionContainer
+      id="why-dance-bloc"
+      class="bg-[linear-gradient(180deg,rgba(0,204,129,0.08),rgba(0,204,129,0.04))]"
+    >
+      <div
+        class="grid grid-cols-1 section-grid-wide lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
+      >
+        <SectionTitle
+          title="Why Dance Bloc Brazil"
+          subtitle="Clear teaching, practical booking details, and visually strong samba moments for Perth classes and events."
+        />
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          {
+            trustPoints.map((point, index) => (
+              <div
+                class={`motion-card reveal-on-scroll flex min-h-[310px] flex-col justify-between rounded-xl border bg-white p-7 shadow-[0_18px_44px_rgba(0,204,129,0.10)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
+                style={`--card-lift-delay: ${index * 420}ms`}
+              >
+                <div class="flex items-center justify-between gap-4">
+                  <p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">
+                    {point.label}
+                  </p>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-db-green/10 text-sm font-black text-db-pink">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div class="mt-8">
+                  <h3 class="text-2xl font-black leading-tight text-db-pink">
+                    {point.title}
+                  </h3>
+                  <p class="mt-4 text-base leading-relaxed text-slate-600">
+                    {point.body}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </SectionContainer>
 
     <!-- Costumes Section -->
-    <SectionContainer id="costumes" class="my-40">
+    <SectionContainer id="costumes">
       <SectionTitle
         title="Carnival-style costume hire"
         subtitle="Hire samba and Carnival-style costumes for performances, themed events, photoshoots, and special occasions in Perth."
         class="mb-8"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide section-block-gap items-center">
         <div
-          class="flex flex-col justify-center order-2 md:order-1 rounded-[2rem] border border-db-pink/10 bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
+          class="flex flex-col justify-center order-2 md:order-1 rounded-xl border db-border-alt-a bg-white p-8 shadow-[0_18px_50px_rgba(158,0,150,0.10)]"
         >
           <h3 class="text-3xl font-black mb-6 text-db-pink">
             Samba Costume Hire
@@ -373,7 +535,7 @@ const structuredData = [
           <a
             href="/samba-costume-hire-perth"
             data-astro-prefetch
-            class="inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
+            class="motion-cta inline-flex min-h-14 w-fit items-center justify-center rounded-full bg-db-green px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_16px_35px_rgba(0,204,129,0.28)] transition hover:bg-db-pink hover:text-white hover:shadow-[0_20px_42px_rgba(158,0,150,0.24)]"
           >
             <span class="sr-only"
               >Browse the Dance Bloc Brazil samba costume hire collection for
@@ -384,7 +546,7 @@ const structuredData = [
         </div>
 
         <div
-          class="aspect-video rounded-[2rem] overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10 order-1 md:order-2"
+          class="aspect-video rounded-xl overflow-hidden shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10 order-1 md:order-2"
         >
           <Picture
             src={costumeHireHero}
@@ -398,29 +560,8 @@ const structuredData = [
       </div>
     </SectionContainer>
 
-    <!-- Proof Media Placeholder -->
-    <SectionContainer id="proof" class="my-40">
-      <SectionTitle
-        title="Proof needed before launch"
-        subtitle="This section intentionally blocks launch until real class, event, or costume media is supplied."
-        class="mb-16"
-      />
-
-      <MediaPlaceholder
-        title="Homepage proof/media strip"
-        assetNeed="Real class or event proof that supports the main service pathways before launch."
-        ratio="Landscape 16:9 video or three 4:5 images"
-        subject="Show real Dance Bloc Brazil class atmosphere, event performance, and costume hire proof."
-        options={[
-          "20-45 second class atmosphere video",
-          "Event performance reel",
-          "Three-photo strip covering class, show, and costume hire",
-        ]}
-      />
-    </SectionContainer>
-
     <!-- FAQ Section -->
-    <SectionContainer id="faq" class="my-40">
+    <SectionContainer id="faq">
       <Picture
         src={cartoonDancerDouble}
         alt="Dance Bloc Brazil samba dancers illustration for frequently asked questions"
@@ -433,7 +574,7 @@ const structuredData = [
         subtitle="Key details for samba classes, event entertainment, workshops, and costume hire."
       />
 
-      <div class="max-w-5xl mx-auto mt-16">
+      <div class="max-w-5xl mx-auto section-block-gap">
         <FAQItem
           question="Do I need any prior dance experience to take your classes?"
           answer={homeFaqs[0].answer}
@@ -472,14 +613,15 @@ const structuredData = [
     </SectionContainer>
 
     <!-- Contact Section -->
-    <SectionContainer id="contact" class="mb-40">
+    <SectionContainer spacing="footer-offset" id="contact">
       <SectionTitle
         title="Get in Touch"
         subtitle="Have a class, show, workshop, or costume hire question? Send an enquiry and we will point you to the right next step."
-        class="mb-16"
+        class="section-intro"
       />
 
       <ContactForm />
     </SectionContainer>
+    </div>
   </main>
 </Layout>

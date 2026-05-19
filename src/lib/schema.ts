@@ -20,6 +20,29 @@ export function organizationSchema() {
   };
 }
 
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "DanceSchool"],
+    name: siteConfig.name,
+    url: siteConfig.url,
+    email: siteConfig.email,
+    image: absoluteUrl("/images/hero.avif"),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Perth",
+      addressRegion: "WA",
+      addressCountry: "AU",
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Perth, Western Australia",
+    },
+    sameAs: siteConfig.socialProfiles,
+    priceRange: "$$",
+  };
+}
+
 export function serviceSchema({
   name,
   description,

@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Gala Dinner Entertainment Perth | Samba for Award Nights & Black-Tie Events";
+const description =
+  "Brazilian samba entertainment for Perth gala dinners, award nights, and black-tie corporate events. Professional performers, timed to your run sheet.";
+const url = "/gala-dinners-award-nights-perth";
+const placements = [
+  { label: "Pre-dinner", title: "Opening energy", body: "A short, high-impact performance as guests arrive or are seated. Sets the tone before formalities begin." },
+  { label: "Mid-program", title: "Between courses", body: "A 10-15 minute feature performance timed between courses. Lifts energy without disrupting dining flow." },
+  { label: "Post-awards", title: "Awards close", body: "A performance immediately after the awards presentation to transition into networking and dancing." },
+  { label: "Finale", title: "Evening close", body: "An energetic finale that ends the formal program on a high note and opens the floor." },
+];
+const logistics = [
+  { label: "Floor space", detail: "Minimum 4m x 4m clear floor. Larger is better - contact us for your venue dimensions." },
+  { label: "Sound", detail: "Standard PA with 2 line inputs. Full technical rider provided at booking confirmation." },
+  { label: "Bump-in", detail: "30 minutes minimum. Exact bump-in time confirmed with the venue coordinator." },
+  { label: "Lighting", detail: "House or stage lighting is sufficient. Specialist lighting rigs are not required." },
+  { label: "Noise level", detail: "Performance music is approx. 80-85dB, suitable for most hotel ballrooms." },
+  { label: "Floor surface", detail: "Timber, vinyl, or low-pile carpet. High-pile carpet and cobblestone are not suitable." },
+];
+const faqs = [
+  { question: "Can the performance be themed to our event colour or brand?", answer: "Costume colour direction can be matched within the available collection. Logo or brand integration beyond costume colour is discussed during the brief." },
+  { question: "What is the minimum performance duration?", answer: "Feature shows run 10-20 minutes. Shorter bursts for entrances or reveals can be scoped to 3-5 minutes." },
+  { question: "Can live percussion be added for a gala?", answer: "Yes. Live percussion can be added depending on the venue's noise permissions and the event format." },
+  { question: "Do performers require a separate changing area?", answer: "Yes - a private changing space is required. A standard dressing room or green room is sufficient." },
+  { question: "What is the cancellation policy?", answer: "Cancellation terms are included in the booking agreement. A deposit holds the date and is non-refundable within a defined period." },
+];
+const structuredData = [serviceSchema({ name: "Gala dinner samba entertainment in Perth", description, url, image: showForHireHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Samba Entertainment for Gala Dinners and Award Nights" subtitle="A choreographed performance moment that elevates the evening without disrupting the run sheet." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <SectionTitle title="The entertainment highlight your guests will still be talking about" subtitle="A gala is not a concert. The entertainment moment needs to land hard, respect the program, and leave the room energised - not distracted." />
+      <div class="space-y-5 text-lg leading-relaxed text-slate-600">
+        <p>A feature samba performance gives a gala dinner a clear, memorable climax. It can be placed pre-dinner, between courses, after the award segment, or at the end of the evening as a standing finale.</p>
+        <p>Dance Bloc Brazil works with event managers who need professional performers, confirmed timing, and zero day-of logistics surprises. A detailed technical rider is provided at booking confirmation.</p>
+      </div>
+    </div>
+  </SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white">
+    <SectionTitle title="Performance placement options" subtitle="Pick the moment that fits the program." class="section-intro [&_h2]:text-white [&_p]:text-white/70" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">{placements.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-7"><p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">{item.label}</p><h3 class="mt-3 text-2xl font-black">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div>
+  </SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle title="Staging requirements for venue coordinators" class="section-intro" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">{logistics.map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-6"><h3 class="text-xl font-black text-db-pink">{item.label}</h3><p class="mt-3 text-slate-600">{item.detail}</p></div>)}</div>
+  </SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Event types this suits" class="section-intro" />
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3">{["Gala Dinners", "Award Nights", "Black-Tie Fundraisers", "Corporate Anniversaries", "Industry Association Events", "Charity Galas"].map((item) => <div class="rounded-full border border-db-pink/30 bg-white px-5 py-3 text-center font-black text-db-pink">{item}</div>)}</div>
+  </SectionContainer>
+  <SectionContainer>
+    <SectionTitle title="Gala FAQs" class="section-intro" />
+    <div class="mx-auto max-w-5xl">{faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}</div>
+  </SectionContainer>
+  <SectionContainer spacing="footer-offset" id="gala-enquiry">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Request a Gala Brief" subtitle="Include your event date, venue, expected guest numbers, and preferred performance placement." /><ContactForm title="Gala or Award Night Enquiry" subtitle="Include your event date, venue name, expected guest numbers, and preferred performance placement in the program." subject="Gala or Award Night Enquiry" /></div>
+  </SectionContainer>
+</Layout>

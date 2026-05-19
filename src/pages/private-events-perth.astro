@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { serviceSchema } from "../lib/schema";
+
+const title = "Private Event Entertainment Perth | Brazilian Samba for Celebrations";
+const description =
+  "Brazilian samba entertainment for milestone birthdays, anniversaries, engagement parties, cultural events, and private celebrations in Perth.";
+const url = "/private-events-perth";
+const structuredData = [serviceSchema({ name: "Private event entertainment in Perth", description, url, image: showForHireHero.src })];
+const occasions = ["Milestone birthdays", "Anniversary dinners", "Engagement parties", "Cultural celebrations", "Private themed events", "Home or marquee parties"];
+const formats = ["Feature samba show", "Roving arrival energy", "Interactive guest moment", "Show plus roving combination"];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Brazilian Entertainment for Private Celebrations in Perth" subtitle="Milestone birthdays, anniversaries, engagement parties, and private celebrations - with a samba moment that sets the evening apart." class="section-intro" />
+    <SectionTitle title="Private celebrations with a clear highlight" subtitle="Samba can be shaped for intimate rooms, family celebrations, and larger private functions." class="section-intro" />
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3">{occasions.map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-5 text-center font-black text-db-pink">{item}</div>)}</div>
+  </SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white">
+    <SectionTitle title="Flexible format options" class="section-intro [&_h2]:text-white" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-4">{formats.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-6 text-lg font-black text-db-green">{item}</div>)}</div>
+  </SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Venue flexibility" subtitle="Home marquee, restaurant private dining, function room, outdoor area, or cultural venue - send the details and we will confirm what works." /></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="private-enquiry"><ContactForm title="Private Event Enquiry" subtitle="Include the date, suburb, event type, venue style, guest numbers, and the kind of samba moment you want." subject="Private Event Enquiry" /></SectionContainer>
+</Layout>

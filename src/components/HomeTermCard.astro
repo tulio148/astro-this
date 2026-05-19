@@ -1,0 +1,68 @@
+---
+interface Props {
+  name: string;
+  level: string;
+  summary: string;
+  dateBegin: string;
+  dateEnd: string;
+  dateLabel?: string;
+  time: string;
+  location: string;
+  price: string;
+  bookingLink: string;
+  class?: string;
+}
+
+const {
+  name,
+  level,
+  summary,
+  dateBegin,
+  dateEnd,
+  dateLabel,
+  time,
+  location,
+  price,
+  bookingLink,
+  class: className = "",
+} = Astro.props;
+
+const dateValue = dateLabel || (dateBegin && dateEnd ? `${dateBegin} - ${dateEnd}` : "To be confirmed");
+const timeValue = time || "To be confirmed";
+const locationValue = location || "To be confirmed";
+const priceValue = price || "To be confirmed";
+---
+
+<div class={`group overflow-hidden rounded-xl border bg-white p-5 shadow-[0_14px_38px_rgba(158,0,150,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-db-pink/80 hover:shadow-[0_18px_46px_rgba(158,0,150,0.14)] sm:p-6 ${className || "db-border-alt-a"}`}>
+  <div class="mb-4 flex items-start justify-between gap-3">
+    <h3 class="text-xl font-black leading-tight text-db-pink">{name}</h3>
+    <span class="shrink-0 rounded-full border border-db-pink/80 bg-db-light-pink/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-db-pink">
+      {level}
+    </span>
+  </div>
+
+  <p class="mb-5 text-base leading-relaxed text-slate-600">{summary}</p>
+
+  <div class="mb-5 space-y-2.5 rounded-xl border border-slate-200/80 bg-slate-50/75 p-4 text-sm">
+    <p class="flex items-start gap-2"><span class="font-black text-db-pink">Date:</span><span class="text-slate-600">{dateValue}</span></p>
+    <p class="flex items-start gap-2"><span class="font-black text-db-pink">Time:</span><span class="text-slate-600">{timeValue}</span></p>
+    <p class="flex items-start gap-2"><span class="font-black text-db-pink">Location:</span><span class="text-slate-600">{locationValue}</span></p>
+    <p class="flex items-start gap-2"><span class="font-black text-db-pink">Price:</span><span class="text-slate-600">{priceValue}</span></p>
+  </div>
+
+  <a
+    href={bookingLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block w-full rounded-full bg-db-green px-6 py-2.5 text-center text-xs font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
+    data-track="BookClassClick"
+    data-track-params={JSON.stringify({
+      class_name: name,
+      class_level: level,
+      class_price: price,
+      class_location: location,
+    })}
+  >
+    Book now
+  </a>
+</div>

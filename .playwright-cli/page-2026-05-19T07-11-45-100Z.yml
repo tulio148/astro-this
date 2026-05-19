@@ -1,0 +1,298 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - link "Dance Bloc Brazil Logo" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Dance Bloc Brazil Logo" [ref=e7]
+      - generic [ref=e8]:
+        - link "Book a Show" [ref=e10] [cursor=pointer]:
+          - /url: /book-a-samba-show-perth
+          - text: Book a Show
+          - img [ref=e11]
+        - link "Workshops" [ref=e14] [cursor=pointer]:
+          - /url: /private-samba-workshops-perth
+          - text: Workshops
+          - img [ref=e15]
+        - link "Classes" [ref=e18] [cursor=pointer]:
+          - /url: /samba-classes-perth
+          - text: Classes
+          - img [ref=e19]
+        - link "Costume Hire" [ref=e22] [cursor=pointer]:
+          - /url: /samba-costume-hire-perth
+          - text: Costume Hire
+          - img [ref=e23]
+        - link "About" [ref=e26] [cursor=pointer]:
+          - /url: /about
+          - text: About
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e35]:
+      - heading "Brazilian Samba Entertainment for Corporate Events & Weddings in Perth" [level=1] [ref=e36]
+      - paragraph [ref=e37]: High-impact samba shows, roving dancers, and optional live drumming — tailored to your venue, run sheet, and audience.
+      - generic [ref=e38]:
+        - link "Instant Quote Estimate" [ref=e39] [cursor=pointer]:
+          - /url: "#show-enquiry"
+        - link "Wedding & Corporate" [ref=e40] [cursor=pointer]:
+          - /url: /wedding-corporate-event-entertainment-perth
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Samba entertainment for your run sheet" [level=2] [ref=e44]: Samba entertainment for your run sheet
+        - paragraph [ref=e46]: Add a high-energy performance moment, roving visual impact, or interactive celebration to your event.
+      - generic [ref=e47]:
+        - img "Brazilian samba dancer available for event entertainment in Perth" [ref=e49]
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Dance Bloc Brazil offers Brazilian samba show hire for weddings, corporate events, private parties, festivals, launches, and themed celebrations across Perth.
+          - paragraph [ref=e52]: "Bookings can be shaped around your event: a feature performance, roving dancers, guest interaction, Carnival-style costumes, and optional live music or drumming where suitable."
+          - link "Instant Quote Estimate" [ref=e53] [cursor=pointer]:
+            - /url: "#show-enquiry"
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - heading "Performance formats" [level=2] [ref=e62]: Performance formats
+        - paragraph [ref=e64]: The booking can be shaped as one polished moment or a sequence that moves through the event.
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "Feature show" [level=3] [ref=e67]
+          - paragraph [ref=e68]: A focused performance moment for the run sheet, reception, stage, or launch program.
+        - generic [ref=e69]:
+          - heading "Roving dancers" [level=3] [ref=e70]
+          - paragraph [ref=e71]: Visual energy through the room, useful for arrivals, photo moments, and guest atmosphere.
+        - generic [ref=e72]:
+          - heading "Entrance moment" [level=3] [ref=e73]
+          - paragraph [ref=e74]: A short, high-impact arrival or reveal for a couple, host, product, or celebration.
+        - generic [ref=e75]:
+          - heading "Guest interaction" [level=3] [ref=e76]
+          - paragraph [ref=e77]: A simple participation moment that brings guests into the samba energy without pressure.
+    - generic [ref=e80]:
+      - paragraph [ref=e81]: Recent events
+      - list [ref=e82]:
+        - listitem [ref=e83]:
+          - paragraph [ref=e84]: Corporate Gala
+          - paragraph [ref=e85]: 250-guest gala dinner
+          - generic [ref=e86]:
+            - paragraph [ref=e87]: Format Feature show + roving
+            - paragraph [ref=e88]: Location Perth CBD
+            - paragraph [ref=e89]: Period Early 2025
+        - listitem [ref=e90]:
+          - paragraph [ref=e91]: Wedding Reception
+          - paragraph [ref=e92]: Reception entrance moment
+          - generic [ref=e93]:
+            - paragraph [ref=e94]: Format Feature show
+            - paragraph [ref=e95]: Location Swan Valley
+            - paragraph [ref=e96]: Period Late 2024
+        - listitem [ref=e97]:
+          - paragraph [ref=e98]: Product Launch
+          - paragraph [ref=e99]: Brand activation
+          - generic [ref=e100]:
+            - paragraph [ref=e101]: Format Opening performance
+            - paragraph [ref=e102]: Location Northbridge
+            - paragraph [ref=e103]: Period Mid 2024
+        - listitem [ref=e104]:
+          - paragraph [ref=e105]: Hens Party
+          - paragraph [ref=e106]: Private venue workshop and performance
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: Format Workshop + show
+            - paragraph [ref=e109]: Location Subiaco
+            - paragraph [ref=e110]: Period Early 2025
+        - listitem [ref=e111]:
+          - paragraph [ref=e112]: Wedding Reception
+          - paragraph [ref=e113]: Vineyard wedding reception
+          - generic [ref=e114]:
+            - paragraph [ref=e115]: Format Feature show + entrance
+            - paragraph [ref=e116]: Location Margaret River
+            - paragraph [ref=e117]: Period Late 2024
+        - listitem [ref=e118]:
+          - paragraph [ref=e119]: Festival
+          - paragraph [ref=e120]: Outdoor activation
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Format Roving entertainment
+            - paragraph [ref=e123]: Location Perth CBD
+            - paragraph [ref=e124]: Period Late 2024
+        - listitem [ref=e125]:
+          - paragraph [ref=e126]: Award Night
+          - paragraph [ref=e127]: Post-awards entertainment
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Format Feature show
+            - paragraph [ref=e130]: Location East Perth
+            - paragraph [ref=e131]: Period Mid 2025
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - heading "Built for planners who need it done right" [level=2] [ref=e135]: Built for planners who need it done right
+        - paragraph [ref=e137]: Corporate and premium event bookings are run to a brief - not improvised.
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - paragraph [ref=e140]: Run-sheet compatible
+          - paragraph [ref=e141]: Performance timing is confirmed to the minute so your MC, AV, and catering cues are not disrupted.
+        - generic [ref=e142]:
+          - paragraph [ref=e143]: Briefed, not improvised
+          - paragraph [ref=e144]: Venue dimensions, audience size, floor layout, and sound setup are confirmed before the day. No surprises on the night.
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: Professional on the day
+          - paragraph [ref=e147]: Performers arrive costumed, on time, and fully self-sufficient. No coordinator follow-up required during the event.
+      - link "View full corporate entertainment details" [ref=e149] [cursor=pointer]:
+        - /url: /corporate-entertainment-perth
+        - text: View full corporate entertainment details
+        - generic [ref=e150]: →
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - heading "Event types" [level=2] [ref=e154]: Event types
+        - paragraph [ref=e156]: Choose the format that fits your audience, venue, and timing.
+      - generic [ref=e157]:
+        - link "Corporate Events Gala nights, launches, conferences, team celebrations, and client events." [ref=e158] [cursor=pointer]:
+          - /url: /corporate-entertainment-perth
+          - heading "Corporate Events" [level=3] [ref=e159]
+          - paragraph [ref=e160]: Gala nights, launches, conferences, team celebrations, and client events.
+        - link "Gala Dinners & Award Nights Formal, black-tie, and awards programs timed to the run sheet." [ref=e161] [cursor=pointer]:
+          - /url: /gala-dinners-award-nights-perth
+          - heading "Gala Dinners & Award Nights" [level=3] [ref=e162]
+          - paragraph [ref=e163]: Formal, black-tie, and awards programs timed to the run sheet.
+        - link "Conferences & Launches Openers, product reveals, and high-energy conference moments." [ref=e164] [cursor=pointer]:
+          - /url: /conference-and-launch-entertainment-perth
+          - heading "Conferences & Launches" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Openers, product reveals, and high-energy conference moments.
+        - link "Client & Networking Events Roving performers for cocktail hours and relationship events." [ref=e167] [cursor=pointer]:
+          - /url: /client-networking-events-perth
+          - heading "Client & Networking Events" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Roving performers for cocktail hours and relationship events.
+        - link "Weddings Reception entrances, feature performances, and cocktail hour roving." [ref=e170] [cursor=pointer]:
+          - /url: /wedding-entertainment-perth
+          - heading "Weddings" [level=3] [ref=e171]
+          - paragraph [ref=e172]: Reception entrances, feature performances, and cocktail hour roving.
+        - link "Hens Parties Workshop, show, and costume add-on options for private groups." [ref=e173] [cursor=pointer]:
+          - /url: /hens-party-perth
+          - heading "Hens Parties" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Workshop, show, and costume add-on options for private groups.
+        - link "Private Events Birthdays, anniversaries, engagements, and themed celebrations." [ref=e176] [cursor=pointer]:
+          - /url: /private-events-perth
+          - heading "Private Events" [level=3] [ref=e177]
+          - paragraph [ref=e178]: Birthdays, anniversaries, engagements, and themed celebrations.
+        - link "Festivals & Roving Festival programs, outdoor activations, and roving entertainment." [ref=e179] [cursor=pointer]:
+          - /url: /festival-entertainment-perth
+          - heading "Festivals & Roving" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Festival programs, outdoor activations, and roving entertainment.
+      - generic [ref=e182]:
+        - link "View full corporate entertainment details" [ref=e183] [cursor=pointer]:
+          - /url: /corporate-entertainment-perth
+          - text: View full corporate entertainment details
+          - generic [ref=e184]: →
+        - link "View wedding and corporate entertainment details" [ref=e185] [cursor=pointer]:
+          - /url: /wedding-corporate-event-entertainment-perth
+          - text: View wedding and corporate entertainment details
+          - generic [ref=e186]: →
+    - generic [ref=e188]:
+      - generic [ref=e189]:
+        - heading "What we need to quote" [level=2] [ref=e190]: What we need to quote
+        - paragraph [ref=e192]: Clear logistics help the quote match the event, venue, and run sheet.
+      - generic [ref=e193]:
+        - generic [ref=e194]: Event date, suburb, venue type, and approximate timing
+        - generic [ref=e195]: Audience size, room layout, and available performance space
+        - generic [ref=e196]: "Preferred format: feature show, roving, entrance, interaction, or a mix"
+        - generic [ref=e197]: Sound setup, run-sheet constraints, and costume or theme direction
+    - generic [ref=e199]:
+      - generic [ref=e200]:
+        - heading "Show hire FAQs" [level=2] [ref=e201]: Show hire FAQs
+        - paragraph [ref=e203]: Useful answers before requesting a quote.
+      - generic [ref=e204]:
+        - button "What events can you perform at? Dance Bloc Brazil can provide samba entertainment for weddings, corporate events, private parties, festivals, launches, and themed events in Perth." [ref=e205] [cursor=pointer]:
+          - button "What events can you perform at?" [ref=e206]:
+            - generic [ref=e207]: What events can you perform at?
+          - paragraph [ref=e208]: Dance Bloc Brazil can provide samba entertainment for weddings, corporate events, private parties, festivals, launches, and themed events in Perth.
+        - button "Can bookings include live music or drumming? Yes. Live musicians or drummers can be discussed as part of the booking options. Availability and format depend on the event requirements." [ref=e210] [cursor=pointer]:
+          - button "Can bookings include live music or drumming?" [ref=e211]:
+            - generic [ref=e212]: Can bookings include live music or drumming?
+          - paragraph [ref=e213]: Yes. Live musicians or drummers can be discussed as part of the booking options. Availability and format depend on the event requirements.
+        - button "How far ahead should I enquire? Send your enquiry as early as possible, especially for weekends and peak event periods. Four to six weeks of notice is a helpful guide." [ref=e215] [cursor=pointer]:
+          - button "How far ahead should I enquire?" [ref=e216]:
+            - generic [ref=e217]: How far ahead should I enquire?
+          - paragraph [ref=e218]: Send your enquiry as early as possible, especially for weekends and peak event periods. Four to six weeks of notice is a helpful guide.
+        - button "Can the show be tailored to my event? Yes. The performance format, number of dancers, timing, music options, and costume direction can be discussed during the quote process." [ref=e220] [cursor=pointer]:
+          - button "Can the show be tailored to my event?" [ref=e221]:
+            - generic [ref=e222]: Can the show be tailored to my event?
+          - paragraph [ref=e223]: Yes. The performance format, number of dancers, timing, music options, and costume direction can be discussed during the quote process.
+    - generic [ref=e227]:
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - heading "Instant Quote Estimate" [level=2] [ref=e230]: Instant Quote Estimate
+          - paragraph [ref=e232]: Tell us about your event, date, venue, audience, and the kind of samba entertainment you have in mind.
+        - list [ref=e233]:
+          - listitem [ref=e234]: Send your event details through the enquiry form.
+          - listitem [ref=e235]: We discuss timing, format, dancers, music options, and costumes.
+          - listitem [ref=e236]: You receive a quote shaped around your event requirements.
+          - listitem [ref=e237]: Your booking is confirmed once details and deposit are finalised.
+      - generic [ref=e241]:
+        - heading "Event Inquiry" [level=2] [ref=e242]
+        - paragraph [ref=e243]: Share the date, venue, guest numbers, and whether you are interested in dancers only or dancers with live music/drumming.
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - generic [ref=e247]: Name
+              - textbox "Name" [ref=e248]
+            - generic [ref=e249]:
+              - generic [ref=e250]: Email
+              - textbox "Email" [ref=e251]
+          - generic [ref=e252]:
+            - generic [ref=e253]: Phone Number
+            - textbox "Phone Number" [ref=e254]
+          - generic [ref=e255]:
+            - generic [ref=e256]: Subject
+            - textbox "Subject" [ref=e257]
+          - generic [ref=e258]:
+            - generic [ref=e259]: Message
+            - textbox "Message" [ref=e260]
+          - button "Send Message" [ref=e261]
+  - contentinfo [ref=e262]:
+    - generic [ref=e263]:
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - paragraph [ref=e266]: Brazilian samba classes, event entertainment, workshops, and costume hire in Perth.
+          - paragraph [ref=e267]: "Email: info@danceblocbrazil.com"
+          - img "Dance Bloc Brazil Logo" [ref=e269]
+        - generic [ref=e270]:
+          - generic [ref=e271]:
+            - link "Instagram" [ref=e272] [cursor=pointer]:
+              - /url: https://instagram.com/DanceBlocBrazil
+              - img [ref=e273]
+            - link "Facebook" [ref=e281] [cursor=pointer]:
+              - /url: https://facebook.com/DanceBlocBrazil
+              - img [ref=e282]
+            - link "TikTok" [ref=e288] [cursor=pointer]:
+              - /url: https://tiktok.com/@danceblocbrazil
+              - img [ref=e289]
+          - list [ref=e297]:
+            - listitem [ref=e298]:
+              - link "Home" [ref=e299] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e300]:
+              - link "About" [ref=e301] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e302]:
+              - link "Classes" [ref=e303] [cursor=pointer]:
+                - /url: /samba-classes-perth
+            - listitem [ref=e304]:
+              - link "Show for Hire" [ref=e305] [cursor=pointer]:
+                - /url: /book-a-samba-show-perth
+            - listitem [ref=e306]:
+              - link "Costume Hire" [ref=e307] [cursor=pointer]:
+                - /url: /samba-costume-hire-perth
+            - listitem [ref=e308]:
+              - link "Workshops" [ref=e309] [cursor=pointer]:
+                - /url: /private-samba-workshops-perth
+      - generic [ref=e310]:
+        - paragraph [ref=e311]: © 2026 Dance Bloc Brazil. All rights reserved. | Brazilian samba in Perth.
+        - paragraph [ref=e312]:
+          - link "Created by Edgeify Digital" [ref=e313] [cursor=pointer]:
+            - /url: https://edgeify.com.au
+            - text: Created by
+            - generic [ref=e314]: Edgeify Digital
+  - generic [ref=e317]:
+    - button "Menu" [ref=e318]:
+      - img [ref=e320]
+      - generic: Menu
+    - button "Inspect" [ref=e324]:
+      - img [ref=e326]
+      - generic: Inspect
+    - button "Audit" [ref=e328]:
+      - img [ref=e330]
+      - generic: Audit
+    - button "Settings" [ref=e333]:
+      - img [ref=e335]
+      - generic: Settings

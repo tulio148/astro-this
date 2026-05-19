@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import danceclassHero from "../images/danceclassHero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Corporate Team Building Perth | Interactive Samba Workshops";
+const description = "Movement-based Brazilian samba workshops for Perth corporate team building, office events, and group activations.";
+const url = "/corporate-team-building-perth";
+const steps = ["Welcome and rhythm warm-up", "Beginner samba basics", "Group routine build", "Shared performance moment", "Team close and photo opportunity"];
+const faqs = [
+  { question: "Does everyone have to participate?", answer: "No. The facilitator encourages participation without singling out reluctant team members." },
+  { question: "What if someone has mobility limitations?", answer: "Let us know in advance and the instructor will adapt movement options for the group." },
+  { question: "Can you invoice corporate clients?", answer: "Yes. Purchase orders, GST invoices, and lead-time requirements can be discussed during enquiry." },
+];
+const structuredData = [serviceSchema({ name: "Corporate samba team building in Perth", description, url, image: danceclassHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Corporate Team Building with Samba" subtitle="A participation-focused team session built around rhythm, movement, and shared energy - not awkward icebreakers." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+<SectionTitle title="Movement-based team building that actually moves the room" subtitle="The session is framed around engagement, confidence, and shared experience - not dance-school technique." /><p class="text-lg leading-relaxed text-slate-600">Dance Bloc Brazil brings a structured samba workshop to your office, function space, or external venue. The experience can be scoped for 45, 60, or 90 minutes depending on the team size and program.</p></div></SectionContainer>
+  <SectionContainer class="bg-db-green/5"><SectionTitle title="What the session looks like" class="section-intro" /><div class="grid grid-cols-1 gap-4 lg:grid-cols-5">{steps.map((step, index)=><div class="rounded-xl border border-db-pink/80 bg-white p-6"><p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">Step {index + 1}</p><p class="mt-4 text-lg font-black text-slate-700">{step}</p></div>)}</div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Corporate booking details" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Ideal for small teams to large departments", "45, 60, and 90 minute options", "Office, venue, or function space delivery"].map((item)=><div class="rounded-xl border border-white/12 bg-white/5 p-7 text-lg font-black text-db-green">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Team building FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="team-enquiry"><ContactForm title="Corporate Team Building Enquiry" subtitle="Include company name, group size, location, preferred date range, and ideal session duration." subject="Corporate Team Building Enquiry" /></SectionContainer>
+</Layout>

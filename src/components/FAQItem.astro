@@ -7,19 +7,20 @@ interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<div class="faq-item mb-5 overflow-hidden rounded-[1.5rem] border border-db-pink/10 bg-white px-5 py-5 shadow-[0_14px_35px_rgba(158,0,150,0.08)] transition hover:border-db-green/40 hover:shadow-[0_18px_45px_rgba(158,0,150,0.12)] sm:px-7 sm:py-6 last:mb-0">
+<div
+  class="faq-item mb-5 cursor-pointer overflow-hidden rounded-xl border border-db-pink/80 bg-white px-5 py-5 shadow-[0_14px_35px_rgba(158,0,150,0.08)] transition hover:border-db-pink/80 hover:shadow-[0_18px_45px_rgba(158,0,150,0.12)] sm:px-7 sm:py-6 last:mb-0"
+  role="button"
+  tabindex="0"
+  aria-expanded="false"
+>
   <button
     type="button"
     class="faq-question flex w-full cursor-pointer items-center justify-between gap-6 text-left"
     aria-expanded="false"
   >
-    <span class="text-lg sm:text-xl font-black leading-snug text-slate-900">
+    <span class="text-lg sm:text-xl font-black leading-snug text-db-pink">
       {question}
     </span>
-    <span
-      class="faq-icon grid h-10 w-10 shrink-0 place-items-center rounded-full border border-db-pink/20 bg-db-light-pink/5 text-lg font-black text-db-pink transition"
-      >+</span
-    >
   </button>
   <div
       class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
@@ -32,32 +33,42 @@ const { question, answer } = Astro.props;
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const faqItems = document.querySelectorAll(".faq-question");
+  document.addEventListener("astro:page-load", () => {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    const toggleFaq = (item: Element) => {
+      const trigger = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+      const isOpen = item.getAttribute("aria-expanded") === "true";
+
+      item.setAttribute("aria-expanded", String(!isOpen));
+      trigger?.setAttribute("aria-expanded", String(!isOpen));
+      answer?.classList.toggle("max-h-0", isOpen);
+      answer?.classList.toggle("max-h-96", !isOpen);
+
+      document.querySelectorAll(".faq-item").forEach((otherItem) => {
+        if (otherItem === item) return;
+        otherItem.setAttribute("aria-expanded", "false");
+        const otherTrigger = otherItem.querySelector(".faq-question");
+        const otherAnswer = otherItem.querySelector(".faq-answer");
+        otherTrigger?.setAttribute("aria-expanded", "false");
+        otherAnswer?.classList.add("max-h-0");
+        otherAnswer?.classList.remove("max-h-96");
+      });
+    };
 
     faqItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const parent = item.parentElement;
-        const answer = parent?.querySelector(".faq-answer");
-        const icon = item.querySelector(".faq-icon");
-        const isOpen = item.getAttribute("aria-expanded") === "true";
+        toggleFaq(item);
+      });
 
-        item.setAttribute("aria-expanded", String(!isOpen));
-        answer?.classList.toggle("max-h-0", isOpen);
-        answer?.classList.toggle("max-h-96", !isOpen);
-        icon?.classList.toggle("rotate-45", !isOpen);
-        icon?.classList.toggle("bg-db-pink", !isOpen);
-        icon?.classList.toggle("text-white", !isOpen);
+      item.addEventListener("keydown", (event) => {
+        const keyboardEvent = event as KeyboardEvent;
 
-        document.querySelectorAll(".faq-question").forEach((otherItem) => {
-          if (otherItem === item) return;
-          otherItem.setAttribute("aria-expanded", "false");
-          const otherAnswer = otherItem.parentElement?.querySelector(".faq-answer");
-          const otherIcon = otherItem.querySelector(".faq-icon");
-          otherAnswer?.classList.add("max-h-0");
-          otherAnswer?.classList.remove("max-h-96");
-          otherIcon?.classList.remove("rotate-45", "bg-db-pink", "text-white");
-        });
+        if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+          event.preventDefault();
+          toggleFaq(item);
+        }
       });
     });
   });

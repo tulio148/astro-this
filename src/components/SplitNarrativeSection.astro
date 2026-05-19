@@ -1,0 +1,50 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  body: string[];
+  badges?: string[];
+  align?: "left" | "right";
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  body = [],
+  badges = [],
+  align = "left",
+  class: className = "",
+} = Astro.props;
+
+const isLeft = align === "left";
+---
+
+<div class:list={["grid grid-cols-1 gap-10 lg:grid-cols-2", className]}>
+  <div class:list={[isLeft ? "order-1" : "order-2", "lg:order-1"]}>
+    <SectionTitle
+      title={title}
+      subtitle={subtitle}
+      variant="editorial"
+      headlineScale="hero"
+      maxWidth="max-w-4xl"
+    />
+  </div>
+  <div class:list={["space-y-5 text-lg leading-relaxed text-slate-600", isLeft ? "order-2" : "order-1", "lg:order-2"]}>
+    {body.map((item) => <p>{item}</p>)}
+    {
+      badges.length > 0 && (
+        <div class="mt-8 flex flex-wrap gap-3">
+          {badges.map((badge) => (
+            <span class="inline-flex items-center gap-2 rounded-full border border-db-green/40 bg-db-green/8 px-4 py-2 text-sm font-black text-db-pink">
+              <span class="h-1.5 w-1.5 rounded-full bg-db-green shrink-0"></span>
+              {badge}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</div>

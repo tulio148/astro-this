@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import danceclassHero from "../images/danceclassHero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Virtual & Specialist Workshops | Brazilian Samba Team Experience";
+const description = "Online samba workshops for remote corporate teams, hybrid events, and specialist professional groups across Australia. Facilitated, structured, and genuinely engaging.";
+const url = "/virtual-specialist-workshops-perth";
+const audiences = [
+  { label: "Remote & hybrid teams", title: "Your team, wherever they are", body: "A virtual samba workshop gives distributed teams a shared, active experience without requiring travel." },
+  { label: "Interstate clients", title: "Start online, continue in person", body: "Book a virtual session first, then bring the experience in person when the team is next together." },
+  { label: "Specialist professional groups", title: "A team experience that fits who you are", body: "Law firms, medical teams, finance groups, and tech companies can receive context-aware facilitation." },
+  { label: "Hybrid event programs", title: "Online participants, live energy", body: "The format includes both the people in the room and the people joining on screen." },
+];
+const sessionSteps = [
+  { label: "Pre-session", body: "Platform link and technical check sent 48 hours in advance." },
+  { label: "Welcome", body: "Instructor welcomes the group and sets a warm, non-performative tone." },
+  { label: "Movement warm-up", body: "Simple seated and standing rhythm exercises for any office or home space." },
+  { label: "Samba basics", body: "Core samba no pe step, hip movement, and arms are broken into small increments." },
+  { label: "Group close", body: "The group performs the routine together on camera for a shared screen moment." },
+];
+const specs = [
+  { label: "Platform", detail: "Zoom, Teams, or Google Meet. The instructor joins as co-host." },
+  { label: "Camera", detail: "Visible from waist up if possible. Laptop, external webcam, or phone camera is fine." },
+  { label: "Space", detail: "Enough room to stand and move both arms out to the sides." },
+  { label: "Sound", detail: "Music is broadcast through the instructor's audio. Participants need speakers or headphones." },
+  { label: "Group size", detail: "5 to 100 participants. Larger groups benefit from a host-side co-facilitator." },
+  { label: "Duration", detail: "45 minutes standard. 60 or 90 minute options available." },
+];
+const faqs = [
+  { question: "Do participants need any dance experience?", answer: "No. The session is designed for absolute beginners and non-dancers. The point is participation, not technique." },
+  { question: "What if some team members are reluctant?", answer: "The format is opt-in at each step. Participants can observe and join gradually without being singled out." },
+  { question: "Can we record the session?", answer: "Yes, with participant consent. A recording can be used internally or socially if participants agree." },
+  { question: "Is this available outside Perth or WA?", answer: "Yes. Virtual sessions are available to teams anywhere in Australia or internationally." },
+  { question: "How is pricing structured?", answer: "Pricing is based on group size, duration, and specialist facilitation requirements. A quote is provided after the brief." },
+];
+const structuredData = [serviceSchema({ name: "Virtual samba workshops", description, url, image: danceclassHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Virtual & Specialist Samba Workshops" subtitle="A structured, facilitated team experience delivered online - for remote teams, hybrid events, and specialist professional groups." class="section-intro" />
+    <SectionTitle title="Team experiences that work regardless of where people are" subtitle="Not every team is in the same room. Not every team building product acknowledges that." class="section-intro" />
+<div class="grid grid-cols-1 gap-5 md:grid-cols-2">{audiences.map((item,index)=><div class={`rounded-xl border bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}><p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">{item.label}</p><h3 class="mt-3 text-2xl font-black text-db-pink">{item.title}</h3><p class="mt-4 text-slate-600">{item.body}</p></div>)}</div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="What a virtual workshop looks like" subtitle="The format is built for screens - not retrofitted from an in-person class." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /><div class="grid grid-cols-1 gap-4 lg:grid-cols-5">{sessionSteps.map((step)=><div class="rounded-xl border border-white/12 bg-white/5 p-6"><p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">{step.label}</p><p class="mt-4 text-white/75">{step.body}</p></div>)}</div></SectionContainer>
+  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="What the host needs to arrange" subtitle="The platform, the people, and a clear space. That is the full setup." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">{specs.map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6"><h3 class="text-xl font-black text-db-pink">{item.label}</h3><p class="mt-3 text-slate-600">{item.detail}</p></div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Tailored to your professional context" subtitle="A samba workshop facilitated for a law firm runs differently from one for a tech startup. The framing, energy, and pacing are adapted." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2">{["Legal & Professional Services","Healthcare & Wellbeing Programs","Finance & Corporate Groups","Tech & Startup Teams"].map((industry)=><div class="motion-band rounded-xl bg-slate-950 p-7 text-white"><h3 class="text-2xl font-black text-db-green">{industry}</h3><p class="mt-4 text-white/75">Facilitation is matched to the group's professional environment, time sensitivity, and participation style.</p></div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Virtual workshop FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="virtual-enquiry"><div class="grid grid-cols-1 gap-10 lg:grid-cols-2"><SectionTitle title="Virtual Workshop Enquiry" subtitle="Include platform preference, group size, timezone, professional industry, and duration." /><ContactForm title="Virtual Workshop Enquiry" subtitle="Include your preferred platform, group size, timezone, and whether you need specialist professional framing." subject="Virtual Workshop Enquiry" /></div></SectionContainer>
+</Layout>

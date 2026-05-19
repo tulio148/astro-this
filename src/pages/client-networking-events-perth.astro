@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Networking Event Entertainment Perth | Roving Samba for Corporate Functions";
+const description = "Roving samba performers for client dinners, cocktail parties, networking events, and corporate relationship functions in Perth.";
+const url = "/client-networking-events-perth";
+const faqs = [
+  { question: "How much space do roving performers need?", answer: "Roving performers work through normal event circulation paths and do not require a stage." },
+  { question: "How long does a roving set run?", answer: "Set length and breaks are scoped to the event, venue, and number of performers." },
+  { question: "Can performers interact with guests?", answer: "Yes. Interaction is warm and approachable, not intrusive, and can be adjusted to the tone of the event." },
+];
+const structuredData = [serviceSchema({ name: "Client networking event entertainment in Perth", description, url, image: showForHireHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Entertainment for Client Events and Networking Functions" subtitle="Roving performers that bring energy to your cocktail hour without interrupting the conversations that matter." class="section-intro" />
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+<SectionTitle title="Ambient energy, not a program interruption" subtitle="Networking entertainment needs to create atmosphere while letting guests keep talking." /><p class="text-lg leading-relaxed text-slate-600">Roving samba performers create natural conversation starters, photo moments, and room energy across arrivals or cocktail hour. The format is designed for movement through the room rather than a seated audience.</p></div></SectionContainer>
+  <SectionContainer class="bg-slate-950 text-white"><SectionTitle title="Best-fit formats" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-2">{[{title:"Roving cocktail hour",body:"Dancers move through arrivals, pre-dinner drinks, or a networking floor."},{title:"Short feature close",body:"A brief performance closes networking and transitions guests into dinner or speeches."}].map((item)=><div class="rounded-xl border border-white/12 bg-white/5 p-7"><h3 class="text-2xl font-black text-db-green">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Venue types" class="section-intro" /><div class="grid grid-cols-2 gap-3 md:grid-cols-4">{["Restaurant private dining", "Hotel pre-function", "Rooftop events", "Private clubs"].map((item)=><div class="rounded-full border border-db-pink/30 bg-white px-5 py-3 text-center font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+  <SectionContainer><SectionTitle title="Networking FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
+  <SectionContainer spacing="footer-offset" id="networking-enquiry"><ContactForm title="Client or Networking Event Enquiry" subtitle="Include your venue, guest numbers, event flow, and whether you want roving only or a short feature moment." subject="Client or Networking Event Enquiry" /></SectionContainer>
+</Layout>

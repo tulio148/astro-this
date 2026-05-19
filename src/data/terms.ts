@@ -3,12 +3,14 @@ export interface Term {
   level: string;
   dateBegin: string;
   dateEnd: string;
+  dateLabel?: string;
   time: string;
   location: string;
   price: string;
   bookingLink: string;
   description: string;
   showDetails?: boolean;
+  scheduleDay?: string;
 }
 
 export const terms: Term[] = [
@@ -17,6 +19,7 @@ export const terms: Term[] = [
     level: "Beginner",
     dateBegin: "3rd June 2026",
     dateEnd: "24th June 2026",
+    scheduleDay: "Tuesday",
     time: "7:00pm - 8:00pm",
     location: "Balcatta",
     price: "$88",
@@ -38,6 +41,7 @@ Join our intermediate dancers for a fun, high-energy choreography session. This 
     level: "Intermediate",
     dateBegin: "3rd June 2026",
     dateEnd: "24th June 2026",
+    scheduleDay: "Tuesday",
     time: "7:30pm - 8:30pm",
     location: "Balcatta",
     price: "$88",
@@ -61,6 +65,7 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
     level: "Casual",
     dateBegin: "",
     dateEnd: "",
+    scheduleDay: "Casual",
     time: "",
     location: "",
     price: "$25",
@@ -68,5 +73,22 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
     description:
       "Can’t make the full term but still want to join here and there? No problem. Jump into class whenever it suits you.",
     showDetails: false,
+  },
+  {
+    name: "Brazil Fit",
+    level: "Brazil Fit",
+    dateBegin: "",
+    dateEnd: "",
+    dateLabel: "One-off class",
+    scheduleDay: "One-off",
+    time: "7:00pm - 8:00pm",
+    location: "5/5 Cressall Road, Balcatta",
+    price: "$15",
+    bookingLink: "https://square.link/u/5WpAPM1I?src=sheet",
+    description: `Get ready for a fun, high-energy Brazil Fit class at Dance Bloc Brazil! This special one-off class is open to everyone; whether you've danced Brazilian Funk before or you're trying it for the very first time.
+
+Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll learn exciting choreography in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.
+
+No prior Brazilian Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.`,
   },
 ];

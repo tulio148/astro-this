@@ -1,0 +1,38 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+import ContactForm from "./ContactForm.astro";
+
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  formTitle: string;
+  formSubtitle: string;
+  formSubject: string;
+  tone?: "light" | "dark-band" | "tint";
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  formTitle,
+  formSubtitle,
+  formSubject,
+  tone = "light",
+} = Astro.props;
+---
+
+<SectionContainer spacing="footer-offset" id={id} tone={tone}>
+  {
+    title ? (
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <SectionTitle title={title} subtitle={subtitle} />
+        <ContactForm title={formTitle} subtitle={formSubtitle} subject={formSubject} />
+      </div>
+    ) : (
+      <ContactForm title={formTitle} subtitle={formSubtitle} subject={formSubject} />
+    )
+  }
+</SectionContainer>

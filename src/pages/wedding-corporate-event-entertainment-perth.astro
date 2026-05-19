@@ -8,9 +8,10 @@ import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
 import showForHireHero from "../images/showhero.avif";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { faqSchema, localBusinessSchema, serviceSchema } from "../lib/schema";
 
-const title = "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
+const title =
+  "Wedding & Corporate Entertainment Perth | Brazilian Samba Dancers";
 const description =
   "Add Brazilian samba entertainment to Perth weddings, gala nights, launches, conferences, and corporate celebrations.";
 const url = "/wedding-corporate-event-entertainment-perth";
@@ -39,6 +40,7 @@ const faqs = [
 ];
 
 const structuredData = [
+  localBusinessSchema(),
   serviceSchema({
     name: "Wedding and corporate event entertainment in Perth",
     description,
@@ -55,25 +57,51 @@ const structuredData = [
   image={showForHireHero.src}
   url={url}
   structuredData={structuredData}
+  hasHero={true}
 >
   <Hero
-    title="Wedding and Corporate Event Entertainment in Perth"
-    subtitle="Brazilian samba dancers for receptions, gala nights, launches, conferences, and corporate celebrations."
+    title="Corporate Event Entertainment Perth | Brazilian Samba for Galas & Weddings"
+    subtitle="Samba dancers, Carnival costumes, and optional live drumming — planned around your brief, venue, and run sheet."
     backgroundImage={showForHireHero}
-    eyebrow="Planner-friendly entertainment"
-    primaryCta={{ label: "Plan Your Event Entertainment", href: "#event-enquiry" }}
+    primaryCta={{
+      label: "Request a Quote",
+      href: "#event-enquiry",
+    }}
     secondaryCta={{ label: "Show Hire", href: "/book-a-samba-show-perth" }}
   />
+
+  <SectionContainer spacing="hero-offset">
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/wedding-entertainment-perth"
+        class="inline-flex items-center gap-2 rounded-full bg-db-pink px-6 py-3 text-sm font-black uppercase tracking-[0.14em] text-white transition hover:bg-db-green"
+        data-track="ShowEnquiryClick"
+        data-track-params='{"destination":"/wedding-entertainment-perth"}'
+      >
+        Dedicated Wedding Entertainment Page →
+      </a>
+      <a
+        href="/corporate-entertainment-perth"
+        class="inline-flex items-center gap-2 rounded-full border border-db-pink/80 bg-white px-6 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink transition hover:bg-db-pink hover:text-white"
+        data-track="ShowEnquiryClick"
+        data-track-params='{"destination":"/corporate-entertainment-perth"}'
+      >
+        Dedicated Corporate Entertainment Page →
+      </a>
+    </div>
+  </SectionContainer>
 
   <SectionContainer>
     <SectionTitle
       title="Entertainment that fits the event"
       subtitle="Plan a samba performance around your guests, venue, timing, and tone."
-      class="mb-16"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Weddings</h3>
         <p class="mb-6">
           Add samba dancers to a reception entrance, feature performance, guest
@@ -88,7 +116,9 @@ const structuredData = [
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Corporate Events</h3>
         <p class="mb-6">
           Use Brazilian samba entertainment for launches, gala dinners,
@@ -100,6 +130,12 @@ const structuredData = [
           class="text-db-pink font-bold hover:text-db-light-pink"
         >
           Ask about corporate entertainment
+        </a>
+        <a
+          href="/corporate-entertainment-perth"
+          class="text-db-pink font-bold hover:text-db-light-pink text-sm mt-3 inline-block"
+        >
+          View dedicated corporate entertainment page →
         </a>
       </div>
     </div>
@@ -123,17 +159,20 @@ const structuredData = [
     <SectionTitle
       title="Package pathways"
       subtitle="The exact booking is scoped after your event details are known."
-      class="mb-12"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-slate-600">
+    <div class="grid grid-cols-1 md:grid-cols-3 section-grid-base text-lg text-slate-600">
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Feature Show</h3>
         <p>A planned performance moment for guests to watch and photograph.</p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Roving Dancers</h3>
-        <p>Visual energy across arrivals, cocktail hours, festivals, or activations.</p>
+        <p>
+          Visual energy across arrivals, cocktail hours, festivals, or
+          activations.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Music Options</h3>
@@ -146,16 +185,20 @@ const structuredData = [
     <SectionTitle
       title="Planner FAQs"
       subtitle="Details that help make the booking practical."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 
-  <SectionContainer id="event-enquiry">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <SectionContainer spacing="footer-offset" id="event-enquiry">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
       <div>
         <SectionTitle
           title="Plan Your Event Entertainment"

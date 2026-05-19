@@ -5,19 +5,37 @@ interface Props {
   ratio: string;
   subject: string;
   options: string[];
+  generationBasePrompt?: string;
+  promptSuggestions?: string[];
   class?: string;
 }
 
-const { title, assetNeed, ratio, subject, options, class: className = "" } =
-  Astro.props;
+const {
+  title,
+  assetNeed,
+  ratio,
+  subject,
+  options,
+  generationBasePrompt,
+  promptSuggestions = [],
+  class: className = "",
+} = Astro.props;
 ---
 
 <div
-  class={`relative min-h-[280px] overflow-hidden rounded-3xl border-2 border-dashed border-db-pink/35 bg-white/35 p-6 sm:p-8 text-db-pink ${className}`}
+  class={`reveal-on-scroll relative min-h-[280px] overflow-hidden rounded-3xl border-2 border-dashed border-db-pink/80 bg-white/45 p-6 sm:p-8 text-db-pink shadow-[0_18px_55px_rgba(158,0,150,0.08)] ${className}`}
   data-launch-blocker="media-placeholder"
 >
   <div
-    class="absolute inset-4 rounded-2xl border border-dashed border-db-green/35"
+    class="motion-ribbon absolute -left-20 top-10 h-20 w-[140%] rotate-[-8deg] rounded-full bg-db-green/10 blur-xl"
+  >
+  </div>
+  <div
+    class="motion-ribbon-alt absolute -right-24 bottom-8 h-24 w-[120%] rotate-[11deg] rounded-full bg-db-light-pink/10 blur-xl"
+  >
+  </div>
+  <div
+    class="absolute inset-4 rounded-xl border border-dashed border-db-pink/80"
   ></div>
   <div
     class="relative z-10 flex min-h-[220px] flex-col items-center justify-center text-center"
@@ -39,5 +57,33 @@ const { title, assetNeed, ratio, subject, options, class: className = "" } =
     <ul class="sr-only">
       {options.map((option) => <li>{option}</li>)}
     </ul>
+
+    {
+      promptSuggestions.length > 0 && (
+        <details class="mt-6 w-full max-w-3xl rounded-xl border border-db-pink/80 bg-white/80 p-4 text-left shadow-sm">
+          <summary class="cursor-pointer text-xs font-black uppercase tracking-[0.18em] text-db-pink">
+            Generation prompt suggestions
+          </summary>
+          {
+            generationBasePrompt && (
+              <>
+                <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-db-green">
+                  Shared base prompt
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                  {generationBasePrompt}
+                </p>
+              </>
+            )
+          }
+          <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-db-green">
+            Complete prompts
+          </p>
+          <ul class="mt-2 space-y-2 text-sm leading-relaxed text-slate-600">
+            {promptSuggestions.map((prompt) => <li>{prompt}</li>)}
+          </ul>
+        </details>
+      )
+    }
   </div>
 </div>

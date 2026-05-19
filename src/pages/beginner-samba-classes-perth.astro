@@ -5,7 +5,6 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
-import Hero from "../components/Hero.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { terms } from "../data/terms";
 import { faqSchema, serviceSchema } from "../lib/schema";
@@ -15,7 +14,8 @@ const description =
   "Start samba no pe in a welcoming beginner class in Balcatta. Learn the basics, build confidence, and join at your own pace.";
 const url = "/beginner-samba-classes-perth";
 const beginnerTerm = terms.find((term) => term.level === "Beginner");
-const bookingUrl = beginnerTerm?.bookingLink ?? "/samba-classes-perth#class-times";
+const bookingUrl =
+  beginnerTerm?.bookingLink ?? "/samba-classes-perth#class-times";
 
 const faqs = [
   {
@@ -58,20 +58,11 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
 >
-  <Hero
-    title="Beginner Samba Classes in Perth"
-    subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
-    backgroundImage={danceclassHero}
-    eyebrow="Start here"
-    primaryCta={{ label: "Book the Beginner Course", href: bookingUrl }}
-    secondaryCta={{ label: "See All Classes", href: "/samba-classes-perth#class-times" }}
-  />
-
   <SectionContainer>
     <SectionTitle
-      title="Your first samba class"
-      subtitle="The beginner pathway is built for people who want to start clearly, safely, and without pressure to already know the style."
-      class="mb-16"
+      title="Beginner Samba Classes in Perth"
+      subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
@@ -115,21 +106,29 @@ const structuredData = [
     <SectionTitle
       title="Before you arrive"
       subtitle="Simple preparation is enough."
-      class="mb-12"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-slate-600">
+    <div class="grid grid-cols-1 md:grid-cols-3 section-grid-base text-lg text-slate-600">
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Wear</h3>
-        <p>Comfortable clothes and sneakers or dance shoes with non-marking soles.</p>
+        <p>
+          Comfortable clothes and sneakers or dance shoes with non-marking
+          soles.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Bring</h3>
-        <p>A water bottle and an open mind. You do not need special equipment.</p>
+        <p>
+          A water bottle and an open mind. You do not need special equipment.
+        </p>
       </div>
       <div>
         <h3 class="text-xl font-bold text-db-pink mb-3">Expect</h3>
-        <p>Clear guidance, repetition, music, movement, and a beginner-friendly pace.</p>
+        <p>
+          Clear guidance, repetition, music, movement, and a beginner-friendly
+          pace.
+        </p>
       </div>
     </div>
   </SectionContainer>
@@ -138,19 +137,23 @@ const structuredData = [
     <SectionTitle
       title="Beginner FAQs"
       subtitle="Common questions before starting samba."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 
-  <SectionContainer>
+  <SectionContainer spacing="footer-offset">
     <SectionTitle
       title="Ready to start?"
       subtitle="Book the beginner course if it is available, or view all current class options."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="flex flex-wrap gap-4">
@@ -162,7 +165,7 @@ const structuredData = [
       </a>
       <a
         href="/samba-classes-perth#class-times"
-        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink/80 font-bold py-3 px-8 rounded-lg transition-colors inline-block"
       >
         See All Class Times
       </a>

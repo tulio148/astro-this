@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
@@ -11,6 +10,7 @@ import CostumeCard from "../components/CostumeCard.astro";
 import { Picture } from "astro:assets";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import noBgDancer4 from "../images/noBgDancer4.avif";
+import servicePathCostumes from "../images/service-path-costumes.avif";
 import { costumes } from "../data/costumes";
 import { costumeItemListSchema, faqSchema, serviceSchema } from "../lib/schema";
 
@@ -59,6 +59,28 @@ const structuredData = [
   }),
   faqSchema(faqs),
 ];
+
+const costumeDetails = [
+  "Headpieces, cuffs, neckpieces, belts, and costume pieces are confirmed item by item.",
+  "Feathers, rhinestones, sequins, beads, and fabric details should be checked before hire.",
+  "Fit, sizing, included pieces, deposit, and condition are confirmed before booking.",
+  "Styling, hair, makeup, delivery, or collection support can be discussed as optional add-ons.",
+];
+
+const hireTimeline = [
+  "Choose the costume or style you want to check.",
+  "Send the date, hire duration, sizing, and event or photoshoot details.",
+  "Confirm availability, inclusions, hire fee, deposit, and handover plan.",
+  "Collect or receive the costume, then return it by the agreed time and condition.",
+];
+
+const hirePaths = [
+  { title: "Carnival Costume Hire", body: "Rio-inspired costumes and statement pieces for themed events and parties.", href: "/carnival-costume-hire-perth" },
+  { title: "Photoshoot Hire", body: "Costume hire for photographers, creators, brands, editorials, and personal campaigns.", href: "/costume-hire-photoshoot-perth" },
+  { title: "Group Hire", body: "Matching sets and complementary colour options for groups and ensembles.", href: "/group-costume-hire-perth" },
+  { title: "Festival Hire", body: "Festival-appropriate headpieces, cuffs, belts, and secure statement pieces.", href: "/festival-costume-hire-perth" },
+  { title: "Styling Add-ons", body: "Hair, makeup, and costume styling support by enquiry and availability.", href: "/styling-add-ons" },
+];
 ---
 
 <Layout
@@ -68,23 +90,23 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
   pageEvent="CostumeHireView"
+  hasHero={true}
 >
   <Hero
     title="Samba Costume Hire in Perth"
     subtitle="Hire Brazilian samba and Carnival-style costumes for performances, themed events, photoshoots, and special occasions."
     backgroundImage={costumeHireHeroImage}
-    eyebrow="Costume hire"
     primaryCta={{ label: "Check Availability", href: "#book-costume" }}
     secondaryCta={{ label: "Book Dancers", href: "/book-a-samba-show-perth" }}
   />
 
-  <SectionContainer>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <SectionContainer spacing="hero-offset">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide items-center">
       <div>
         <SectionTitle
           title="Standout costumes, clear hire terms"
           subtitle="Browse costume pieces with feathers, rhinestones, sequins, and bold colour. Hire is subject to size, availability, deposit, and return terms."
-          class="mb-12"
+          class="section-intro"
         />
         <p class="text-lg leading-relaxed text-slate-600">
           Dance Bloc Brazil offers samba and Carnival-style costume hire in
@@ -120,17 +142,57 @@ const structuredData = [
   </SectionContainer>
 
   <SectionContainer>
-    <MediaPlaceholder
-      title="Costume detail and fit proof"
-      assetNeed="Costume detail and fit proof for the samba costume hire page."
-      ratio="1:1 or 4:5 item photos"
-      subject="Show item-level costume detail, real inclusions, fit, and condition clearly enough for hire decisions."
-      options={[
-        "Detail shots of feathers, rhinestones, and inclusions",
-        "Front and back costume photos on a plain background",
-        "Styled costume photoshoot",
-      ]}
+    <Picture
+      src={servicePathCostumes}
+      alt="Brazilian Carnival costume details with feathers, rhinestones, cuffs, and headpiece"
+      widths={[480, 720, 960, 1200, 1440]}
+      sizes="(max-width: 768px) 100vw, 1120px"
+      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-xl object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
+      loading="lazy"
     />
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Costume detail guide"
+      subtitle="The collection shows the style; the hire conversation confirms the exact pieces, fit, and condition."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {
+        costumeDetails.map((detail) => (
+          <div class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#311047,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
+            <p class="text-lg font-black leading-relaxed">{detail}</p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-light-pink/5">
+    <SectionTitle
+      title="Choose your hire path"
+      subtitle="Start with the context that best matches your booking."
+      class="section-intro"
+    />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+      {
+        hirePaths.map((path) => (
+          <a
+            href={path.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]"
+            data-track="CostumeHireClick"
+            data-track-params={JSON.stringify({ destination: path.href })}
+          >
+            <h3 class="text-xl font-black text-db-pink">{path.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              {path.body}
+            </p>
+          </a>
+        ))
+      }
+    </div>
   </SectionContainer>
 
   <SectionContainer>
@@ -141,7 +203,7 @@ const structuredData = [
   </SectionContainer>
 
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 max-w-7xl mx-auto"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 section-grid-base p-4 max-w-7xl mx-auto"
   >
     {
       costumes.map((costume) => (
@@ -162,7 +224,7 @@ const structuredData = [
     <SectionTitle
       title="Hire information"
       subtitle="The exact inclusions and terms are confirmed before booking."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div
@@ -216,9 +278,32 @@ const structuredData = [
 
   <SectionContainer>
     <SectionTitle
+      title="Hire timeline"
+      subtitle="A simple sequence keeps costume availability, deposit, pickup, and return expectations clear."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+      {
+        hireTimeline.map((step, index) => (
+          <div class="motion-card reveal-on-scroll min-h-[200px] rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
+              Step {index + 1}
+            </p>
+            <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
+              {step}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
       title="Costume hire FAQs"
       subtitle="Key details before you enquire."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
@@ -230,8 +315,8 @@ const structuredData = [
     </div>
   </SectionContainer>
 
-  <SectionContainer id="book-costume">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <SectionContainer spacing="footer-offset" id="book-costume">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
       <div>
         <SectionTitle
           title="Check Costume Availability"

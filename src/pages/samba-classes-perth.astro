@@ -4,10 +4,11 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
+import ClassScheduleGrid from "../components/ClassScheduleGrid.astro";
 import FAQItem from "../components/FAQItem.astro";
 import Hero from "../components/Hero.astro";
-import classesHero from "../images/classesHero.avif";
+import classesHero from "../images/classesHero.webp";
+import classesVideo from "../videos/classes-video.mp4";
 import { terms } from "../data/terms";
 import { faqSchema, serviceSchema } from "../lib/schema";
 
@@ -48,6 +49,29 @@ const structuredData = [
   }),
   faqSchema(faqs),
 ];
+
+const firstClassSteps = [
+  "Arrive a few minutes early, settle in, and ask any first-class questions.",
+  "Warm up with simple rhythm, posture, and coordination work.",
+  "Learn the samba no pe basic step with clear timing and repetition.",
+  "Add hips, arms, direction changes, and beginner-friendly styling options.",
+  "Finish with a short routine or movement phrase that ties the class together.",
+];
+
+const progressionSteps = [
+  {
+    title: "Beginner foundation",
+    body: "Build the basic step, timing, balance, and confidence to keep moving.",
+  },
+  {
+    title: "Coordination",
+    body: "Layer arms, hips, direction changes, and simple choreography without rushing.",
+  },
+  {
+    title: "Intermediate training",
+    body: "Refine technique, stamina, musicality, and performance quality.",
+  },
+];
 ---
 
 <Layout
@@ -57,25 +81,30 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
   pageEvent="SambaClassesView"
+  hasHero={true}
 >
   <Hero
     title="Samba Classes in Perth"
     subtitle="Beginner, intermediate, and casual samba no pe classes in Balcatta. No partner needed."
     backgroundImage={classesHero}
-    eyebrow="Classes"
-    primaryCta={{ label: "See Class Times", href: "#class-times" }}
-    secondaryCta={{ label: "Beginner Classes", href: "/beginner-samba-classes-perth" }}
+    primaryCta={{ label: "See Class Schedule", href: "#schedule" }}
+    secondaryCta={{
+      label: "Beginner Classes",
+      href: "/beginner-samba-classes-perth",
+    }}
   />
 
-  <SectionContainer>
+  <SectionContainer spacing="hero-offset">
     <SectionTitle
       title="Choose the right class"
       subtitle="Start with the basics, build your technique, or join casually when your schedule allows."
-      class="mb-16"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 section-grid-base">
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Beginners</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           For first-timers and dancers returning after time away. Learn the
@@ -89,21 +118,41 @@ const structuredData = [
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Intermediate</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           For dancers who know the samba basic and want more technique, stamina,
           musicality, and choreography practice.
         </p>
         <a
-          href="#class-times"
+          href="/intermediate-samba-classes-perth"
           class="text-db-pink font-bold hover:text-db-light-pink"
         >
-          See current terms
+          Level up to intermediate
         </a>
       </div>
 
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-8 shadow-md shadow-db-pink/5">
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
+        <h3 class="text-2xl font-bold text-db-pink mb-4">Brazil Fit</h3>
+        <p class="text-slate-600 text-lg leading-relaxed mb-6">
+          Samba-based cardio and movement with no technique goal, no partner,
+          and no experience needed.
+        </p>
+        <a
+          href="/brazil-fit"
+          class="text-db-pink font-bold hover:text-db-light-pink"
+        >
+          Try Brazil Fit
+        </a>
+      </div>
+
+      <div
+        class="bg-white rounded-xl border border-db-pink/80 p-8 shadow-md shadow-db-pink/5"
+      >
         <h3 class="text-2xl font-bold text-db-pink mb-4">Private Groups</h3>
         <p class="text-slate-600 text-lg leading-relaxed mb-6">
           Planning a team activity, hens party, birthday, or community event?
@@ -120,16 +169,75 @@ const structuredData = [
   </SectionContainer>
 
   <SectionContainer>
-    <MediaPlaceholder
-      title="Classes page media"
-      assetNeed="Real class environment proof for the samba classes page."
-      ratio="4:5 portrait image or 16:9 video"
-      subject="Show a beginner-friendly class, teacher/demo moment, or group energy inside the class environment."
-      options={[
-        "Beginner class photo",
-        "Short class video showing instruction and group energy",
-        "Teacher/demo photo in studio",
-      ]}
+    <div
+      class="reveal-on-scroll relative left-1/2 h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-black"
+    >
+      <div class="absolute inset-0 overflow-hidden">
+        <video
+          class="absolute inset-0 hidden h-full w-full scale-110 object-cover blur-2xl brightness-75 lg:block"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          poster={classesHero.src}
+        >
+          <source src={classesVideo} type="video/mp4" />
+        </video>
+        <video
+          class="absolute inset-0 h-full w-full object-cover object-center image-overlay lg:object-contain"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={classesHero.src}
+        >
+          <source src={classesVideo} type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Your first class"
+      subtitle="A clear class flow helps first-timers know what will happen before they walk in."
+      class="section-intro"
+    />
+
+    <div class="first-class-timeline reveal-on-scroll">
+      <div class="timeline-track" aria-hidden="true"></div>
+      {
+        firstClassSteps.map((step, index) => (
+          <div class="timeline-step" style={`--timeline-index:${index};`}>
+            <div class="timeline-badge timeline-pulse" aria-hidden="true">
+              <span>{index + 1}</span>
+            </div>
+            <div class="timeline-panel">
+              <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
+                Step {index + 1}
+              </p>
+              <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
+                {step}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="schedule">
+    <SectionTitle
+      title="Weekly schedule"
+      subtitle="All current classes at a glance. See below for full term details and booking links."
+      class="section-intro"
+    />
+    <ClassScheduleGrid
+      slots={terms.map((term) => ({
+        day: term.scheduleDay ?? "Current",
+        term,
+      }))}
     />
   </SectionContainer>
 
@@ -137,10 +245,10 @@ const structuredData = [
     <SectionTitle
       title="Class times and bookings"
       subtitle="Current term and casual options are listed below. Dates, prices, and booking links should be checked before you book."
-      class="mb-16"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base">
       {
         terms.map((term) => (
           <TermCard
@@ -148,6 +256,7 @@ const structuredData = [
             level={term.level}
             dateBegin={term.dateBegin}
             dateEnd={term.dateEnd}
+            dateLabel={term.dateLabel}
             time={term.time}
             location={term.location}
             price={term.price}
@@ -164,10 +273,12 @@ const structuredData = [
     <SectionTitle
       title="What to expect"
       subtitle="A practical, welcoming class focused on rhythm, movement, coordination, and confidence."
-      class="mb-12"
+      class="section-intro"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600"
+    >
       <div>
         <h3 class="text-2xl font-bold mb-4 text-db-pink">In class</h3>
         <ul class="space-y-3">
@@ -192,21 +303,49 @@ const structuredData = [
 
   <SectionContainer>
     <SectionTitle
-      title="Samba class FAQs"
-      subtitle="Answers for first-timers and returning dancers."
-      class="mb-12"
+      title="Progression path"
+      subtitle="You can stay in classes for fitness and confidence, or use the training as a pathway into stronger technique and performance energy."
+      class="section-intro"
     />
 
-    <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        progressionSteps.map((step, index) => (
+          <div
+            class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
+            <h3 class="text-2xl font-black text-db-green">{step.title}</h3>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">
+              {step.body}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </SectionContainer>
 
   <SectionContainer>
     <SectionTitle
+      title="Samba class FAQs"
+      subtitle="Answers for first-timers and returning dancers."
+      class="section-intro"
+    />
+
+    <div class="max-w-5xl mx-auto">
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset">
+    <SectionTitle
       title="Want a class for your group?"
       subtitle="Private samba workshops are available for teams, parties, community groups, and event programs."
-      class="mb-12"
+      class="section-intro"
     />
 
     <a
@@ -215,7 +354,7 @@ const structuredData = [
       data-track="PrivateEventsInquiry"
       data-track-params='{"source":"classes_page", "event_type":"workshop"}'
     >
-      Request a Workshop Quote
+      Instant Quote Estimate
     </a>
   </SectionContainer>
 </Layout>

@@ -1,0 +1,50 @@
+---
+import type { RecentEvent } from "../data/recentEvents";
+
+interface Props {
+  events: RecentEvent[];
+  title?: string;
+}
+
+const { events, title = "Recent events" } = Astro.props;
+---
+
+<div class="overflow-hidden">
+  <p class="text-xs font-black uppercase tracking-[0.22em] text-db-green mb-6">
+    {title}
+  </p>
+  <div
+    class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+    role="list"
+  >
+    {
+      events.map((event) => (
+        <div
+          class="snap-start shrink-0 w-[260px] sm:w-[300px] rounded-xl border border-white/12 bg-white/5 p-6 text-white"
+          role="listitem"
+        >
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-db-green mb-3">
+            {event.type}
+          </p>
+          <p class="text-xl font-black leading-tight mb-4">
+            {event.highlight}
+          </p>
+          <div class="space-y-1.5 text-sm text-white/65">
+            <p>
+              <span class="text-white/45 mr-2">Format</span>
+              {event.format}
+            </p>
+            <p>
+              <span class="text-white/45 mr-2">Location</span>
+              {event.suburb}
+            </p>
+            <p>
+              <span class="text-white/45 mr-2">Period</span>
+              {event.period}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

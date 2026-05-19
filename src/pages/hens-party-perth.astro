@@ -1,0 +1,129 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FAQItem from "../components/FAQItem.astro";
+import ContactForm from "../components/ContactForm.astro";
+import showForHireHero from "../images/showhero.avif";
+import { faqSchema, serviceSchema } from "../lib/schema";
+
+const title = "Hens Party Perth | Brazilian Samba Entertainment & Workshops";
+const description =
+  "Make it unforgettable. Brazilian samba entertainment and interactive workshops for hens nights and bachelorette parties in Perth.";
+const url = "/hens-party-perth";
+
+const trust = [
+  { stat: "No experience needed", desc: "Absolute beginners welcome. The whole point is that everyone can do it." },
+  { stat: "Private group booking", desc: "The session is exclusively yours - no strangers sharing the space." },
+  { stat: "We come to you", desc: "Workshop at your venue, or we can suggest suitable private spaces in Perth." },
+];
+const steps = [
+  { step: "01", title: "Arrive and warm up", body: "The group gathers, meets the instructor, and warms up with simple rhythm games - no pressure, all fun." },
+  { step: "02", title: "Learn the basics", body: "Samba no pe step, hip movement, and arms are broken down clearly so everyone gets it within minutes." },
+  { step: "03", title: "Build a routine", body: "The group learns a short routine together - something everyone can do, not just the confident dancers." },
+  { step: "04", title: "Perform it", body: "The group runs the routine together, with the bride featured only as much as she wants." },
+  { step: "05", title: "Celebrate", body: "Photos, energy, and a genuinely memorable group moment to close the session." },
+];
+const formats = [
+  { title: "Workshop only", price: "from $XXX", includes: ["60-90 min session", "Professional instructor", "At your venue or suggested Perth space", "Beginner-friendly for all group members"] },
+  { title: "Workshop + show", price: "from $XXX", includes: ["60 min workshop for the group", "Short samba show by professionals", "Costume photo opportunity", "High-energy close to the evening"], featured: true },
+  { title: "Show only", price: "from $XXX", includes: ["Feature samba performance", "Interactive audience moment", "Suits larger groups or venue restrictions", "Can be added to an existing program"] },
+];
+const faqs = [
+  { question: "How far in advance should I book?", answer: "At least three to four weeks for weekend bookings, and as early as possible for peak periods (November-February). Send the enquiry early to hold the date." },
+  { question: "How many people can join?", answer: "Sessions work for groups of 6 to 30+. The format adapts to group size. Minimum numbers apply - confirm during enquiry." },
+  { question: "Can the session be a surprise for the bride?", answer: "Yes. The booking is made by the organiser. Just let us know it is a surprise and we will keep all correspondence with you." },
+  { question: "What if someone in the group has a mobility limitation?", answer: "The session can be adapted. Let us know in advance and the instructor will make sure everyone can participate at their own level." },
+  { question: "Is a deposit required?", answer: "Yes. A deposit holds the date. Full terms are shared with the booking confirmation. For non-hens private celebrations, see our private events page." },
+];
+const structuredData = [serviceSchema({ name: "Hens party samba workshops in Perth", description, url, image: showForHireHero.src }), faqSchema(faqs)];
+---
+
+<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer>
+    <SectionTitle title="Hens Party Entertainment in Perth" subtitle="An experience the bride and every guest actually remembers - samba dancing, Carnival energy, and zero awkwardness." class="section-intro" />
+    <SectionTitle title="Not just a dance class. An experience." subtitle="Designed for groups who want something active, memorable, and genuinely fun - without needing to be dancers." class="section-intro" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      {trust.map((item) => (
+        <div class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]">
+          <h3 class="text-2xl font-black text-db-pink">{item.stat}</h3>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="how-it-works" class="bg-db-green/5">
+    <SectionTitle title="How it works" subtitle="A clear, upbeat structure keeps the whole group comfortable." class="section-intro" />
+    <div class="first-class-timeline reveal-on-scroll">
+      <div class="timeline-track" aria-hidden="true"></div>
+      {steps.map((step, index) => (
+        <div class="timeline-step" style={`--timeline-index:${index};`}>
+          <div class="timeline-badge timeline-pulse" aria-hidden="true"><span>{step.step}</span></div>
+          <div class="timeline-panel">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">{step.title}</p>
+            <p class="mt-4 text-base font-bold leading-relaxed text-slate-700">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle title="Format options" subtitle="Choose the experience that fits the bride, group, and venue." class="section-intro" />
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {formats.map((format) => (
+        <div class:list={["motion-card reveal-on-scroll rounded-xl p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]", format.featured ? "bg-slate-950 text-white border border-white/12" : "bg-white border border-db-pink/80"]}>
+          <h3 class:list={["text-2xl font-black", format.featured ? "text-db-green" : "text-db-pink"]}>{format.title}</h3>
+          <p class="mt-2 text-xl font-black">{format.price}</p>
+          <ul class:list={["mt-5 space-y-3 text-base leading-relaxed", format.featured ? "text-white/75" : "text-slate-600"]}>
+            {format.includes.map((item) => <li>{item}</li>)}
+          </ul>
+          <a href="#hens-enquiry" class="mt-6 inline-flex rounded-full bg-db-green px-6 py-3 text-xs font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink" data-track="WorkshopEnquiryClick">Enquire</a>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-slate-950 text-white">
+    <SectionTitle title="Will everyone actually enjoy it?" class="section-intro [&_h2]:text-white" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      {[
+        { q: "What if some guests have two left feet?", a: "That is exactly who this is designed for. The instructor breaks everything down slowly so everyone can follow." },
+        { q: "What if the bride is shy?", a: "The format is built around the group - not a spotlight on one person. The bride participates at whatever level she is comfortable with." },
+        { q: "Is it embarrassing?", a: "No. The session is private, encouraging, and celebratory rather than performative." },
+      ].map((item) => (
+        <div class="rounded-xl border border-white/12 bg-white/5 p-7">
+          <h3 class="text-xl font-black text-db-green">{item.q}</h3>
+          <p class="mt-4 text-white/75">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-pink text-white">
+    <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <p class="max-w-3xl text-2xl font-black leading-tight">Make it visual - costume accessories for the bride and bridal party available as an add-on. Headpieces, cuffs, feather belts, and more.</p>
+      <a href="/samba-costume-hire-perth" class="inline-flex rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-green hover:text-white" data-track="CostumeHireClick">View Costume Hire</a>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle title="Practical details" subtitle="Send these details with your enquiry and we can quote faster." class="section-intro" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {["What to tell your guests: wear comfortable clothes and expect to move.", "What to bring: water, sneakers, and enough space for the group.", "Group sizes: works for 6 to 30+ with the right room.", "Venue requirements: clear floor, safe surface, and music access."].map((item) => (
+        <div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-bold leading-relaxed text-slate-700">{item}</div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle title="Hens party FAQs" class="section-intro" />
+    <div class="mx-auto max-w-5xl">{faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}</div>
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset" id="hens-enquiry">
+    <ContactForm title="Hens Party Enquiry" subtitle="Tell us the date, venue suburb, group size, and whether you want workshop only, show only, or both." subject="Hens Party Enquiry" />
+  </SectionContainer>
+</Layout>

@@ -1,0 +1,68 @@
+---
+interface Props {
+  src?: string;
+  poster?: string;
+  overlayTitle?: string;
+  overlaySubtitle?: string;
+}
+
+const {
+  src,
+  poster,
+  overlayTitle = "See the atmosphere",
+  overlaySubtitle = "What a room looks like when samba walks in.",
+} = Astro.props;
+---
+
+<div
+  class="relative w-full overflow-hidden bg-slate-950"
+  style="height: 100vh; height: 100svh; height: 100dvh;"
+>
+  {
+    src ? (
+      <video
+        class="absolute inset-0 h-full w-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster={poster}
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    ) : (
+      <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-950 via-[#2a103d] to-slate-950">
+        <div class="text-center px-6">
+          <p class="text-xs font-black uppercase tracking-[0.22em] text-db-green mb-4">
+            Video placeholder
+          </p>
+          <p class="text-2xl font-black text-white max-w-md text-balance">
+            Replace with 15-30 sec performance reel before launch
+          </p>
+          <p class="mt-4 text-sm text-white/50 max-w-sm text-balance">
+            Suggested content: crowd reaction moment, roving entertainment
+            through a venue, feature show opening.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  <div
+    class="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.18),rgba(15,23,42,0.55)_70%,rgba(15,23,42,0.82))]"
+  >
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 z-10 max-w-3xl p-8 sm:p-12">
+    <p
+      class="text-xs font-black uppercase tracking-[0.22em] text-db-green mb-3"
+    >
+      {overlayTitle}
+    </p>
+    <p
+      class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[0.95] text-balance"
+    >
+      {overlaySubtitle}
+    </p>
+  </div>
+</div>

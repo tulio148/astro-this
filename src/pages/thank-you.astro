@@ -9,12 +9,12 @@ const title = "Thank You";
 const description =
   "Thank you for contacting Dance Bloc Brazil. We'll get back to you soon!";
 const image = cartoonDancerDouble.src;
-const url = "https://danceblocbrazil.com/thank-you";
+const url = "/thank-you";
 ---
 
 <Layout title={title} description={description} image={image} url={url} noindex>
   <main class="min-h-screen flex items-center justify-center py-16">
-    <SectionContainer class="my-32">
+    <SectionContainer spacing="hero-offset">
       <div class="max-w-3xl mx-auto text-center">
         <Picture
           src={cartoonDancerDouble}
@@ -27,7 +27,7 @@ const url = "https://danceblocbrazil.com/thank-you";
         <SectionTitle
           title="Thank You!"
           subtitle="Your message has been sent successfully. We'll get back to you as soon as possible."
-          class="mb-12"
+          class="section-intro"
         />
 
         <div class="space-y-6">
@@ -48,4 +48,11 @@ const url = "https://danceblocbrazil.com/thank-you";
       </div>
     </SectionContainer>
   </main>
+  <script>
+    import { pushEvent } from "../lib/analytics";
+
+    document.addEventListener("astro:page-load", () => {
+      pushEvent("generate_lead", { source: "contact_form" });
+    });
+  </script>
 </Layout>

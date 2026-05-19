@@ -3,11 +3,12 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
+import { Picture } from "astro:assets";
 import danceclassHero from "../images/danceclassHero.avif";
+import servicePathWorkshops from "../images/service-path-workshops.avif";
 import { faqSchema, serviceSchema } from "../lib/schema";
 
 const title = "Private Samba Workshops Perth | Team Building, Parties & Events";
@@ -47,6 +48,28 @@ const structuredData = [
   }),
   faqSchema(faqs),
 ];
+
+const workshopFlow = [
+  "Welcome the group and set the energy at a comfortable level.",
+  "Warm up with simple rhythm and movement games.",
+  "Teach samba basics with options for different confidence levels.",
+  "Build a short routine or group moment around the event purpose.",
+  "Finish with a shared run-through, photo moment, or event handoff.",
+];
+
+const fitFor = [
+  "Team-building sessions that need movement without pressure",
+  "Hens parties, birthdays, and private celebrations",
+  "Schools, community groups, and cultural programs",
+  "Event activations where guests should participate, not only watch",
+];
+
+const workshopTypes = [
+  { title: "Corporate Team Building", body: "Movement-based team sessions for offices, HR programs, and corporate events.", href: "/corporate-team-building-perth" },
+  { title: "Virtual & Specialist Workshops", body: "Facilitated online and hybrid samba sessions for remote and professional teams.", href: "/virtual-specialist-workshops-perth" },
+  { title: "School Programs", body: "Age-appropriate Brazilian culture and samba workshops for schools and youth groups.", href: "/school-workshops-perth" },
+  { title: "Community Workshops", body: "Inclusive sessions for community groups, cultural centres, and not-for-profit programs.", href: "/community-workshops-perth" },
+];
 ---
 
 <Layout
@@ -55,62 +78,103 @@ const structuredData = [
   image={danceclassHero.src}
   url={url}
   structuredData={structuredData}
+  hasHero={true}
 >
   <Hero
     title="Private Samba Workshops in Perth"
     subtitle="Book a Brazilian samba workshop for team building, hens parties, birthdays, schools, community groups, and events."
     backgroundImage={danceclassHero}
-    eyebrow="Private groups"
-    primaryCta={{ label: "Request a Workshop Quote", href: "#workshop-enquiry" }}
+    primaryCta={{
+      label: "Instant Quote Estimate",
+      href: "#workshop-enquiry",
+    }}
     secondaryCta={{ label: "See Classes", href: "/samba-classes-perth" }}
   />
 
-  <SectionContainer>
+  <SectionContainer spacing="hero-offset">
     <SectionTitle
       title="A group activity with movement and energy"
       subtitle="Private workshops are designed for organisers who want something active, inclusive, and easy to brief."
-      class="mb-16"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-600">
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
-        <h3 class="text-xl font-bold text-db-pink mb-3">Team Building</h3>
-        <p>Bring the group together through rhythm, movement, and shared focus.</p>
-      </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
-        <h3 class="text-xl font-bold text-db-pink mb-3">Hens & Birthdays</h3>
-        <p>Add a lively activity to a private celebration or themed party.</p>
-      </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
-        <h3 class="text-xl font-bold text-db-pink mb-3">Schools & Community</h3>
-        <p>Introduce Brazilian samba movement in an accessible group format.</p>
-      </div>
-      <div class="bg-white rounded-2xl border border-db-pink/10 p-6 shadow-md shadow-db-pink/5">
-        <h3 class="text-xl font-bold text-db-pink mb-3">Event Programs</h3>
-        <p>Use a workshop as an interactive activation or guest experience.</p>
-      </div>
+      {
+        workshopTypes.map((type) => (
+          <a
+            href={type.href}
+            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-md shadow-db-pink/5 transition hover:-translate-y-1"
+            data-track="WorkshopEnquiryClick"
+            data-track-params={JSON.stringify({ destination: type.href })}
+          >
+            <h3 class="text-xl font-bold text-db-pink mb-3">{type.title}</h3>
+            <p>{type.body}</p>
+          </a>
+        ))
+      }
     </div>
   </SectionContainer>
 
   <SectionContainer>
-    <MediaPlaceholder
-      title="Private workshop proof"
-      assetNeed="Group workshop proof for the private samba workshops page."
-      ratio="Landscape 16:9 or three-image grid"
-      subject="Show real group participation, not staged solo performance only."
-      options={[
-        "Team-building workshop photo",
-        "Hens or birthday workshop photo",
-        "Short group participation video",
-      ]}
+    <Picture
+      src={servicePathWorkshops}
+      alt="Private samba workshop group learning a routine together in an event room"
+      widths={[480, 720, 960, 1200, 1440]}
+      sizes="(max-width: 768px) 100vw, 1120px"
+      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-xl object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
+      loading="lazy"
     />
+  </SectionContainer>
+
+  <SectionContainer>
+    <SectionTitle
+      title="Workshop flow"
+      subtitle="The structure stays simple, active, and easy for organisers to brief."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-5">
+      {
+        workshopFlow.map((step, index) => (
+          <div class="motion-card reveal-on-scroll min-h-[188px] rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
+              {index + 1}
+            </p>
+            <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
+              {step}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </SectionContainer>
+
+  <SectionContainer class="bg-db-green/5">
+    <SectionTitle
+      title="Good fit for"
+      subtitle="Workshops can be shaped for group confidence, timing, venue, and event purpose."
+      class="section-intro"
+    />
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {
+        fitFor.map((item, index) => (
+          <div
+            class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#34104a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]"
+            style={`--card-lift-delay: ${index * 420}ms`}
+          >
+            <p class="text-lg font-black leading-relaxed">{item}</p>
+          </div>
+        ))
+      }
+    </div>
   </SectionContainer>
 
   <SectionContainer class="bg-db-light-pink/5">
     <SectionTitle
       title="Workshop details to plan"
       subtitle="The best quote comes from clear group and venue information."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
@@ -140,19 +204,23 @@ const structuredData = [
     <SectionTitle
       title="Workshop FAQs"
       subtitle="Answers for organisers before enquiring."
-      class="mb-12"
+      class="section-intro"
     />
 
     <div class="max-w-5xl mx-auto">
-      {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+      {
+        faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </SectionContainer>
 
-  <SectionContainer id="workshop-enquiry">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <SectionContainer spacing="footer-offset" id="workshop-enquiry">
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
       <div>
         <SectionTitle
-          title="Request a Workshop Quote"
+          title="Instant Quote Estimate"
           subtitle="Tell us about the group, date, venue, and the kind of workshop experience you want."
         />
       </div>

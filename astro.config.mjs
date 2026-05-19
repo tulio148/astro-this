@@ -12,14 +12,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, "");
-        return ![
-          "/thank-you",
-          "/markdown-page",
-          "/classes",
-          "/show-for-hire",
-          "/costume-hire",
-          "/contact",
-        ].includes(pathname);
+        return !["/thank-you", "/404", "/404.html"].includes(pathname);
       },
     }),
   ],

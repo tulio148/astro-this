@@ -1,0 +1,96 @@
+---
+import type { Term } from "../data/terms";
+
+interface ScheduleSlot {
+  day: string;
+  term: Term;
+}
+
+interface Props {
+  slots: ScheduleSlot[];
+}
+
+const { slots } = Astro.props;
+const days = [...new Set(slots.map((slot) => slot.day))];
+
+const levelColors: Record<string, string> = {
+  Beginner: "bg-db-green/15 text-db-green border-db-green/30",
+  Intermediate: "bg-db-pink/10 text-db-pink border-db-pink/30",
+  Casual: "bg-slate-100 text-slate-600 border-slate-200",
+  "Brazil Fit": "bg-db-green/15 text-db-pink border-db-green/30",
+};
+---
+
+<div class="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+  <div
+    class="grid gap-4 min-w-[640px]"
+    style={`grid-template-columns: repeat(${Math.max(days.length, 1)}, minmax(0, 1fr))`}
+  >
+    {
+      days.map((day) => (
+        <div class="flex flex-col gap-3">
+          <div class="rounded-lg border border-db-pink/80 bg-white px-4 py-3 text-center shadow-[0_10px_24px_rgba(158,0,150,0.08)]">
+            <p class="text-xs font-black uppercase tracking-[0.18em] text-db-pink">
+              {day}
+            </p>
+          </div>
+
+          {slots
+            .filter((slot) => slot.day === day)
+            .map(({ term }) => (
+              <div class="reveal-on-scroll flex flex-col gap-4 rounded-xl border border-db-pink/80 bg-white p-5 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+                <div>
+                  <p class="font-black text-db-pink leading-tight">
+                    {term.name}
+                  </p>
+                  <p class="text-2xl font-black text-slate-800 mt-1">
+                    {term.time || "Flexible"}
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.08em] ${levelColors[term.level] ?? "bg-slate-100 text-slate-600 border-slate-200"}`}
+                  >
+                    {term.level}
+                  </span>
+                  {term.location && (
+                    <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.08em] text-slate-600">
+                      {term.location}
+                    </span>
+                  )}
+                </div>
+
+                <div class="space-y-1.5 text-sm text-slate-600">
+                  {(term.dateLabel || (term.dateBegin && term.dateEnd)) && (
+                    <p>
+                      <span class="font-black text-db-pink">Dates: </span>
+                      {term.dateLabel || `${term.dateBegin} - ${term.dateEnd}`}
+                    </p>
+                  )}
+                  <p>
+                    <span class="font-black text-db-pink">Price: </span>
+                    {term.price}
+                  </p>
+                </div>
+
+                <a
+                  href={term.bookingLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block w-full rounded-full bg-db-green px-5 py-2.5 text-center text-xs font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_12px_26px_rgba(0,204,129,0.24)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white"
+                  data-track="BookClassClick"
+                  data-track-params={JSON.stringify({
+                    class_name: term.name,
+                    class_level: term.level,
+                  })}
+                >
+                  Book now
+                </a>
+              </div>
+            ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

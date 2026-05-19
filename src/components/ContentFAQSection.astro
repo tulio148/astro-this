@@ -1,0 +1,26 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+import FAQItem from "./FAQItem.astro";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  faqs: FAQ[];
+  id?: string;
+  tone?: "light" | "dark-band" | "tint";
+}
+
+const { title, faqs = [], id, tone = "light" } = Astro.props;
+---
+
+<SectionContainer id={id} tone={tone}>
+  <SectionTitle title={title} class="section-intro" />
+  <div class="mx-auto max-w-5xl">
+    {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
+  </div>
+</SectionContainer>
