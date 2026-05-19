@@ -17,6 +17,7 @@ const levelColors: Record<string, string> = {
   Beginner: "bg-db-green/15 text-db-green border-db-green/30",
   Intermediate: "bg-db-pink/10 text-db-pink border-db-pink/30",
   Casual: "bg-slate-100 text-slate-600 border-slate-200",
+  Funk: "bg-db-green/15 text-db-pink border-db-green/30",
 };
 ---
 
@@ -61,10 +62,10 @@ const levelColors: Record<string, string> = {
                 </div>
 
                 <div class="space-y-1.5 text-sm text-slate-600">
-                  {term.dateBegin && term.dateEnd && (
+                  {(term.dateLabel || (term.dateBegin && term.dateEnd)) && (
                     <p>
                       <span class="font-black text-db-pink">Dates: </span>
-                      {term.dateBegin} - {term.dateEnd}
+                      {term.dateLabel || `${term.dateBegin} - ${term.dateEnd}`}
                     </p>
                   )}
                   <p>

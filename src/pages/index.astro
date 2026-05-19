@@ -8,7 +8,6 @@ import Card from "../components/Card.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import HomeTermCard from "../components/HomeTermCard.astro";
-import ServicePathSelector from "../components/react/ServicePathSelector";
 import Picture from "astro/components/Picture.astro";
 import { terms } from "../data/terms";
 import {
@@ -25,10 +24,6 @@ import heroVideo from "../videos/hero-video.mp4";
 import showsVideo from "../videos/shows-video.mp4";
 import classesVideo from "../videos/classes-video.mp4";
 import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
-import servicePathClasses from "../images/service-path-classes.avif";
-import servicePathWorkshops from "../images/service-path-workshops.avif";
-import servicePathShows from "../images/service-path-shows.avif";
-import servicePathCostumes from "../images/service-path-costumes.avif";
 
 const title = "Brazilian Samba in Perth | Classes, Shows & Costume Hire";
 const description =
@@ -70,57 +65,6 @@ const structuredData = [
     image,
   }),
   faqSchema(homeFaqs),
-];
-
-const servicePaths = [
-  {
-    key: "shows",
-    label: "Corporate & events",
-    title: "Book a show",
-    description:
-      "Add samba dancers, Carnival-style costumes, guest interaction, and optional live music or drumming to a Perth event.",
-    href: "/book-a-samba-show-perth#show-enquiry",
-    cta: "Request a Quote",
-    image: servicePathShows.src,
-    imageAlt:
-      "Brazilian samba dancers performing in Carnival costumes at a Perth event",
-  },
-  {
-    key: "workshops",
-    label: "Bring a group",
-    title: "Private workshops",
-    description:
-      "Plan an active group workshop for teams, hens parties, birthdays, schools, community groups, or event programs.",
-    href: "/private-samba-workshops-perth#workshop-enquiry",
-    cta: "Instant Quote Estimate",
-    image: servicePathWorkshops.src,
-    imageAlt:
-      "Private samba workshop group learning a routine together in an event room",
-  },
-  {
-    key: "classes",
-    label: "Start learning",
-    title: "Samba classes",
-    description:
-      "Join beginner-friendly samba no pe classes in Balcatta with clear steps, rhythm work, and a realistic path into intermediate training.",
-    href: "/samba-classes-perth#class-times",
-    cta: "Book a Class",
-    image: servicePathClasses.src,
-    imageAlt:
-      "Beginner samba class in a bright Perth studio with students following the teacher",
-  },
-  {
-    key: "costumes",
-    label: "Make it visual",
-    title: "Costume hire",
-    description:
-      "Hire standout samba and Carnival-style costumes for themed events, photoshoots, performances, and celebrations.",
-    href: "/samba-costume-hire-perth#book-costume",
-    cta: "Check Costume Availability",
-    image: servicePathCostumes.src,
-    imageAlt:
-      "Brazilian Carnival costume details with feathers, rhinestones, cuffs, and headpiece",
-  },
 ];
 
 const journeySteps = [
@@ -217,7 +161,8 @@ const getTermSummary = (description: string) =>
     />
     <!-- </div> -->
 
-    <!-- About Section -->
+    <div class="relative z-10 bg-white">
+      <!-- About Section -->
     <SectionContainer spacing="hero-offset" id="about">
       <div
         class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 section-grid-base items-center"
@@ -335,16 +280,6 @@ const getTermSummary = (description: string) =>
       </div>
     </SectionContainer>
 
-    <SectionContainer id="choose-path">
-      <SectionTitle
-        title="Choose your samba path"
-        subtitle="Start with the route that matches what you need now, then move between classes, workshops, shows, and costume hire when the moment is right."
-        class="section-intro"
-      />
-
-      <ServicePathSelector client:load paths={servicePaths} />
-    </SectionContainer>
-
     <!-- Shows Section -->
     <SectionContainer id="shows">
       <div
@@ -453,6 +388,7 @@ const getTermSummary = (description: string) =>
                 summary={getTermSummary(term.description)}
                 dateBegin={term.dateBegin}
                 dateEnd={term.dateEnd}
+                dateLabel={term.dateLabel}
                 time={term.time}
                 location={term.location}
                 price={term.price}
@@ -686,5 +622,6 @@ const getTermSummary = (description: string) =>
 
       <ContactForm />
     </SectionContainer>
+    </div>
   </main>
 </Layout>

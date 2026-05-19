@@ -223,11 +223,10 @@ const progressionSteps = [
       class="section-intro"
     />
     <ClassScheduleGrid
-      slots={[
-        { day: "Tuesday", term: terms[0] },
-        { day: "Tuesday", term: terms[1] },
-        { day: "Casual", term: terms[2] },
-      ]}
+      slots={terms.map((term) => ({
+        day: term.scheduleDay ?? "Current",
+        term,
+      }))}
     />
   </SectionContainer>
 
@@ -246,6 +245,7 @@ const progressionSteps = [
             level={term.level}
             dateBegin={term.dateBegin}
             dateEnd={term.dateEnd}
+            dateLabel={term.dateLabel}
             time={term.time}
             location={term.location}
             price={term.price}
