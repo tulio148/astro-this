@@ -150,19 +150,31 @@ const eventTypeCards = [
 
   <SectionContainer>
     <div
-      class="reveal-on-scroll relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[42%_58%_58%_42%/54%_44%_56%_46%] bg-gradient-to-l from-transparent to-db-light-pink/10 from-10% shadow-[0_24px_70px_rgba(158,0,150,0.10)]"
+      class="reveal-on-scroll relative left-1/2 h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-black"
     >
-      <video
-        class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster={showForHireHero.src}
-      >
-        <source src={showsVideo} type="video/mp4" />
-      </video>
-      <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
+      <div class="absolute inset-0 overflow-hidden">
+        <video
+          class="absolute inset-0 hidden h-full w-full scale-110 object-cover blur-2xl brightness-75 lg:block"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          poster={showForHireHero.src}
+        >
+          <source src={showsVideo} type="video/mp4" />
+        </video>
+        <video
+          class="absolute inset-0 h-full w-full object-cover object-center image-overlay lg:object-contain"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={showForHireHero.src}
+        >
+          <source src={showsVideo} type="video/mp4" />
+        </video>
+      </div>
     </div>
   </SectionContainer>
 

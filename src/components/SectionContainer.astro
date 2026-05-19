@@ -4,6 +4,8 @@ interface Props {
   id?: string;
   wide?: boolean;
   spacing?: "default" | "hero-offset" | "footer-offset";
+  tone?: "light" | "dark-band" | "tint";
+  density?: "comfortable" | "compact";
 }
 
 const {
@@ -11,6 +13,8 @@ const {
   id,
   wide = false,
   spacing = "default",
+  tone = "light",
+  density = "comfortable",
 } = Astro.props;
 const widthClass = wide ? "max-w-none" : "max-w-7xl";
 const spacingClass = {
@@ -18,11 +22,20 @@ const spacingClass = {
   "hero-offset": "section-spacing-hero-offset",
   "footer-offset": "section-spacing-footer-offset",
 }[spacing];
+const toneClass = {
+  light: "section-tone-light",
+  "dark-band": "section-tone-dark-band",
+  tint: "section-tone-tint",
+}[tone];
+const densityClass = {
+  comfortable: "section-density-comfortable",
+  compact: "section-density-compact",
+}[density];
 ---
 
 <section
   id={id}
-  class={`section-container reveal-section ${spacingClass} px-6 sm:px-10 lg:px-16 mx-auto ${className}`}
+  class={`section-container reveal-section ${spacingClass} ${toneClass} ${densityClass} px-6 sm:px-10 lg:px-16 mx-auto ${className}`}
 >
   <div class={`${widthClass} mx-auto`}>
     <slot />

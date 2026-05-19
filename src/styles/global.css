@@ -24,10 +24,29 @@ body {
   --space-grid-tight: 1.25rem;
   --space-grid-base: 2rem;
   --space-grid-wide: 3rem;
+  --space-section-pad-y-compact-mobile: 3rem;
+  --space-section-pad-y-compact-desktop: 4rem;
 }
 
 .section-container {
   padding-block: var(--space-section-pad-y-mobile);
+}
+
+.section-container.section-density-compact {
+  padding-block: var(--space-section-pad-y-compact-mobile);
+}
+
+.section-container.section-tone-light {
+  background: transparent;
+}
+
+.section-container.section-tone-dark-band {
+  background-color: #020617;
+  color: #ffffff;
+}
+
+.section-container.section-tone-tint {
+  background-color: color-mix(in oklab, var(--color-db-green) 10%, white);
 }
 
 .section-container + .section-container {
@@ -65,6 +84,10 @@ body {
 @media (min-width: 768px) {
   .section-container {
     padding-block: var(--space-section-pad-y-desktop);
+  }
+
+  .section-container.section-density-compact {
+    padding-block: var(--space-section-pad-y-compact-desktop);
   }
 
   .section-container + .section-container {
@@ -141,8 +164,8 @@ body {
     }
 
     .reveal-on-scroll {
-      opacity: 0.72;
-      transform: scale(0.985);
+      opacity: 1;
+      transform: none;
       transition:
         opacity 0.8s var(--ease-fluid),
         transform 0.8s var(--ease-fluid);
@@ -150,12 +173,12 @@ body {
 
     .reveal-on-scroll.is-visible {
       opacity: 1;
-      transform: scale(1);
+      transform: none;
     }
 
     .reveal-section {
-      opacity: 0.84;
-      transform: scale(0.992);
+      opacity: 1;
+      transform: none;
       transition:
         opacity 0.72s var(--ease-fluid),
         transform 0.72s var(--ease-fluid);
@@ -163,7 +186,7 @@ body {
 
     .reveal-section.is-visible {
       opacity: 1;
-      transform: scale(1);
+      transform: none;
     }
 
     .hero-reveal-item {
@@ -196,12 +219,15 @@ body {
       position: relative;
       overflow: hidden;
       transform: translateZ(0);
-      animation: ambientLift 6.5s ease-in-out infinite;
-      animation-delay: var(--card-lift-delay, 0ms);
       transition:
         transform 0.28s var(--ease-snappy),
         border-color 0.28s ease,
         box-shadow 0.28s ease;
+    }
+
+    .motion-card.motion-card-ambient {
+      animation: ambientLift 6.5s ease-in-out infinite;
+      animation-delay: var(--card-lift-delay, 0ms);
     }
 
     .db-border-thin {
@@ -238,6 +264,7 @@ body {
       content: '';
       position: absolute;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
       background: linear-gradient(
         115deg,
@@ -302,7 +329,7 @@ body {
         rgba(255, 0, 247, 0.38) 100%
       );
       transform-origin: top;
-      transform: scaleY(0);
+      transform: scaleY(1);
       opacity: 0.88;
     }
 
@@ -316,8 +343,8 @@ body {
       grid-template-columns: auto minmax(0, 1fr);
       column-gap: 0.95rem;
       align-items: start;
-      opacity: 0;
-      transform: translate3d(0, 18px, 0) rotate(-0.8deg);
+      opacity: 1;
+      transform: none;
     }
 
     .reveal-on-scroll.is-visible .timeline-step {
@@ -381,6 +408,19 @@ body {
         transform 0.55s var(--ease-fluid);
     }
 
+    .journey-step-card {
+      isolation: isolate;
+    }
+
+    .journey-step-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-step-card > .journey-step-decoration {
+      z-index: 0;
+    }
+
     .timeline-step:hover .timeline-panel,
     .timeline-step:focus-within .timeline-panel {
       transform: translateY(-2px) rotate(0deg);
@@ -414,7 +454,7 @@ body {
         width: auto;
         height: 2px;
         transform-origin: left;
-        transform: scaleX(0);
+        transform: scaleX(1);
         background: linear-gradient(
           90deg,
           rgba(0, 204, 129, 0.24) 0%,

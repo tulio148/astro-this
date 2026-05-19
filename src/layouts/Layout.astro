@@ -33,10 +33,19 @@ const {
   canonical,
   structuredData = [],
   pageEvent = "",
-  noindex = false,
+  noindex,
   ogType = "website",
   hasHero = false,
 } = Astro.props;
+
+const siteEnv =
+  import.meta.env.PUBLIC_SITE_ENV ??
+  import.meta.env.SITE_ENV ??
+  process.env.PUBLIC_SITE_ENV ??
+  process.env.SITE_ENV ??
+  "production";
+const defaultNoindex = siteEnv !== "production";
+const resolvedNoindex = typeof noindex === "boolean" ? noindex : defaultNoindex;
 
 const pageTitle = titleWithBrand(title);
 const canonicalHref = canonical
@@ -67,7 +76,7 @@ const socialImage = absoluteUrl(image);
     <meta name="author" content={siteConfig.name} />
     <meta
       name="robots"
-      content={noindex ? "noindex, follow" : "index, follow"}
+      content={resolvedNoindex ? "noindex, follow" : "index, follow"}
     />
 
     <meta property="og:type" content={ogType} />
@@ -95,50 +104,35 @@ const socialImage = absoluteUrl(image);
 
     {
       structuredData.map((data) => (
-        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />
       ))
     }
 
-    <script is:inline define:vars={{ pageEvent }}>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "1320158689084358");
-      fbq("track", "PageView");
-      if (pageEvent) {
-        fbq("track", pageEvent);
+    <script>
+      import { GTM_ID } from "../lib/analytics";
+
+      if (GTM_ID) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(GTM_ID)}`;
+        document.head.appendChild(script);
       }
     </script>
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display:none"
-        src="https://www.facebook.com/tr?id=1320158689084358&ev=PageView&noscript=1"
-      /></noscript
-    >
   </head>
   <body class="bg-[#fbfaf8] text-db-pink antialiased">
+    <noscript>
+      {import.meta.env.PUBLIC_GTM_ID && (
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${import.meta.env.PUBLIC_GTM_ID}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      )}
+    </noscript>
     <Navigation hasHero={hasHero} />
     {!hasHero && <NonHeroTopAccent />}
 
@@ -147,8 +141,9 @@ const socialImage = absoluteUrl(image);
     </main>
 
     <Footer />
-    <script>
+    <script is:inline define:vars={{ pageEvent }}>
       import { initClickTracking } from "../lib/pixelEvents.js";
+      import { pushEvent, pushPageView } from "../lib/analytics";
 
       document.addEventListener("astro:page-load", () => {
         const revealItems = document.querySelectorAll(
@@ -158,6 +153,8 @@ const socialImage = absoluteUrl(image);
         if (!("IntersectionObserver" in window)) {
           revealItems.forEach((item) => item.classList.add("is-visible"));
           initClickTracking();
+          pushPageView();
+          if (pageEvent) pushEvent(pageEvent);
           return;
         }
 
@@ -181,6 +178,20 @@ const socialImage = absoluteUrl(image);
         });
 
         initClickTracking();
+        pushPageView();
+        if (pageEvent) pushEvent(pageEvent);
+      });
+
+      let lastTrackedPath = "";
+      const trackSpaNav = () => {
+        const current = window.location.pathname + window.location.search;
+        if (current === lastTrackedPath) return;
+        lastTrackedPath = current;
+        pushPageView();
+      };
+
+      document.addEventListener("astro:after-swap", () => {
+        trackSpaNav();
       });
     </script>
   </body>

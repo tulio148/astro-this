@@ -7,7 +7,6 @@ import TermCard from "../components/TermCard.astro";
 import ClassScheduleGrid from "../components/ClassScheduleGrid.astro";
 import FAQItem from "../components/FAQItem.astro";
 import Hero from "../components/Hero.astro";
-import { Picture } from "astro:assets";
 import classesHero from "../images/classesHero.webp";
 import classesVideo from "../videos/classes-video.mp4";
 import { terms } from "../data/terms";
@@ -171,19 +170,31 @@ const progressionSteps = [
 
   <SectionContainer>
     <div
-      class="reveal-on-scroll relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-[56%_44%_51%_49%/42%_58%_42%_58%] bg-gradient-to-br from-db-green/10 via-white to-db-light-pink/10 shadow-[0_24px_70px_rgba(158,0,150,0.14)] ring-1 ring-db-pink/10"
+      class="reveal-on-scroll relative left-1/2 h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-black"
     >
-      <video
-        class="w-full h-full origin-top scale-[1.15] object-cover object-[50%_10%] image-overlay"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster={classesHero.src}
-      >
-        <source src={classesVideo} type="video/mp4" />
-      </video>
-      <div class="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-white/35"></div>
+      <div class="absolute inset-0 overflow-hidden">
+        <video
+          class="absolute inset-0 hidden h-full w-full scale-110 object-cover blur-2xl brightness-75 lg:block"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          poster={classesHero.src}
+        >
+          <source src={classesVideo} type="video/mp4" />
+        </video>
+        <video
+          class="absolute inset-0 h-full w-full object-cover object-center image-overlay lg:object-contain"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={classesHero.src}
+        >
+          <source src={classesVideo} type="video/mp4" />
+        </video>
+      </div>
     </div>
   </SectionContainer>
 
@@ -301,11 +312,11 @@ const progressionSteps = [
       {
         progressionSteps.map((step, index) => (
           <div
-            class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2b0b3a,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.18)]"
+            class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]"
             style={`--card-lift-delay: ${index * 420}ms`}
           >
             <h3 class="text-2xl font-black text-db-green">{step.title}</h3>
-            <p class="mt-4 text-lg leading-relaxed text-white/78">
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">
               {step.body}
             </p>
           </div>

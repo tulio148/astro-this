@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedHamburger from "./AnimatedHamburger";
-import { ArrowUpRight, ChevronDown, MessageCircle } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import React from "react";
 import logoNoBg from "../../images/icon/logoNoBg.webp";
 
@@ -28,6 +28,15 @@ const NAV_LINKS: NavLink[] = [
     name: "Book a Show",
     path: "/book-a-samba-show-perth",
     groups: [
+      {
+        label: "Overview",
+        children: [
+          {
+            name: "Brazilian Samba Entertainment for Corporate Events & Weddings in Perth",
+            path: "/book-a-samba-show-perth",
+          },
+        ],
+      },
       {
         label: "Corporate",
         children: [
@@ -58,6 +67,7 @@ const NAV_LINKS: NavLink[] = [
     name: "Workshops",
     path: "/private-samba-workshops-perth",
     children: [
+      { name: "Private Samba Workshops in Perth", path: "/private-samba-workshops-perth" },
       { name: "Corporate Team Building", path: "/corporate-team-building-perth" },
       { name: "Virtual & Specialist", path: "/virtual-specialist-workshops-perth" },
       { name: "School Programs", path: "/school-workshops-perth" },
@@ -68,6 +78,7 @@ const NAV_LINKS: NavLink[] = [
     name: "Classes",
     path: "/samba-classes-perth",
     children: [
+      { name: "Samba Classes in Perth", path: "/samba-classes-perth" },
       { name: "Beginner Samba", path: "/beginner-samba-classes-perth" },
       { name: "Intermediate Samba", path: "/intermediate-samba-classes-perth" },
       { name: "Brazil Fit", path: "/brazil-fit" },
@@ -78,6 +89,7 @@ const NAV_LINKS: NavLink[] = [
     name: "Costume Hire",
     path: "/samba-costume-hire-perth",
     children: [
+      { name: "Samba Costume Hire in Perth", path: "/samba-costume-hire-perth" },
       { name: "Browse Collection", path: "/samba-costume-hire-perth" },
       { name: "Carnival Costumes", path: "/carnival-costume-hire-perth" },
       { name: "Photoshoot Hire", path: "/costume-hire-photoshoot-perth" },
@@ -90,6 +102,7 @@ const NAV_LINKS: NavLink[] = [
     name: "About",
     path: "/about",
     children: [
+      { name: "About Dance Bloc Brazil", path: "/about" },
       { name: "Our Story", path: "/about" },
       { name: "Our People", path: "/our-people" },
       { name: "Community", path: "/community" },
@@ -102,11 +115,6 @@ const CTA_LINKS = [
   { name: "Request a Quote", path: "/book-a-samba-show-perth#show-enquiry" },
   { name: "Book a Class", path: "/samba-classes-perth#class-times" },
 ];
-
-// TODO: Update with the real WhatsApp number before launch.
-// Format: https://wa.me/61XXXXXXXXX?text=URL-encoded-message
-const WHATSAPP_URL =
-  "https://wa.me/61XXXXXXXXX?text=Hi%2C%20I'm%20interested%20in%20Dance%20Bloc%20Brazil%20entertainment.";
 
 const menuVariants = {
   closed: { opacity: 0, y: -12, transition: { duration: 0.12 } },
@@ -299,20 +307,6 @@ const Navbar = ({ currentPath, hasHero = false }: NavbarProps) => {
           </div>
 
           <div className="flex shrink-0 items-center gap-2">
-            {!isMenuOpen && (
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get a Quote via WhatsApp"
-                className="flex min-h-10 items-center gap-2 rounded-full bg-db-green px-4 text-xs font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] transition hover:bg-white hover:text-db-pink"
-                data-track="WhatsAppQuoteClick"
-              >
-                <MessageCircle className="h-4 w-4 shrink-0" />
-                <span className="hidden lg:inline">Get a Quote</span>
-              </a>
-            )}
-
             <div className="lg:hidden">
               <AnimatedHamburger isOpen={isMenuOpen} toggle={toggleMenu} />
             </div>
@@ -336,8 +330,31 @@ const Navbar = ({ currentPath, hasHero = false }: NavbarProps) => {
             >
               {hoveredLink.groups ? (
                 <div className="p-5">
+                  <div className="mb-4 border-b border-white/14 pb-3">
+                    {hoveredLink.groups
+                      .filter((group) => group.label === "Overview")
+                      .map((group) =>
+                        group.children.map((child) => (
+                          <motion.a
+                            key={child.path}
+                            href={child.path}
+                            onClick={handleLinkClick}
+                            variants={dropdownItemVariants}
+                            className={`block rounded-none px-2.5 py-1.5 text-base font-semibold transition-colors ${
+                              isActive(child.path)
+                                ? "bg-white/14 text-db-green"
+                                : "text-white/78 hover:bg-white/12 hover:text-white"
+                            }`}
+                          >
+                            {child.name}
+                          </motion.a>
+                        )),
+                      )}
+                  </div>
                   <div className="grid grid-cols-3 gap-6">
-                    {hoveredLink.groups.map((group) => (
+                    {hoveredLink.groups
+                      .filter((group) => group.label !== "Overview")
+                      .map((group) => (
                       <motion.div key={group.label} variants={dropdownItemVariants}>
                         <p className="mb-3 px-2.5 text-base font-black uppercase tracking-[0.22em] text-white">
                           {group.label}

@@ -1,0 +1,358 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - link "Dance Bloc Brazil Logo" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Dance Bloc Brazil Logo" [ref=e7]
+      - generic [ref=e8]:
+        - link "Book a Show" [ref=e10] [cursor=pointer]:
+          - /url: /book-a-samba-show-perth
+          - text: Book a Show
+          - img [ref=e11]
+        - link "Workshops" [ref=e14] [cursor=pointer]:
+          - /url: /private-samba-workshops-perth
+          - text: Workshops
+          - img [ref=e15]
+        - link "Classes" [ref=e18] [cursor=pointer]:
+          - /url: /samba-classes-perth
+          - text: Classes
+          - img [ref=e19]
+        - link "Costume Hire" [ref=e22] [cursor=pointer]:
+          - /url: /samba-costume-hire-perth
+          - text: Costume Hire
+          - img [ref=e23]
+        - link "About" [ref=e26] [cursor=pointer]:
+          - /url: /about
+          - text: About
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e35]:
+      - heading "Samba Classes in Perth" [level=1] [ref=e36]
+      - paragraph [ref=e37]: Beginner, intermediate, and casual samba no pe classes in Balcatta. No partner needed.
+      - generic [ref=e38]:
+        - link "See Class Schedule" [ref=e39] [cursor=pointer]:
+          - /url: "#schedule"
+        - link "Beginner Classes" [ref=e40] [cursor=pointer]:
+          - /url: /beginner-samba-classes-perth
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Choose the right class" [level=2] [ref=e44]: Choose the right class
+        - paragraph [ref=e46]: Start with the basics, build your technique, or join casually when your schedule allows.
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "Beginners" [level=3] [ref=e49]
+          - paragraph [ref=e50]: For first-timers and dancers returning after time away. Learn the samba basic, timing, coordination, and simple movement patterns.
+          - link "Start with beginners" [ref=e51] [cursor=pointer]:
+            - /url: /beginner-samba-classes-perth
+        - generic [ref=e52]:
+          - heading "Intermediate" [level=3] [ref=e53]
+          - paragraph [ref=e54]: For dancers who know the samba basic and want more technique, stamina, musicality, and choreography practice.
+          - link "Level up to intermediate" [ref=e55] [cursor=pointer]:
+            - /url: /intermediate-samba-classes-perth
+        - generic [ref=e56]:
+          - heading "Brazil Fit" [level=3] [ref=e57]
+          - paragraph [ref=e58]: Samba-based cardio and movement with no technique goal, no partner, and no experience needed.
+          - link "Try Brazil Fit" [ref=e59] [cursor=pointer]:
+            - /url: /brazil-fit
+        - generic [ref=e60]:
+          - heading "Private Groups" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Planning a team activity, hens party, birthday, or community event? Private samba workshops can be shaped around your group.
+          - link "Plan a workshop" [ref=e63] [cursor=pointer]:
+            - /url: /private-samba-workshops-perth
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - heading "Your first class" [level=2] [ref=e72]: Your first class
+        - paragraph [ref=e74]: A clear class flow helps first-timers know what will happen before they walk in.
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e78]: "1"
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: Step 1
+            - paragraph [ref=e81]: Arrive a few minutes early, settle in, and ask any first-class questions.
+        - generic [ref=e82]:
+          - generic [ref=e84]: "2"
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: Step 2
+            - paragraph [ref=e87]: Warm up with simple rhythm, posture, and coordination work.
+        - generic [ref=e88]:
+          - generic [ref=e90]: "3"
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: Step 3
+            - paragraph [ref=e93]: Learn the samba no pe basic step with clear timing and repetition.
+        - generic [ref=e94]:
+          - generic [ref=e96]: "4"
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: Step 4
+            - paragraph [ref=e99]: Add hips, arms, direction changes, and beginner-friendly styling options.
+        - generic [ref=e100]:
+          - generic [ref=e102]: "5"
+          - generic [ref=e103]:
+            - paragraph [ref=e104]: Step 5
+            - paragraph [ref=e105]: Finish with a short routine or movement phrase that ties the class together.
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - heading "Weekly schedule" [level=2] [ref=e109]: Weekly schedule
+        - paragraph [ref=e111]: All current classes at a glance. See below for full term details and booking links.
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - paragraph [ref=e116]: Tuesday
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - paragraph [ref=e119]: Samba no Pé – Beginners
+              - paragraph [ref=e120]: 7:00pm - 8:00pm
+            - generic [ref=e121]:
+              - generic [ref=e122]: Beginner
+              - generic [ref=e123]: Balcatta
+            - generic [ref=e124]:
+              - paragraph [ref=e125]: "Dates: 3rd June 2026 - 24th June 2026"
+              - paragraph [ref=e126]: "Price: $88"
+            - link "Book now" [ref=e127] [cursor=pointer]:
+              - /url: https://square.link/u/f5mi66pX?src=sheet
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - paragraph [ref=e130]: Samba no Pé – Intermediate
+              - paragraph [ref=e131]: 7:30pm - 8:30pm
+            - generic [ref=e132]:
+              - generic [ref=e133]: Intermediate
+              - generic [ref=e134]: Balcatta
+            - generic [ref=e135]:
+              - paragraph [ref=e136]: "Dates: 3rd June 2026 - 24th June 2026"
+              - paragraph [ref=e137]: "Price: $88"
+            - link "Book now" [ref=e138] [cursor=pointer]:
+              - /url: https://square.link/u/1DlOZlSe?src=sheet
+        - generic [ref=e139]:
+          - paragraph [ref=e141]: Casual
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - paragraph [ref=e144]: Samba no Pé – Casual Class
+              - paragraph [ref=e145]: Flexible
+            - generic [ref=e147]: Casual
+            - paragraph [ref=e149]: "Price: $25"
+            - link "Book now" [ref=e150] [cursor=pointer]:
+              - /url: https://square.link/u/i9DNtnt3?src=sheet
+        - generic [ref=e151]:
+          - paragraph [ref=e153]: One-off
+          - generic [ref=e154]:
+            - generic [ref=e155]:
+              - paragraph [ref=e156]: Funk
+              - paragraph [ref=e157]: 7:00pm - 8:00pm
+            - generic [ref=e158]:
+              - generic [ref=e159]: Funk
+              - generic [ref=e160]: 5/5 Cressall Road, Balcatta
+            - generic [ref=e161]:
+              - paragraph [ref=e162]: "Dates: One-off class"
+              - paragraph [ref=e163]: "Price: $15"
+            - link "Book now" [ref=e164] [cursor=pointer]:
+              - /url: https://square.link/u/5WpAPM1I?src=sheet
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - heading "Class times and bookings" [level=2] [ref=e168]: Class times and bookings
+        - paragraph [ref=e170]: Current term and casual options are listed below. Dates, prices, and booking links should be checked before you book.
+      - generic [ref=e171]:
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - heading "Samba no Pé – Beginners" [level=3] [ref=e176]
+            - generic [ref=e177]: Beginner
+          - generic [ref=e178]:
+            - paragraph [ref=e179]: Perfect for absolute beginners.
+            - paragraph [ref=e180]: Step into the vibrant world of Brazilian samba with a course designed especially for those starting their journey. You’ll learn the samba basic step, build confidence in your movement, and develop rhythm and coordination in a fun, supportive environment.
+            - paragraph [ref=e181]: "Class structure:"
+            - paragraph [ref=e182]:
+              - strong [ref=e183]: First 30min
+              - text: (7:00–7:30pm) A beginner-focused session covering samba basics, technique, and simple steps, with plenty of guidance and individual feedback.
+            - paragraph [ref=e184]:
+              - strong [ref=e185]: Second 30min
+              - text: (7:30–8:00pm) Join our intermediate dancers for a fun, high-energy choreography session. This section is designed to be beginner-friendly, with options to suit all levels - helping you build confidence, coordination, and enjoy the full samba vibe.
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - img [ref=e188]
+              - generic [ref=e190]: "Dates: 3rd June 2026 - 24th June 2026"
+            - generic [ref=e191]:
+              - img [ref=e192]
+              - generic [ref=e194]: "Time: 7:00pm - 8:00pm"
+            - generic [ref=e195]:
+              - img [ref=e196]
+              - generic [ref=e199]: "Location: Balcatta"
+            - generic [ref=e200]:
+              - img [ref=e201]
+              - generic [ref=e203]: "Price: $88"
+          - link "Book Now" [ref=e204] [cursor=pointer]:
+            - /url: https://square.link/u/f5mi66pX?src=sheet
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - heading "Samba no Pé – Intermediate" [level=3] [ref=e209]
+            - generic [ref=e210]: Intermediate
+          - generic [ref=e211]:
+            - paragraph [ref=e212]: For dancers with some samba experience.
+            - paragraph [ref=e213]: Ready to level up? This class is designed for dancers who already know the samba basic and want to refine technique, build stamina, and take on more challenging choreography.
+            - paragraph [ref=e214]: "Class structure:"
+            - paragraph [ref=e215]:
+              - strong [ref=e216]: First 30min
+              - text: (7:30–8:00pm) Begin with a shared, high-energy choreography session alongside the beginner group. This section focuses on coordination, musicality, arm styling, and endurance through a dynamic routine, helping you build performance quality.
+            - paragraph [ref=e217]:
+              - strong [ref=e218]: Second 30min
+              - text: (8:00–8:30pm) A dedicated intermediate session with more focused technique work, drills, and skill development to help you clean your movement and progress with confidence.
+            - paragraph [ref=e219]: Expect a challenge, plenty of growth, and lots of samba energy.
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - img [ref=e222]
+              - generic [ref=e224]: "Dates: 3rd June 2026 - 24th June 2026"
+            - generic [ref=e225]:
+              - img [ref=e226]
+              - generic [ref=e228]: "Time: 7:30pm - 8:30pm"
+            - generic [ref=e229]:
+              - img [ref=e230]
+              - generic [ref=e233]: "Location: Balcatta"
+            - generic [ref=e234]:
+              - img [ref=e235]
+              - generic [ref=e237]: "Price: $88"
+          - link "Book Now" [ref=e238] [cursor=pointer]:
+            - /url: https://square.link/u/1DlOZlSe?src=sheet
+        - generic [ref=e241]:
+          - generic [ref=e242]:
+            - heading "Samba no Pé – Casual Class" [level=3] [ref=e243]
+            - generic [ref=e244]: Casual
+          - paragraph [ref=e246]: Can’t make the full term but still want to join here and there? No problem. Jump into class whenever it suits you.
+          - generic [ref=e247]: "Price: $25"
+          - link "Book Now" [ref=e248] [cursor=pointer]:
+            - /url: https://square.link/u/i9DNtnt3?src=sheet
+        - generic [ref=e251]:
+          - generic [ref=e252]:
+            - heading "Funk" [level=3] [ref=e253]
+            - generic [ref=e254]: Funk
+          - generic [ref=e255]:
+            - paragraph [ref=e256]: Get ready for a fun, high-energy Brazilian Funk class at Dance Bloc Brazil! This special one-off class is open to everyone; whether you've danced Brazilian Funk before or you're trying it for the very first time.
+            - paragraph [ref=e257]: Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll learn exciting choreography in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.
+            - paragraph [ref=e258]: No prior Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.
+          - generic [ref=e259]:
+            - generic [ref=e260]:
+              - img [ref=e261]
+              - generic [ref=e263]: "Dates: One-off class"
+            - generic [ref=e264]:
+              - img [ref=e265]
+              - generic [ref=e267]: "Time: 7:00pm - 8:00pm"
+            - generic [ref=e268]:
+              - img [ref=e269]
+              - generic [ref=e272]: "Location: 5/5 Cressall Road, Balcatta"
+            - generic [ref=e273]:
+              - img [ref=e274]
+              - generic [ref=e276]: "Price: $15"
+          - link "Book Now" [ref=e277] [cursor=pointer]:
+            - /url: https://square.link/u/5WpAPM1I?src=sheet
+    - generic [ref=e279]:
+      - generic [ref=e280]:
+        - heading "What to expect" [level=2] [ref=e281]: What to expect
+        - paragraph [ref=e283]: A practical, welcoming class focused on rhythm, movement, coordination, and confidence.
+      - generic [ref=e284]:
+        - generic [ref=e285]:
+          - heading "In class" [level=3] [ref=e286]
+          - list [ref=e287]:
+            - listitem [ref=e288]: Samba no pe basics and rhythm work
+            - listitem [ref=e289]: Technique drills for feet, hips, posture, and arms
+            - listitem [ref=e290]: Beginner-friendly choreography options
+            - listitem [ref=e291]: Clear level guidance so you know where to start
+        - generic [ref=e292]:
+          - heading "What to bring" [level=3] [ref=e293]
+          - list [ref=e294]:
+            - listitem [ref=e295]: Comfortable clothes for movement
+            - listitem [ref=e296]: Sneakers or dance shoes with non-marking soles
+            - listitem [ref=e297]: Water bottle
+            - listitem [ref=e298]: A willingness to start where you are
+    - generic [ref=e300]:
+      - generic [ref=e301]:
+        - heading "Progression path" [level=2] [ref=e302]: Progression path
+        - paragraph [ref=e304]: You can stay in classes for fitness and confidence, or use the training as a pathway into stronger technique and performance energy.
+      - generic [ref=e305]:
+        - generic [ref=e306]:
+          - heading "Beginner foundation" [level=3] [ref=e307]
+          - paragraph [ref=e308]: Build the basic step, timing, balance, and confidence to keep moving.
+        - generic [ref=e309]:
+          - heading "Coordination" [level=3] [ref=e310]
+          - paragraph [ref=e311]: Layer arms, hips, direction changes, and simple choreography without rushing.
+        - generic [ref=e312]:
+          - heading "Intermediate training" [level=3] [ref=e313]
+          - paragraph [ref=e314]: Refine technique, stamina, musicality, and performance quality.
+    - generic [ref=e316]:
+      - generic [ref=e317]:
+        - heading "Samba class FAQs" [level=2] [ref=e318]: Samba class FAQs
+        - paragraph [ref=e320]: Answers for first-timers and returning dancers.
+      - generic [ref=e321]:
+        - button "Do I need dance experience? No. Beginner samba classes are built for people starting from the basics, and the casual option gives you a flexible way to join when available." [ref=e322] [cursor=pointer]:
+          - button "Do I need dance experience?" [ref=e323]:
+            - generic [ref=e324]: Do I need dance experience?
+          - paragraph [ref=e325]: No. Beginner samba classes are built for people starting from the basics, and the casual option gives you a flexible way to join when available.
+        - button "Do I need a partner? No partner is needed. Samba no pe is a solo Brazilian samba style, so classes focus on individual movement, rhythm, and technique." [ref=e327] [cursor=pointer]:
+          - button "Do I need a partner?" [ref=e328]:
+            - generic [ref=e329]: Do I need a partner?
+          - paragraph [ref=e330]: No partner is needed. Samba no pe is a solo Brazilian samba style, so classes focus on individual movement, rhythm, and technique.
+        - button "What should I wear? Wear comfortable clothing you can move in, plus sneakers or dance shoes with non-marking soles. Bring water." [ref=e332] [cursor=pointer]:
+          - button "What should I wear?" [ref=e333]:
+            - generic [ref=e334]: What should I wear?
+          - paragraph [ref=e335]: Wear comfortable clothing you can move in, plus sneakers or dance shoes with non-marking soles. Bring water.
+        - button "Can I join casually? Casual classes are listed when available. If you want steady progress, a full term is the best option." [ref=e337] [cursor=pointer]:
+          - button "Can I join casually?" [ref=e338]:
+            - generic [ref=e339]: Can I join casually?
+          - paragraph [ref=e340]: Casual classes are listed when available. If you want steady progress, a full term is the best option.
+    - generic [ref=e343]:
+      - generic [ref=e344]:
+        - heading "Want a class for your group?" [level=2] [ref=e345]: Want a class for your group?
+        - paragraph [ref=e347]: Private samba workshops are available for teams, parties, community groups, and event programs.
+      - link "Instant Quote Estimate" [ref=e348] [cursor=pointer]:
+        - /url: /private-samba-workshops-perth
+  - contentinfo [ref=e349]:
+    - generic [ref=e350]:
+      - generic [ref=e351]:
+        - generic [ref=e352]:
+          - paragraph [ref=e353]: Brazilian samba classes, event entertainment, workshops, and costume hire in Perth.
+          - paragraph [ref=e354]: "Email: info@danceblocbrazil.com"
+          - img "Dance Bloc Brazil Logo" [ref=e356]
+        - generic [ref=e357]:
+          - generic [ref=e358]:
+            - link "Instagram" [ref=e359] [cursor=pointer]:
+              - /url: https://instagram.com/DanceBlocBrazil
+              - img [ref=e360]
+            - link "Facebook" [ref=e368] [cursor=pointer]:
+              - /url: https://facebook.com/DanceBlocBrazil
+              - img [ref=e369]
+            - link "TikTok" [ref=e375] [cursor=pointer]:
+              - /url: https://tiktok.com/@danceblocbrazil
+              - img [ref=e376]
+          - list [ref=e384]:
+            - listitem [ref=e385]:
+              - link "Home" [ref=e386] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e387]:
+              - link "About" [ref=e388] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e389]:
+              - link "Classes" [ref=e390] [cursor=pointer]:
+                - /url: /samba-classes-perth
+            - listitem [ref=e391]:
+              - link "Show for Hire" [ref=e392] [cursor=pointer]:
+                - /url: /book-a-samba-show-perth
+            - listitem [ref=e393]:
+              - link "Costume Hire" [ref=e394] [cursor=pointer]:
+                - /url: /samba-costume-hire-perth
+            - listitem [ref=e395]:
+              - link "Workshops" [ref=e396] [cursor=pointer]:
+                - /url: /private-samba-workshops-perth
+      - generic [ref=e397]:
+        - paragraph [ref=e398]: © 2026 Dance Bloc Brazil. All rights reserved. | Brazilian samba in Perth.
+        - paragraph [ref=e399]:
+          - link "Created by Edgeify Digital" [ref=e400] [cursor=pointer]:
+            - /url: https://edgeify.com.au
+            - text: Created by
+            - generic [ref=e401]: Edgeify Digital
+  - generic [ref=e404]:
+    - button "Menu" [ref=e405]:
+      - img [ref=e407]
+      - generic: Menu
+    - button "Inspect" [ref=e411]:
+      - img [ref=e413]
+      - generic: Inspect
+    - button "Audit" [ref=e415]:
+      - img [ref=e417]
+      - generic: Audit
+    - button "Settings" [ref=e420]:
+      - img [ref=e422]
+      - generic: Settings

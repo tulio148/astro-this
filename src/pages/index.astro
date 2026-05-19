@@ -450,10 +450,10 @@ const getTermSummary = (description: string) =>
         {
           journeySteps.map((step, index) => (
             <div
-              class={`motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
+              class={`journey-step-card motion-card reveal-on-scroll relative min-h-[250px] overflow-hidden rounded-xl border bg-white p-6 shadow-[0_18px_45px_rgba(158,0,150,0.08)] ${index % 2 === 0 ? "db-border-alt-a" : "db-border-alt-b"}`}
               style={`--card-lift-delay: ${index * 420}ms`}
             >
-              <div class="absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
+              <div class="journey-step-decoration absolute left-6 right-6 top-10 h-2 rounded-full bg-db-green/18" />
               <div class="timeline-pulse relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-db-pink text-xl font-black text-white shadow-[0_12px_30px_rgba(158,0,150,0.22)]">
                 {index + 1}
               </div>

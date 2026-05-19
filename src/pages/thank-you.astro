@@ -9,7 +9,7 @@ const title = "Thank You";
 const description =
   "Thank you for contacting Dance Bloc Brazil. We'll get back to you soon!";
 const image = cartoonDancerDouble.src;
-const url = "https://danceblocbrazil.com/thank-you";
+const url = "/thank-you";
 ---
 
 <Layout title={title} description={description} image={image} url={url} noindex>
@@ -48,4 +48,11 @@ const url = "https://danceblocbrazil.com/thank-you";
       </div>
     </SectionContainer>
   </main>
+  <script>
+    import { pushEvent } from "../lib/analytics";
+
+    document.addEventListener("astro:page-load", () => {
+      pushEvent("generate_lead", { source: "contact_form" });
+    });
+  </script>
 </Layout>

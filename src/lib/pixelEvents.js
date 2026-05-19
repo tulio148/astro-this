@@ -1,5 +1,8 @@
 /**
- * Facebook Pixel tracking utilities
+ * Legacy click tracking utilities (data-track / data-track-params).
+ *
+ * NOTE: The site now uses GTM via `window.dataLayer`. This module is kept for
+ * backwards compatibility with existing imports. Prefer `src/lib/analytics.ts`.
  */
 
 /**
@@ -8,10 +11,9 @@
  * @param {Object} params - Optional parameters to include with the event
  */
 export function trackButtonClick(eventName, params = {}) {
-  if (typeof fbq !== "undefined") {
-    fbq("track", eventName, params);
-  } else {
-    console.warn("Facebook Pixel not loaded");
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...params });
   }
 }
 
@@ -35,7 +37,7 @@ export function initClickTracking() {
         }
       }
 
-      trackButtonClick(eventName, params);
+      if (eventName) trackButtonClick(eventName, params);
     });
   });
 }

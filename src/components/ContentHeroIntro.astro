@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+  headlineScale?: "xl" | "hero";
+}
+
+const {
+  title,
+  subtitle,
+  class: className = "",
+  headlineScale = "hero",
+} = Astro.props;
+---
+
+<div class:list={["content-hero-intro section-intro", className]}>
+  <h1
+    class:list={[
+      "font-black leading-[0.9] text-db-pink text-balance tracking-[-0.01em] drop-shadow-[0_10px_18px_rgba(158,0,150,0.16)]",
+      headlineScale === "hero"
+        ? "text-5xl md:text-7xl lg:text-8xl"
+        : "text-4xl md:text-6xl lg:text-7xl",
+    ]}
+  >
+    {title}
+  </h1>
+  <span class="mt-3 block h-0.5 w-full max-w-4xl rounded-full bg-gradient-to-r from-db-green/90 via-db-pink/40 to-db-green/90"></span>
+  {
+    subtitle && (
+      <p class="mt-6 max-w-5xl text-lg md:text-xl leading-relaxed text-slate-600/90 tracking-wide">
+        {subtitle}
+      </p>
+    )
+  }
+</div>

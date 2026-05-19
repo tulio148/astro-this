@@ -4,33 +4,62 @@ interface Props {
   subtitle?: string;
   class?: string;
   align?: "left" | "center";
+  variant?: "default" | "editorial" | "compact";
+  ruleStyle?: "accent" | "soft" | "none";
+  maxWidth?: string;
+  headlineScale?: "xl" | "hero";
 }
 
-const { title, subtitle, class: className, align = "left" } = Astro.props;
+const {
+  title,
+  subtitle,
+  class: className,
+  align = "left",
+  variant = "editorial",
+  ruleStyle = "accent",
+  maxWidth = "max-w-5xl",
+  headlineScale = "xl",
+} = Astro.props;
 const alignment =
   align === "center"
     ? "mx-auto text-center items-center"
     : "text-left items-start";
+const titleClass = {
+  default:
+    "relative py-2 font-black leading-[0.92] text-db-pink text-balance drop-shadow-[0_10px_18px_rgba(158,0,150,0.16)]",
+  editorial:
+    "relative py-2 font-black leading-[0.92] text-db-pink text-balance drop-shadow-[0_10px_18px_rgba(158,0,150,0.16)] tracking-[-0.01em]",
+  compact:
+    "relative py-1.5 font-black leading-[0.95] text-db-pink text-balance tracking-[-0.01em]",
+}[variant];
+const scaleClass =
+  headlineScale === "hero" ? "text-5xl md:text-7xl lg:text-8xl" : "text-5xl md:text-7xl";
+const subtitleClass =
+  variant === "compact"
+    ? "text-base md:text-lg leading-relaxed text-slate-600/90 text-balance tracking-wide"
+    : "text-lg md:text-xl leading-relaxed text-slate-600/90 text-balance tracking-wide";
+const ruleClass = {
+  accent:
+    "absolute -z-50 bottom-3 sm:bottom-4 left-0 h-0.5 w-full rounded-full bg-gradient-to-r from-db-green/90 via-db-pink/40 to-db-green/90 shadow-[0_4px_16px_rgba(0,204,129,0.4),0_4px_16px_rgba(158,0,150,0.3)]",
+  soft: "absolute -z-50 bottom-3 sm:bottom-4 left-0 h-0.5 w-full rounded-full bg-db-green/50",
+  none: "hidden",
+}[ruleStyle];
 ---
 
 <div
   class:list={[
-    "section-title flex max-w-5xl flex-col gap-4",
+    `section-title flex ${maxWidth} flex-col gap-4`,
     alignment,
     className,
   ]}
 >
-  <h2
-    class="relative py-2 text-5xl md:text-7xl font-black leading-[0.92] text-db-pink drop-shadow-[0_10px_18px_rgba(158,0,150,0.16)] text-balance"
-  >
+  <h2 class:list={[titleClass, scaleClass]}>
     {title}
-    <span
-      class="absolute -z-50 bottom-3 sm:bottom-4 left-0 h-0.5 w-full rounded-full bg-gradient-to-r from-db-green/90 via-db-pink/40 to-db-green/90 shadow-[0_4px_16px_rgba(0,204,129,0.4),0_4px_16px_rgba(158,0,150,0.3)]"
-    ></span>
+    <span class={ruleClass}></span>
   </h2>
   {
     subtitle && (
-      <p class="max-w-5xl text-lg md:text-xl leading-relaxed text-slate-600/90 text-balance tracking-wide">
+      <p class:list={[maxWidth, subtitleClass]}>
         {subtitle}
       </p>
     )
