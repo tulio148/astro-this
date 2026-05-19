@@ -22,10 +22,10 @@ const formats = ["Feature samba show", "Roving arrival energy", "Interactive gue
     <SectionTitle title="Private celebrations with a clear highlight" subtitle="Samba can be shaped for intimate rooms, family celebrations, and larger private functions." class="section-intro" />
     <div class="grid grid-cols-2 gap-3 md:grid-cols-3">{occasions.map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-5 text-center font-black text-db-pink">{item}</div>)}</div>
   </SectionContainer>
-  <SectionContainer class="bg-slate-950 text-white">
+  <SectionContainer tone="dark-band">
     <SectionTitle title="Flexible format options" class="section-intro [&_h2]:text-white" />
     <div class="grid grid-cols-1 gap-5 md:grid-cols-4">{formats.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-6 text-lg font-black text-db-green">{item}</div>)}</div>
   </SectionContainer>
-  <SectionContainer class="bg-db-light-pink/5"><SectionTitle title="Venue flexibility" subtitle="Home marquee, restaurant private dining, function room, outdoor area, or cultural venue - send the details and we will confirm what works." /></SectionContainer>
+  <SectionContainer tone="tint"><SectionTitle title="Venue flexibility" subtitle="Home marquee, restaurant private dining, function room, outdoor area, or cultural venue - send the details and we will confirm what works." /></SectionContainer>
   <SectionContainer spacing="footer-offset" id="private-enquiry"><ContactForm title="Private Event Enquiry" subtitle="Include the date, suburb, event type, venue style, guest numbers, and the kind of samba moment you want." subject="Private Event Enquiry" /></SectionContainer>
 </Layout>

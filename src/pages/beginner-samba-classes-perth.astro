@@ -4,7 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
-import FAQItem from "../components/FAQItem.astro";
+import ContentHeroIntro from "../components/ContentHeroIntro.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { terms } from "../data/terms";
 import { faqSchema, serviceSchema } from "../lib/schema";
@@ -59,10 +60,10 @@ const structuredData = [
   structuredData={structuredData}
 >
   <SectionContainer>
-    <SectionTitle
+    <ContentHeroIntro
       title="Beginner Samba Classes in Perth"
       subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
-      class="section-intro"
+      headlineScale="xl"
     />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
@@ -102,7 +103,7 @@ const structuredData = [
     />
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Before you arrive"
       subtitle="Simple preparation is enough."
@@ -133,21 +134,7 @@ const structuredData = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Beginner FAQs"
-      subtitle="Common questions before starting samba."
-      class="section-intro"
-    />
-
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
+  <ContentFAQSection title="Beginner FAQs" faqs={faqs} />
 
   <SectionContainer spacing="footer-offset">
     <SectionTitle

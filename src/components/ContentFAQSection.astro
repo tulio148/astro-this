@@ -10,16 +10,17 @@ interface FAQ {
 
 interface Props {
   title: string;
+  subtitle?: string;
   faqs: FAQ[];
   id?: string;
   tone?: "light" | "dark-band" | "tint";
 }
 
-const { title, faqs = [], id, tone = "light" } = Astro.props;
+const { title, subtitle, faqs = [], id, tone = "light" } = Astro.props;
 ---
 
 <SectionContainer id={id} tone={tone}>
-  <SectionTitle title={title} class="section-intro" />
+  <SectionTitle title={title} subtitle={subtitle} class="section-intro" />
   <div class="mx-auto max-w-5xl">
     {faqs.map((faq) => <FAQItem question={faq.question} answer={faq.answer} />)}
   </div>

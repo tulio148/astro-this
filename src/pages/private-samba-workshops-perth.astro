@@ -3,8 +3,8 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
+import ContentEnquirySection from "../components/ContentEnquirySection.astro";
 import Hero from "../components/Hero.astro";
 import { Picture } from "astro:assets";
 import danceclassHero from "../images/danceclassHero.avif";
@@ -149,7 +149,7 @@ const workshopTypes = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-green/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Good fit for"
       subtitle="Workshops can be shaped for group confidence, timing, venue, and event purpose."
@@ -170,7 +170,7 @@ const workshopTypes = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Workshop details to plan"
       subtitle="The best quote comes from clear group and venue information."
@@ -200,35 +200,17 @@ const workshopTypes = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Workshop FAQs"
-      subtitle="Answers for organisers before enquiring."
-      class="section-intro"
-    />
+  <ContentFAQSection
+    title="Workshop FAQs"
+    faqs={faqs}
+  />
 
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer spacing="footer-offset" id="workshop-enquiry">
-    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
-      <div>
-        <SectionTitle
-          title="Instant Quote Estimate"
-          subtitle="Tell us about the group, date, venue, and the kind of workshop experience you want."
-        />
-      </div>
-
-      <ContactForm
-        title="Workshop Inquiry"
-        subtitle="Include the group size, suburb, venue type, date, and preferred workshop length."
-      />
-    </div>
-  </SectionContainer>
+  <ContentEnquirySection
+    id="workshop-enquiry"
+    title="Instant Quote Estimate"
+    subtitle="Tell us about the group, date, venue, and the kind of workshop experience you want."
+    formTitle="Workshop Inquiry"
+    formSubtitle="Include the group size, suburb, venue type, date, and preferred workshop length."
+    formSubject="Workshop Inquiry"
+  />
 </Layout>

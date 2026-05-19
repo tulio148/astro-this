@@ -5,7 +5,7 @@ import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TermCard from "../components/TermCard.astro";
 import ClassScheduleGrid from "../components/ClassScheduleGrid.astro";
-import FAQItem from "../components/FAQItem.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
 import Hero from "../components/Hero.astro";
 import classesHero from "../images/classesHero.webp";
 import classesVideo from "../videos/classes-video.mp4";
@@ -198,7 +198,7 @@ const progressionSteps = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-green/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Your first class"
       subtitle="A clear class flow helps first-timers know what will happen before they walk in."
@@ -269,7 +269,7 @@ const progressionSteps = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="What to expect"
       subtitle="A practical, welcoming class focused on rhythm, movement, coordination, and confidence."
@@ -325,21 +325,11 @@ const progressionSteps = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Samba class FAQs"
-      subtitle="Answers for first-timers and returning dancers."
-      class="section-intro"
-    />
-
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
+  <ContentFAQSection
+    title="Samba class FAQs"
+    subtitle="Answers for first-timers and returning dancers."
+    faqs={faqs}
+  />
 
   <SectionContainer spacing="footer-offset">
     <SectionTitle

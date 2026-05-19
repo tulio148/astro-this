@@ -4,8 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import MediaPlaceholder from "../components/MediaPlaceholder.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
+import ContentEnquirySection from "../components/ContentEnquirySection.astro";
 import Hero from "../components/Hero.astro";
 import showForHireHero from "../images/showhero.avif";
 import { faqSchema, localBusinessSchema, serviceSchema } from "../lib/schema";
@@ -155,7 +155,7 @@ const structuredData = [
     />
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Package pathways"
       subtitle="The exact booking is scoped after your event details are known."
@@ -181,35 +181,18 @@ const structuredData = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Planner FAQs"
-      subtitle="Details that help make the booking practical."
-      class="section-intro"
-    />
+  <ContentFAQSection
+    title="Planner FAQs"
+    subtitle="Details that help make the booking practical."
+    faqs={faqs}
+  />
 
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer spacing="footer-offset" id="event-enquiry">
-    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
-      <div>
-        <SectionTitle
-          title="Plan Your Event Entertainment"
-          subtitle="Share your date, venue, guest numbers, run-sheet timing, and preferred samba entertainment style."
-        />
-      </div>
-
-      <ContactForm
-        title="Wedding or Corporate Inquiry"
-        subtitle="Tell us about the event type, date, venue, guest numbers, and whether you want dancers only or optional music/drumming."
-      />
-    </div>
-  </SectionContainer>
+  <ContentEnquirySection
+    id="event-enquiry"
+    title="Plan Your Event Entertainment"
+    subtitle="Share your date, venue, guest numbers, run-sheet timing, and preferred samba entertainment style."
+    formTitle="Wedding or Corporate Inquiry"
+    formSubtitle="Tell us about the event type, date, venue, guest numbers, and whether you want dancers only or optional music/drumming."
+    formSubject="Wedding or Corporate Inquiry"
+  />
 </Layout>

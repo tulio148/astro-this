@@ -3,8 +3,8 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
+import ContentEnquirySection from "../components/ContentEnquirySection.astro";
 import Hero from "../components/Hero.astro";
 import CostumeCard from "../components/CostumeCard.astro";
 import { Picture } from "astro:assets";
@@ -152,7 +152,7 @@ const hirePaths = [
     />
   </SectionContainer>
 
-  <SectionContainer class="bg-db-green/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Costume detail guide"
       subtitle="The collection shows the style; the hire conversation confirms the exact pieces, fit, and condition."
@@ -170,7 +170,7 @@ const hirePaths = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Choose your hire path"
       subtitle="Start with the context that best matches your booking."
@@ -220,7 +220,7 @@ const hirePaths = [
     }
   </div>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Hire information"
       subtitle="The exact inclusions and terms are confirmed before booking."
@@ -299,42 +299,18 @@ const hirePaths = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Costume hire FAQs"
-      subtitle="Key details before you enquire."
-      class="section-intro"
-    />
+  <ContentFAQSection
+    title="Costume hire FAQs"
+    subtitle="Key details before you enquire."
+    faqs={faqs}
+  />
 
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer spacing="footer-offset" id="book-costume">
-    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
-      <div>
-        <SectionTitle
-          title="Check Costume Availability"
-          subtitle="Tell us which costume you like, your event date, hire duration, and any fit or styling questions."
-        />
-
-        <ul class="mt-8 space-y-3 text-lg text-slate-600">
-          <li>Costume name or colour/style preference</li>
-          <li>Date and duration of hire</li>
-          <li>Your event, photoshoot, or performance details</li>
-          <li>Any optional styling, hair, or makeup questions</li>
-        </ul>
-      </div>
-
-      <ContactForm
-        title="Costume Hire Inquiry"
-        subtitle="Share the costume name, date, sizing details, and any optional add-ons you want to discuss."
-      />
-    </div>
-  </SectionContainer>
+  <ContentEnquirySection
+    id="book-costume"
+    title="Check Costume Availability"
+    subtitle="Tell us which costume you like, your event date, hire duration, and any fit or styling questions."
+    formTitle="Costume Hire Inquiry"
+    formSubtitle="Share the costume name, date, sizing details, and any optional add-ons you want to discuss."
+    formSubject="Costume Hire Inquiry"
+  />
 </Layout>

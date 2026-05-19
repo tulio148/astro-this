@@ -4,8 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Hero from "../components/Hero.astro";
-import FAQItem from "../components/FAQItem.astro";
-import ContactForm from "../components/ContactForm.astro";
+import ContentFAQSection from "../components/ContentFAQSection.astro";
+import ContentEnquirySection from "../components/ContentEnquirySection.astro";
 import RecentEventsStrip from "../components/RecentEventsStrip.astro";
 import { Picture } from "astro:assets";
 import showForHireHero from "../images/showhero.avif";
@@ -202,7 +202,7 @@ const eventTypeCards = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-slate-950 text-white">
+  <SectionContainer tone="dark-band">
     <RecentEventsStrip events={recentEvents} title="Recent events" />
   </SectionContainer>
 
@@ -248,7 +248,7 @@ const eventTypeCards = [
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle
       title="Event types"
       subtitle="Choose the format that fits your audience, venue, and timing."
@@ -307,46 +307,18 @@ const eventTypeCards = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <SectionTitle
-      title="Show hire FAQs"
-      subtitle="Useful answers before requesting a quote."
-      class="section-intro"
-    />
+  <ContentFAQSection
+    title="Show hire FAQs"
+    subtitle="Useful answers before requesting a quote."
+    faqs={faqs}
+  />
 
-    <div class="max-w-5xl mx-auto">
-      {
-        faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer spacing="footer-offset" id="show-enquiry">
-    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide">
-      <div>
-        <SectionTitle
-          title="Instant Quote Estimate"
-          subtitle="Tell us about your event, date, venue, audience, and the kind of samba entertainment you have in mind."
-        />
-
-        <ol class="mt-8 space-y-3 text-lg text-slate-600 list-decimal pl-5">
-          <li>Send your event details through the enquiry form.</li>
-          <li>
-            We discuss timing, format, dancers, music options, and costumes.
-          </li>
-          <li>You receive a quote shaped around your event requirements.</li>
-          <li>
-            Your booking is confirmed once details and deposit are finalised.
-          </li>
-        </ol>
-      </div>
-
-      <ContactForm
-        title="Event Inquiry"
-        subtitle="Share the date, venue, guest numbers, and whether you are interested in dancers only or dancers with live music/drumming."
-      />
-    </div>
-  </SectionContainer>
+  <ContentEnquirySection
+    id="show-enquiry"
+    title="Instant Quote Estimate"
+    subtitle="Tell us about your event, date, venue, audience, and the kind of samba entertainment you have in mind."
+    formTitle="Event Inquiry"
+    formSubtitle="Share the date, venue, guest numbers, and whether you are interested in dancers only or dancers with live music/drumming."
+    formSubject="Event Inquiry"
+  />
 </Layout>

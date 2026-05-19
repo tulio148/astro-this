@@ -36,7 +36,7 @@ const team = people.slice(1);
     </div>
   </SectionContainer>
 
-  <SectionContainer class="bg-db-light-pink/5">
+  <SectionContainer tone="tint">
     <SectionTitle title="Team and performers" subtitle="Lead performers, teachers, and collaborators will be added as people are confirmed." class="section-intro" />
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">{team.map((person)=><PersonCard person={person} />)}</div>
   </SectionContainer>
