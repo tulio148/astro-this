@@ -13,6 +13,11 @@ const title = "Brazil Fit Perth | Brazilian Funk Dance Fitness Classes";
 const description =
   "Brazil Fit is a high-energy Brazilian funk dance fitness class in Perth, inspired by baile funk, passinho footwork, hips, choreography, and club energy.";
 const url = "/brazil-fit";
+const brazilFitTerm = terms.find((term) => term.level === "Brazil Fit");
+const bookingUrl =
+  brazilFitTerm?.bookingLink ?? "/samba-classes-perth#class-times";
+const classPrice = brazilFitTerm?.price ?? "";
+const classLocation = brazilFitTerm?.location ?? "";
 const features = [
   {
     title: "Brazilian funk energy",
@@ -119,19 +124,6 @@ const structuredData = [
     ]}
     chips={["Baile funk energy", "Beginner-friendly choreography", "High-cardio movement"]}
   />
-
-    <TextHeroTop
-    pageTitle="Brazil Fit"
-    pageSubtitle="Brazilian funk dance fitness. Baile funk energy, choreography, hips, footwork, and sweat."
-    valueTitle="A workout that moves like a Brazilian funk party."
-    valueSubtitle="Built around music, choreography, and release - no exams, no partners."
-    paragraphs={[
-      "Expect baile funk tracks, strong grooves, hips, attitude, and short choreography blocks that keep the room moving.",
-      "Brazil Fit is high-energy but scalable, with lower-impact options available while keeping the class engaging and cardio-focused."
-    ]}
-    chips={["Baile funk energy", "Beginner-friendly choreography", "High-cardio movement"]}
-  />
-
   <SectionContainer tone="dark-band">
     <SectionTitle
       title="What Brazil Fit actually does to your body"
@@ -189,15 +181,31 @@ const structuredData = [
   <SectionContainer spacing="footer-offset" class="bg-db-green text-white">
     <SectionTitle
       title="Ready to move?"
-      subtitle="Check the current schedule and choose the class option that fits your week."
+      subtitle="Book your Brazil Fit class directly, or check all class options."
       class="section-intro [&_h2]:text-white [&_p]:text-white/85"
     />
-    <a
-      href="/samba-classes-perth#schedule"
-      class="inline-flex rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white"
-      data-track="BookClassClick"
-    >
-      See the Class Schedule
-    </a>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a
+        href={bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white"
+        data-track="BookClassClick"
+        data-track-params={JSON.stringify({
+          class_name: "Brazil Fit",
+          class_level: "Brazil Fit",
+          class_price: classPrice,
+          class_location: classLocation,
+        })}
+      >
+        Book Now
+      </a>
+      <a
+        href="/samba-classes-perth#class-times"
+        class="inline-flex rounded-full border border-white/80 bg-transparent px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-white hover:text-db-pink"
+      >
+        See All Class Times
+      </a>
+    </div>
   </SectionContainer>
 </Layout>

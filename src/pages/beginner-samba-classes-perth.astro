@@ -16,6 +16,8 @@ const url = "/beginner-samba-classes-perth";
 const beginnerTerm = terms.find((term) => term.level === "Beginner");
 const bookingUrl =
   beginnerTerm?.bookingLink ?? "/samba-classes-perth#class-times";
+const classPrice = beginnerTerm?.price ?? "";
+const classLocation = beginnerTerm?.location ?? "";
 
 const faqs = [
   {
@@ -113,13 +115,22 @@ const structuredData = [
     <div class="flex flex-wrap gap-4">
       <a
         href={bookingUrl}
-        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink"
+        data-track="BookClassClick"
+        data-track-params={JSON.stringify({
+          class_name: "Samba no Pé – Beginners",
+          class_level: "Beginner",
+          class_price: classPrice,
+          class_location: classLocation,
+        })}
       >
-        Book the Beginner Course
+        Book Now
       </a>
       <a
         href="/samba-classes-perth#class-times"
-        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink/80 font-bold py-3 px-8 rounded-lg transition-colors inline-block"
+        class="inline-flex rounded-full border border-db-pink/80 bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white"
       >
         See All Class Times
       </a>
