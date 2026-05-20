@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ClassScheduleGrid from "../components/ClassScheduleGrid.astro";
+import TermCard from "../components/TermCard.astro";
+import classesHero from "../images/classesHero.webp";
+import { terms } from "../data/terms";
+import { serviceSchema } from "../lib/schema";
+
+const title = "Timetable | Samba Classes Perth";
+const description =
+  "View the current Dance Bloc Brazil timetable with beginner, intermediate, casual, and Brazil Fit class times in Perth.";
+const url = "/timetable";
+
+const structuredData = [
+  serviceSchema({
+    name: "Dance Bloc Brazil class timetable",
+    description,
+    url,
+    image: classesHero.src,
+  }),
+];
+---
+
+<Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
+  <SectionContainer spacing="hero-offset">
+    <SectionTitle
+      title="Timetable"
+      subtitle="All current classes at a glance. See below for full details and booking links."
+      class="section-intro"
+    />
+    <ClassScheduleGrid
+      slots={terms.map((term) => ({
+        day: term.scheduleDay ?? "Current",
+        term,
+      }))}
+    />
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset">
+    <SectionTitle
+      title="Class Times and Bookings"
+      subtitle="Current term and casual options are listed below. Check details before booking."
+      class="section-intro"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base">
+      {
+        terms.map((term) => (
+          <TermCard
+            name={term.name}
+            level={term.level}
+            dateBegin={term.dateBegin}
+            dateEnd={term.dateEnd}
+            dateLabel={term.dateLabel}
+            time={term.time}
+            location={term.location}
+            price={term.price}
+            bookingLink={term.bookingLink}
+            learnMoreLink={term.detailPage}
+            description={term.description}
+            showDetails={term.showDetails}
+          />
+        ))
+      }
+    </div>
+  </SectionContainer>
+</Layout>

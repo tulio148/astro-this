@@ -67,7 +67,7 @@ const NAV_LINKS: NavLink[] = [
     name: "Classes",
     path: "/samba-classes-perth",
     children: [
-      { name: "Timetable", path: "/samba-classes-perth#schedule" },
+      { name: "Timetable", path: "/timetable" },
       { name: "Beginner Samba", path: "/beginner-samba-classes-perth" },
       { name: "Intermediate Samba", path: "/intermediate-samba-classes-perth" },
       { name: "Brazil Fit", path: "/brazil-fit" },

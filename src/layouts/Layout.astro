@@ -9,7 +9,6 @@ import {
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Navigation from "../components/Navigation.astro";
-import NonHeroTopAccent from "../components/NonHeroTopAccent.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
@@ -134,7 +133,6 @@ const socialImage = absoluteUrl(image);
       )}
     </noscript>
     <Navigation hasHero={hasHero} />
-    {!hasHero && <NonHeroTopAccent />}
 
     <main class="pt-0">
       <slot />
@@ -180,18 +178,6 @@ const socialImage = absoluteUrl(image);
         initClickTracking();
         pushPageView();
         if (pageEvent) pushEvent(pageEvent);
-
-        if (window.location.hash) {
-          requestAnimationFrame(() => {
-            const hashId = decodeURIComponent(window.location.hash.slice(1));
-            const target =
-              document.getElementById(hashId) ||
-              document.querySelector(window.location.hash);
-            if (target instanceof HTMLElement) {
-              target.scrollIntoView({ block: "start" });
-            }
-          });
-        }
       });
 
       let lastTrackedPath = "";
@@ -204,17 +190,6 @@ const socialImage = absoluteUrl(image);
 
       document.addEventListener("astro:after-swap", () => {
         trackSpaNav();
-        if (window.location.hash) {
-          requestAnimationFrame(() => {
-            const hashId = decodeURIComponent(window.location.hash.slice(1));
-            const target =
-              document.getElementById(hashId) ||
-              document.querySelector(window.location.hash);
-            if (target instanceof HTMLElement) {
-              target.scrollIntoView({ block: "start" });
-            }
-          });
-        }
       });
     </script>
   </body>
