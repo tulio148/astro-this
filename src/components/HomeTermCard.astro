@@ -29,7 +29,9 @@ const {
   class: className = "",
 } = Astro.props;
 
-const dateValue = dateLabel || (dateBegin && dateEnd ? `${dateBegin} - ${dateEnd}` : "To be confirmed");
+const dateValue = dateBegin && dateEnd
+  ? `${dateBegin} - ${dateEnd}`
+  : (dateLabel ?? "To be confirmed");
 const timeValue = time || "To be confirmed";
 const locationValue = location || "To be confirmed";
 const priceValue = price || "To be confirmed";

@@ -37,7 +37,7 @@ const descriptionParagraphs = description
   .filter(Boolean);
 
 const thirtyMinuteRegex = /^((?:First|Second)\s*30\s*min(?:utes)?)([\s\S]*)$/i;
-const displayDate = dateLabel || (dateBegin && dateEnd ? `${dateBegin} - ${dateEnd}` : "");
+const displayDate = dateBegin && dateEnd ? `${dateBegin} - ${dateEnd}` : (dateLabel ?? "");
 ---
 
 <div

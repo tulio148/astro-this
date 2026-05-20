@@ -62,12 +62,14 @@ const levelColors: Record<string, string> = {
                 </div>
 
                 <div class="space-y-1.5 text-sm text-slate-600">
-                  {(term.dateLabel || (term.dateBegin && term.dateEnd)) && (
+                  {(term.dateBegin && term.dateEnd) || term.dateLabel ? (
                     <p>
                       <span class="font-black text-db-pink">Dates: </span>
-                      {term.dateLabel || `${term.dateBegin} - ${term.dateEnd}`}
+                      {term.dateBegin && term.dateEnd
+                        ? `${term.dateBegin} - ${term.dateEnd}`
+                        : term.dateLabel}
                     </p>
-                  )}
+                  ) : null}
                   <p>
                     <span class="font-black text-db-pink">Price: </span>
                     {term.price}
