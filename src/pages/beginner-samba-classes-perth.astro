@@ -3,8 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
-import ContentHeroIntro from "../components/ContentHeroIntro.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContentFAQSection from "../components/ContentFAQSection.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { terms } from "../data/terms";
@@ -59,49 +58,17 @@ const structuredData = [
   url={url}
   structuredData={structuredData}
 >
-  <SectionContainer>
-    <ContentHeroIntro
-      title="Beginner Samba Classes in Perth"
-      subtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
-      headlineScale="xl"
-    />
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-slate-600">
-      <div>
-        <h3 class="text-2xl font-bold text-db-pink mb-4">Who it is for</h3>
-        <ul class="space-y-3">
-          <li>First-time samba students</li>
-          <li>People who want a solo dance class without a partner</li>
-          <li>Dancers returning after time away</li>
-          <li>Anyone who wants rhythm, movement, confidence, and fitness</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="text-2xl font-bold text-db-pink mb-4">What you learn</h3>
-        <ul class="space-y-3">
-          <li>The samba basic step and timing</li>
-          <li>Posture, hips, arms, and coordination</li>
-          <li>Simple drills to build confidence</li>
-          <li>Beginner-friendly choreography options</li>
-        </ul>
-      </div>
-    </div>
-  </SectionContainer>
-
-  <SectionContainer>
-    <MediaPlaceholder
-      title="Beginner reassurance media"
-      assetNeed="First-timer reassurance asset for the beginner samba page."
-      ratio="16:9 video or 4:5 portrait image"
-      subject="Show what a first class looks like without making beginners feel intimidated."
-      options={[
-        "Teacher explaining a beginner step",
-        "Small beginner group in class",
-        "Short what-your-first-class-looks-like video",
-      ]}
-    />
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Beginner Samba Classes in Perth"
+    pageSubtitle="Start samba no pe in Balcatta with no partner or previous dance experience needed."
+    valueTitle="Start samba with zero pressure"
+    valueSubtitle="A practical class for first-timers, returning dancers, and anyone who wants rhythm, confidence, and fitness."
+    paragraphs={[
+      "You will learn the samba basic step and timing, then layer posture, hips, arms, and coordination through clear repetition.",
+      "The class is designed for people with no prior experience and no partner, with beginner-friendly choreography options that build confidence week by week."
+    ]}
+    chips={["No partner needed", "No experience needed", "Balcatta studio"]}
+  />
 
   <SectionContainer tone="tint">
     <SectionTitle

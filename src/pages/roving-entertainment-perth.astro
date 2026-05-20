@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -20,10 +21,17 @@ const structuredData = [serviceSchema({ name: "Roving samba entertainment in Per
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Roving Samba Entertainment in Perth" subtitle="Performers who move through your crowd - bringing energy, interaction, and visual impact to arrivals, cocktail hours, and activations." class="section-intro" />
-    <SectionTitle title="Roving in practice" subtitle="Sets, breaks, coverage area, and interaction style are scoped to your venue and crowd." class="section-intro" />
-<div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Short high-impact sets", "Room or crowd coverage", "Warm guest interaction"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+    <TextHeroTop
+    pageTitle="Roving Samba Entertainment in Perth"
+    pageSubtitle="Performers who move through your crowd, bringing energy, interaction, and visual impact to arrivals, cocktail hours, and activations."
+    valueTitle="Roving in practice"
+    valueSubtitle="Sets, breaks, coverage area, and interaction style are scoped to venue and crowd."
+    paragraphs={[
+      "Roving entertainment creates momentum without requiring a stage, making it ideal for dynamic event environments.",
+      "The approach is calibrated so interaction feels warm and engaging while still respecting guest flow and event goals."
+    ]}
+    chips={["No stage required", "Guest interaction", "Cocktail-hour energy"]}
+  />
   <SectionContainer tone="dark-band"><SectionTitle title="Best-fit event contexts" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-2 gap-3 md:grid-cols-4">{["Cocktail hours","Festivals","Outdoor markets","Large indoor events"].map((item)=><div class="rounded-full border border-white/12 bg-white/5 px-5 py-3 text-center font-black text-db-green">{item}</div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="Pair roving with a feature show" subtitle="Use roving to build atmosphere early, then a choreographed show as the run-sheet highlight." /></SectionContainer>
   <SectionContainer><SectionTitle title="Roving FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>

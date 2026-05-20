@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -144,51 +145,17 @@ const structuredData = [
   structuredData={structuredData}
   pageEvent="CorporatePageView"
 >
-  <SectionContainer>
-    <SectionTitle
-      title="Corporate Event Entertainment Perth"
-      subtitle="Brazilian samba performances for gala dinners, award nights, launches, conferences, and client events - planned to your brief, timed to your run sheet."
-      class="section-intro"
-    />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-
-      <SectionTitle
-        title="Entertainment that earns its place on the run sheet"
-        subtitle="Corporate crowds are harder to move. The right act doesn't just perform - it changes the energy of the room."
-      />
-
-      <div class="text-lg text-slate-600 leading-relaxed space-y-5">
-        <p>
-          Brazilian samba entertainment creates a defined moment - a high point
-          guests remember and reference after the event. For corporate
-          organisers, that means a clear return on the entertainment budget:
-          atmosphere lift, guest engagement, social media content, and a talking
-          point that lands in post-event surveys.
-        </p>
-        <p>
-          Dance Bloc Brazil works with corporate clients who need professional
-          performers, clean coordination, and zero day-of surprises. The format,
-          timing, staging, and sound requirements are confirmed in advance. On
-          the night, the performance runs to the brief.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          {
-            [
-              "Run-sheet timed to the minute",
-              "Staging and sound requirements confirmed in advance",
-              "Professional performers - no coordination required on the day",
-            ].map((badge) => (
-              <span class="inline-flex items-center gap-2 rounded-full border border-db-green/40 bg-db-green/8 px-4 py-2 text-sm font-black text-db-pink">
-                <span class="h-1.5 w-1.5 rounded-full bg-db-green shrink-0" />
-                {badge}
-              </span>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Corporate Event Entertainment Perth"
+    pageSubtitle="Brazilian samba performances for gala dinners, award nights, launches, conferences, and client events - planned to your brief, timed to your run sheet."
+    valueTitle="Entertainment that earns its place on the run sheet"
+    valueSubtitle="Corporate crowds are harder to move. The right act changes the room's energy."
+    paragraphs={[
+      "Brazilian samba entertainment creates a defined high point guests remember after the event, lifting atmosphere and engagement.",
+      "Dance Bloc Brazil works with corporate clients who need professional performers, clean coordination, and requirements confirmed in advance."
+    ]}
+    chips={["Run-sheet timed to the minute", "Staging and sound confirmed in advance", "Professional performers"]}
+  />
 
   <SectionContainer id="formats">
     <SectionTitle

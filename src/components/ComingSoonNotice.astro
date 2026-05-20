@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  message?: string;
+  items?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  message = "More detail is being prepared and will be published when it is ready.",
+  items = [],
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "coming-soon-notice reveal-on-scroll overflow-hidden rounded-xl border border-db-pink/25 bg-white shadow-[0_18px_48px_rgba(158,0,150,0.08)]",
+    className,
+  ]}
+>
+  <div class="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr]">
+    <div class="flex min-h-40 flex-col justify-between bg-slate-950 p-7 text-white">
+      <p class="text-xs font-black uppercase tracking-[0.2em] text-db-green">
+        Coming soon
+      </p>
+      <h3 class="mt-8 text-3xl font-black leading-tight text-white md:text-4xl">
+        {title}
+      </h3>
+    </div>
+
+    <div class="p-7 md:p-8">
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600">
+        {message}
+      </p>
+
+      {
+        items.length > 0 && (
+          <ul class="mt-7 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {items.map((item) => (
+              <li class="flex items-start gap-3 rounded-lg border border-db-pink/15 bg-db-light-pink/5 px-4 py-3 text-sm font-bold leading-relaxed text-db-pink">
+                <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-db-green" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</div>

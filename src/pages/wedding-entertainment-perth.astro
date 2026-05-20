@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -43,21 +44,17 @@ const dotFor = (color: string) =>
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle
-      title="Brazilian Samba Entertainment for Perth Weddings"
-      subtitle="From cocktail hour roving to a choreographed reception moment - entertainment planned around your venue, run sheet, and colour palette."
-      class="section-intro"
-    />
-
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
-      <SectionTitle title="Entertainment that belongs at your wedding" subtitle="Not every entertainment act suits a wedding environment. Samba brings colour, movement, and energy without dominating the evening." />
-      <div class="space-y-5 text-lg leading-relaxed text-slate-600">
-        <p>Brazilian samba entertainment adds a defined, memorable moment to a wedding without displacing the things that matter most. It works as a cocktail hour ambient experience, a choreographed reception highlight, or a dramatic entrance moment - and can be shaped around your colour palette, timing, and venue.</p>
-        <p>Dance Bloc Brazil works with couples and wedding planners who want guests to talk about the night long after it ends. Every detail - timing, staging, costume direction, what to tell the venue coordinator - is confirmed before the day.</p>
-      </div>
-    </div>
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Brazilian Samba Entertainment for Perth Weddings"
+    pageSubtitle="From cocktail hour roving to a choreographed reception moment - entertainment planned around your venue, run sheet, and colour palette."
+    valueTitle="Entertainment that belongs at your wedding"
+    valueSubtitle="Samba brings colour, movement, and energy without dominating the evening."
+    paragraphs={[
+      "Brazilian samba adds a defined wedding moment that can be shaped for cocktail hour, reception highlights, or entrance energy.",
+      "Timing, staging, costume direction, and venue coordination are confirmed in advance so the performance stays seamless on the day."
+    ]}
+    chips={["Reception feature show", "Cocktail-hour roving", "Wedding-ready coordination"]}
+  />
 
   <SectionContainer id="formats" class="bg-slate-950 text-white">
     <SectionTitle title="Wedding performance formats" subtitle="Choose one polished moment or combine formats across the reception." class="section-intro [&_h2]:text-white [&_p]:text-white/70" />

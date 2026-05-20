@@ -3,19 +3,64 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
+import ComingSoonNotice from "../components/ComingSoonNotice.astro";
 import showForHireHero from "../images/showhero.avif";
 import { organizationSchema } from "../lib/schema";
 
 const title = "Media & Press | Dance Bloc Brazil";
-const description = "Press information, brand story, image asset notes, and contact details for Dance Bloc Brazil media and venue partners.";
+const description =
+  "Press information, brand story, image asset notes, and contact details for Dance Bloc Brazil media and venue partners.";
 const url = "/media-and-press";
 ---
 
-<Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={[organizationSchema()]}>
-  <SectionContainer>
-    <SectionTitle title="Media & Press" subtitle="Press-ready information for stories, venue partners, and event collaborators." class="section-intro" />
-    <SectionTitle title="Brand story in 100 words" />
-<p class="mt-6 max-w-4xl text-xl leading-relaxed text-slate-600">Dance Bloc Brazil brings Brazilian samba to Perth through classes, event entertainment, workshops, and Carnival-style costume hire. The business connects movement, culture, visual impact, and practical event coordination for students, corporate planners, couples, community groups, and creative clients.</p></SectionContainer>
-  <SectionContainer tone="tint"><SectionTitle title="Key stats to confirm" subtitle="Replace placeholders with verified business figures before press distribution." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Years active: TBC","Events performed: TBC","Locations served: Perth and WA"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
-  <SectionContainer><SectionTitle title="Press assets" subtitle="High-resolution images and logo files should be added here when approved assets are ready." /><p class="mt-6 text-lg text-slate-600">Press contact: <a href="mailto:info@danceblocbrazil.com" class="font-black text-db-pink hover:text-db-light-pink">info@danceblocbrazil.com</a></p></SectionContainer>
+<Layout
+  title={title}
+  description={description}
+  image={showForHireHero.src}
+  url={url}
+  structuredData={[organizationSchema()]}
+>
+  <TextHeroTop
+    pageTitle="Media & Press"
+    pageSubtitle="Press-ready information for stories, venue partners, and event collaborators."
+    valueTitle="Brand story in 100 words"
+    valueSubtitle="Core context for media use and collaboration."
+    paragraphs={[
+      "Dance Bloc Brazil brings Brazilian samba to Perth through classes, event entertainment, workshops, and Carnival-style costume hire.",
+      "The business connects movement, culture, visual impact, and practical event coordination for students, planners, couples, community groups, and creative clients."
+    ]}
+    chips={["Classes", "Event entertainment", "Costume hire"]}
+  />
+
+  <SectionContainer tone="tint">
+    <ComingSoonNotice
+      title="Media kit"
+      message="A press-ready media kit is coming soon with approved brand language, image notes, and practical details for media, venues, and collaborators."
+      items={[
+        "Short and long bios",
+        "Approved image guidance",
+        "Service summary",
+        "Press contact details",
+      ]}
+    />
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset">
+    <SectionTitle
+      title="Press assets"
+      subtitle="Use direct contact for current image, interview, venue, or collaboration requests while the full asset section is prepared."
+      class="section-intro"
+    />
+    <ComingSoonNotice
+      title="Asset library"
+      message="Downloadable images, captions, and usage notes will be added here when the final media library is ready."
+      items={[
+        "Performance images",
+        "Class and workshop images",
+        "Costume hire visuals",
+        "Caption and credit notes",
+      ]}
+    />
+  </SectionContainer>
 </Layout>

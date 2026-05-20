@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
 import { serviceSchema } from "../lib/schema";
@@ -17,11 +18,17 @@ const formats = ["Feature samba show", "Roving arrival energy", "Interactive gue
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Brazilian Entertainment for Private Celebrations in Perth" subtitle="Milestone birthdays, anniversaries, engagement parties, and private celebrations - with a samba moment that sets the evening apart." class="section-intro" />
-    <SectionTitle title="Private celebrations with a clear highlight" subtitle="Samba can be shaped for intimate rooms, family celebrations, and larger private functions." class="section-intro" />
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-3">{occasions.map((item) => <div class="rounded-xl border border-db-pink/80 bg-white p-5 text-center font-black text-db-pink">{item}</div>)}</div>
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Brazilian Entertainment for Private Celebrations in Perth"
+    pageSubtitle="Milestone birthdays, anniversaries, engagement parties, and private celebrations with a samba moment that sets the evening apart."
+    valueTitle="Private celebrations with a clear highlight"
+    valueSubtitle="Samba can be shaped for intimate rooms or larger private functions."
+    paragraphs={[
+      "Entertainment is scoped around your event flow so the performance feels intentional, not bolted on.",
+      "Formats can prioritise ambient movement, a feature moment, or guest participation depending on the crowd."
+    ]}
+    chips={["Milestone events", "Flexible formats", "Private venues"]}
+  />
   <SectionContainer tone="dark-band">
     <SectionTitle title="Flexible format options" class="section-intro [&_h2]:text-white" />
     <div class="grid grid-cols-1 gap-5 md:grid-cols-4">{formats.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-6 text-lg font-black text-db-green">{item}</div>)}</div>

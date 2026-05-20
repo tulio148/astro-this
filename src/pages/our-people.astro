@@ -3,9 +3,9 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
-import PersonCard from "../components/PersonCard.astro";
-import { people } from "../data/people";
+import ComingSoonNotice from "../components/ComingSoonNotice.astro";
 import cartoonDancerDouble from "../images/CartoonDancerDouble.avif";
 import { organizationSchema } from "../lib/schema";
 
@@ -13,32 +13,45 @@ const title = "Our People | Dance Bloc Brazil Team & Performers";
 const description =
   "Meet the team behind Dance Bloc Brazil - founder, lead performers, musicians, and collaborators who make every class, workshop, and event happen.";
 const url = "/our-people";
-const founder = people[0];
-const team = people.slice(1);
 ---
 
 <Layout title={title} description={description} image={cartoonDancerDouble.src} url={url} structuredData={[organizationSchema()]}>
-  <SectionContainer>
-    <SectionTitle title="Our People" subtitle="The team behind Dance Bloc Brazil's classes, performances, workshops, and events." />
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Our People"
+    pageSubtitle="The team behind Dance Bloc Brazil's classes, performances, workshops, and events."
+    valueTitle="Team and performers"
+    valueSubtitle="Built around teaching quality, stage presence, and event professionalism."
+    paragraphs={[
+      "Dance Bloc Brazil works with performers and collaborators who bring strong movement standards and reliable delivery.",
+      "Detailed profiles are being prepared so this page reflects active teaching, performance, and event teams accurately."
+    ]}
+    chips={["Teaching team", "Performance crew", "Collaborators"]}
+  />
 
   <SectionContainer>
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-      <div class="overflow-hidden rounded-xl border border-db-pink/80 bg-db-light-pink/10">
-        <img src={founder.image?.src ?? cartoonDancerDouble.src} alt={founder.image ? founder.name : ""} class="h-full max-h-[620px] w-full object-contain p-10 opacity-70" loading="lazy" />
-      </div>
-      <div>
-        <p class="mb-2 text-xs font-black uppercase tracking-[0.18em] text-db-green">{founder.role}</p>
-        <h1 class="text-5xl font-black leading-[0.92] text-db-pink md:text-7xl">{founder.name}</h1>
-        <p class="mt-6 text-xl leading-relaxed text-slate-600">{founder.bio}</p>
-        <div class="mt-6 flex flex-wrap gap-2">{founder.specialty.map((item)=><span class="rounded-full border border-db-pink/30 bg-white px-3 py-1 text-xs font-bold text-db-pink">{item}</span>)}</div>
-      </div>
-    </div>
+    <ComingSoonNotice
+      title="Founder profile"
+      message="The founder profile is coming soon with a real biography, teaching background, and current role in Dance Bloc Brazil's classes, performances, and events."
+      items={[
+        "Samba background",
+        "Teaching approach",
+        "Event direction",
+        "Business story",
+      ]}
+    />
   </SectionContainer>
 
   <SectionContainer tone="tint">
-    <SectionTitle title="Team and performers" subtitle="Lead performers, teachers, and collaborators will be added as people are confirmed." class="section-intro" />
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">{team.map((person)=><PersonCard person={person} />)}</div>
+    <ComingSoonNotice
+      title="Team and performer profiles"
+      message="Teacher, performer, musician, and collaborator profiles are being prepared. This area will stay clear until names, roles, photos, and bios are ready to publish."
+      items={[
+        "Lead performers",
+        "Class teachers",
+        "Workshop facilitators",
+        "Creative collaborators",
+      ]}
+    />
   </SectionContainer>
 
   <SectionContainer><p class="max-w-4xl text-xl leading-relaxed text-slate-600">Dance Bloc Brazil works with a trusted network of musicians, photographers, stylists, and venue partners. These collaborations are selected for quality and consistency - not volume.</p></SectionContainer>

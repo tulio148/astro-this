@@ -3,8 +3,8 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import ComingSoonNotice from "../components/ComingSoonNotice.astro";
 import Hero from "../components/Hero.astro";
-import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 import { Picture } from "astro:assets";
 import abouthero from "../images/abouthero.avif";
 import dancers from "../images/dancers.avif";
@@ -36,13 +36,6 @@ const approachPoints = [
     title: "Professionalism",
     body: "Event bookings and costume hire need clear details, reliable communication, and polished presentation.",
   },
-];
-
-const testimonialNeeds = [
-  "Student feedback about beginner class confidence and progression",
-  "Event organiser feedback about run-sheet fit, audience response, and visual impact",
-  "Workshop organiser feedback about group participation and ease of planning",
-  "Costume hire feedback about fit, detail, pickup or return, and styling support",
 ];
 
 const aboutLinks = [
@@ -101,47 +94,17 @@ const aboutLinks = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <MediaPlaceholder
-      title="Trust-building people asset"
-      assetNeed="People-focused asset for the about page."
-      ratio="Portrait 4:5 or landscape editorial photo"
-      subject="Show the teacher, team, class community, or preparation context in a way that builds trust."
-      options={[
-        "Teacher or team portrait",
-        "Class or community photo",
-        "Performance backstage or prep photo",
-      ]}
-      promptSuggestions={[
-        "File: about-teacher-portrait.avif. Create a trust-building teacher portrait for Dance Bloc Brazil. Show a samba teacher in a clean Perth studio, standing with warm confidence and approachable energy. Use soft natural light, tasteful samba styling, practical dancewear or subtle costume detail, and restrained magenta-green brand accents. Portrait 4:5, no text, no logos, no fake signage, no distorted hands.",
-        "File: about-class-community.avif. Create a class-community photo after samba practice, with students gathered around the teacher and smiling naturally. The scene should feel real, welcoming, and beginner-friendly, with studio context visible but uncluttered. Landscape editorial photo, warm skin tones, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
-        "File: about-backstage-preparation.avif. Create a backstage preparation image showing a dancer or team member getting ready for a samba event. Include careful costume handling, feathers, sequins, mirror light, makeup or hair prep, and a calm professional mood. Portrait 4:5, documentary editorial style, no text, no logos, no fake signage, no distorted hands.",
+  <SectionContainer tone="tint">
+    <ComingSoonNotice
+      title="Teacher and team stories"
+      message="Profiles for the people behind Dance Bloc Brazil are being prepared. This section will introduce the teaching, performance, workshop, and costume-care team once the final bios and images are ready."
+      items={[
+        "Founder story and teaching background",
+        "Performance team profiles",
+        "Workshop facilitation experience",
+        "Costume care and styling support",
       ]}
     />
-  </SectionContainer>
-
-  <SectionContainer tone="tint">
-    <div
-      class="grid grid-cols-1 section-grid-wide lg:grid-cols-[0.85fr_1.15fr] lg:items-start"
-    >
-      <SectionTitle
-        title="Meet the teacher and team"
-        subtitle="The strongest about-page asset should show the people behind the classes, workshops, performances, and costume care."
-      />
-
-      <div class="space-y-6 text-lg leading-relaxed text-slate-600">
-        <p>
-          This section should be completed with real teacher or team details:
-          teaching background, samba experience, class approach, performance
-          context, and the practical care taken with client bookings.
-        </p>
-        <p>
-          Keep the copy specific and human. Students need to know they will be
-          guided clearly; event organisers need to know the booking will be
-          handled professionally.
-        </p>
-      </div>
-    </div>
   </SectionContainer>
 
   <SectionContainer>
@@ -162,46 +125,6 @@ const aboutLinks = [
             <p class="mt-4 text-base leading-relaxed text-white/78">
               {point.body}
             </p>
-          </div>
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer>
-    <MediaPlaceholder
-      title="Behind-the-scenes trust media"
-      assetNeed="Behind-the-scenes media that shows preparation, rehearsal, costume care, or class community."
-      ratio="Landscape 16:9 or three 4:5 images"
-      subject="Show the work behind the classes, shows, workshops, and costume hire so visitors can trust the people and process."
-      options={[
-        "Rehearsal or class preparation photo",
-        "Costume care and detail photo",
-        "Teacher or team working with students",
-      ]}
-      promptSuggestions={[
-        "File: about-rehearsal-preparation.avif. Create a behind-the-scenes rehearsal image with a samba dancer checking movement in a studio while a costume rack sits nearby. Show preparation, focus, and professional care rather than a staged performance. Landscape 16:9, warm editorial lighting, subtle magenta-green motion accents, no text, no logos, no fake signage, no distorted hands.",
-        "File: about-costume-care-detail.avif. Create a detailed costume-care image showing hands carefully arranging feathers, rhinestones, cuffs, belt, and headpiece pieces on a clean table. Emphasize care, condition, texture, and preparation for hire or performance. Landscape or 4:5 editorial close-up, no text, no logos, no fake signage, no distorted hands.",
-        "File: about-student-guidance.avif. Create a teacher-guidance image with a samba teacher helping a small student group adjust posture, timing, or arm position. The mood should be patient, practical, and community-focused. Bright studio setting, natural expressions, portrait 4:5 or landscape 16:9, no text, no logos, no fake signage, no distorted hands, no extra limbs.",
-      ]}
-    />
-  </SectionContainer>
-
-  <SectionContainer tone="tint">
-    <SectionTitle
-      title="Testimonials to collect"
-      subtitle="Use real quotes only. These are the proof categories needed before replacing this planning section."
-      class="section-intro"
-    />
-
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {
-        testimonialNeeds.map((need) => (
-          <div
-            class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-bold leading-relaxed text-slate-700 shadow-[0_14px_36px_rgba(158,0,150,0.08)]"
-            data-launch-blocker="testimonial-placeholder"
-          >
-            {need}
           </div>
         ))
       }

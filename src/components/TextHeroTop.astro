@@ -1,0 +1,78 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+
+interface Props {
+  pageTitle: string;
+  pageSubtitle: string;
+  valueTitle: string;
+  valueSubtitle?: string;
+  paragraphs?: string[];
+  chips?: string[];
+  class?: string;
+}
+
+const {
+  pageTitle,
+  pageSubtitle,
+  valueTitle,
+  valueSubtitle,
+  paragraphs = [],
+  chips = [],
+  class: className = "",
+} = Astro.props;
+
+const introParagraphs = paragraphs.slice(0, 1);
+const introChips = chips.slice(0, 3);
+---
+
+<SectionContainer density="compact" class:list={["text-hero-top", className]}>
+  <div class="relative overflow-hidden border-y border-slate-950/10">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.75fr)]">
+      <div class="text-hero-top__headline py-9 pr-0 md:py-12 lg:pr-16">
+        <p class="text-hero-top__kicker mb-5 text-xs font-black uppercase tracking-[0.22em] text-db-green">
+          Dance Bloc Brazil
+        </p>
+        <h1 class="max-w-5xl text-4xl font-black leading-[0.96] text-db-pink text-balance md:text-6xl lg:text-7xl">
+          {pageTitle}
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+          {pageSubtitle}
+        </p>
+      </div>
+
+      <aside class="text-hero-top__brief border-t border-slate-950/10 py-8 md:py-10 lg:border-l lg:border-t-0 lg:pl-10">
+        <p class="mb-4 text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+          Why it works
+        </p>
+        <h2 class="text-2xl font-black leading-tight text-slate-950 text-balance md:text-3xl">
+          {valueTitle}
+        </h2>
+        {
+          valueSubtitle && (
+            <p class="mt-4 text-base leading-relaxed text-slate-600">
+              {valueSubtitle}
+            </p>
+          )
+        }
+        <div class="mt-6 space-y-3 text-base leading-relaxed text-slate-600">
+          {introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </aside>
+    </div>
+
+    {
+      introChips.length > 0 && (
+        <div class="text-hero-top__proof grid grid-cols-1 border-t border-slate-950/10 text-sm font-black text-db-pink md:grid-cols-3">
+          {introChips.map((chip, index) => (
+            <div class="flex min-h-14 items-center gap-3 py-3 md:border-r md:border-slate-950/10 md:px-5 md:first:pl-0 md:last:border-r-0">
+              <span class="text-xs tracking-[0.18em] text-db-green">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span>{chip}</span>
+            </div>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</SectionContainer>

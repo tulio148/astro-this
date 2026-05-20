@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { serviceSchema } from "../lib/schema";
@@ -15,10 +16,17 @@ const outcomes = ["Rhythm and coordination", "Cultural awareness", "Confidence t
 ---
 
 <Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Brazilian Samba Workshops for Schools" subtitle="Age-appropriate cultural dance programs for primary, secondary, tertiary, and youth groups." class="section-intro" />
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
-<SectionTitle title="Movement, rhythm, and cultural context" subtitle="Sessions can connect Brazilian geography, music, history, cultural diversity, and movement in a format that fits a school timetable." /><p class="text-lg leading-relaxed text-slate-600">Workshops can be adjusted for primary, secondary, tertiary, or youth-program groups. A 45-60 minute session fits most class periods and can be shaped for assemblies, cultural days, or student events.</p></div></SectionContainer>
+    <TextHeroTop
+    pageTitle="Brazilian Samba Workshops for Schools"
+    pageSubtitle="Age-appropriate cultural dance programs for primary, secondary, tertiary, and youth groups."
+    valueTitle="Movement, rhythm, and cultural context"
+    valueSubtitle="Workshops connect movement with Brazilian music, geography, and culture."
+    paragraphs={[
+      "Sessions can be adjusted by age and confidence level to fit school timetables, assemblies, and special programs.",
+      "A typical 45-60 minute structure balances participation, learning outcomes, and practical class delivery."
+    ]}
+    chips={["Age-appropriate", "45-60 minute formats", "Cultural learning"]}
+  />
   <SectionContainer tone="tint"><SectionTitle title="What students take away" class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-4">{outcomes.map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
   <SectionContainer tone="dark-band"><SectionTitle title="Booking and safety details" subtitle="Share year level, group size, timetable block, available space, and any safety or child-safe documentation requirements." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
   <SectionContainer spacing="footer-offset" id="school-enquiry"><ContactForm title="School Workshop Enquiry" subtitle="Include school name, year level, group size, preferred dates, available space, and program goals." subject="School Workshop Enquiry" /></SectionContainer>

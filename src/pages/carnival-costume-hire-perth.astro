@@ -3,20 +3,64 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import { serviceSchema } from "../lib/schema";
 
 const title = "Carnival Costume Hire Perth | Rio & Samba Costume Hire";
-const description = "Carnival-style costume hire in Perth for themed parties, performances, New Year's events, photoshoots, and Rio-inspired celebrations.";
+const description =
+  "Carnival-style costume hire in Perth for themed parties, performances, New Year's events, photoshoots, and Rio-inspired celebrations.";
 const url = "/carnival-costume-hire-perth";
-const structuredData = [serviceSchema({ name: "Carnival costume hire in Perth", description, url, image: costumeHireHeroImage.src })];
+const structuredData = [
+  serviceSchema({
+    name: "Carnival costume hire in Perth",
+    description,
+    url,
+    image: costumeHireHeroImage.src,
+  }),
+];
 ---
 
-<Layout title={title} description={description} image={costumeHireHeroImage.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Carnival Costume Hire in Perth" subtitle="Rio-inspired colour, feathers, rhinestones, and statement costume pieces for themed events and photoshoots." class="section-intro" />
-    <SectionContainer><SectionTitle title="Carnival-style, samba-built" subtitle="The collection is rooted in samba performance costuming, with pieces that also suit Carnival themes, Mardi Gras-inspired parties, New Year's events, and editorial shoots." /></SectionContainer>
-  <SectionContainer tone="tint"><SectionTitle title="Full costume or individual pieces" class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Full costume", "Headpiece only", "Cuffs, belts, and accessories"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">{item}</div>)}</div></SectionContainer>
-  <SectionContainer spacing="footer-offset" id="carnival-enquiry"><ContactForm title="Carnival Costume Hire Enquiry" subtitle="Include your event date, costume style, size, hire duration, and whether you need a full costume or individual pieces." subject="Carnival Costume Hire Enquiry" /></SectionContainer>
+<Layout
+  title={title}
+  description={description}
+  image={costumeHireHeroImage.src}
+  url={url}
+  structuredData={structuredData}
+>
+  <TextHeroTop
+    pageTitle="Carnival Costume Hire in Perth"
+    pageSubtitle="Rio-inspired colour, feathers, rhinestones, and statement costume pieces for themed events and photoshoots."
+    valueTitle="Carnival-style, samba-built"
+    valueSubtitle="Built for visual impact while staying practical for hire contexts."
+    paragraphs={[
+      "The collection is rooted in samba performance costuming and also suits Carnival themes, parties, New Year's events, and editorials.",
+      "Hire options can be scoped around complete looks or selected hero pieces depending on your event and movement needs."
+    ]}
+    chips={["Full costume options", "Statement headpieces", "Perth hire"]}
+  />
+
+  <SectionContainer tone="tint">
+    <SectionTitle title="Full costume or individual pieces" class="section-intro" />
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      {[
+        "Full costume",
+        "Headpiece only",
+        "Cuffs, belts, and accessories",
+      ].map((item) => (
+        <div class="rounded-xl border border-db-pink/80 bg-white p-7 text-xl font-black text-db-pink">
+          {item}
+        </div>
+      ))}
+    </div>
+  </SectionContainer>
+
+  <SectionContainer spacing="footer-offset" id="carnival-enquiry">
+    <ContactForm
+      title="Carnival Costume Hire Enquiry"
+      subtitle="Include your event date, costume style, size, hire duration, and whether you need a full costume or individual pieces."
+      subject="Carnival Costume Hire Enquiry"
+    />
+  </SectionContainer>
 </Layout>

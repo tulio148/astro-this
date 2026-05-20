@@ -1,5 +1,5 @@
 ---
-import { absoluteUrl } from "../lib/site";
+import { canonicalUrl } from "../lib/site";
 
 interface Props {
   to: string;
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { to, label } = Astro.props;
-const target = absoluteUrl(to);
+const target = canonicalUrl(to);
 ---
 
 <html lang="en">

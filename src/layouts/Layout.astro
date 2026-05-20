@@ -49,9 +49,9 @@ const resolvedNoindex = typeof noindex === "boolean" ? noindex : defaultNoindex;
 
 const pageTitle = titleWithBrand(title);
 const canonicalHref = canonical
-  ? absoluteUrl(canonical)
+  ? canonicalUrl(canonical)
   : url
-    ? absoluteUrl(url)
+    ? canonicalUrl(url)
     : canonicalUrl(Astro.url.pathname);
 const socialImage = absoluteUrl(image);
 ---

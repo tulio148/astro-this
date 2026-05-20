@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { serviceSchema } from "../lib/schema";
@@ -14,10 +15,17 @@ const structuredData = [serviceSchema({ name: "Community samba workshops in Pert
 ---
 
 <Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Community Samba Workshops in Perth" subtitle="Open, inclusive Brazilian samba workshops for community groups, cultural programs, neighbourhood events, and not-for-profit organisations." class="section-intro" />
-    <SectionTitle title="Built for community settings" subtitle="Accessible, warm, and inclusive - all bodies, all fitness levels, all backgrounds." class="section-intro" />
-<div class="grid grid-cols-1 gap-5 md:grid-cols-4">{["Community groups","Cultural centres","Women's groups","Multicultural programs"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
+    <TextHeroTop
+    pageTitle="Community Samba Workshops in Perth"
+    pageSubtitle="Open, inclusive Brazilian samba workshops for community groups, cultural programs, neighbourhood events, and not-for-profit organisations."
+    valueTitle="Built for community settings"
+    valueSubtitle="Accessible, warm, and inclusive across ages, backgrounds, and confidence levels."
+    paragraphs={[
+      "Workshops are structured for participation and connection, with movement pathways that meet people where they are.",
+      "Sessions can support community goals around cultural engagement, wellbeing, and shared experiences without performance pressure."
+    ]}
+    chips={["Inclusive format", "Cultural programs", "Community groups"]}
+  />
   <SectionContainer tone="tint"><SectionTitle title="What participants take away" subtitle="Joy, rhythm, connection, cultural immersion, and a shared movement experience." /></SectionContainer>
   <SectionContainer><SectionTitle title="Flexible format and pricing" subtitle="Community budgets differ from corporate budgets. Flexible arrangements for not-for-profit and community bookings can be discussed." /></SectionContainer>
   <SectionContainer tone="dark-band"><SectionTitle title="Cultural framing" subtitle="Brazilian samba is presented as a living cultural practice, not just entertainment." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>

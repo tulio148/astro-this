@@ -28,8 +28,14 @@ export function absoluteUrl(pathOrUrl = "/") {
 }
 
 export function canonicalUrl(pathname = "/") {
-  const path = pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
-  return absoluteUrl(path);
+  const url = new URL(pathname, siteConfig.url);
+  const hasFileExtension = /\/[^/?#]+\.[^/?#]+$/.test(url.pathname);
+
+  if (!hasFileExtension && !url.pathname.endsWith("/")) {
+    url.pathname = `${url.pathname}/`;
+  }
+
+  return url.toString();
 }
 
 export function titleWithBrand(title: string) {

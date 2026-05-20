@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import ContactForm from "../components/ContactForm.astro";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import { serviceSchema } from "../lib/schema";
@@ -14,10 +15,27 @@ const structuredData = [serviceSchema({ name: "Group costume hire in Perth", des
 ---
 
 <Layout title={title} description={description} image={costumeHireHeroImage.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Group Costume Hire in Perth" subtitle="Matching sets and complementary colour combinations for performers, groups, productions, and themed events." class="section-intro" />
-    <SectionTitle title="Coordinate the whole group" subtitle="Group hire is planned around sizes, matching pieces, colour combinations, deposit structure, pickup, and return process." class="section-intro" />
-<div class="grid grid-cols-1 gap-5 md:grid-cols-4">{["Matching sets", "Complementary colours", "Group fitting plan", "Multi-piece deposit terms"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 font-black text-db-pink">{item}</div>)}</div></SectionContainer>
-  <SectionContainer tone="tint"><SectionTitle title="Occasions" subtitle="Troupe performance, group photoshoot, corporate themed event, ensemble cast, and creative campaigns." /></SectionContainer>
+    <TextHeroTop
+    pageTitle="Group Costume Hire in Perth"
+    pageSubtitle="Matching sets and complementary colour combinations for performers, groups, productions, and themed events."
+    valueTitle="Coordinate the whole group"
+    valueSubtitle="Group hire is planned around fit, colour, logistics, and return flow."
+    paragraphs={[
+      "Group costume hire is scoped to keep visual cohesion across multiple performers while staying practical for movement.",
+      "Planning includes sizing, matching pieces, hire duration, deposits, and pickup/return coordination."
+    ]}
+    chips={["Matching sets", "Group sizing", "Event logistics"]}
+  />
+    <TextHeroTop
+    pageTitle="Group Costume Hire in Perth"
+    pageSubtitle="Matching sets and complementary colour combinations for performers, groups, productions, and themed events."
+    valueTitle="Coordinate the whole group"
+    valueSubtitle="Group hire is planned around fit, colour, logistics, and return flow."
+    paragraphs={[
+      "Group costume hire is scoped to keep visual cohesion across multiple performers while staying practical for movement.",
+      "Planning includes sizing, matching pieces, hire duration, deposits, and pickup/return coordination."
+    ]}
+    chips={["Matching sets", "Group sizing", "Event logistics"]}
+  />
   <SectionContainer spacing="footer-offset" id="group-costume-enquiry"><ContactForm title="Group Costume Hire Enquiry" subtitle="Include group size, size range, event date, colour direction, and whether you need matching or complementary pieces." subject="Group Costume Hire Enquiry" /></SectionContainer>
 </Layout>

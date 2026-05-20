@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import danceclassHero from "../images/danceclassHero.avif";
@@ -21,10 +22,17 @@ const structuredData = [serviceSchema({ name: "Corporate samba team building in 
 ---
 
 <Layout title={title} description={description} image={danceclassHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Corporate Team Building with Samba" subtitle="A participation-focused team session built around rhythm, movement, and shared energy - not awkward icebreakers." class="section-intro" />
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
-<SectionTitle title="Movement-based team building that actually moves the room" subtitle="The session is framed around engagement, confidence, and shared experience - not dance-school technique." /><p class="text-lg leading-relaxed text-slate-600">Dance Bloc Brazil brings a structured samba workshop to your office, function space, or external venue. The experience can be scoped for 45, 60, or 90 minutes depending on the team size and program.</p></div></SectionContainer>
+    <TextHeroTop
+    pageTitle="Corporate Team Building with Samba"
+    pageSubtitle="A participation-focused team session built around rhythm, movement, and shared energy - not awkward icebreakers."
+    valueTitle="Movement-based team building that actually moves the room"
+    valueSubtitle="Designed for engagement and confidence, not dance-school technique."
+    paragraphs={[
+      "Dance Bloc Brazil delivers structured samba workshops for offices, function spaces, and external venues.",
+      "Session duration and pacing can be scoped for your team size and program goals while keeping participation accessible."
+    ]}
+    chips={["45-90 minute formats", "Beginner-friendly", "Corporate delivery"]}
+  />
   <SectionContainer tone="tint"><SectionTitle title="What the session looks like" class="section-intro" /><div class="grid grid-cols-1 gap-4 lg:grid-cols-5">{steps.map((step, index)=><div class="rounded-xl border border-db-pink/80 bg-white p-6"><p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">Step {index + 1}</p><p class="mt-4 text-lg font-black text-slate-700">{step}</p></div>)}</div></SectionContainer>
   <SectionContainer tone="dark-band"><SectionTitle title="Corporate booking details" class="section-intro [&_h2]:text-white" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["Ideal for small teams to large departments", "45, 60, and 90 minute options", "Office, venue, or function space delivery"].map((item)=><div class="rounded-xl border border-white/12 bg-white/5 p-7 text-lg font-black text-db-green">{item}</div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="Team building FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>

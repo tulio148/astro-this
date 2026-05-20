@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import TextHeroTop from "../components/TextHeroTop.astro";
 import FAQItem from "../components/FAQItem.astro";
 import ContactForm from "../components/ContactForm.astro";
 import showForHireHero from "../images/showhero.avif";
@@ -37,16 +38,17 @@ const structuredData = [serviceSchema({ name: "Gala dinner samba entertainment i
 ---
 
 <Layout title={title} description={description} image={showForHireHero.src} url={url} structuredData={structuredData}>
-  <SectionContainer>
-    <SectionTitle title="Samba Entertainment for Gala Dinners and Award Nights" subtitle="A choreographed performance moment that elevates the evening without disrupting the run sheet." class="section-intro" />
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
-      <SectionTitle title="The entertainment highlight your guests will still be talking about" subtitle="A gala is not a concert. The entertainment moment needs to land hard, respect the program, and leave the room energised - not distracted." />
-      <div class="space-y-5 text-lg leading-relaxed text-slate-600">
-        <p>A feature samba performance gives a gala dinner a clear, memorable climax. It can be placed pre-dinner, between courses, after the award segment, or at the end of the evening as a standing finale.</p>
-        <p>Dance Bloc Brazil works with event managers who need professional performers, confirmed timing, and zero day-of logistics surprises. A detailed technical rider is provided at booking confirmation.</p>
-      </div>
-    </div>
-  </SectionContainer>
+    <TextHeroTop
+    pageTitle="Samba Entertainment for Gala Dinners and Award Nights"
+    pageSubtitle="A choreographed performance moment that elevates the evening without disrupting the run sheet."
+    valueTitle="The entertainment highlight guests keep talking about"
+    valueSubtitle="A gala moment should land hard while respecting the program."
+    paragraphs={[
+      "Samba performance can be positioned between courses, around awards segments, or as a timed post-formal energy lift.",
+      "The format is coordinated to venue flow so the entertainment feels premium, controlled, and event-appropriate."
+    ]}
+    chips={["Timed performance", "Run-sheet aligned", "Premium gala energy"]}
+  />
   <SectionContainer tone="dark-band">
     <SectionTitle title="Performance placement options" subtitle="Pick the moment that fits the program." class="section-intro [&_h2]:text-white [&_p]:text-white/70" />
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">{placements.map((item) => <div class="rounded-xl border border-white/12 bg-white/5 p-7"><p class="text-xs font-black uppercase tracking-[0.18em] text-db-green">{item.label}</p><h3 class="mt-3 text-2xl font-black">{item.title}</h3><p class="mt-4 text-white/75">{item.body}</p></div>)}</div>
