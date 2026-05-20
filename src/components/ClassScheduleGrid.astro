@@ -74,19 +74,27 @@ const levelColors: Record<string, string> = {
                   </p>
                 </div>
 
-                <a
-                  href={term.bookingLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block w-full rounded-full bg-db-green px-5 py-2.5 text-center text-xs font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_12px_26px_rgba(0,204,129,0.24)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white"
-                  data-track="BookClassClick"
-                  data-track-params={JSON.stringify({
-                    class_name: term.name,
-                    class_level: term.level,
-                  })}
-                >
-                  Book now
-                </a>
+                <div class="flex flex-col gap-2">
+                  <a
+                    href={term.detailPage || "/samba-classes-perth"}
+                    class="block w-full rounded-full border border-db-pink/80 bg-white px-5 py-2.5 text-center text-xs font-black uppercase tracking-[0.14em] text-db-pink transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white"
+                  >
+                    Learn more
+                  </a>
+                  <a
+                    href={term.bookingLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block w-full rounded-full bg-db-green px-5 py-2.5 text-center text-xs font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_12px_26px_rgba(0,204,129,0.24)] transition hover:-translate-y-0.5 hover:bg-db-pink hover:text-white"
+                    data-track="BookClassClick"
+                    data-track-params={JSON.stringify({
+                      class_name: term.name,
+                      class_level: term.level,
+                    })}
+                  >
+                    Book now
+                  </a>
+                </div>
               </div>
             ))}
         </div>

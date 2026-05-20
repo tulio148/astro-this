@@ -9,6 +9,7 @@ interface Props {
   location: string;
   price: string;
   bookingLink: string;
+  learnMoreLink?: string;
   description: string;
   showDetails?: boolean;
   enableMobileReadMore?: boolean;
@@ -24,6 +25,7 @@ const {
   location,
   price,
   bookingLink,
+  learnMoreLink,
   description,
   showDetails = true,
   enableMobileReadMore = false,
@@ -240,21 +242,31 @@ const displayDate = dateLabel || (dateBegin && dateEnd ? `${dateBegin} - ${dateE
       )
     }
 
-    <a
-      href={bookingLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
-      data-track="BookClassClick"
-      data-track-params={JSON.stringify({
-        class_name: name,
-        class_level: level,
-        class_price: price,
-        class_location: location,
-      })}
-    >
-      Book Now
-    </a>
+    <div class="space-y-2">
+      {learnMoreLink && (
+        <a
+          href={learnMoreLink}
+          class="block w-full rounded-full border border-db-pink/80 bg-white px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-db-pink transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white"
+        >
+          Learn more
+        </a>
+      )}
+      <a
+        href={bookingLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full rounded-full bg-db-green px-6 py-3 text-center font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_1px_1px_rgba(255,255,255,0.55)] shadow-[0_14px_30px_rgba(0,204,129,0.26)] transition-all hover:-translate-y-0.5 hover:bg-db-pink hover:text-white hover:shadow-[0_18px_38px_rgba(158,0,150,0.24)]"
+        data-track="BookClassClick"
+        data-track-params={JSON.stringify({
+          class_name: name,
+          class_level: level,
+          class_price: price,
+          class_location: location,
+        })}
+      >
+        Book Now
+      </a>
+    </div>
   </div>
 </div>
 

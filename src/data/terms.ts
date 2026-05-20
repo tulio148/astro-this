@@ -8,6 +8,7 @@ export interface Term {
   location: string;
   price: string;
   bookingLink: string;
+  detailPage?: string;
   description: string;
   showDetails?: boolean;
   scheduleDay?: string;
@@ -24,6 +25,7 @@ export const terms: Term[] = [
     location: "Balcatta",
     price: "$88",
     bookingLink: "https://square.link/u/f5mi66pX?src=sheet",
+    detailPage: "/beginner-samba-classes-perth",
     description: `Perfect for absolute beginners.
 
 Step into the vibrant world of Brazilian samba with a course designed especially for those starting their journey. You’ll learn the samba basic step, build confidence in your movement, and develop rhythm and coordination in a fun, supportive environment.
@@ -46,6 +48,7 @@ Join our intermediate dancers for a fun, high-energy choreography session. This 
     location: "Balcatta",
     price: "$88",
     bookingLink: "https://square.link/u/1DlOZlSe?src=sheet",
+    detailPage: "/intermediate-samba-classes-perth",
     description: `For dancers with some samba experience.
 
 Ready to level up? This class is designed for dancers who already know the samba basic and want to refine technique, build stamina, and take on more challenging choreography.
@@ -63,13 +66,14 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
   {
     name: "Samba no Pé – Casual Class",
     level: "Casual",
-    dateBegin: "",
-    dateEnd: "",
+    dateBegin: "1/07/2026",
+    dateEnd: "1/07/2026",
     scheduleDay: "Casual",
     time: "",
     location: "",
     price: "$25",
     bookingLink: "https://square.link/u/i9DNtnt3?src=sheet",
+    detailPage: "/samba-classes-perth",
     description:
       "Can’t make the full term but still want to join here and there? No problem. Jump into class whenever it suits you.",
     showDetails: false,
@@ -85,6 +89,7 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
     location: "5/5 Cressall Road, Balcatta",
     price: "$15",
     bookingLink: "https://square.link/u/5WpAPM1I?src=sheet",
+    detailPage: "/brazil-fit",
     description: `Get ready for a fun, high-energy Brazil Fit class at Dance Bloc Brazil! This special one-off class is open to everyone; whether you've danced Brazilian Funk before or you're trying it for the very first time.
 
 Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll learn exciting choreography in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.

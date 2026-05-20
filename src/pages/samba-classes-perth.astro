@@ -170,7 +170,7 @@ const progressionSteps = [
 
   <SectionContainer wide class="px-0 sm:px-0 lg:px-0">
     <div
-      class="reveal-on-scroll relative h-[100svh] w-full overflow-hidden bg-black"
+      class="reveal-on-scroll relative -mx-6 h-[100svh] w-[calc(100%+3rem)] overflow-hidden bg-black sm:mx-0 sm:w-full"
     >
       <div class="absolute inset-0 overflow-hidden">
         <video
@@ -261,6 +261,7 @@ const progressionSteps = [
             location={term.location}
             price={term.price}
             bookingLink={term.bookingLink}
+            learnMoreLink={term.detailPage}
             description={term.description}
             showDetails={term.showDetails}
           />
