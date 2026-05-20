@@ -180,6 +180,18 @@ const socialImage = absoluteUrl(image);
         initClickTracking();
         pushPageView();
         if (pageEvent) pushEvent(pageEvent);
+
+        if (window.location.hash) {
+          requestAnimationFrame(() => {
+            const hashId = decodeURIComponent(window.location.hash.slice(1));
+            const target =
+              document.getElementById(hashId) ||
+              document.querySelector(window.location.hash);
+            if (target instanceof HTMLElement) {
+              target.scrollIntoView({ block: "start" });
+            }
+          });
+        }
       });
 
       let lastTrackedPath = "";
@@ -192,6 +204,17 @@ const socialImage = absoluteUrl(image);
 
       document.addEventListener("astro:after-swap", () => {
         trackSpaNav();
+        if (window.location.hash) {
+          requestAnimationFrame(() => {
+            const hashId = decodeURIComponent(window.location.hash.slice(1));
+            const target =
+              document.getElementById(hashId) ||
+              document.querySelector(window.location.hash);
+            if (target instanceof HTMLElement) {
+              target.scrollIntoView({ block: "start" });
+            }
+          });
+        }
       });
     </script>
   </body>
