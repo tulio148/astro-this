@@ -10,7 +10,6 @@ import CostumeCard from "../components/CostumeCard.astro";
 import { Picture } from "astro:assets";
 import costumeHireHeroImage from "../images/costumeHireHeroAvif.avif";
 import noBgDancer4 from "../images/noBgDancer4.avif";
-import servicePathCostumes from "../images/service-path-costumes.avif";
 import { costumes } from "../data/costumes";
 import { costumeItemListSchema, faqSchema, serviceSchema } from "../lib/schema";
 
@@ -67,19 +66,39 @@ const costumeDetails = [
   "Styling, hair, makeup, delivery, or collection support can be discussed as optional add-ons.",
 ];
 
-const hireTimeline = [
-  "Choose the costume or style you want to check.",
-  "Send the date, hire duration, sizing, and event or photoshoot details.",
-  "Confirm availability, inclusions, hire fee, deposit, and handover plan.",
-  "Collect or receive the costume, then return it by the agreed time and condition.",
-];
-
-const hirePaths = [
-  { title: "Carnival Costume Hire", body: "Rio-inspired costumes and statement pieces for themed events and parties.", href: "/carnival-costume-hire-perth" },
-  { title: "Photoshoot Hire", body: "Costume hire for photographers, creators, brands, editorials, and personal campaigns.", href: "/costume-hire-photoshoot-perth" },
-  { title: "Group Hire", body: "Matching sets and complementary colour options for groups and ensembles.", href: "/group-costume-hire-perth" },
-  { title: "Festival Hire", body: "Festival-appropriate headpieces, cuffs, belts, and secure statement pieces.", href: "/festival-costume-hire-perth" },
-  { title: "Styling Add-ons", body: "Hair, makeup, and costume styling support by enquiry and availability.", href: "/styling-add-ons" },
+const hireInformation = [
+  {
+    title: "Availability and booking",
+    points: [
+      "Enquire with the costume name or style, your date, hire duration, and event details so availability can be checked properly.",
+      "Bookings are confirmed around the exact item, not just the colour family or overall look.",
+      "Photoshoots, performances, parties, group bookings, and festival use can all be discussed through the same enquiry path.",
+    ],
+  },
+  {
+    title: "Inclusions and fit",
+    points: [
+      "Headpieces, cuffs, belts, neckpieces, and hero costume pieces are confirmed item by item before booking.",
+      "Sizing, movement needs, and what is included in the hire are confirmed before payment so there is no confusion at pickup.",
+      "Collection images show the style direction; the final hire conversation confirms the exact pieces and condition.",
+    ],
+  },
+  {
+    title: "Deposits and returns",
+    points: [
+      "A refundable security deposit is required and depends on the costume and hire terms.",
+      "Costumes must be returned in the same condition and by the agreed time.",
+      "Late returns, loss, or damage may affect the deposit or incur extra charges.",
+    ],
+  },
+  {
+    title: "Practical support",
+    points: [
+      "Group bookings can be planned around matching looks, complementary colours, and multiple size needs.",
+      "Festival and event hires can be discussed with practicality in mind, including security, movement, and durability.",
+      "Styling guidance, hair and makeup coordination, and delivery or collection support may be available by arrangement.",
+    ],
+  },
 ];
 ---
 
@@ -141,17 +160,6 @@ const hirePaths = [
     </div>
   </SectionContainer>
 
-  <SectionContainer>
-    <Picture
-      src={servicePathCostumes}
-      alt="Brazilian Carnival costume details with feathers, rhinestones, cuffs, and headpiece"
-      widths={[480, 720, 960, 1200, 1440]}
-      sizes="(max-width: 768px) 100vw, 1120px"
-      class="reveal-on-scroll aspect-[16/9] w-full overflow-hidden rounded-xl object-cover shadow-[0_24px_70px_rgba(15,23,42,0.16)]"
-      loading="lazy"
-    />
-  </SectionContainer>
-
   <SectionContainer tone="tint">
     <SectionTitle
       title="Costume detail guide"
@@ -165,31 +173,6 @@ const hirePaths = [
           <div class="motion-card motion-band reveal-on-scroll rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#311047,#0f172a)] p-7 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]">
             <p class="text-lg font-black leading-relaxed">{detail}</p>
           </div>
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer tone="tint">
-    <SectionTitle
-      title="Choose your hire path"
-      subtitle="Start with the context that best matches your booking."
-      class="section-intro"
-    />
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
-      {
-        hirePaths.map((path) => (
-          <a
-            href={path.href}
-            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]"
-            data-track="CostumeHireClick"
-            data-track-params={JSON.stringify({ destination: path.href })}
-          >
-            <h3 class="text-xl font-black text-db-pink">{path.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-600">
-              {path.body}
-            </p>
-          </a>
         ))
       }
     </div>
@@ -220,79 +203,21 @@ const hirePaths = [
     }
   </div>
 
-  <SectionContainer tone="tint">
+  <SectionContainer id="hire-information" tone="tint">
     <SectionTitle
       title="Hire information"
-      subtitle="The exact inclusions and terms are confirmed before booking."
+      subtitle="Practical information pulled into one place so you can review the main hire terms before enquiring."
       class="section-intro"
     />
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-lg text-slate-600"
-    >
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Hire process</h3>
-        <ol class="space-y-3 list-decimal pl-5">
-          <li>Choose the costume or costume style you are interested in.</li>
-          <li>Send your event date, hire duration, size, and usage details.</li>
-          <li>Confirm availability, inclusions, hire fee, and deposit.</li>
-          <li>Collect or arrange handover, then return by the agreed time.</li>
-        </ol>
-      </div>
-
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Terms</h3>
-        <ul class="space-y-3">
-          <li>A refundable security deposit is required.</li>
-          <li>Costumes must be returned in the same condition.</li>
-          <li>Late returns may incur additional charges.</li>
-          <li>Damage or loss may reduce or forfeit the deposit.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Fit and inclusions</h3>
-        <ul class="space-y-3">
-          <li>Confirm size and included pieces before booking.</li>
-          <li>Ask about fitting or styling support if needed.</li>
-          <li>
-            Item photos and descriptions are a guide to the available style.
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Optional add-ons</h3>
-        <ul class="space-y-3">
-          <li>Styling guidance can be discussed.</li>
-          <li>
-            Hair and makeup are optional add-ons, subject to availability.
-          </li>
-          <li>
-            Delivery or collection support may be available by arrangement.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </SectionContainer>
-
-  <SectionContainer>
-    <SectionTitle
-      title="Hire timeline"
-      subtitle="A simple sequence keeps costume availability, deposit, pickup, and return expectations clear."
-      class="section-intro"
-    />
-
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       {
-        hireTimeline.map((step, index) => (
-          <div class="motion-card reveal-on-scroll min-h-[200px] rounded-xl border border-db-pink/80 bg-white p-6 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-db-green">
-              Step {index + 1}
-            </p>
-            <p class="mt-4 text-lg font-bold leading-relaxed text-slate-700">
-              {step}
-            </p>
+        hireInformation.map((section) => (
+          <div class="motion-card reveal-on-scroll rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_14px_36px_rgba(158,0,150,0.08)]">
+            <h3 class="text-2xl font-black text-db-pink">{section.title}</h3>
+            <ul class="mt-5 space-y-3 text-lg leading-relaxed text-slate-600">
+              {section.points.map((point) => <li>{point}</li>)}
+            </ul>
           </div>
         ))
       }

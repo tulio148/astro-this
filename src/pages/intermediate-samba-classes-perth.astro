@@ -4,10 +4,9 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TextHeroTop from "../components/TextHeroTop.astro";
-import FAQItem from "../components/FAQItem.astro";
 import classesHero from "../images/classesHero.webp";
 import { terms } from "../data/terms";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { serviceSchema } from "../lib/schema";
 
 const title = "Intermediate Samba Classes Perth | Level Up Your Samba no Pe";
 const description = "Intermediate samba no pe classes in Balcatta for dancers who know the basics and want stronger technique, musicality, and choreography.";
@@ -29,12 +28,7 @@ const readiness = [
   "You can move direction while keeping the basic step.",
   "You want to improve your movement quality, not just repeat what you know.",
 ];
-const faqs = [
-  { question: "How do I know which class to join if I am not sure of my level?", answer: "Send an enquiry describing your samba background and we will advise. There is no official assessment - it is based on your honest description of what you can currently do." },
-  { question: "What if I join intermediate and it feels too advanced?", answer: "Speak to the instructor after class. Moving back to beginner is not a failure - it is the right training decision." },
-  { question: "Can I come to intermediate if I learned samba years ago?", answer: "Yes - if you can still do the basic step reliably. A casual drop-in is a good way to assess your current level before committing to a term." },
-];
-const structuredData = [serviceSchema({ name: "Intermediate samba classes in Perth", description, url, image: classesHero.src }), faqSchema(faqs)];
+const structuredData = [serviceSchema({ name: "Intermediate samba classes in Perth", description, url, image: classesHero.src })];
 ---
 
 <Layout title={title} description={description} image={classesHero.src} url={url} structuredData={structuredData}>
@@ -52,6 +46,5 @@ const structuredData = [serviceSchema({ name: "Intermediate samba classes in Per
   <SectionContainer id="readiness" class="bg-db-light-pink/5"><SectionTitle title="How to know you are ready for intermediate" class="section-intro" /><div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">{readiness.map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6"><span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-db-green text-sm font-black text-white">✓</span><p class="mt-4 text-base font-bold leading-relaxed text-slate-700">{item}</p></div>)}</div></SectionContainer>
   <SectionContainer><SectionTitle title="How the Wednesday class works" subtitle="Beginner and intermediate classes share the same evening, with a structured overlap that benefits both groups." class="section-intro" /><div class="grid grid-cols-1 gap-5 md:grid-cols-3">{["7:00-7:30pm: Beginner-only foundation session", "7:30-8:00pm: Shared choreography session", "8:00-8:30pm: Intermediate-only technique and skill session"].map((item)=><div class="rounded-xl border border-db-pink/80 bg-white p-6 text-lg font-black text-db-pink">{item}</div>)}</div></SectionContainer>
   <SectionContainer tone="dark-band"><SectionTitle title="Where does intermediate take you?" subtitle="Intermediate training builds toward stronger performance energy, workshop confidence, choreography retention, and future performance pathways." class="section-intro [&_h2]:text-white [&_p]:text-white/70" /></SectionContainer>
-  <SectionContainer><SectionTitle title="Intermediate FAQs" class="section-intro" /><div class="mx-auto max-w-5xl">{faqs.map((faq)=><FAQItem question={faq.question} answer={faq.answer} />)}</div></SectionContainer>
   <SectionContainer spacing="footer-offset"><div class="flex flex-col gap-3 sm:flex-row"><a href={intermediateTerm.bookingLink} target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink" data-track="BookClassClick" data-track-params={JSON.stringify({ class_name: "Samba no Pé – Intermediate", class_level: "Intermediate", class_price: classPrice, class_location: classLocation })}>Book Now</a><a href="/samba-classes-perth#class-times" class="inline-flex rounded-full border border-db-pink/80 bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-db-pink hover:bg-db-pink hover:text-white">See All Class Times</a></div></SectionContainer>
 </Layout>

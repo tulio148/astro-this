@@ -30,7 +30,7 @@ const {
 } = Astro.props;
 
 const dateValue = dateBegin && dateEnd
-  ? `${dateBegin} - ${dateEnd}`
+  ? (dateBegin === dateEnd ? dateBegin : `${dateBegin} - ${dateEnd}`)
   : (dateLabel ?? "To be confirmed");
 const timeValue = time || "To be confirmed";
 const locationValue = location || "To be confirmed";

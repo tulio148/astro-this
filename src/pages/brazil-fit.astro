@@ -4,10 +4,9 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TextHeroTop from "../components/TextHeroTop.astro";
-import FAQItem from "../components/FAQItem.astro";
 import classesHero from "../images/classesHero.webp";
 import { terms } from "../data/terms";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { serviceSchema } from "../lib/schema";
 
 const title = "Brazil Fit Perth | Brazilian Funk Dance Fitness Classes";
 const description =
@@ -68,33 +67,6 @@ const benefits = [
       "Baile funk energy, group movement, and loud music make the class feel more like a release than a workout.",
   },
 ];
-const faqs = [
-  {
-    question: "Is Brazil Fit the same as Zumba?",
-    answer:
-      "No. Brazil Fit is focused on Brazilian funk dance, including baile funk energy, passinho-inspired footwork, hips, isolations, and choreography. It is more specific than a general Latin fitness class.",
-  },
-  {
-    question: "What should I wear?",
-    answer:
-      "Comfortable workout clothes and sneakers with non-marking soles. Bring water. Nothing else required.",
-  },
-  {
-    question: "Can I do Brazil Fit if I have never done Brazilian funk?",
-    answer:
-      "Yes. The class is designed for first-timers as well as people who already love Brazilian funk music and movement.",
-  },
-  {
-    question: "Is it intense?",
-    answer:
-      "Yes - it is a genuine cardio class. Modifications are always available but the default energy is high.",
-  },
-  {
-    question: "Can I do both Brazil Fit and samba technique classes?",
-    answer:
-      "Yes. They complement each other well - Brazil Fit builds stamina, confidence, and choreography pick-up; samba technique classes build samba no pe skill.",
-  },
-];
 const structuredData = [
   serviceSchema({
     name: "Brazil Fit Brazilian funk dance fitness classes in Perth",
@@ -102,7 +74,6 @@ const structuredData = [
     url,
     image: classesHero.src,
   }),
-  faqSchema(faqs),
 ];
 ---
 
@@ -151,7 +122,7 @@ const structuredData = [
 
   <SectionContainer>
     <SectionTitle
-      title="Schedule"
+      title="Timetable"
       subtitle="Brazil Fit classes run as part of the Dance Bloc Brazil term schedule."
       class="section-intro"
     />
@@ -165,17 +136,8 @@ const structuredData = [
       class="mt-6 inline-flex rounded-full bg-db-green px-7 py-3 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-db-pink"
       data-track="BookClassClick"
     >
-      See the Class Schedule
+      See the Timetable
     </a>
-  </SectionContainer>
-
-  <SectionContainer>
-    <SectionTitle title="Brazil Fit FAQs" class="section-intro" />
-    <div class="mx-auto max-w-5xl">
-      {faqs.map((faq) => (
-        <FAQItem question={faq.question} answer={faq.answer} />
-      ))}
-    </div>
   </SectionContainer>
 
   <SectionContainer spacing="footer-offset" class="bg-db-green text-white">

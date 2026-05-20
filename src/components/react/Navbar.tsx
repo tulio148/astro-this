@@ -32,7 +32,7 @@ const NAV_LINKS: NavLink[] = [
         label: "Overview",
         children: [
           {
-            name: "Brazilian Samba Entertainment for Corporate Events & Weddings in Perth",
+            name: "Perth Samba Shows",
             path: "/book-a-samba-show-perth",
           },
         ],
@@ -64,6 +64,25 @@ const NAV_LINKS: NavLink[] = [
     ],
   },
   {
+    name: "Classes",
+    path: "/samba-classes-perth",
+    children: [
+      { name: "Timetable", path: "/samba-classes-perth#schedule" },
+      { name: "Beginner Samba", path: "/beginner-samba-classes-perth" },
+      { name: "Intermediate Samba", path: "/intermediate-samba-classes-perth" },
+      { name: "Brazil Fit", path: "/brazil-fit" },
+      { name: "FAQ", path: "/samba-classes-perth#faq" },
+    ],
+  },
+  {
+    name: "Costume Hire",
+    path: "/samba-costume-hire-perth",
+    children: [
+      { name: "Browse Collection", path: "/samba-costume-hire-perth" },
+      { name: "Hire Information", path: "/samba-costume-hire-perth#hire-information" },
+    ],
+  },
+  {
     name: "Workshops",
     path: "/private-samba-workshops-perth",
     children: [
@@ -75,38 +94,10 @@ const NAV_LINKS: NavLink[] = [
     ],
   },
   {
-    name: "Classes",
-    path: "/samba-classes-perth",
-    children: [
-      { name: "Samba Classes in Perth", path: "/samba-classes-perth" },
-      { name: "Beginner Samba", path: "/beginner-samba-classes-perth" },
-      { name: "Intermediate Samba", path: "/intermediate-samba-classes-perth" },
-      { name: "Brazil Fit", path: "/brazil-fit" },
-      { name: "Class Schedule", path: "/samba-classes-perth#schedule" },
-    ],
-  },
-  {
-    name: "Costume Hire",
-    path: "/samba-costume-hire-perth",
-    children: [
-      { name: "Samba Costume Hire in Perth", path: "/samba-costume-hire-perth" },
-      { name: "Browse Collection", path: "/samba-costume-hire-perth" },
-      { name: "Carnival Costumes", path: "/carnival-costume-hire-perth" },
-      { name: "Photoshoot Hire", path: "/costume-hire-photoshoot-perth" },
-      { name: "Group Hire", path: "/group-costume-hire-perth" },
-      { name: "Festival Hire", path: "/festival-costume-hire-perth" },
-      { name: "Styling Add-ons", path: "/styling-add-ons" },
-    ],
-  },
-  {
     name: "About",
     path: "/about",
     children: [
-      { name: "About Dance Bloc Brazil", path: "/about" },
       { name: "Our Story", path: "/about" },
-      { name: "Our People", path: "/our-people" },
-      { name: "Community", path: "/community" },
-      { name: "Media & Press", path: "/media-and-press" },
     ],
   },
 ];
@@ -379,18 +370,6 @@ const Navbar = ({ currentPath, hasHero = false }: NavbarProps) => {
                       </motion.div>
                     ))}
                   </div>
-                  <motion.div
-                    variants={dropdownItemVariants}
-                    className="mt-4 border-t border-white/14 pt-3"
-                  >
-                    <a
-                      href={hoveredLink.path}
-                      onClick={handleLinkClick}
-                      className="text-xs font-black uppercase tracking-[0.18em] text-db-green transition-colors hover:text-white"
-                    >
-                      View all show options →
-                    </a>
-                  </motion.div>
                 </div>
               ) : (
                 <div className="py-2">

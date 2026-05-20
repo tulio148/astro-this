@@ -4,10 +4,9 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TextHeroTop from "../components/TextHeroTop.astro";
-import ContentFAQSection from "../components/ContentFAQSection.astro";
 import danceclassHero from "../images/danceclassHero.avif";
 import { terms } from "../data/terms";
-import { faqSchema, serviceSchema } from "../lib/schema";
+import { serviceSchema } from "../lib/schema";
 
 const title = "Beginner Samba Classes Perth | No Partner or Experience Needed";
 const description =
@@ -19,29 +18,6 @@ const bookingUrl =
 const classPrice = beginnerTerm?.price ?? "";
 const classLocation = beginnerTerm?.location ?? "";
 
-const faqs = [
-  {
-    question: "Is this class really for beginners?",
-    answer:
-      "Yes. Beginner classes start with the samba basic, rhythm, coordination, posture, and simple movement patterns.",
-  },
-  {
-    question: "What if I have no rhythm?",
-    answer:
-      "That is a normal starting point. The class breaks movement down clearly so you can build timing and confidence gradually.",
-  },
-  {
-    question: "Will I be the only new person?",
-    answer:
-      "Beginner classes are designed for new and returning dancers, so you are not expected to arrive already knowing the style.",
-  },
-  {
-    question: "Can I try casually before committing?",
-    answer:
-      "Casual options are listed when available. A full term is best for steady progress, but casual classes can help you start.",
-  },
-];
-
 const structuredData = [
   serviceSchema({
     name: "Beginner samba classes in Perth",
@@ -49,7 +25,6 @@ const structuredData = [
     url,
     image: danceclassHero.src,
   }),
-  faqSchema(faqs),
 ];
 ---
 
@@ -102,8 +77,6 @@ const structuredData = [
       </div>
     </div>
   </SectionContainer>
-
-  <ContentFAQSection title="Beginner FAQs" faqs={faqs} />
 
   <SectionContainer spacing="footer-offset">
     <SectionTitle

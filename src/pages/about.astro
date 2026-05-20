@@ -15,34 +15,6 @@ const description =
   "Learn about Dance Bloc Brazil, our samba classes, event entertainment, private workshops, and costume hire in Perth.";
 const url = "/about";
 
-const approachPoints = [
-  {
-    title: "Clarity",
-    body: "Classes and enquiries should feel easy to understand, whether someone is new to samba or planning an event.",
-  },
-  {
-    title: "Rhythm",
-    body: "Samba no pe technique, timing, musicality, and movement quality sit at the centre of the work.",
-  },
-  {
-    title: "Confidence",
-    body: "Students and workshop groups are guided at a realistic pace so they can move with more ease.",
-  },
-  {
-    title: "Respect",
-    body: "Brazilian samba is presented with care for its energy, visual culture, and performance context.",
-  },
-  {
-    title: "Professionalism",
-    body: "Event bookings and costume hire need clear details, reliable communication, and polished presentation.",
-  },
-];
-
-const aboutLinks = [
-  { title: "Our People", body: "Meet the founder, performers, teachers, and collaborators behind the work.", href: "/our-people" },
-  { title: "Community", body: "Explore the class and workshop community connected to Dance Bloc Brazil.", href: "/community" },
-  { title: "Media & Press", body: "Press story, asset notes, and contact details for collaborators.", href: "/media-and-press" },
-];
 ---
 
 <Layout
@@ -65,8 +37,8 @@ const aboutLinks = [
     <div class="grid grid-cols-1 md:grid-cols-2 section-grid-wide items-center">
       <div>
         <SectionTitle
-          title="Samba in the studio, streets, and stages"
-          subtitle="Dance Bloc Brazil helps people experience Brazilian samba through movement, celebration, and visually striking performance."
+          title="Our Story"
+          subtitle="Dance Bloc Brazil in Perth."
           class="section-intro"
         />
 
@@ -78,8 +50,8 @@ const aboutLinks = [
           </p>
           <p>
             The business is built around clear instruction, welcoming class
-            energy, strong visual performance, and practical booking details for
-            students, event organisers, and costume hire clients.
+            energy, strong visual performance, and practical booking details
+            for students, event organisers, and costume hire clients.
           </p>
         </div>
       </div>
@@ -94,133 +66,7 @@ const aboutLinks = [
     </div>
   </SectionContainer>
 
-  <SectionContainer tone="tint">
-    <ComingSoonNotice
-      title="Teacher and team stories"
-      message="Profiles for the people behind Dance Bloc Brazil are being prepared. This section will introduce the teaching, performance, workshop, and costume-care team once the final bios and images are ready."
-      items={[
-        "Founder story and teaching background",
-        "Performance team profiles",
-        "Workshop facilitation experience",
-        "Costume care and styling support",
-      ]}
-    />
-  </SectionContainer>
-
-  <SectionContainer>
-    <SectionTitle
-      title="Our approach"
-      subtitle="Dance Bloc Brazil should feel energetic, welcoming, visually strong, and easy to organise."
-      class="section-intro"
-    />
-
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-5">
-      {
-        approachPoints.map((point, index) => (
-          <div
-            class="motion-card motion-band reveal-on-scroll min-h-[220px] rounded-xl bg-slate-950 bg-[linear-gradient(135deg,#0f172a,#2a103d,#0f172a)] p-6 text-white shadow-[0_22px_55px_rgba(15,23,42,0.16)]"
-            style={`--card-lift-delay: ${index * 420}ms`}
-          >
-            <h3 class="text-2xl font-black text-db-green">{point.title}</h3>
-            <p class="mt-4 text-base leading-relaxed text-white/78">
-              {point.body}
-            </p>
-          </div>
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer tone="tint">
-    <SectionTitle
-      title="What we offer"
-      subtitle="Four connected ways to work with Dance Bloc Brazil."
-      class="section-intro"
-    />
-
-    <div class="grid grid-cols-1 md:grid-cols-2 section-grid-base text-lg text-slate-600">
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Samba classes</h3>
-        <p>
-          Beginner, intermediate, and casual samba no pe classes in Balcatta,
-          with no partner needed.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Private workshops</h3>
-        <p>
-          Group samba workshops for team building, hens parties, birthdays,
-          schools, community groups, and special events.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">
-          Event entertainment
-        </h3>
-        <p>
-          Brazilian samba dancers for weddings, corporate events, private
-          parties, festivals, launches, and themed celebrations.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-db-pink">Costume hire</h3>
-        <p>
-          Samba and Carnival-style costume hire for performances, themed events,
-          photoshoots, and special occasions.
-        </p>
-      </div>
-    </div>
-  </SectionContainer>
-
-  <SectionContainer>
-    <SectionTitle
-      title="More about Dance Bloc Brazil"
-      subtitle="Choose the story layer you need."
-      class="section-intro"
-    />
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-      {
-        aboutLinks.map((link) => (
-          <a
-            href={link.href}
-            class="motion-card reveal-on-scroll block rounded-xl border border-db-pink/80 bg-white p-7 shadow-[0_18px_44px_rgba(158,0,150,0.09)]"
-          >
-            <h3 class="text-2xl font-black text-db-pink">{link.title}</h3>
-            <p class="mt-4 text-base leading-relaxed text-slate-600">
-              {link.body}
-            </p>
-          </a>
-        ))
-      }
-    </div>
-  </SectionContainer>
-
-  <SectionContainer spacing="footer-offset" class="bg-db-green/5">
-    <SectionTitle
-      title="Ready to join or enquire?"
-      subtitle="Start with classes, request a show or workshop quote, or check costume availability."
-      class="section-intro"
-    />
-
-    <div class="mt-8 flex flex-wrap gap-4">
-      <a
-        href="/samba-classes-perth"
-        class="bg-db-pink hover:bg-db-light-pink text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block"
-      >
-        View Classes
-      </a>
-      <a
-        href="/book-a-samba-show-perth"
-        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink/80 font-bold py-3 px-8 rounded-lg transition-colors inline-block"
-      >
-        Instant Quote Estimate
-      </a>
-      <a
-        href="/#contact"
-        class="bg-white hover:bg-gray-100 text-db-pink border border-db-pink/80 font-bold py-3 px-8 rounded-lg transition-colors inline-block"
-      >
-        Contact Us
-      </a>
-    </div>
+  <SectionContainer spacing="footer-offset">
+    <ComingSoonNotice title="More coming soon" />
   </SectionContainer>
 </Layout>
