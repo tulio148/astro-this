@@ -18,13 +18,13 @@ export const terms: Term[] = [
   {
     name: "Samba no Pé – Beginners",
     level: "Beginner",
-    dateBegin: "3rd June 2026",
-    dateEnd: "24th June 2026",
+    dateBegin: "22nd July 2026",
+    dateEnd: "19th August 2026",
     scheduleDay: "Wednesday",
     time: "7:00pm - 8:00pm",
     location: "Balcatta",
-    price: "$88",
-    bookingLink: "https://square.link/u/f5mi66pX?src=sheet",
+    price: "$110",
+    bookingLink: "https://square.link/u/0GGEQ9t7?src=sheet",
     detailPage: "/beginner-samba-classes-perth",
     description: `Perfect for absolute beginners.
 
@@ -41,13 +41,13 @@ Join our intermediate dancers for a fun, high-energy choreography session. This 
   {
     name: "Samba no Pé – Intermediate",
     level: "Intermediate",
-    dateBegin: "3rd June 2026",
-    dateEnd: "24th June 2026",
+    dateBegin: "22nd July 2026",
+    dateEnd: "19th August 2026",
     scheduleDay: "Wednesday",
     time: "7:30pm - 8:30pm",
     location: "Balcatta",
-    price: "$88",
-    bookingLink: "https://square.link/u/1DlOZlSe?src=sheet",
+    price: "$110",
+    bookingLink: "https://square.link/u/h0133nbG?src=sheet",
     detailPage: "/intermediate-samba-classes-perth",
     description: `For dancers with some samba experience.
 
