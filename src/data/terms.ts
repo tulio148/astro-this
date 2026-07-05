@@ -81,18 +81,18 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
   {
     name: "Brazil Fit",
     level: "Brazil Fit",
-    dateBegin: "1 July 2026",
-    dateEnd: "1 July 2026",
+    dateBegin: "15 July 2026",
+    dateEnd: "15 July 2026",
     dateLabel: "One-off class",
-    scheduleDay: "One-off",
+    scheduleDay: "Wednesday",
     time: "7:00pm - 8:00pm",
-    location: "Balcatta",
+    location: "5/5 Cressall Road, Balcatta",
     price: "$15",
     bookingLink: "https://square.link/u/5WpAPM1I?src=sheet",
     detailPage: "/brazil-fit",
-    description: `Get ready for a fun, high-energy Brazil Fit class at Dance Bloc Brazil! This special one-off class is open to everyone; whether you've danced Brazilian Funk before or you're trying it for the very first time.
+    description: `Jump in to a fun, high-energy Brazilian Funk class at Dance Bloc Brazil! Whether you've danced Brazilian Funk before or you're trying it for the very first time.
 
-Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll learn exciting choreography in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.
+Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll dance to popular Brazilian music in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.
 
 No prior Brazilian Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.`,
   },

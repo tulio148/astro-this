@@ -17,6 +17,8 @@ const bookingUrl =
   brazilFitTerm?.bookingLink ?? "/samba-classes-perth#class-times";
 const classPrice = brazilFitTerm?.price ?? "";
 const classLocation = brazilFitTerm?.location ?? "";
+const classDate = brazilFitTerm?.dateBegin ?? "15 July 2026";
+const classTime = brazilFitTerm?.time ?? "7:00pm - 8:00pm";
 const features = [
   {
     title: "Brazilian funk energy",
@@ -86,12 +88,13 @@ const structuredData = [
 >
     <TextHeroTop
     pageTitle="Brazil Fit"
-    pageSubtitle="Brazilian funk dance fitness. Baile funk energy, choreography, hips, footwork, and sweat."
-    valueTitle="A workout that moves like a Brazilian funk party."
+    pageSubtitle={`Brazilian funk dance fitness on ${classDate}, ${classTime}. Baile funk energy, choreography, hips, footwork, and sweat.`}
+    valueTitle="A one-off workout that moves like a Brazilian funk party."
     valueSubtitle="Built around music, choreography, and release - no exams, no partners."
     paragraphs={[
       "Expect baile funk tracks, strong grooves, hips, attitude, and short choreography blocks that keep the room moving.",
-      "Brazil Fit is high-energy but scalable, with lower-impact options available while keeping the class engaging and cardio-focused."
+      "Brazil Fit is high-energy but scalable, with lower-impact options available while keeping the class engaging and cardio-focused.",
+      `${classPrice} at ${classLocation}.`
     ]}
     chips={["Baile funk energy", "Beginner-friendly choreography", "High-cardio movement"]}
   />
@@ -123,13 +126,12 @@ const structuredData = [
   <SectionContainer>
     <SectionTitle
       title="Timetable"
-      subtitle="Brazil Fit classes run as part of the Dance Bloc Brazil term schedule."
+      subtitle="The current Brazil Fit class is listed as a one-off session in the Dance Bloc Brazil timetable."
       class="section-intro"
     />
     <p class="max-w-3xl text-lg text-slate-600">
-      Brazil Fit sessions are listed alongside samba no pe classes. Check the
-      current term for available times. Current terms include {terms.length}
-      booking options.
+      The next Brazil Fit class is on {classDate}, {classTime}, at {classLocation}.
+      It is listed alongside current samba no pe classes in the timetable.
     </p>
     <a
       href="/timetable"
