@@ -81,11 +81,11 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
   {
     name: "Brazil Fit",
     level: "Brazil Fit",
-    dateBegin: "15 July 2026",
-    dateEnd: "15 July 2026",
+    dateBegin: "Wednesday, 26 August 2026",
+    dateEnd: "Wednesday, 26 August 2026",
     dateLabel: "One-off class",
     scheduleDay: "Wednesday",
-    time: "7:00pm - 8:00pm",
+    time: "7:00 - 8:00pm",
     location: "5/5 Cressall Road, Balcatta",
     price: "$15",
     bookingLink: "https://square.link/u/5WpAPM1I?src=sheet",
@@ -94,6 +94,6 @@ Expect a challenge, plenty of growth, and lots of samba energy.`,
 
 Brazilian Funk is known for its vibrant music, dynamic movement, and infectious energy. In this class, you'll dance to popular Brazilian music in a welcoming and supportive environment, while enjoying a great workout and plenty of laughs along the way.
 
-No prior Brazilian Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.`,
+No prior Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.`,
   },
 ];
