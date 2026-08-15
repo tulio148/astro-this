@@ -16,6 +16,29 @@ export interface Term {
 
 export const terms: Term[] = [
   {
+    name: "Samba no Pé – Beginner + Intermediate COMBO",
+    level: "Beginner + Intermediate",
+    dateBegin: "2nd September 2026",
+    dateEnd: "30th September 2026",
+    scheduleDay: "Wednesday",
+    time: "6:45pm - 8:30pm",
+    location: "Balcatta",
+    price: "$140",
+    bookingLink: "https://square.link/u/zB4byEpj?src=sheet",
+    detailPage: "/samba-classes-perth",
+    description: `Two classes, back-to-back - with a discounted COMBO price!
+
+Want to build a strong samba foundation and challenge yourself with more advanced movement?
+
+The Beginner + Intermediate COMBO gives you the best of both worlds.
+
+The Beginner class (6:45–7:30pm) focuses on the Samba no Pé basic step, rhythm, musicality, timing and coordination, with fun combinations to help you build confidence and feel comfortable moving to the music.
+
+The Intermediate class (7:30–8:30pm) takes things further with more challenging choreography, technique, styling, musicality and passista-style samba.
+
+The COMBO is perfect for dancers with previous samba experience who want to refresh and strengthen their basics before progressing.`,
+  },
+  {
     name: "Samba no Pé – Beginners",
     level: "Beginner",
     dateBegin: "2nd September 2026",
@@ -52,29 +75,6 @@ Ready to take your samba to the next level? This class is designed for dancers w
 We’ll explore passista-style samba, focusing on the sharp, dynamic and expressive movement that gives Brazilian samba its signature energy. Expect technique drills, styling, musicality, footwork and fun choreography designed to challenge you and help you grow as a dancer.
 
 Expect a challenge, plenty of progression, and lots of samba energy!`,
-  },
-  {
-    name: "Samba no Pé – Beginner + Intermediate COMBO",
-    level: "Beginner + Intermediate",
-    dateBegin: "2nd September 2026",
-    dateEnd: "30th September 2026",
-    scheduleDay: "Wednesday",
-    time: "6:45pm - 8:30pm",
-    location: "Balcatta",
-    price: "$140",
-    bookingLink: "https://square.link/u/zB4byEpj?src=sheet",
-    detailPage: "/samba-classes-perth",
-    description: `Two classes, back-to-back - with a discounted COMBO price!
-
-Want to build a strong samba foundation and challenge yourself with more advanced movement?
-
-The Beginner + Intermediate COMBO gives you the best of both worlds.
-
-The Beginner class (6:45–7:30pm) focuses on the Samba no Pé basic step, rhythm, musicality, timing and coordination, with fun combinations to help you build confidence and feel comfortable moving to the music.
-
-The Intermediate class (7:30–8:30pm) takes things further with more challenging choreography, technique, styling, musicality and passista-style samba.
-
-The COMBO is perfect for dancers with previous samba experience who want to refresh and strengthen their basics before progressing.`,
   },
   {
     name: "Samba no Pé – Casual Class",
