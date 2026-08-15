@@ -13,6 +13,13 @@ const title = "Timetable | Samba Classes Perth";
 const description =
   "View the current Dance Bloc Brazil timetable with beginner, intermediate, casual, and Brazil Fit class times in Perth.";
 const url = "/timetable";
+const classAnchorId = (name: string) =>
+  `class-${name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
 
 const structuredData = [
   serviceSchema({
@@ -35,6 +42,7 @@ const structuredData = [
       slots={terms.map((term) => ({
         day: term.scheduleDay ?? "Current",
         term,
+        learnMoreLink: `#${classAnchorId(term.name)}`,
       }))}
     />
   </SectionContainer>
@@ -49,6 +57,7 @@ const structuredData = [
       {
         terms.map((term) => (
           <TermCard
+            id={classAnchorId(term.name)}
             name={term.name}
             level={term.level}
             dateBegin={term.dateBegin}
@@ -58,7 +67,6 @@ const structuredData = [
             location={term.location}
             price={term.price}
             bookingLink={term.bookingLink}
-            learnMoreLink={term.detailPage}
             description={term.description}
             showDetails={term.showDetails}
           />
