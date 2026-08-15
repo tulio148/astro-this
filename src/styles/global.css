@@ -28,6 +28,10 @@ body {
   --space-section-pad-y-compact-desktop: 4rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .section-container {
   padding-block: var(--space-section-pad-y-mobile);
 }
@@ -130,6 +134,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .text-hero-top__headline,
   .text-hero-top__brief,
   .text-hero-top__proof {
