@@ -109,4 +109,23 @@ Brazilian Funk is known for its vibrant music, dynamic movement, and infectious 
 
 No prior Funk experience is needed - just come along ready to move, have fun, and try something new. Suitable for all levels.`,
   },
+  {
+    name: "Brazilian Rhythms",
+    level: "All Levels",
+    dateBegin: "Thursday, 15 October 2026",
+    dateEnd: "Thursday, 15 October 2026",
+    dateLabel: "One-off class",
+    scheduleDay: "Thursday",
+    time: "7:15 - 8:15pm",
+    location: "Balcatta",
+    price: "$15",
+    bookingLink: "https://square.link/u/ewebt4bt?src=sheet",
+    description: `Dance. Move. Feel the Brazilian vibes!
+
+Get ready for a fun, high-energy Brazilian dance class where we’ll dance our way through around 20 Brazilian songs! Expect easy-to-follow steps, infectious rhythms and plenty of feel-good movement.
+
+No dance experience needed - the steps are simple, accessible and suitable for all levels. Just come along, move your body, enjoy the music and have fun!
+
+*No experience needed - just bring your energy!`,
+  },
 ];
